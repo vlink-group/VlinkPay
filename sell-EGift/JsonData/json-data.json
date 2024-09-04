@@ -1,0 +1,411 @@
+{
+	"cardItemStorage": [
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-10.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-12.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-14.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-16.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-20.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-22.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-24.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-26.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-28.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-30.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-32.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-03.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-04.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-06.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-08.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/GC1-18.jpg",
+			"imageConfig": {
+				"percentX": 745,
+				"percentY": 493,
+				"valueX": 1170,
+				"valueY": 650,
+				"logoX": 1150,
+				"logoY": 0,
+				"logoWidth": 175,
+				"logoHeight": 175,
+				"valueColor": "white",
+				"percentColor": "white",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		}
+	],
+	"voucherItemStorage": [
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Vouchers/GV1-04.jpg",
+			"imageConfig": {
+				"percentX": 390,
+				"percentY": 624,
+				"valueX": 1180,
+				"valueY": 143,
+				"logoX": 50,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "white",
+				"percentColor": "#fe0904",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Vouchers/GV2-06.jpg",
+			"imageConfig": {
+				"percentX": 390,
+				"percentY": 624,
+				"valueX": 1180,
+				"valueY": 143,
+				"logoX": 50,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#e9047b",
+				"percentColor": "#e9047b",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Vouchers/GV2-08.jpg",
+			"imageConfig": {
+				"percentX": 390,
+				"percentY": 624,
+				"valueX": 1180,
+				"valueY": 143,
+				"logoX": 50,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#e9047b",
+				"percentColor": "#e9047b",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Vouchers/GV2-10.jpg",
+			"imageConfig": {
+				"percentX": 390,
+				"percentY": 624,
+				"valueX": 1180,
+				"valueY": 143,
+				"logoX": 50,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#c67428",
+				"percentColor": "#c67428",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Vouchers/GV2-12.jpg",
+			"imageConfig": {
+				"percentX": 390,
+				"percentY": 624,
+				"valueX": 1180,
+				"valueY": 143,
+				"logoX": 50,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#c67428",
+				"percentColor": "#c67428",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Vouchers/GV2-14.jpg",
+			"imageConfig": {
+				"percentX": 390,
+				"percentY": 624,
+				"valueX": 1180,
+				"valueY": 143,
+				"logoX": 50,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#c67428",
+				"percentColor": "#c67428",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Vouchers/GV2-16.jpg",
+			"imageConfig": {
+				"percentX": 390,
+				"percentY": 624,
+				"valueX": 1180,
+				"valueY": 143,
+				"logoX": 50,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#c67428",
+				"percentColor": "#c67428",
+				"percentRotate": false,
+				"valueRotate": false
+			}
+		}
+	],
+	"defaultImageConfig": {
+		"percentX": 700,
+		"percentY": 350,
+		"valueX": 700,
+		"valueY": 550,
+		"logoX": 1150,
+		"logoY": 0,
+		"logoWidth": 175,
+		"logoHeight": 175,
+		"valueColor": "white",
+		"percentColor": "white",
+		"percentRotate": false,
+		"valueRotate": false
+	}
+}
