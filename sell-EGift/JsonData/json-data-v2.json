@@ -318,10 +318,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#FFFFFF",
-				"percentColor": "#b30001",
+				"percentColor": "#FFFFFF",
 				"percentNameX": 510,
 				"percentNameY": 600,
-				"percentNameColor": "#b30001"
+				"percentNameColor": "#FFFFFF"
 			}
 		},
 		{
@@ -335,7 +335,7 @@
 				"logoY": 46,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#FFFFFF",
+				"valueColor": "#b30001",
 				"percentColor": "#b30001",
 				"percentNameX": 510,
 				"percentNameY": 600,
@@ -354,10 +354,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#FFFFFF",
-				"percentColor": "#b30001",
+				"percentColor": "#FFFFFF",
 				"percentNameX": 510,
 				"percentNameY": 600,
-				"percentNameColor": "#b30001"
+				"percentNameColor": "#FFFFFF"
 			}
 		},
 		{
@@ -371,7 +371,7 @@
 				"logoY": 46,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#FFFFFF",
+				"valueColor": "#b30001",
 				"percentColor": "#b30001",
 				"percentNameX": 510,
 				"percentNameY": 600,
@@ -407,7 +407,7 @@
 				"logoY": 46,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#FFFFFF",
+				"valueColor": "#b30001",
 				"percentColor": "#b30001",
 				"percentNameX": 510,
 				"percentNameY": 600,
@@ -425,7 +425,7 @@
 				"logoY": 46,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#FFFFFF",
+				"valueColor": "#b30001",
 				"percentColor": "#b30001",
 				"percentNameX": 510,
 				"percentNameY": 600,
@@ -444,10 +444,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#FFFFFF",
-				"percentColor": "#b30001",
+				"percentColor": "#FFFFFF",
 				"percentNameX": 510,
 				"percentNameY": 600,
-				"percentNameColor": "#b30001"
+				"percentNameColor": "#FFFFFF"
 			}
 		},
 		{
@@ -462,10 +462,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#FFFFFF",
-				"percentColor": "#b30001",
+				"percentColor": "#FFFFFF",
 				"percentNameX": 510,
 				"percentNameY": 600,
-				"percentNameColor": "#b30001"
+				"percentNameColor": "#FFFFFF"
 			}
 		},
 		{
@@ -677,7 +677,7 @@
 				"logoY": 42,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#de623e",
+				"valueColor": "#566150",
 				"percentColor": "#de623e",
 				"percentNameX": 993,
 				"percentNameY": 535,
@@ -695,7 +695,7 @@
 				"logoY": 42,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#de623e",
+				"valueColor": "#e9ac31",
 				"percentColor": "#de623e",
 				"percentNameX": 993,
 				"percentNameY": 535,
@@ -713,7 +713,7 @@
 				"logoY": 42,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#de623e",
+				"valueColor": "#566150",
 				"percentColor": "#de623e",
 				"percentNameX": 993,
 				"percentNameY": 535,
@@ -731,7 +731,7 @@
 				"logoY": 42,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#de623e",
+				"valueColor": "#d9b76d",
 				"percentColor": "#de623e",
 				"percentNameX": 993,
 				"percentNameY": 535,
@@ -749,7 +749,7 @@
 				"logoY": 42,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#de623e",
+				"valueColor": "#dc9b74",
 				"percentColor": "#de623e",
 				"percentNameX": 993,
 				"percentNameY": 535,
@@ -767,7 +767,7 @@
 				"logoY": 42,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#de623e",
+				"valueColor": "#d9669a",
 				"percentColor": "#de623e",
 				"percentNameX": 993,
 				"percentNameY": 535,
@@ -785,7 +785,7 @@
 				"logoY": 42,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#de623e",
+				"valueColor": "#ee6d33",
 				"percentColor": "#de623e",
 				"percentNameX": 993,
 				"percentNameY": 535,
@@ -803,7 +803,7 @@
 				"logoY": 42,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#de623e",
+				"valueColor": "#ee6d33",
 				"percentColor": "#de623e",
 				"percentNameX": 993,
 				"percentNameY": 535,
@@ -821,7 +821,7 @@
 				"logoY": 42,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#de623e",
+				"valueColor": "#ea1b23",
 				"percentColor": "#de623e",
 				"percentNameX": 993,
 				"percentNameY": 535,
@@ -877,11 +877,11 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ffffff",
-				"percentColor": "#f80200",
+				"valueColor": "#000000",
+				"percentColor": "#ffffff",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#f80200"
+				"percentNameColor": "#ffffff"
 			}
 		},
 		{
@@ -896,10 +896,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#ffffff",
-				"percentColor": "#f80200",
+				"percentColor": "#ffffff",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#f80200"
+				"percentNameColor": "#ffffff"
 			}
 		},
 		{
@@ -913,11 +913,11 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ffffff",
-				"percentColor": "#f80200",
+				"valueColor": "#f0057b",
+				"percentColor": "#f0057b",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#f80200"
+				"percentNameColor": "#f0057b"
 			}
 		},
 		{
@@ -931,11 +931,11 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ffffff",
-				"percentColor": "#f80200",
+				"valueColor": "#f0057b",
+				"percentColor": "#f0057b",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#f80200"
+				"percentNameColor": "#f0057b"
 			}
 		},
 		{
@@ -949,11 +949,11 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ffffff",
-				"percentColor": "#f80200",
+				"valueColor": "#c16f22",
+				"percentColor": "#c16f22",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#f80200"
+				"percentNameColor": "#c16f22"
 			}
 		},
 		{
@@ -967,11 +967,11 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ffffff",
-				"percentColor": "#f80200",
+				"valueColor": "#c16f22",
+				"percentColor": "#c16f22",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#f80200"
+				"percentNameColor": "#c16f22"
 			}
 		},
 		{
@@ -985,11 +985,11 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ffffff",
-				"percentColor": "#f80200",
+				"valueColor": "#c16f22",
+				"percentColor": "#c16f22",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#f80200"
+				"percentNameColor": "#c16f22"
 			}
 		},
 		{
@@ -1040,10 +1040,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#c27223",
-				"percentColor": "#ffffff",
+				"percentColor": "#ce5e7a",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#ffffff"
+				"percentNameColor": "#ce5e7a"
 			}
 		},
 		{
@@ -1058,10 +1058,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#c27223",
-				"percentColor": "#ffffff",
+				"percentColor": "#c27223",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#ffffff"
+				"percentNameColor": "#c27223"
 			}
 		},
 		{
@@ -1076,10 +1076,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#c27223",
-				"percentColor": "#ffffff",
+				"percentColor": "#c27223",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#ffffff"
+				"percentNameColor": "#c27223"
 			}
 		},
 		{
@@ -1094,10 +1094,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#c27223",
-				"percentColor": "#ffffff",
+				"percentColor": "#c27223",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#ffffff"
+				"percentNameColor": "#c27223"
 			}
 		},
 		{
@@ -1112,10 +1112,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#c27223",
-				"percentColor": "#ffffff",
+				"percentColor": "#c27223",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#ffffff"
+				"percentNameColor": "#c27223"
 			}
 		},
 		{
@@ -1130,10 +1130,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#c27223",
-				"percentColor": "#ffffff",
+				"percentColor": "#c27223",
 				"percentNameX": 90,
 				"percentNameY": 620,
-				"percentNameColor": "#ffffff"
+				"percentNameColor": "#c27223"
 			}
 		},
 		{
@@ -1219,7 +1219,7 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ca752f",
+				"valueColor": "#9649c7",
 				"percentColor": "#da0201",
 				"percentNameX": 1052,
 				"percentNameY": 310,
@@ -1237,7 +1237,7 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ca752f",
+				"valueColor": "#78bce7",
 				"percentColor": "#da0201",
 				"percentNameX": 1052,
 				"percentNameY": 310,
@@ -1255,7 +1255,7 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ca752f",
+				"valueColor": "#ffffff",
 				"percentColor": "#da0201",
 				"percentNameX": 1052,
 				"percentNameY": 310,
@@ -1273,7 +1273,7 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ca752f",
+				"valueColor": "#ffffff",
 				"percentColor": "#da0201",
 				"percentNameX": 1052,
 				"percentNameY": 310,
@@ -1291,7 +1291,7 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ca752f",
+				"valueColor": "#ffffff",
 				"percentColor": "#da0201",
 				"percentNameX": 1052,
 				"percentNameY": 310,
@@ -1309,7 +1309,7 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ca752f",
+				"valueColor": "#ffffff",
 				"percentColor": "#da0201",
 				"percentNameX": 1052,
 				"percentNameY": 310,
@@ -1346,10 +1346,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#ffffff",
-				"percentColor": "#ce1d65",
+				"percentColor": "#c4549a",
 				"percentNameX": 164,
 				"percentNameY": 498,
-				"percentNameColor": "#ce1d65"
+				"percentNameColor": "#c4549a"
 			}
 		},
 		{
@@ -1364,10 +1364,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#ffffff",
-				"percentColor": "#ce1d65",
+				"percentColor": "#c4549a",
 				"percentNameX": 164,
 				"percentNameY": 498,
-				"percentNameColor": "#ce1d65"
+				"percentNameColor": "#c4549a"
 			}
 		},
 		{
@@ -1382,10 +1382,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#ffffff",
-				"percentColor": "#ce1d65",
+				"percentColor": "#c4549a",
 				"percentNameX": 164,
 				"percentNameY": 498,
-				"percentNameColor": "#ce1d65"
+				"percentNameColor": "#c4549a"
 			}
 		},
 		{
@@ -1400,10 +1400,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#ffffff",
-				"percentColor": "#ce1d65",
+				"percentColor": "#c4549a",
 				"percentNameX": 164,
 				"percentNameY": 498,
-				"percentNameColor": "#ce1d65"
+				"percentNameColor": "#c4549a"
 			}
 		},
 		{
@@ -1418,10 +1418,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#ffffff",
-				"percentColor": "#ce1d65",
+				"percentColor": "#c4549a",
 				"percentNameX": 164,
 				"percentNameY": 498,
-				"percentNameColor": "#ce1d65"
+				"percentNameColor": "#c4549a"
 			}
 		},
 		{
@@ -1436,10 +1436,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#ffffff",
-				"percentColor": "#ce1d65",
+				"percentColor": "#ffffff",
 				"percentNameX": 164,
 				"percentNameY": 498,
-				"percentNameColor": "#ce1d65"
+				"percentNameColor": "#ffffff"
 			}
 		},
 		{
@@ -1454,10 +1454,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#ffffff",
-				"percentColor": "#ce1d65",
+				"percentColor": "#ce2064",
 				"percentNameX": 164,
 				"percentNameY": 498,
-				"percentNameColor": "#ce1d65"
+				"percentNameColor": "#ce2064"
 			}
 		},
 		{
@@ -1471,11 +1471,11 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ffffff",
-				"percentColor": "#ce1d65",
+				"valueColor": "#507090",
+				"percentColor": "#ce2064",
 				"percentNameX": 164,
 				"percentNameY": 498,
-				"percentNameColor": "#ce1d65"
+				"percentNameColor": "#ce2064"
 			}
 		},
 		{
@@ -1490,10 +1490,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#ffffff",
-				"percentColor": "#ce1d65",
+				"percentColor": "#cf1b64",
 				"percentNameX": 164,
 				"percentNameY": 498,
-				"percentNameColor": "#ce1d65"
+				"percentNameColor": "#cf1b64"
 			}
 		},
 		{
@@ -1508,10 +1508,10 @@
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#ffffff",
-				"percentColor": "#ce1d65",
+				"percentColor": "#cf1b64",
 				"percentNameX": 164,
 				"percentNameY": 498,
-				"percentNameColor": "#ce1d65"
+				"percentNameColor": "#cf1b64"
 			}
 		},
 		{
@@ -1579,7 +1579,7 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ffffff",
+				"valueColor": "#9872b5",
 				"percentColor": "#ce1d65",
 				"percentNameX": 164,
 				"percentNameY": 498,
@@ -1597,7 +1597,7 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ffffff",
+				"valueColor": "#ce1d65",
 				"percentColor": "#ce1d65",
 				"percentNameX": 164,
 				"percentNameY": 498,
@@ -1633,7 +1633,7 @@
 				"logoY": 64,
 				"logoWidth": 140,
 				"logoHeight": 140,
-				"valueColor": "#ffffff",
+				"valueColor": "#522e20",
 				"percentColor": "#ce1d65",
 				"percentNameX": 164,
 				"percentNameY": 498,
@@ -1658,17 +1658,5 @@
 				"percentNameColor": "#ce1d65"
 			}
 		}
-	],
-	"defaultImageConfig": {
-		"percentX": 700,
-		"percentY": 350,
-		"valueX": 700,
-		"valueY": 550,
-		"logoX": 1150,
-		"logoY": 0,
-		"logoWidth": 175,
-		"logoHeight": 175,
-		"valueColor": "white",
-		"percentColor": "white"
-	}
+	]
 }
