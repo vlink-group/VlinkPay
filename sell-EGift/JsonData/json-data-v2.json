@@ -1,1662 +1,1662 @@
 {
 	"cardItemStorage": [
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-03.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-03.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-04.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-04.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-06.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-06.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-08.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-08.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-10.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-10.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-12.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-12.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-14.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-14.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-16.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-16.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-18.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-18.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-20.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-20.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-22.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-22.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-24.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-24.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-26.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-26.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-28.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-28.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-30.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-30.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-32.jpg",
-		  "imageConfig": {
-			"percentX": 742,
-			"percentY": 500,
-			"valueX": 1130,
-			"valueY": 650,
-			"logoX": 1190,
-			"logoY": 0,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#FFFFFF",
-			"percentNameX": 380,
-			"percentNameY": 500,
-			"percentNameColor": "#FFFFFF"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-32.jpg",
+			"imageConfig": {
+				"percentX": 742,
+				"percentY": 500,
+				"valueX": 1130,
+				"valueY": 650,
+				"logoX": 1190,
+				"logoY": 0,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#FFFFFF",
+				"percentNameX": 380,
+				"percentNameY": 500,
+				"percentNameColor": "#FFFFFF"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-03.jpg",
-		  "imageConfig": {
-			"percentX": 872,
-			"percentY": 598,
-			"valueX": 200,
-			"valueY": 150,
-			"logoX": 1190,
-			"logoY": 46,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#b30001",
-			"percentNameX": 510,
-			"percentNameY": 600,
-			"percentNameColor": "#b30001"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-03.jpg",
+			"imageConfig": {
+				"percentX": 872,
+				"percentY": 598,
+				"valueX": 200,
+				"valueY": 150,
+				"logoX": 1190,
+				"logoY": 46,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#b30001",
+				"percentNameX": 510,
+				"percentNameY": 600,
+				"percentNameColor": "#b30001"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-04.jpg",
-		  "imageConfig": {
-			"percentX": 872,
-			"percentY": 598,
-			"valueX": 200,
-			"valueY": 150,
-			"logoX": 1190,
-			"logoY": 46,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#b30001",
-			"percentNameX": 510,
-			"percentNameY": 600,
-			"percentNameColor": "#b30001"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-04.jpg",
+			"imageConfig": {
+				"percentX": 872,
+				"percentY": 598,
+				"valueX": 200,
+				"valueY": 150,
+				"logoX": 1190,
+				"logoY": 46,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#b30001",
+				"percentNameX": 510,
+				"percentNameY": 600,
+				"percentNameColor": "#b30001"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-06.jpg",
-		  "imageConfig": {
-			"percentX": 872,
-			"percentY": 598,
-			"valueX": 200,
-			"valueY": 150,
-			"logoX": 1190,
-			"logoY": 46,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#b30001",
-			"percentNameX": 510,
-			"percentNameY": 600,
-			"percentNameColor": "#b30001"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-06.jpg",
+			"imageConfig": {
+				"percentX": 872,
+				"percentY": 598,
+				"valueX": 200,
+				"valueY": 150,
+				"logoX": 1190,
+				"logoY": 46,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#b30001",
+				"percentNameX": 510,
+				"percentNameY": 600,
+				"percentNameColor": "#b30001"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-08.jpg",
-		  "imageConfig": {
-			"percentX": 872,
-			"percentY": 598,
-			"valueX": 200,
-			"valueY": 150,
-			"logoX": 1190,
-			"logoY": 46,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#b30001",
-			"percentNameX": 510,
-			"percentNameY": 600,
-			"percentNameColor": "#b30001"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-08.jpg",
+			"imageConfig": {
+				"percentX": 872,
+				"percentY": 598,
+				"valueX": 200,
+				"valueY": 150,
+				"logoX": 1190,
+				"logoY": 46,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#b30001",
+				"percentNameX": 510,
+				"percentNameY": 600,
+				"percentNameColor": "#b30001"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-10.jpg",
-		  "imageConfig": {
-			"percentX": 872,
-			"percentY": 598,
-			"valueX": 200,
-			"valueY": 150,
-			"logoX": 1190,
-			"logoY": 46,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#b30001",
-			"percentNameX": 510,
-			"percentNameY": 600,
-			"percentNameColor": "#b30001"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-10.jpg",
+			"imageConfig": {
+				"percentX": 872,
+				"percentY": 598,
+				"valueX": 200,
+				"valueY": 150,
+				"logoX": 1190,
+				"logoY": 46,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#b30001",
+				"percentNameX": 510,
+				"percentNameY": 600,
+				"percentNameColor": "#b30001"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-12.jpg",
-		  "imageConfig": {
-			"percentX": 872,
-			"percentY": 598,
-			"valueX": 200,
-			"valueY": 150,
-			"logoX": 1190,
-			"logoY": 46,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#b30001",
-			"percentNameX": 510,
-			"percentNameY": 600,
-			"percentNameColor": "#b30001"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-12.jpg",
+			"imageConfig": {
+				"percentX": 872,
+				"percentY": 598,
+				"valueX": 200,
+				"valueY": 150,
+				"logoX": 1190,
+				"logoY": 46,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#b30001",
+				"percentNameX": 510,
+				"percentNameY": 600,
+				"percentNameColor": "#b30001"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-14.jpg",
-		  "imageConfig": {
-			"percentX": 872,
-			"percentY": 598,
-			"valueX": 200,
-			"valueY": 150,
-			"logoX": 1190,
-			"logoY": 46,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#b30001",
-			"percentNameX": 510,
-			"percentNameY": 600,
-			"percentNameColor": "#b30001"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-14.jpg",
+			"imageConfig": {
+				"percentX": 872,
+				"percentY": 598,
+				"valueX": 200,
+				"valueY": 150,
+				"logoX": 1190,
+				"logoY": 46,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#b30001",
+				"percentNameX": 510,
+				"percentNameY": 600,
+				"percentNameColor": "#b30001"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-16.jpg",
-		  "imageConfig": {
-			"percentX": 872,
-			"percentY": 598,
-			"valueX": 200,
-			"valueY": 150,
-			"logoX": 1190,
-			"logoY": 46,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#b30001",
-			"percentNameX": 510,
-			"percentNameY": 600,
-			"percentNameColor": "#b30001"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-16.jpg",
+			"imageConfig": {
+				"percentX": 872,
+				"percentY": 598,
+				"valueX": 200,
+				"valueY": 150,
+				"logoX": 1190,
+				"logoY": 46,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#b30001",
+				"percentNameX": 510,
+				"percentNameY": 600,
+				"percentNameColor": "#b30001"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-18.jpg",
-		  "imageConfig": {
-			"percentX": 872,
-			"percentY": 598,
-			"valueX": 200,
-			"valueY": 150,
-			"logoX": 1190,
-			"logoY": 46,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#b30001",
-			"percentNameX": 510,
-			"percentNameY": 600,
-			"percentNameColor": "#b30001"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-18.jpg",
+			"imageConfig": {
+				"percentX": 872,
+				"percentY": 598,
+				"valueX": 200,
+				"valueY": 150,
+				"logoX": 1190,
+				"logoY": 46,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#b30001",
+				"percentNameX": 510,
+				"percentNameY": 600,
+				"percentNameColor": "#b30001"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-20.jpg",
-		  "imageConfig": {
-			"percentX": 872,
-			"percentY": 598,
-			"valueX": 200,
-			"valueY": 150,
-			"logoX": 1190,
-			"logoY": 46,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#b30001",
-			"percentNameX": 510,
-			"percentNameY": 600,
-			"percentNameColor": "#b30001"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC2-20.jpg",
+			"imageConfig": {
+				"percentX": 872,
+				"percentY": 598,
+				"valueX": 200,
+				"valueY": 150,
+				"logoX": 1190,
+				"logoY": 46,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#b30001",
+				"percentNameX": 510,
+				"percentNameY": 600,
+				"percentNameColor": "#b30001"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-02.jpg",
-		  "imageConfig": {
-			"percentX": 1133,
-			"percentY": 515,
-			"valueX": 1048,
-			"valueY": 652,
-			"logoX": 978,
-			"logoY": 54,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#f9e58c",
-			"percentNameX": 775,
-			"percentNameY": 515,
-			"percentNameColor": "#f9e58c"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-02.jpg",
+			"imageConfig": {
+				"percentX": 1133,
+				"percentY": 515,
+				"valueX": 1048,
+				"valueY": 652,
+				"logoX": 978,
+				"logoY": 54,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#f9e58c",
+				"percentNameX": 775,
+				"percentNameY": 515,
+				"percentNameColor": "#f9e58c"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-04.jpg",
-		  "imageConfig": {
-			"percentX": 1133,
-			"percentY": 515,
-			"valueX": 1048,
-			"valueY": 652,
-			"logoX": 978,
-			"logoY": 54,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#f9e58c",
-			"percentNameX": 775,
-			"percentNameY": 515,
-			"percentNameColor": "#f9e58c"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-04.jpg",
+			"imageConfig": {
+				"percentX": 1133,
+				"percentY": 515,
+				"valueX": 1048,
+				"valueY": 652,
+				"logoX": 978,
+				"logoY": 54,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#f9e58c",
+				"percentNameX": 775,
+				"percentNameY": 515,
+				"percentNameColor": "#f9e58c"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-06.jpg",
-		  "imageConfig": {
-			"percentX": 1133,
-			"percentY": 515,
-			"valueX": 1048,
-			"valueY": 652,
-			"logoX": 978,
-			"logoY": 54,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#f9e58c",
-			"percentNameX": 775,
-			"percentNameY": 515,
-			"percentNameColor": "#f9e58c"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-06.jpg",
+			"imageConfig": {
+				"percentX": 1133,
+				"percentY": 515,
+				"valueX": 1048,
+				"valueY": 652,
+				"logoX": 978,
+				"logoY": 54,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#f9e58c",
+				"percentNameX": 775,
+				"percentNameY": 515,
+				"percentNameColor": "#f9e58c"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-08.jpg",
-		  "imageConfig": {
-			"percentX": 1133,
-			"percentY": 515,
-			"valueX": 1048,
-			"valueY": 652,
-			"logoX": 978,
-			"logoY": 54,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#f9e58c",
-			"percentNameX": 775,
-			"percentNameY": 515,
-			"percentNameColor": "#f9e58c"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-08.jpg",
+			"imageConfig": {
+				"percentX": 1133,
+				"percentY": 515,
+				"valueX": 1048,
+				"valueY": 652,
+				"logoX": 978,
+				"logoY": 54,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#f9e58c",
+				"percentNameX": 775,
+				"percentNameY": 515,
+				"percentNameColor": "#f9e58c"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-10.jpg",
-		  "imageConfig": {
-			"percentX": 1133,
-			"percentY": 515,
-			"valueX": 1048,
-			"valueY": 652,
-			"logoX": 978,
-			"logoY": 54,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#f9e58c",
-			"percentNameX": 775,
-			"percentNameY": 515,
-			"percentNameColor": "#f9e58c"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-10.jpg",
+			"imageConfig": {
+				"percentX": 1133,
+				"percentY": 515,
+				"valueX": 1048,
+				"valueY": 652,
+				"logoX": 978,
+				"logoY": 54,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#f9e58c",
+				"percentNameX": 775,
+				"percentNameY": 515,
+				"percentNameColor": "#f9e58c"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-12.jpg",
-		  "imageConfig": {
-			"percentX": 1133,
-			"percentY": 515,
-			"valueX": 1048,
-			"valueY": 652,
-			"logoX": 978,
-			"logoY": 54,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#f9e58c",
-			"percentNameX": 775,
-			"percentNameY": 515,
-			"percentNameColor": "#f9e58c"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-12.jpg",
+			"imageConfig": {
+				"percentX": 1133,
+				"percentY": 515,
+				"valueX": 1048,
+				"valueY": 652,
+				"logoX": 978,
+				"logoY": 54,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#f9e58c",
+				"percentNameX": 775,
+				"percentNameY": 515,
+				"percentNameColor": "#f9e58c"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-14.jpg",
-		  "imageConfig": {
-			"percentX": 1133,
-			"percentY": 515,
-			"valueX": 1048,
-			"valueY": 652,
-			"logoX": 978,
-			"logoY": 54,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#f9e58c",
-			"percentNameX": 775,
-			"percentNameY": 515,
-			"percentNameColor": "#f9e58c"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-14.jpg",
+			"imageConfig": {
+				"percentX": 1133,
+				"percentY": 515,
+				"valueX": 1048,
+				"valueY": 652,
+				"logoX": 978,
+				"logoY": 54,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#f9e58c",
+				"percentNameX": 775,
+				"percentNameY": 515,
+				"percentNameColor": "#f9e58c"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-16.jpg",
-		  "imageConfig": {
-			"percentX": 1133,
-			"percentY": 515,
-			"valueX": 1048,
-			"valueY": 652,
-			"logoX": 978,
-			"logoY": 54,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#f9e58c",
-			"percentNameX": 775,
-			"percentNameY": 515,
-			"percentNameColor": "#f9e58c"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-16.jpg",
+			"imageConfig": {
+				"percentX": 1133,
+				"percentY": 515,
+				"valueX": 1048,
+				"valueY": 652,
+				"logoX": 978,
+				"logoY": 54,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#f9e58c",
+				"percentNameX": 775,
+				"percentNameY": 515,
+				"percentNameColor": "#f9e58c"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-18.jpg",
-		  "imageConfig": {
-			"percentX": 1133,
-			"percentY": 515,
-			"valueX": 1048,
-			"valueY": 652,
-			"logoX": 978,
-			"logoY": 54,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#f9e58c",
-			"percentNameX": 775,
-			"percentNameY": 515,
-			"percentNameColor": "#f9e58c"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-18.jpg",
+			"imageConfig": {
+				"percentX": 1133,
+				"percentY": 515,
+				"valueX": 1048,
+				"valueY": 652,
+				"logoX": 978,
+				"logoY": 54,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#f9e58c",
+				"percentNameX": 775,
+				"percentNameY": 515,
+				"percentNameColor": "#f9e58c"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-20.jpg",
-		  "imageConfig": {
-			"percentX": 1133,
-			"percentY": 515,
-			"valueX": 1048,
-			"valueY": 652,
-			"logoX": 978,
-			"logoY": 54,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#FFFFFF",
-			"percentColor": "#f9e58c",
-			"percentNameX": 775,
-			"percentNameY": 515,
-			"percentNameColor": "#f9e58c"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC3-20.jpg",
+			"imageConfig": {
+				"percentX": 1133,
+				"percentY": 515,
+				"valueX": 1048,
+				"valueY": 652,
+				"logoX": 978,
+				"logoY": 54,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#FFFFFF",
+				"percentColor": "#f9e58c",
+				"percentNameX": 775,
+				"percentNameY": 515,
+				"percentNameColor": "#f9e58c"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-02.jpg",
-		  "imageConfig": {
-			"percentX": 1093,
-			"percentY": 643,
-			"valueX": 586,
-			"valueY": 649,
-			"logoX": 1190,
-			"logoY": 42,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#de623e",
-			"percentColor": "#de623e",
-			"percentNameX": 993,
-			"percentNameY": 535,
-			"percentNameColor": "#de623e"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-02.jpg",
+			"imageConfig": {
+				"percentX": 1093,
+				"percentY": 643,
+				"valueX": 586,
+				"valueY": 649,
+				"logoX": 1190,
+				"logoY": 42,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#de623e",
+				"percentColor": "#de623e",
+				"percentNameX": 993,
+				"percentNameY": 535,
+				"percentNameColor": "#de623e"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-04.jpg",
-		  "imageConfig": {
-			"percentX": 1093,
-			"percentY": 643,
-			"valueX": 586,
-			"valueY": 649,
-			"logoX": 1190,
-			"logoY": 42,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#de623e",
-			"percentColor": "#de623e",
-			"percentNameX": 993,
-			"percentNameY": 535,
-			"percentNameColor": "#de623e"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-04.jpg",
+			"imageConfig": {
+				"percentX": 1093,
+				"percentY": 643,
+				"valueX": 586,
+				"valueY": 649,
+				"logoX": 1190,
+				"logoY": 42,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#de623e",
+				"percentColor": "#de623e",
+				"percentNameX": 993,
+				"percentNameY": 535,
+				"percentNameColor": "#de623e"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-06.jpg",
-		  "imageConfig": {
-			"percentX": 1093,
-			"percentY": 643,
-			"valueX": 586,
-			"valueY": 649,
-			"logoX": 1190,
-			"logoY": 42,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#de623e",
-			"percentColor": "#de623e",
-			"percentNameX": 993,
-			"percentNameY": 535,
-			"percentNameColor": "#de623e"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-06.jpg",
+			"imageConfig": {
+				"percentX": 1093,
+				"percentY": 643,
+				"valueX": 586,
+				"valueY": 649,
+				"logoX": 1190,
+				"logoY": 42,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#de623e",
+				"percentColor": "#de623e",
+				"percentNameX": 993,
+				"percentNameY": 535,
+				"percentNameColor": "#de623e"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-08.jpg",
-		  "imageConfig": {
-			"percentX": 1093,
-			"percentY": 643,
-			"valueX": 586,
-			"valueY": 649,
-			"logoX": 1190,
-			"logoY": 42,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#de623e",
-			"percentColor": "#de623e",
-			"percentNameX": 993,
-			"percentNameY": 535,
-			"percentNameColor": "#de623e"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-08.jpg",
+			"imageConfig": {
+				"percentX": 1093,
+				"percentY": 643,
+				"valueX": 586,
+				"valueY": 649,
+				"logoX": 1190,
+				"logoY": 42,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#de623e",
+				"percentColor": "#de623e",
+				"percentNameX": 993,
+				"percentNameY": 535,
+				"percentNameColor": "#de623e"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-10.jpg",
-		  "imageConfig": {
-			"percentX": 1093,
-			"percentY": 643,
-			"valueX": 586,
-			"valueY": 649,
-			"logoX": 1190,
-			"logoY": 42,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#de623e",
-			"percentColor": "#de623e",
-			"percentNameX": 993,
-			"percentNameY": 535,
-			"percentNameColor": "#de623e"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-10.jpg",
+			"imageConfig": {
+				"percentX": 1093,
+				"percentY": 643,
+				"valueX": 586,
+				"valueY": 649,
+				"logoX": 1190,
+				"logoY": 42,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#de623e",
+				"percentColor": "#de623e",
+				"percentNameX": 993,
+				"percentNameY": 535,
+				"percentNameColor": "#de623e"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-12.jpg",
-		  "imageConfig": {
-			"percentX": 1093,
-			"percentY": 643,
-			"valueX": 586,
-			"valueY": 649,
-			"logoX": 1190,
-			"logoY": 42,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#de623e",
-			"percentColor": "#de623e",
-			"percentNameX": 993,
-			"percentNameY": 535,
-			"percentNameColor": "#de623e"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-12.jpg",
+			"imageConfig": {
+				"percentX": 1093,
+				"percentY": 643,
+				"valueX": 586,
+				"valueY": 649,
+				"logoX": 1190,
+				"logoY": 42,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#de623e",
+				"percentColor": "#de623e",
+				"percentNameX": 993,
+				"percentNameY": 535,
+				"percentNameColor": "#de623e"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-14.jpg",
-		  "imageConfig": {
-			"percentX": 1093,
-			"percentY": 643,
-			"valueX": 586,
-			"valueY": 649,
-			"logoX": 1190,
-			"logoY": 42,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#de623e",
-			"percentColor": "#de623e",
-			"percentNameX": 993,
-			"percentNameY": 535,
-			"percentNameColor": "#de623e"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-14.jpg",
+			"imageConfig": {
+				"percentX": 1093,
+				"percentY": 643,
+				"valueX": 586,
+				"valueY": 649,
+				"logoX": 1190,
+				"logoY": 42,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#de623e",
+				"percentColor": "#de623e",
+				"percentNameX": 993,
+				"percentNameY": 535,
+				"percentNameColor": "#de623e"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-16.jpg",
-		  "imageConfig": {
-			"percentX": 1093,
-			"percentY": 643,
-			"valueX": 586,
-			"valueY": 649,
-			"logoX": 1190,
-			"logoY": 42,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#de623e",
-			"percentColor": "#de623e",
-			"percentNameX": 993,
-			"percentNameY": 535,
-			"percentNameColor": "#de623e"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-16.jpg",
+			"imageConfig": {
+				"percentX": 1093,
+				"percentY": 643,
+				"valueX": 586,
+				"valueY": 649,
+				"logoX": 1190,
+				"logoY": 42,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#de623e",
+				"percentColor": "#de623e",
+				"percentNameX": 993,
+				"percentNameY": 535,
+				"percentNameColor": "#de623e"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-18.jpg",
-		  "imageConfig": {
-			"percentX": 1093,
-			"percentY": 643,
-			"valueX": 586,
-			"valueY": 649,
-			"logoX": 1190,
-			"logoY": 42,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#de623e",
-			"percentColor": "#de623e",
-			"percentNameX": 993,
-			"percentNameY": 535,
-			"percentNameColor": "#de623e"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-18.jpg",
+			"imageConfig": {
+				"percentX": 1093,
+				"percentY": 643,
+				"valueX": 586,
+				"valueY": 649,
+				"logoX": 1190,
+				"logoY": 42,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#de623e",
+				"percentColor": "#de623e",
+				"percentNameX": 993,
+				"percentNameY": 535,
+				"percentNameColor": "#de623e"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-20.jpg",
-		  "imageConfig": {
-			"percentX": 1093,
-			"percentY": 643,
-			"valueX": 586,
-			"valueY": 649,
-			"logoX": 1190,
-			"logoY": 42,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#de623e",
-			"percentColor": "#de623e",
-			"percentNameX": 993,
-			"percentNameY": 535,
-			"percentNameColor": "#de623e"
-		  }
-		},
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC-20.jpg",
+			"imageConfig": {
+				"percentX": 1093,
+				"percentY": 643,
+				"valueX": 586,
+				"valueY": 649,
+				"logoX": 1190,
+				"logoY": 42,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#de623e",
+				"percentColor": "#de623e",
+				"percentNameX": 993,
+				"percentNameY": 535,
+				"percentNameColor": "#de623e"
+			}
+		}
 	],
 	"voucherItemStorage": [
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV1-02.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#f80200",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#f80200"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV1-02.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#f80200",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#f80200"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV1-04.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#f80200",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#f80200"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV1-04.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#f80200",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#f80200"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-02.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#f80200",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#f80200"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-02.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#f80200",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#f80200"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-04.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#f80200",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#f80200"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-04.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#f80200",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#f80200"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-06.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#f80200",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#f80200"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-06.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#f80200",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#f80200"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-08.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#f80200",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#f80200"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-08.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#f80200",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#f80200"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-10.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#f80200",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#f80200"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-10.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#f80200",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#f80200"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-12.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#f80200",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#f80200"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-12.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#f80200",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#f80200"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-14.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#f80200",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#f80200"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV2-14.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#f80200",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#f80200"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-02.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#c27223",
-			"percentColor": "#ffffff",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#ffffff"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-02.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#c27223",
+				"percentColor": "#ffffff",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#ffffff"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-04.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#c27223",
-			"percentColor": "#ffffff",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#ffffff"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-04.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#c27223",
+				"percentColor": "#ffffff",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#ffffff"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-06.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#c27223",
-			"percentColor": "#ffffff",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#ffffff"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-06.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#c27223",
+				"percentColor": "#ffffff",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#ffffff"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-08.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#c27223",
-			"percentColor": "#ffffff",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#ffffff"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-08.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#c27223",
+				"percentColor": "#ffffff",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#ffffff"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-10.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#c27223",
-			"percentColor": "#ffffff",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#ffffff"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-10.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#c27223",
+				"percentColor": "#ffffff",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#ffffff"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-12.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#c27223",
-			"percentColor": "#ffffff",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#ffffff"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-12.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#c27223",
+				"percentColor": "#ffffff",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#ffffff"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-14.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#c27223",
-			"percentColor": "#ffffff",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#ffffff"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-14.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#c27223",
+				"percentColor": "#ffffff",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#ffffff"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-16.jpg",
-		  "imageConfig": {
-			"percentX": 333,
-			"percentY": 620,
-			"valueX": 1190,
-			"valueY": 130,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#c27223",
-			"percentColor": "#ffffff",
-			"percentNameX": 90,
-			"percentNameY": 620,
-			"percentNameColor": "#ffffff"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV3-16.jpg",
+			"imageConfig": {
+				"percentX": 333,
+				"percentY": 620,
+				"valueX": 1190,
+				"valueY": 130,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#c27223",
+				"percentColor": "#ffffff",
+				"percentNameX": 90,
+				"percentNameY": 620,
+				"percentNameColor": "#ffffff"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-02.jpg",
-		  "imageConfig": {
-			"percentX": 1059,
-			"percentY": 426,
-			"valueX": 208,
-			"valueY": 612,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ca752f",
-			"percentColor": "#da0201",
-			"percentNameX": 1052,
-			"percentNameY": 310,
-			"percentNameColor": "#da0201"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-02.jpg",
+			"imageConfig": {
+				"percentX": 1059,
+				"percentY": 426,
+				"valueX": 208,
+				"valueY": 612,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ca752f",
+				"percentColor": "#da0201",
+				"percentNameX": 1052,
+				"percentNameY": 310,
+				"percentNameColor": "#da0201"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-04.jpg",
-		  "imageConfig": {
-			"percentX": 1059,
-			"percentY": 426,
-			"valueX": 208,
-			"valueY": 612,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ca752f",
-			"percentColor": "#da0201",
-			"percentNameX": 1052,
-			"percentNameY": 310,
-			"percentNameColor": "#da0201"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-04.jpg",
+			"imageConfig": {
+				"percentX": 1059,
+				"percentY": 426,
+				"valueX": 208,
+				"valueY": 612,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ca752f",
+				"percentColor": "#da0201",
+				"percentNameX": 1052,
+				"percentNameY": 310,
+				"percentNameColor": "#da0201"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-06.jpg",
-		  "imageConfig": {
-			"percentX": 1059,
-			"percentY": 426,
-			"valueX": 208,
-			"valueY": 612,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ca752f",
-			"percentColor": "#da0201",
-			"percentNameX": 1052,
-			"percentNameY": 310,
-			"percentNameColor": "#da0201"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-06.jpg",
+			"imageConfig": {
+				"percentX": 1059,
+				"percentY": 426,
+				"valueX": 208,
+				"valueY": 612,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ca752f",
+				"percentColor": "#da0201",
+				"percentNameX": 1052,
+				"percentNameY": 310,
+				"percentNameColor": "#da0201"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-08.jpg",
-		  "imageConfig": {
-			"percentX": 1059,
-			"percentY": 426,
-			"valueX": 208,
-			"valueY": 612,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ca752f",
-			"percentColor": "#da0201",
-			"percentNameX": 1052,
-			"percentNameY": 310,
-			"percentNameColor": "#da0201"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-08.jpg",
+			"imageConfig": {
+				"percentX": 1059,
+				"percentY": 426,
+				"valueX": 208,
+				"valueY": 612,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ca752f",
+				"percentColor": "#da0201",
+				"percentNameX": 1052,
+				"percentNameY": 310,
+				"percentNameColor": "#da0201"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-10.jpg",
-		  "imageConfig": {
-			"percentX": 1059,
-			"percentY": 426,
-			"valueX": 208,
-			"valueY": 612,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ca752f",
-			"percentColor": "#da0201",
-			"percentNameX": 1052,
-			"percentNameY": 310,
-			"percentNameColor": "#da0201"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-10.jpg",
+			"imageConfig": {
+				"percentX": 1059,
+				"percentY": 426,
+				"valueX": 208,
+				"valueY": 612,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ca752f",
+				"percentColor": "#da0201",
+				"percentNameX": 1052,
+				"percentNameY": 310,
+				"percentNameColor": "#da0201"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-12.jpg",
-		  "imageConfig": {
-			"percentX": 1059,
-			"percentY": 426,
-			"valueX": 208,
-			"valueY": 612,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ca752f",
-			"percentColor": "#da0201",
-			"percentNameX": 1052,
-			"percentNameY": 310,
-			"percentNameColor": "#da0201"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-12.jpg",
+			"imageConfig": {
+				"percentX": 1059,
+				"percentY": 426,
+				"valueX": 208,
+				"valueY": 612,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ca752f",
+				"percentColor": "#da0201",
+				"percentNameX": 1052,
+				"percentNameY": 310,
+				"percentNameColor": "#da0201"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-14.jpg",
-		  "imageConfig": {
-			"percentX": 1059,
-			"percentY": 426,
-			"valueX": 208,
-			"valueY": 612,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ca752f",
-			"percentColor": "#da0201",
-			"percentNameX": 1052,
-			"percentNameY": 310,
-			"percentNameColor": "#da0201"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-14.jpg",
+			"imageConfig": {
+				"percentX": 1059,
+				"percentY": 426,
+				"valueX": 208,
+				"valueY": 612,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ca752f",
+				"percentColor": "#da0201",
+				"percentNameX": 1052,
+				"percentNameY": 310,
+				"percentNameColor": "#da0201"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-16.jpg",
-		  "imageConfig": {
-			"percentX": 1059,
-			"percentY": 426,
-			"valueX": 208,
-			"valueY": 612,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ca752f",
-			"percentColor": "#da0201",
-			"percentNameX": 1052,
-			"percentNameY": 310,
-			"percentNameColor": "#da0201"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-16.jpg",
+			"imageConfig": {
+				"percentX": 1059,
+				"percentY": 426,
+				"valueX": 208,
+				"valueY": 612,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ca752f",
+				"percentColor": "#da0201",
+				"percentNameX": 1052,
+				"percentNameY": 310,
+				"percentNameColor": "#da0201"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-18.jpg",
-		  "imageConfig": {
-			"percentX": 1059,
-			"percentY": 426,
-			"valueX": 208,
-			"valueY": 612,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ca752f",
-			"percentColor": "#da0201",
-			"percentNameX": 1052,
-			"percentNameY": 310,
-			"percentNameColor": "#da0201"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-18.jpg",
+			"imageConfig": {
+				"percentX": 1059,
+				"percentY": 426,
+				"valueX": 208,
+				"valueY": 612,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ca752f",
+				"percentColor": "#da0201",
+				"percentNameX": 1052,
+				"percentNameY": 310,
+				"percentNameColor": "#da0201"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-20.jpg",
-		  "imageConfig": {
-			"percentX": 1059,
-			"percentY": 426,
-			"valueX": 208,
-			"valueY": 612,
-			"logoX": 84,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ca752f",
-			"percentColor": "#da0201",
-			"percentNameX": 1052,
-			"percentNameY": 310,
-			"percentNameColor": "#da0201"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/GV4-20.jpg",
+			"imageConfig": {
+				"percentX": 1059,
+				"percentY": 426,
+				"valueX": 208,
+				"valueY": 612,
+				"logoX": 84,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ca752f",
+				"percentColor": "#da0201",
+				"percentNameX": 1052,
+				"percentNameY": 310,
+				"percentNameColor": "#da0201"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-02.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-02.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-04.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-04.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-06.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-06.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-08.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-08.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-10.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-10.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-12.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-12.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-14.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-14.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-16.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-16.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-18.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-18.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-20.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-20.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-22.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-22.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-24.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-24.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-26.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-26.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-28.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-28.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-30.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-30.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-32.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-32.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-34.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-34.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-36.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-36.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		},
 		{
-		  "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-38.jpg",
-		  "imageConfig": {
-			"percentX": 415,
-			"percentY": 499,
-			"valueX": 208,
-			"valueY": 650,
-			"logoX": 307,
-			"logoY": 64,
-			"logoWidth": 140,
-			"logoHeight": 140,
-			"valueColor": "#ffffff",
-			"percentColor": "#ce1d65",
-			"percentNameX": 164,
-			"percentNameY": 498,
-			"percentNameColor": "#ce1d65"
-		  }
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-38.jpg",
+			"imageConfig": {
+				"percentX": 415,
+				"percentY": 499,
+				"valueX": 208,
+				"valueY": 650,
+				"logoX": 307,
+				"logoY": 64,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ce1d65",
+				"percentNameX": 164,
+				"percentNameY": 498,
+				"percentNameColor": "#ce1d65"
+			}
 		}
 	],
 	"defaultImageConfig": {
@@ -1669,6 +1669,6 @@
 		"logoWidth": 175,
 		"logoHeight": 175,
 		"valueColor": "white",
-		"percentColor": "white",
+		"percentColor": "white"
 	}
 }
