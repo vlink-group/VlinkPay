@@ -1,0 +1,3137 @@
+{
+  "cardItemStorage": [
+    {
+      "key-translate": "anniversary",
+      "wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/anniversary/gc-ann-3-02.jpg",
+      "items": [
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/anniversary/gc-ann-3-02.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/anniversary/gc-ann-3-04.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/anniversary/gc-ann-3-06.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/anniversary/gc-ann-3-08.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/anniversary/gc-ann-3-10.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/anniversary/gc-ann-3-12.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/anniversary/gc-ann-3-14.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/anniversary/gc-ann-3-16.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/anniversary/gc-ann-3-18.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/anniversary/gc-ann-3-20.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/anniversary/gc-ann-3-22.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        }
+      ]
+    },
+    {
+      "key-translate": "baby-shower",
+      "wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/baby-shower/bs-1-02.jpg",
+      "items": [
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/baby-shower/bs-1-02.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/baby-shower/bs-1-04.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/baby-shower/bs-1-06.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/baby-shower/bs-1-08.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/baby-shower/bs-1-10.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/baby-shower/bs-1-12.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/baby-shower/bs-1-14.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/baby-shower/bs-1-16.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/baby-shower/bs-1-18.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/baby-shower/bs-1-20.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        }
+      ]
+    },
+    {
+      "key-translate": "birthday",
+      "wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-01.jpg",
+      "items": [
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-01.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-02.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-03.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-04.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-05.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-06.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-07.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-08.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-09.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-10.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-11.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-12.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-13.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-14.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-15.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-16.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-17.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-18.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-19.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/birthday/bd-20.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        }
+      ]
+    },
+    {
+      "key-translate": "congratulation",
+      "wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-gc-02.jpg",
+      "items": [
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-gc-02.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-gc-04.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-gc-06.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-gc-08.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-gc-10.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-gc-12.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-gc-14.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-gc-16.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-gc-18.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-gc-20.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        }
+      ]
+    },
+    {
+      "key-translate": "father-day",
+      "wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-01.png",
+      "items": [
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-01.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-02.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-03.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-04.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-05.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-06.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-07.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-08.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-09.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-10.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-11.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-12.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-13.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-14.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-15.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-16.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-17.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-18.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-19.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/fd-20.png",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        }
+      ]
+    },
+    {
+      "key-translate": "graduation",
+      "wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/graduation/gc-graduation-02.jpg",
+      "items": [
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/graduation/gc-graduation-02.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/graduation/gc-graduation-04.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/graduation/gc-graduation-06.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/graduation/gc-graduation-08.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/graduation/gc-graduation-10.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/graduation/gc-graduation-12.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/graduation/gc-graduation-14.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/graduation/gc-graduation-16.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        }
+      ]
+    },
+    {
+      "key-translate": "holiday",
+      "wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-02.jpg",
+      "items": [
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-02.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-04.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-06.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-08.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-10.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-12.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-14.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-16.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-18.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-20.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-22.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-24.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-26.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-28.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-30.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-32.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-34.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-36.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-38.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-40.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/merry-christmas-42.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        }
+      ]
+    },
+    {
+      "key-translate": "mother-day",
+      "wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/mother_s-day/mother_s-day-02.jpg",
+      "items": [
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/mother_s-day/mother_s-day-02.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/mother_s-day/mother_s-day-04.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/mother_s-day/mother_s-day-06.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/mother_s-day/mother_s-day-08.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/mother_s-day/mother_s-day-10.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/mother_s-day/mother_s-day-12.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/mother_s-day/mother_s-day-14.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/mother_s-day/mother_s-day-16.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/mother_s-day/mother_s-day-18.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/mother_s-day/mother_s-day-20.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        }
+      ]
+    },
+    {
+      "key-translate": "thank-you",
+      "wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-01.jpg",
+      "items": [
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-01.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-01.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-02.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-03.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-04.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-05.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-06.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-07.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-08.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-09.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-10.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-11.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-12.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-13.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thank-you/tk-14.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        }
+      ]
+    },
+    {
+      "key-translate": "thinking-of-you",
+      "wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-01.jpg",
+      "items": [
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-01.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-02.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-03.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-04.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-05.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-06.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-07.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-08.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-09.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-10.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-11.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/toy-12.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        }
+      ]
+    },
+    {
+      "key-translate": "valentine",
+      "wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-01.jpg",
+      "items": [
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-01.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-02.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-03.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-04.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-05.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-06.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-07.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-08.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-09.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-10.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-11.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-12.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-13.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-14.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-15.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-16.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-17.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-18.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-19.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-20.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-21.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-22.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-23.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-24.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-25.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-26.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-27.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-28.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-29.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-30.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-31.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-32.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-33.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        }
+      ]
+    },
+    {
+      "key-translate": "wedding",
+      "wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wedding/Wedding-02.jpg",
+      "items": [
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wedding/Wedding-02.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wedding/Wedding-04.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wedding/Wedding-06.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wedding/Wedding-08.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wedding/Wedding-10.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wedding/Wedding-12.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wedding/Wedding-14.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wedding/Wedding-16.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wedding/Wedding-18.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        },
+        {
+          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wedding/Wedding-20.jpg",
+          "imageConfig": {
+            "percentX": 745,
+            "percentY": 493,
+            "valueX": 1170,
+            "valueY": 650,
+            "logoX": 1150,
+            "logoY": 0,
+            "logoWidth": 175,
+            "logoHeight": 175,
+            "valueColor": "white",
+            "percentColor": "white",
+            "percentRotate": false,
+            "valueRotate": false
+          }
+        }
+      ]
+    }
+  ]
+}
