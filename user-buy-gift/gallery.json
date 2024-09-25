@@ -1263,11 +1263,11 @@
             "logoY": 70,
             "logoWidth": 140,
             "logoHeight": 140,
-            "valueColor": "#AF201F",
-            "percentColor": "#5B1A40",
+            "valueColor": "#5152A2",
+            "percentColor": "#EC3C64",
             "percentNameX": 220,
             "percentNameY": 450,
-            "percentNameColor": "#5B1A40"
+            "percentNameColor": "#EC3C64"
           }
         },
         {
@@ -1281,11 +1281,11 @@
             "logoY": 70,
             "logoWidth": 140,
             "logoHeight": 140,
-            "valueColor": "#004E7B",
-            "percentColor": "#E05022",
+            "valueColor": "#EDF4E0",
+            "percentColor": "#F14D39",
             "percentNameX": 220,
             "percentNameY": 450,
-            "percentNameColor": "#E05022"
+            "percentNameColor": "#F14D39"
           }
         },
         {
