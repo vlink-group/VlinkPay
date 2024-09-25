@@ -17,7 +17,7 @@
             "logoHeight": 140,
             "valueColor": "#ffffff",
             "percentColor": "#F9E793",
-            "percentNameX": 400,
+            "percentNameX": 800,
             "percentNameY": 630,
             "percentNameColor": "#F9E793"
           }
@@ -35,7 +35,7 @@
             "logoHeight": 140,
             "valueColor": "#ffffff",
             "percentColor": "#F9E793",
-            "percentNameX": 400,
+            "percentNameX": 800,
             "percentNameY": 630,
             "percentNameColor": "#F9E793"
           }
@@ -51,11 +51,11 @@
             "logoY": 60,
             "logoWidth": 140,
             "logoHeight": 140,
-            "valueColor": "#ffffff",
-            "percentColor": "#F9E793",
+            "valueColor": "#010101",
+            "percentColor": "#010101",
             "percentNameX": 800,
             "percentNameY": 630,
-            "percentNameColor": "#F9E793"
+            "percentNameColor": "#010101"
           }
         },
         {
@@ -69,11 +69,11 @@
             "logoY": 60,
             "logoWidth": 140,
             "logoHeight": 140,
-            "valueColor": "#ffffff",
-            "percentColor": "#F9E793",
+            "valueColor": "#010101",
+            "percentColor": "#010101",
             "percentNameX": 800,
             "percentNameY": 630,
-            "percentNameColor": "#F9E793"
+            "percentNameColor": "#010101"
           }
         },
         {
