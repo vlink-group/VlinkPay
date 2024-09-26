@@ -2925,24 +2925,7 @@
             "percentNameColor": "#6B234F"
           }
         },
-        {
-          "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-27.png",
-          "imageConfig": {
-            "percentX": 760,
-            "percentY": 500,
-            "valueX": 690,
-            "valueY": 640,
-            "logoX": 620,
-            "logoY": 50,
-            "logoWidth": 140,
-            "logoHeight": 140,
-            "valueColor": "#A9211F",
-            "percentColor": "#6B234F",
-            "percentNameX": 400,
-            "percentNameY": 500,
-            "percentNameColor": "#6B234F"
-          }
-        },
+
         {
           "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/valentine/vd-28.png",
           "imageConfig": {
