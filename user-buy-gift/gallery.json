@@ -1978,11 +1978,11 @@
             "logoY": 50,
             "logoWidth": 140,
             "logoHeight": 140,
-            "valueColor": "#FFFFFF",
-            "percentColor": "#FFFFFF",
+            "valueColor": "#FF1A00",
+            "percentColor": "#FF1A00",
             "percentNameX": 690,
             "percentNameY": 520,
-            "percentNameColor": "#FFFFFF"
+            "percentNameColor": "#FF1A00"
           }
         },
         {
