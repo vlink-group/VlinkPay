@@ -369,24 +369,6 @@
 						"percentNameY": 626,
 						"percentNameColor": "#ffffff"
 					}
-				},
-				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/baby-shower/bs-1-20.jpg",
-					"imageConfig": {
-						"percentX": 1160,
-						"percentY": 622,
-						"valueX": 246,
-						"valueY": 634,
-						"logoX": 1160,
-						"logoY": 60,
-						"logoWidth": 140,
-						"logoHeight": 140,
-						"valueColor": "#000000",
-						"percentColor": "#ffffff",
-						"percentNameX": 862,
-						"percentNameY": 626,
-						"percentNameColor": "#ffffff"
-					}
 				}
 			]
 		},
@@ -947,7 +929,7 @@
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/father-day.jpg",
 			"items": [
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/new-father_s-day_file-40.png",
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father_s-day/new-father_s-day_file-40.png",
 					"imageConfig": {
 						"percentX": 398,
 						"percentY": 530,
@@ -965,7 +947,7 @@
 					}
 				},
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/new-father_s-day_file-09.png",
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father_s-day/new-father_s-day_file-09.png",
 					"imageConfig": {
 						"percentX": 418,
 						"percentY": 530,
@@ -983,7 +965,7 @@
 					}
 				},
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/new-father_s-day_file-11.png",
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father_s-day/new-father_s-day_file-11.png",
 					"imageConfig": {
 						"percentX": 508,
 						"percentY": 510,
@@ -1001,7 +983,7 @@
 					}
 				},
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/new-father_s-day_file-13.png",
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father_s-day/new-father_s-day_file-13.png",
 					"imageConfig": {
 						"percentX": 418,
 						"percentY": 510,
@@ -1019,7 +1001,7 @@
 					}
 				},
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/new-father_s-day_file-15.png",
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father_s-day/new-father_s-day_file-15.png",
 					"imageConfig": {
 						"percentX": 468,
 						"percentY": 510,
@@ -1037,7 +1019,7 @@
 					}
 				},
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/new-father_s-day_file-17.png",
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father_s-day/new-father_s-day_file-17.png",
 					"imageConfig": {
 						"percentX": 468,
 						"percentY": 510,
@@ -1055,7 +1037,7 @@
 					}
 				},
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/new-father_s-day_file-23.png",
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father_s-day/new-father_s-day_file-23.png",
 					"imageConfig": {
 						"percentX": 468,
 						"percentY": 510,
@@ -1073,7 +1055,7 @@
 					}
 				},
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/new-father_s-day_file-29.png",
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father_s-day/new-father_s-day_file-29.png",
 					"imageConfig": {
 						"percentX": 468,
 						"percentY": 510,
@@ -1091,7 +1073,7 @@
 					}
 				},
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/new-father_s-day_file-33.png",
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father_s-day/new-father_s-day_file-33.png",
 					"imageConfig": {
 						"percentX": 438,
 						"percentY": 530,
@@ -1109,7 +1091,7 @@
 					}
 				},
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/new-father_s-day_file-35.png",
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father_s-day/new-father_s-day_file-35.png",
 					"imageConfig": {
 						"percentX": 498,
 						"percentY": 510,
@@ -1127,7 +1109,7 @@
 					}
 				},
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father-day/new-father_s-day_file-37.png",
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/father_s-day/new-father_s-day_file-37.png",
 					"imageConfig": {
 						"percentX": 398,
 						"percentY": 530,
