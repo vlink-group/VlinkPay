@@ -3569,24 +3569,6 @@
 					}
 				},
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-68.jpg",
-					"imageConfig": {
-						"percentX": 1170,
-						"percentY": 660,
-						"valueX": 160,
-						"valueY": 660,
-						"logoX": 1170,
-						"logoY": 40,
-						"logoWidth": 140,
-						"logoHeight": 140,
-						"valueColor": "#ffffff",
-						"percentColor": "#ffffff",
-						"percentNameX": 810,
-						"percentNameY": 660,
-						"percentNameColor": "#ffffff"
-					}
-				},
-				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/congratulation/congratulation-70.jpg",
 					"imageConfig": {
 						"percentX": 1170,
@@ -9024,24 +9006,6 @@
 				},
 				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/thinking-of-you-26.jpg",
-					"imageConfig": {
-						"percentX": 1170,
-						"percentY": 660,
-						"valueX": 160,
-						"valueY": 660,
-						"logoX": 1160,
-						"logoY": 40,
-						"logoWidth": 140,
-						"logoHeight": 140,
-						"valueColor": "#ffffff",
-						"percentColor": "#ffffff",
-						"percentNameX": 810,
-						"percentNameY": 660,
-						"percentNameColor": "#ffffff"
-					}
-				},
-				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/thinking-of-you/thinking-of-you-27.jpg",
 					"imageConfig": {
 						"percentX": 1170,
 						"percentY": 660,
