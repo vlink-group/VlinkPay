@@ -2357,6 +2357,456 @@
 				"percentNameY": 660,
 				"percentNameColor": "#ffffff"
 			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Automotive/Automotive-02.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Automotive/Automotive-04.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Automotive/Automotive-06.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Automotive/Automotive-08.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Automotive/Automotive-10.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Automotive/Automotive-12.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Automotive/Automotive-14.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Automotive/Automotive-16.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Automotive/Automotive-18.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Automotive/Automotive-20.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-02.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-04.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-06.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-08.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-10.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-12.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-14.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-16.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-18.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-20.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-22.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-24.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-26.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-28.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Home--garden/Home--Garden-30.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
 		}
 	],
 	"voucherItemStorage": [
