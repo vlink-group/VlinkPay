@@ -1,6 +1,366 @@
 {
 	"cardItemStorage": [
 		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-02.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-04.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-06.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-08.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-10.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-12.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-14.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-16.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-18.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-20.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-22.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-24.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-26.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-28.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-30.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-32.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-34.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-36.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-38.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/ThanksGiving/Thanks-giving-40.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
 			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/GC1-03.jpg",
 			"imageConfig": {
 				"percentX": 742,
@@ -2807,6 +3167,240 @@
 				"percentNameY": 660,
 				"percentNameColor": "#F90200"
 			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-02.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-12.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-14.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-16.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-18.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-20.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-22.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-24.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-26.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#F90200",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#F90200"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-04.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-06.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-08.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/GiftCards/Logistics--Transportation/Logistics--Transportation-10.jpg",
+			"imageConfig": {
+				"percentX": 1170,
+				"percentY": 660,
+				"valueX": 160,
+				"valueY": 660,
+				"logoX": 1160,
+				"logoY": 40,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#F90200",
+				"percentColor": "#ffffff",
+				"percentNameX": 810,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
 		}
 	],
 	"voucherItemStorage": [
@@ -3407,18 +4001,18 @@
 		{
 			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/gv-lan-4-14.jpg",
 			"imageConfig": {
-				"percentX": 415,
-				"percentY": 499,
-				"valueX": 208,
+				"percentX": 430,
+				"percentY": 520,
+				"valueX": 190,
 				"valueY": 650,
-				"logoX": 307,
-				"logoY": 64,
+				"logoX": 310,
+				"logoY": 55,
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#ffffff",
 				"percentColor": "#ffffff",
-				"percentNameX": 164,
-				"percentNameY": 498,
+				"percentNameX": 70,
+				"percentNameY": 515,
 				"percentNameColor": "#ffffff"
 			}
 		},
@@ -3929,18 +4523,18 @@
 		{
 			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/voucher-9-10-29.jpg",
 			"imageConfig": {
-				"percentX": 1195,
-				"percentY": 675,
-				"valueX": 150,
-				"valueY": 665,
-				"logoX": 70,
-				"logoY": 35,
+				"percentX": 1165,
+				"percentY": 665,
+				"valueX": 190,
+				"valueY": 655,
+				"logoX": 90,
+				"logoY": 45,
 				"logoWidth": 140,
 				"logoHeight": 140,
 				"valueColor": "#000000",
 				"percentColor": "#F90200",
-				"percentNameX": 830,
-				"percentNameY": 675,
+				"percentNameX": 800,
+				"percentNameY": 665,
 				"percentNameColor": "#F90200"
 			}
 		},
