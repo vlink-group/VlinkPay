@@ -5279,6 +5279,294 @@
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/holiday.jpg",
 			"items": [
 				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-02.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-04.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-06.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-08.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-10.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-12.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-14.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-16.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-18.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-20.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-22.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-24.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-26.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-28.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-30.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-32.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Thanks-giving-02.jpg",
 					"imageConfig": {
 						"percentX": 1170,
