@@ -5295,24 +5295,6 @@
 			}
 		},
 		{
-			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/Pet-Services/Pet-Services-09.jpg",
-			"imageConfig": {
-				"percentX": 1170,
-				"percentY": 650,
-				"valueX": 140,
-				"valueY": 650,
-				"logoX": 80,
-				"logoY": 60,
-				"logoWidth": 140,
-				"logoHeight": 140,
-				"valueColor": "#ffffff",
-				"percentColor": "#ffffff",
-				"percentNameX": 940,
-				"percentNameY": 650,
-				"percentNameColor": "#ffffff"
-			}
-		},
-		{
 			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/Pet-Services/Pet-Services-10.jpg",
 			"imageConfig": {
 				"percentX": 1170,
@@ -5530,24 +5512,6 @@
 		},
 		{
 			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/Travel--Tourism-NEW/Travel--Tourism-NEW-14.jpg",
-			"imageConfig": {
-				"percentX": 1170,
-				"percentY": 650,
-				"valueX": 140,
-				"valueY": 650,
-				"logoX": 80,
-				"logoY": 60,
-				"logoWidth": 140,
-				"logoHeight": 140,
-				"valueColor": "#FF0200",
-				"percentColor": "#FF0200",
-				"percentNameX": 940,
-				"percentNameY": 650,
-				"percentNameColor": "#FF0200"
-			}
-		},
-		{
-			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/sell-EGift/Cards-v2/Vouchers/Travel--Tourism-NEW/Travel--Tourism-NEW-15.jpg",
 			"imageConfig": {
 				"percentX": 1170,
 				"percentY": 650,
