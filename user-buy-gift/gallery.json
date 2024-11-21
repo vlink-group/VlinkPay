@@ -6881,6 +6881,906 @@
 					}
 				},
 				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-01.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-02.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-03.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-04.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-05.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-06.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-07.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-08.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-09.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-10.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-11.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-12.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-13.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-14.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-15.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-16.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-17.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-18.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-19.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-20.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-21.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-22.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-23.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-24.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-25.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-26.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-27.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-28.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-29.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-30.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-31.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-32.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-33.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-34.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-35.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-36.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-37.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-38.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-39.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-40.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-41.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-42.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-43.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-44.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-45.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-46.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-47.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-48.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-49.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/army/Binh-Chung-50.jpg",
+					"imageConfig": {
+						"percentX": 1145,
+						"percentY": 665,
+						"valueX": 155,
+						"valueY": 665,
+						"logoX": 1160,
+						"logoY": 50,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#ffffff",
+						"percentColor": "#ffffff",
+						"percentNameX": 790,
+						"percentNameY": 665,
+						"percentNameColor": "#ffffff"
+					}
+				},
+				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/holiday-02.jpg",
 					"imageConfig": {
 						"percentX": 1170,
