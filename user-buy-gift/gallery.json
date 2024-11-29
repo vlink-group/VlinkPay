@@ -923,7 +923,7 @@
 					}
 				}
 			],
-			"qr-code-items": [
+			"qrCodeItems": [
 				"https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/qr-code-sample.png",
 				"https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/qr-code-sample.png",
 				"https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/qr-code-sample.png"
@@ -1816,7 +1816,7 @@
 					}
 				}
 			],
-			"qr-code-items": []
+			"qrCodeItems": []
 		},
 		{
 			"keyTranslate": "birthday",
@@ -2813,7 +2813,7 @@
 					}
 				}
 			],
-			"qr-code-items": []
+			"qrCodeItems": []
 
 		},
 		{
@@ -3685,7 +3685,7 @@
 					}
 				}
 			],
-			"qr-code-items": []
+			"qrCodeItems": []
 
 		},
 		{
@@ -4413,7 +4413,7 @@
 					}
 				}
 			],
-			"qr-code-items": []
+			"qrCodeItems": []
 
 		},
 		{
@@ -5285,7 +5285,7 @@
 					}
 				}
 			],
-			"qr-code-items": []
+			"qrCodeItems": []
 
 		},
 		{
@@ -8335,7 +8335,7 @@
 					}
 				}
 			],
-			"qr-code-items": []
+			"qrCodeItems": []
 
 		},
 		{
@@ -9063,7 +9063,7 @@
 					}
 				}
 			],
-			"qr-code-items": []
+			"qrCodeItems": []
 
 		},
 		{
@@ -10349,7 +10349,7 @@
 					}
 				}
 			],
-			"qr-code-items": []
+			"qrCodeItems": []
 
 		},
 		{
@@ -11221,7 +11221,7 @@
 					}
 				}
 			],
-			"qr-code-items": []
+			"qrCodeItems": []
 
 		},
 		{
@@ -12165,7 +12165,7 @@
 					}
 				}
 			],
-			"qr-code-items": []
+			"qrCodeItems": []
 
 		},
 		{
@@ -13073,8 +13073,7 @@
 					}
 				}
 			],
-			"qr-code-items": []
-
+			"qrCodeItems": []
 		}
 	]
 }
