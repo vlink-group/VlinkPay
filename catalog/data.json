@@ -1,0 +1,54 @@
+{
+  "values": [
+    {
+      "id": "1",
+      "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/catalog/beauty.png",
+      "label": "beauty"
+    },
+    {
+      "id": "2",
+      "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/catalog/fashion.png",
+      "label": "apparel"
+    },
+    {
+      "id": "3",
+      "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/catalog/credit-card.png",
+      "label": "prepaid"
+    },
+    {
+      "id": "4",
+      "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/catalog/plane.png",
+      "label": "destination"
+    },
+    {
+      "id": "5",
+      "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/catalog/entertainment.png",
+      "label": "entertainment"
+    },
+    {
+      "id": "6",
+      "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/catalog/house.png",
+      "label": "house"
+    },
+    {
+      "id": "7",
+      "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/catalog/camera.png",
+      "label": "lifestyle"
+    },
+    {
+      "id": "8",
+      "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/catalog/shopping.png",
+      "label": "shopping"
+    },
+    {
+      "id": "9",
+      "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/catalog/dinner.png",
+      "label": "dinner"
+    },
+    {
+      "id": "10",
+      "image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/catalog/heart.png",
+      "label": "wellness"
+    }
+  ]
+}
