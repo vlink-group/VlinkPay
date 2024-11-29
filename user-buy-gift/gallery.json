@@ -924,9 +924,15 @@
 				}
 			],
 			"qrCodeItems": [
-				"https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/qr-code-sample.png",
-				"https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/qr-code-sample.png",
-				"https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/qr-code-sample.png"
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/qr-code-sample.png"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/qr-code-sample.png"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/qr-code-sample.png"
+				}
 			]
 		},
 		{
