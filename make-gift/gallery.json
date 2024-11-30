@@ -38,7 +38,38 @@
 		{
 			"keyTranslate": "graduation",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/graduation.jpg",
-			"items": []
+			"items": [
+				  {
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-01.jpg"
+				  },
+				  {
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-02.jpg"
+				  },
+				  {
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-03.jpg"
+				  },
+				  {
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-04.jpg"
+				  },
+				  {
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-05.jpg"
+				  },
+				  {
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-06.jpg"
+				  },
+				  {
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-07.jpg"
+				  },
+				  {
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-08.jpg"
+				  },
+				  {
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-09.jpg"
+				  },
+				  {
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-10.jpg"
+				  }
+			]
 		},
 		{
 			"keyTranslate": "holiday",
