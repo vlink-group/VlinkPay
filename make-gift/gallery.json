@@ -2,6 +2,7 @@
 	"cardItemStorage": [
 		{
 			"keyTranslate": "anniversary",
+			"name": "Anniversary",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/anniversary.jpg",
 			"items": [
 				{
@@ -17,26 +18,31 @@
 		},
 		{
 			"keyTranslate": "baby-shower",
+			"name": "Baby Shower",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/baby-shower.jpg",
 			"items": []
 		},
 		{
 			"keyTranslate": "birthday",
+			"name": "Birthday",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/birthday.jpg",
 			"items": []
 		},
 		{
 			"keyTranslate": "congratulation",
+			"name": "Congratulation",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/congratulation.jpg",
 			"items": []
 		},
 		{
 			"keyTranslate": "father-day",
+			"name": "Father day",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/father-day.jpg",
 			"items": []
 		},
 		{
 			"keyTranslate": "graduation",
+			"name": "Graduation",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/graduation.jpg",
 			"items": [
 				  {
@@ -73,6 +79,7 @@
 		},
 		{
 			"keyTranslate": "holiday",
+			"name": "Holiday",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/holiday.jpg",
 			"items": [
 				{
@@ -112,26 +119,31 @@
 		},
 		{
 			"keyTranslate": "mother-day",
+			"name": "Mother day",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/mother-day.jpg",
 			"items": []
 		},
 		{
 			"keyTranslate": "thank-you",
+			"name": "Thankyou",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/thank-you.jpg",
 			"items": []
 		},
 		{
 			"keyTranslate": "thinking-of-you",
+			"name": "Thinking of you",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/thinking-of-you.jpg",
 			"items": []
 		},
 		{
 			"keyTranslate": "valentine",
+			"name": "Valentine",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/valentine.jpg",
 			"items": []
 		},
 		{
 			"keyTranslate": "wedding",
+			"name": "Wedding",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/wedding.jpg",
 			"items": []
 		}
