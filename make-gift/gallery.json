@@ -6,7 +6,34 @@
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/anniversary.jpg",
 			"items": [
 				{
-					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/qr-code-sample.png"
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/anniversary/anniversary-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/anniversary/anniversary-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/anniversary/anniversary-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/anniversary/anniversary-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/anniversary/anniversary-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/anniversary/anniversary-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/anniversary/anniversary-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/anniversary/anniversary-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/anniversary/anniversary-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/anniversary/anniversary-10.jpg"
 				}
 			]
 		},
@@ -14,61 +41,185 @@
 			"keyTranslate": "baby-shower",
 			"name": "Baby Shower",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/baby-shower.jpg",
-			"items": []
+			"items": [
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/babyshower/theme-qrcode-baby-shower-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/babyshower/theme-qrcode-baby-shower-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/babyshower/theme-qrcode-baby-shower-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/babyshower/theme-qrcode-baby-shower-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/babyshower/theme-qrcode-baby-shower-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/babyshower/theme-qrcode-baby-shower-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/babyshower/theme-qrcode-baby-shower-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/babyshower/theme-qrcode-baby-shower-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/babyshower/theme-qrcode-baby-shower-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/babyshower/theme-qrcode-baby-shower-10.jpg"
+				}
+			]
 		},
 		{
 			"keyTranslate": "birthday",
 			"name": "Birthday",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/birthday.jpg",
-			"items": []
+			"items": [
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/birthday/birthday-qrcode-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/birthday/birthday-qrcode-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/birthday/birthday-qrcode-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/birthday/birthday-qrcode-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/birthday/birthday-qrcode-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/birthday/birthday-qrcode-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/birthday/birthday-qrcode-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/birthday/birthday-qrcode-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/birthday/birthday-qrcode-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/birthday/birthday-qrcode-10.jpg"
+				}
+			]
 		},
 		{
 			"keyTranslate": "congratulation",
 			"name": "Congratulation",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/congratulation.jpg",
-			"items": []
+			"items": [
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/congratulation/congratulation-qrcode-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/congratulation/congratulation-qrcode-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/congratulation/congratulation-qrcode-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/congratulation/congratulation-qrcode-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/congratulation/congratulation-qrcode-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/congratulation/congratulation-qrcode-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/congratulation/congratulation-qrcode-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/congratulation/congratulation-qrcode-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/congratulation/congratulation-qrcode-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/congratulation/congratulation-qrcode-10.jpg"
+				}
+			]
 		},
 		{
 			"keyTranslate": "father-day",
 			"name": "Father day",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/father-day.jpg",
-			"items": []
+			"items": [
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/fathersday/theme-qrcode-fathers-day-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/fathersday/theme-qrcode-fathers-day-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/fathersday/theme-qrcode-fathers-day-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/fathersday/theme-qrcode-fathers-day-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/fathersday/theme-qrcode-fathers-day-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/fathersday/theme-qrcode-fathers-day-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/fathersday/theme-qrcode-fathers-day-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/fathersday/theme-qrcode-fathers-day-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/fathersday/theme-qrcode-fathers-day-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/fathersday/theme-qrcode-fathers-day-10.jpg"
+				}
+			]
 		},
 		{
 			"keyTranslate": "graduation",
 			"name": "Graduation",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/graduation.jpg",
 			"items": [
-				  {
+				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-01.jpg"
-				  },
-				  {
+				},
+				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-02.jpg"
-				  },
-				  {
+				},
+				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-03.jpg"
-				  },
-				  {
+				},
+				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-04.jpg"
-				  },
-				  {
+				},
+				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-05.jpg"
-				  },
-				  {
+				},
+				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-06.jpg"
-				  },
-				  {
+				},
+				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-07.jpg"
-				  },
-				  {
+				},
+				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-08.jpg"
-				  },
-				  {
+				},
+				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-09.jpg"
-				  },
-				  {
+				},
+				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/graduation/graduation-qrcode-10.jpg"
-				  }
+				}
 			]
 		},
 		{
@@ -108,6 +259,36 @@
 				},
 				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/holiday/Theme.QRCODE.H.Giang.Sinh/theme-qrcode-hgiang-sinh-2-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/lunar/theme-qrcode-lunar-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/lunar/theme-qrcode-lunar-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/lunar/theme-qrcode-lunar-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/lunar/theme-qrcode-lunar-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/lunar/theme-qrcode-lunar-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/lunar/theme-qrcode-lunar-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/lunar/theme-qrcode-lunar-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/lunar/theme-qrcode-lunar-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/lunar/theme-qrcode-lunar-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/lunar/theme-qrcode-lunar-10.jpg"
 				}
 			]
 		},
@@ -115,13 +296,75 @@
 			"keyTranslate": "mother-day",
 			"name": "Mother day",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/mother-day.jpg",
-			"items": []
+			"items": [
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/mothersday/theme-qrcode-mothers-day-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/mothersday/theme-qrcode-mothers-day-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/mothersday/theme-qrcode-mothers-day-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/mothersday/theme-qrcode-mothers-day-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/mothersday/theme-qrcode-mothers-day-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/mothersday/theme-qrcode-mothers-day-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/mothersday/theme-qrcode-mothers-day-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/mothersday/theme-qrcode-mothers-day-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/mothersday/theme-qrcode-mothers-day-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/mothersday/theme-qrcode-mothers-day-10.jpg"
+				}
+			]
 		},
 		{
 			"keyTranslate": "thank-you",
 			"name": "Thankyou",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/thank-you.jpg",
-			"items": []
+			"items": [
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thankyou/thank-you-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thankyou/thank-you-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thankyou/thank-you-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thankyou/thank-you-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thankyou/thank-you-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thankyou/thank-you-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thankyou/thank-you-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thankyou/thank-you-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thankyou/thank-you-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thankyou/thank-you-10.jpg"
+				}
+			]
 		},
 		{
 			"keyTranslate": "thinking-of-you",
@@ -133,13 +376,78 @@
 			"keyTranslate": "valentine",
 			"name": "Valentine",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/valentine.jpg",
-			"items": []
+			"items": [
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/valentine/theme-qrcode-valentine-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/valentine/theme-qrcode-valentine-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/valentine/theme-qrcode-valentine-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/valentine/theme-qrcode-valentine-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/valentine/theme-qrcode-valentine-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/valentine/theme-qrcode-valentine-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/valentine/theme-qrcode-valentine-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/valentine/theme-qrcode-valentine-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/valentine/theme-qrcode-valentine-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/valentine/theme-qrcode-valentine-10.jpg"
+				}
+			]
 		},
 		{
 			"keyTranslate": "wedding",
 			"name": "Wedding",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/wedding.jpg",
-			"items": []
+			"items": [
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/wedding/wedding-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/wedding/wedding-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/wedding/wedding-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/wedding/wedding-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/wedding/wedding-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/wedding/wedding-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/wedding/wedding-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/wedding/wedding-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/wedding/wedding-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/wedding/wedding-10.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/wedding/wedding-11.jpg"
+				}
+			]
 		}
 	]
 }
