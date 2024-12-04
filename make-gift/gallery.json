@@ -370,7 +370,38 @@
 			"keyTranslate": "thinking-of-you",
 			"name": "Thinking of you",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/thinking-of-you.jpg",
-			"items": []
+			"items": [
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thingking/thingking-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thingking/thingking-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thingking/thingking-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thingking/thingking-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thingking/thingking-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thingking/thingking-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thingking/thingking-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thingking/thingking-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thingking/thingking-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/thingking/thingking-10.jpg"
+				}
+			]
 		},
 		{
 			"keyTranslate": "valentine",
