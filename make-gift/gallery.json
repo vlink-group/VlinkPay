@@ -1,6 +1,92 @@
 {
 	"cardItemStorage": [
 		{
+			"keyTranslate": "crypto",
+			"name": "Crypto",
+			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/crypto.jpg",
+			"items": [
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/crypto/crypto-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/crypto/crypto-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/crypto/crypto-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/crypto/crypto-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/crypto/crypto-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/crypto/crypto-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/crypto/crypto-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/crypto/crypto-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/crypto/crypto-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/crypto/crypto-10.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/crypto/crypto-11.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/crypto/crypto-12.jpg"
+				}
+			]
+		},
+		{
+			"keyTranslate": "entertainment",
+			"name": "Entertainment",
+			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/entertainment.jpg",
+			"items": [
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/entertainment/enter-01.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/entertainment/enter-02.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/entertainment/enter-03.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/entertainment/enter-04.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/entertainment/enter-05.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/entertainment/enter-06.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/entertainment/enter-07.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/entertainment/enter-08.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/entertainment/enter-09.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/entertainment/enter-10.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/entertainment/enter-11.jpg"
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/make-gift/images/entertainment/enter-12.jpg"
+				}
+			]
+		},
+		{
 			"keyTranslate": "anniversary",
 			"name": "Anniversary",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/anniversary.jpg",
