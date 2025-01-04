@@ -2820,7 +2820,6 @@
 				}
 			],
 			"qrCodeItems": []
-
 		},
 		{
 			"keyTranslate": "congratulation",
@@ -3692,7 +3691,6 @@
 				}
 			],
 			"qrCodeItems": []
-
 		},
 		{
 			"keyTranslate": "father-day",
@@ -4420,7 +4418,6 @@
 				}
 			],
 			"qrCodeItems": []
-
 		},
 		{
 			"keyTranslate": "graduation",
@@ -5292,12 +5289,371 @@
 				}
 			],
 			"qrCodeItems": []
-
 		},
 		{
 			"keyTranslate": "holiday",
 			"wallpaper": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/wallpapers/holiday.jpg",
 			"items": [
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-01.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-02.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-03.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-04.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-05.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-06.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-07.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-08.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-09.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-10.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-11.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-12.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-13.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-14.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-15.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-16.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-17.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-18.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-19.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
+				{
+					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/user-buy-gift/holiday/lunar-lan-2/lunar-lan-2-20.jpg",
+					"imageConfig": {
+						"percentX": 1180,
+						"percentY": 660,
+						"valueX": 140,
+						"valueY": 660,
+						"logoX": 1180,
+						"logoY": 30,
+						"logoWidth": 140,
+						"logoHeight": 140,
+						"valueColor": "#0000FF",
+						"percentColor": "#0000FF",
+						"percentNameX": 830,
+						"percentNameY": 660,
+						"percentNameColor": "#0000FF"
+					}
+				},
 				{
 					"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/user-buy-gift/holiday/Lunar/Lunar-02.jpg",
 					"imageConfig": {
@@ -8342,7 +8698,6 @@
 				}
 			],
 			"qrCodeItems": []
-
 		},
 		{
 			"keyTranslate": "mother-day",
@@ -9070,7 +9425,6 @@
 				}
 			],
 			"qrCodeItems": []
-
 		},
 		{
 			"keyTranslate": "thank-you",
@@ -10356,7 +10710,6 @@
 				}
 			],
 			"qrCodeItems": []
-
 		},
 		{
 			"keyTranslate": "thinking-of-you",
@@ -11228,7 +11581,6 @@
 				}
 			],
 			"qrCodeItems": []
-
 		},
 		{
 			"keyTranslate": "valentine",
@@ -12172,7 +12524,6 @@
 				}
 			],
 			"qrCodeItems": []
-
 		},
 		{
 			"keyTranslate": "wedding",
