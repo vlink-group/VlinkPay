@@ -8227,6 +8227,366 @@
 				"percentNameY": 660,
 				"percentNameColor": "#ffffff"
 			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/1/Real-Estate-02.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#000000",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/1/Real-Estate-04.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#000000",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/1/Real-Estate-08.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#000000",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/1/Real-Estate-10.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#000000",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/1/Real-Estate-14.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#000000",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/1/Real-Estate-30.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#000000",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/1/Real-Estate-32.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#000000",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/1/Real-Estate-34.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#000000",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/1/Real-Estate-36.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#000000",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/1/Real-Estate-38.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#000000",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/1/Real-Estate-40.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#000000",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/Real-Estate-16.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#63527D",
+				"percentColor": "#63527D",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#63527D"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate//Real-Estate-20.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#492D22",
+				"percentColor": "#492D22",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#492D22"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/Real-Estate-22.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/Real-Estate-24.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/Real-Estate-26.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/Real-Estate-28.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#172C23",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#172C23"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/Real-Estate-06.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/Real-Estate-12.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
+		},
+		{
+			"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/sell-EGift/Cards-v2/Vouchers/Real-Estate/Real-Estate-18.jpg",
+			"imageConfig": {
+				"percentX": 1150,
+				"percentY": 660,
+				"valueX": 140,
+				"valueY": 670,
+				"logoX": 80,
+				"logoY": 50,
+				"logoWidth": 140,
+				"logoHeight": 140,
+				"valueColor": "#ffffff",
+				"percentColor": "#ffffff",
+				"percentNameX": 770,
+				"percentNameY": 660,
+				"percentNameColor": "#ffffff"
+			}
 		}
 	]
 }
