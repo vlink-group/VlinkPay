@@ -1,22 +1,22 @@
 [
 	{
-		"image": "",
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/1Banner.png",
 		"navigateTo": "giftHub/voucher"
 	},
 	{
-		"image": "",
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/2Banner.png",
 		"navigateTo": "giftHub/voucher"
 	},
 	{
-		"image": "",
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/3Banner.png",
 		"navigateTo": "giftHub/voucher"
 	},
 	{
-		"image": "",
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/4Banner.png",
 		"navigateTo": "giftHub/voucher"
 	},
 	{
-		"image": "",
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/5Banner.png",
 		"navigateTo": "giftHub/voucher"
 	}
 ]
