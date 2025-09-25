@@ -5,11 +5,11 @@
 	},
 	{
 		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/2Banner.png",
-		"navigateTo": "buy-gift-card?id=1"
+		"navigateTo": "buy-egift?id=1"
 	},
 	{
 		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/3Banner.png",
-		"navigateTo": "buy-gift-card?id=155"
+		"navigateTo": "buy-egift?id=155"
 	},
 	{
 		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/4Banner.png",
