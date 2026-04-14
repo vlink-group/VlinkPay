@@ -1,0 +1,164 @@
+{
+  "categoryData": [
+    {
+      "title": "Introduction",
+      "icon": "bi-journal-text",
+      "links": [
+        {
+          "title": "Overview of VLINKPAY",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide"
+        },
+        {
+          "title": "Privacy Policy",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide"
+        }
+      ]
+    },
+    {
+      "title": "Account",
+      "icon": "bi-person-check",
+      "links": [
+        {
+          "title": "KYC/KYB account",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/account/kyc-kyb-account"
+        },
+        {
+          "title": "Link KYC/KYB",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/account/link-kyc-kyb"
+        }
+      ]
+    },
+    {
+      "title": "Wallet Hub",
+      "icon": "bi-wallet2",
+      "links": [
+        {
+          "title": "My Wallet",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/wallet-hub/my-wallet"
+        },
+        {
+          "title": "Token Hub",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/wallet-hub/token-hub"
+        }
+      ]
+    },
+    {
+      "title": "Program Hub",
+      "icon": "bi-diagram-3",
+      "links": [
+        {
+          "title": "Franchise License",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/program-hub/franchise-license"
+        },
+        {
+          "title": "I Owe You",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/program-hub/i-owe-you"
+        },
+        {
+          "title": "BTC Collateral",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/program-hub/btc-collateral"
+        }
+      ]
+    },
+    {
+      "title": "P2P Cash Hub",
+      "icon": "bi-cash-stack",
+      "links": [
+        {
+          "title": "Become ATM Partner",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/p2p-cash-hub/become-atm-partner"
+        },
+        {
+          "title": "Buy gift cash",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/p2p-cash-hub/buy-gift-cash"
+        },
+        {
+          "title": "Sell gift cash",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/p2p-cash-hub/sell-gift-cash"
+        }
+      ]
+    },
+    {
+      "title": "Merchant Hub",
+      "icon": "bi-shop-window",
+      "links": [
+        {
+          "title": "Create Gifts and Vouchers",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/merchant-hub/create-gifts-and-vouchers"
+        },
+        {
+          "title": "Receive Payment Setup",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/merchant-hub/receive-payment-setup"
+        },
+        {
+          "title": "Payment Processing",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/merchant-hub/payment-processing"
+        }
+      ]
+    }
+  ],
+  "faqItems": [
+    {
+      "question": "How do I complete KYC verification?",
+      "answer": "The KYC Now guide states that members are required to complete KYC in order to access some system functions. The guide points users to the left-side menu under the KYC area and then continues with the verification flow from there. In practice, this means KYC should be treated as an account activation step, not just an optional profile update."
+    },
+    {
+      "question": "What is the KYC/KYB account section used for?",
+      "answer": "The KYC/KYB account section is the main account-verification area in the guide. It groups identity and business verification flows, so this is where users should go when they need to review verification requirements, start KYC, or manage account-verification related setup."
+    },
+    {
+      "question": "How does Link KYC/KYB work?",
+      "answer": "The guide separates Link KYC/KYB from the main KYC/KYB account area and also includes dedicated pages such as Approve Link KYC and Approve Link KYB. That structure suggests this section is used when a user needs to connect and approve an existing linked KYC or KYB relationship rather than starting a brand-new verification from scratch."
+    },
+    {
+      "question": "How do I become an ATM Partner?",
+      "answer": "Go to P2P Cash Hub and open Become ATM Partner. Because this page is positioned as a primary item inside P2P Cash Hub, it appears to be the onboarding entry point for users who want to participate in ATM-partner related functions rather than only perform regular end-user actions."
+    },
+    {
+      "question": "How do I buy or sell gift cash?",
+      "answer": "Both Buy gift cash and Sell gift cash are listed under P2P Cash Hub, so they should be treated as dedicated flows with separate guidance. Users should enter the matching page depending on whether they are buying or selling, instead of expecting one combined instruction page for both actions."
+    },
+    {
+      "question": "How do I create gifts and vouchers?",
+      "answer": "Go to Merchant Hub and open Create Gifts and Vouchers. Since this is a dedicated merchant guide entry, it should be the primary reference for setup and usage when a merchant wants to issue or manage gift-related products on the platform."
+    },
+    {
+      "question": "How do I set up payment receiving as a merchant?",
+      "answer": "Go to Merchant Hub and open Receive Payment Setup. This page is positioned separately from Payment Processing, which suggests setup and operational payment flow are documented as two different concerns: one for configuration, and one for how payments work after setup is completed."
+    },
+    {
+      "question": "What is Payment Processing used for?",
+      "answer": "Payment Processing is a dedicated page in Merchant Hub. Based on the guide structure, it is the correct place to learn how merchant payment handling works after configuration, rather than using it as the initial setup page."
+    }
+  ],
+  "issueOptions": [
+    {
+      "label": "Account",
+      "value": "account"
+    },
+    {
+      "label": "Wallet Hub",
+      "value": "wallet-hub"
+    },
+    {
+      "label": "Exchange Hub",
+      "value": "exchange-hub"
+    },
+    {
+      "label": "Program Hub",
+      "value": "program-hub"
+    },
+    {
+      "label": "P2P Cash Hub",
+      "value": "p2p-cash-hub"
+    },
+    {
+      "label": "Merchant Hub",
+      "value": "merchant-hub"
+    },
+    {
+      "label": "Other",
+      "value": "other"
+    }
+  ]
+}

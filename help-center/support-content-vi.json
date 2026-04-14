@@ -1,0 +1,164 @@
+{
+  "categoryData": [
+    {
+      "title": "Giới thiệu",
+      "icon": "bi-journal-text",
+      "links": [
+        {
+          "title": "Tổng quan về VLINKPAY",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide"
+        },
+        {
+          "title": "Chính sách quyền riêng tư",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide"
+        }
+      ]
+    },
+    {
+      "title": "Tài khoản",
+      "icon": "bi-person-check",
+      "links": [
+        {
+          "title": "Tài khoản KYC/KYB",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/account/kyc-kyb-account"
+        },
+        {
+          "title": "Liên kết KYC/KYB",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/account/link-kyc-kyb"
+        }
+      ]
+    },
+    {
+      "title": "Trung tâm Ví",
+      "icon": "bi-wallet2",
+      "links": [
+        {
+          "title": "Ví của tôi",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/wallet-hub/my-wallet"
+        },
+        {
+          "title": "Trung tâm Token",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/wallet-hub/token-hub"
+        }
+      ]
+    },
+    {
+      "title": "Trung tâm Chương trình",
+      "icon": "bi-diagram-3",
+      "links": [
+        {
+          "title": "Giấy phép Nhượng quyền",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/program-hub/franchise-license"
+        },
+        {
+          "title": "I Owe You",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/program-hub/i-owe-you"
+        },
+        {
+          "title": "Tài sản thế chấp BTC",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/program-hub/btc-collateral"
+        }
+      ]
+    },
+    {
+      "title": "Trung tâm Tiền mặt P2P",
+      "icon": "bi-cash-stack",
+      "links": [
+        {
+          "title": "Trở thành Đối tác ATM",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/p2p-cash-hub/become-atm-partner"
+        },
+        {
+          "title": "Mua gift cash",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/p2p-cash-hub/buy-gift-cash"
+        },
+        {
+          "title": "Bán gift cash",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/p2p-cash-hub/sell-gift-cash"
+        }
+      ]
+    },
+    {
+      "title": "Trung tâm Merchant",
+      "icon": "bi-shop-window",
+      "links": [
+        {
+          "title": "Tạo quà tặng và voucher",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/merchant-hub/create-gifts-and-vouchers"
+        },
+        {
+          "title": "Thiết lập nhận thanh toán",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/merchant-hub/receive-payment-setup"
+        },
+        {
+          "title": "Xử lý thanh toán",
+          "url": "https://vlinkpay-llc.gitbook.io/en-user-guide/merchant-hub/payment-processing"
+        }
+      ]
+    }
+  ],
+  "faqItems": [
+    {
+      "question": "Làm thế nào để hoàn tất xác minh KYC?",
+      "answer": "Hướng dẫn KYC Now nêu rõ rằng người dùng bắt buộc phải hoàn tất KYC để có thể truy cập một số chức năng của hệ thống. Hướng dẫn này chỉ người dùng đến menu bên trái trong khu vực KYC và tiếp tục quy trình xác minh từ đó. Trên thực tế, điều này có nghĩa là KYC nên được xem như một bước kích hoạt tài khoản, không chỉ là một cập nhật hồ sơ tùy chọn."
+    },
+    {
+      "question": "Mục Tài khoản KYC/KYB dùng để làm gì?",
+      "answer": "Mục Tài khoản KYC/KYB là khu vực xác minh tài khoản chính trong tài liệu hướng dẫn. Mục này tập hợp các quy trình xác minh danh tính và doanh nghiệp, vì vậy người dùng nên vào đây khi cần xem yêu cầu xác minh, bắt đầu KYC hoặc quản lý các thiết lập liên quan đến xác minh tài khoản."
+    },
+    {
+      "question": "Link KYC/KYB hoạt động như thế nào?",
+      "answer": "Tài liệu hướng dẫn tách riêng Link KYC/KYB khỏi khu vực Tài khoản KYC/KYB chính, đồng thời còn có các trang riêng như Approve Link KYC và Approve Link KYB. Cấu trúc này cho thấy mục này được dùng khi người dùng cần liên kết và phê duyệt một quan hệ KYC hoặc KYB đã tồn tại, thay vì bắt đầu một quy trình xác minh hoàn toàn mới từ đầu."
+    },
+    {
+      "question": "Làm thế nào để trở thành Đối tác ATM?",
+      "answer": "Vào P2P Cash Hub và mở mục Become ATM Partner. Vì trang này được đặt như một mục chính trong P2P Cash Hub, nên đây có vẻ là điểm bắt đầu dành cho những người dùng muốn tham gia các chức năng liên quan đến đối tác ATM, thay vì chỉ sử dụng các chức năng thông thường dành cho end-user."
+    },
+    {
+      "question": "Làm thế nào để mua hoặc bán gift cash?",
+      "answer": "Cả Buy gift cash và Sell gift cash đều được liệt kê trong P2P Cash Hub, vì vậy nên xem đây là hai luồng riêng biệt với hướng dẫn riêng cho từng luồng. Người dùng nên vào đúng trang tương ứng tùy theo họ đang mua hay bán, thay vì kỳ vọng có một trang hướng dẫn chung cho cả hai thao tác."
+    },
+    {
+      "question": "Làm thế nào để tạo quà tặng và voucher?",
+      "answer": "Vào Merchant Hub và mở mục Create Gifts and Vouchers. Vì đây là một mục hướng dẫn riêng dành cho merchant, nên đây sẽ là tài liệu tham chiếu chính cho việc thiết lập và sử dụng khi merchant muốn phát hành hoặc quản lý các sản phẩm quà tặng trên nền tảng."
+    },
+    {
+      "question": "Làm thế nào để thiết lập nhận thanh toán với tư cách merchant?",
+      "answer": "Vào Merchant Hub và mở mục Receive Payment Setup. Trang này được tách riêng khỏi Xử lý thanh toán, điều đó cho thấy phần thiết lập và phần vận hành thanh toán được tài liệu hóa như hai nội dung khác nhau: một phần dành cho cấu hình và một phần dành cho cách thanh toán hoạt động sau khi hoàn tất thiết lập."
+    },
+    {
+      "question": "Xử lý thanh toán được dùng để làm gì?",
+      "answer": "Xử lý thanh toán là một trang riêng trong Merchant Hub. Dựa trên cấu trúc của tài liệu hướng dẫn, đây là nơi phù hợp để tìm hiểu cách merchant xử lý thanh toán sau khi đã cấu hình xong, thay vì dùng nó như trang thiết lập ban đầu."
+    }
+  ],
+  "issueOptions": [
+    {
+      "label": "Tài khoản",
+      "value": "account"
+    },
+    {
+      "label": "Trung tâm Ví",
+      "value": "wallet-hub"
+    },
+    {
+      "label": "Trung tâm Giao dịch",
+      "value": "exchange-hub"
+    },
+    {
+      "label": "Trung tâm Chương trình",
+      "value": "program-hub"
+    },
+    {
+      "label": "Trung tâm Tiền mặt P2P",
+      "value": "p2p-cash-hub"
+    },
+    {
+      "label": "Trung tâm Merchant",
+      "value": "merchant-hub"
+    },
+    {
+      "label": "Khác",
+      "value": "other"
+    }
+  ]
+}
