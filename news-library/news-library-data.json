@@ -193,39 +193,29 @@
   ],
   "upcomingSessions": [
     {
-      "day": "Mon",
-      "date": "14",
-      "time": "08:00 PM EST",
-      "type": "Zoom Webinar",
-      "title": "Compensation Plan Overview Session",
-      "description": "An overview of the Compensation Plan, PV, BV, and key points for new members.",
+      "day": "Weekly",
+      "date": "Tuesday",
+      "time": "09:00 PM (Texas Time)",
+      "type": "Zoom Opportunity Presentation",
+      "title": "📣 LIVE ZOOM OPP – EARN WITH VLINKPAY 📣",
+      "description": "Join our live opportunity presentation to discover how to grow your income with VLINKPAY.",
       "primaryAction": "Join Zoom",
-      "secondaryAction": "Details"
+      "secondaryAction": "Details",
+      "link": "https://zoom.us/j/99961435338?pwd=sZ3uumKahhNrqhkpkxPF7pCiEDTQy2.1",
+      "htmlContent": ""
     },
     {
-      "day": "Wed",
-      "date": "16",
-      "time": "09:00 PM EST",
+      "day": "Weekly",
+      "date": "Thursday",
+      "time": "09:00 PM (Texas Time)",
       "type": "Live Training",
-      "title": "Member Orientation & Q&A",
-      "description": "A guidance session for members who need to understand the process, tools, and first steps.",
-      "primaryAction": "Register",
-      "secondaryAction": "Agenda"
-    },
-    {
-      "day": "Fri",
-      "date": "18",
-      "time": "07:30 PM EST",
-      "type": "Partner Zoom",
-      "title": "Merchant & ATM Partner Training",
-      "description": "An in-depth training session focused on merchant topics, mobile merchant ATM, and a Q&A at the end.",
+      "title": "MAKE MONEY WITH VLINKPAY",
+      "description": "A live training session introducing the VLINKPAY earning opportunity, including IOU, crypto payments, global P2P, Merchant, and Mobile ATM.",
       "primaryAction": "Join Zoom",
-      "secondaryAction": "Details"
+      "secondaryAction": "Details",
+      "link": "https://zoom.us/j/99961435338?pwd=sZ3uumKahhNrqhkpkxPF7pCiEDTQy2.1",
+      "htmlContent": ""
     }
   ],
-  "recentSessions": [
-    "Weekly Compensation Q&A",
-    "Member Onboarding Session",
-    "Merchant Partner Zoom Training"
-  ]
+  "recentSessions": []
 }
