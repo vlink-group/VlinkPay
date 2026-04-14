@@ -1,0 +1,231 @@
+{
+  "featuredVideos": [
+    {
+      "url": "https://www.youtube.com/watch?v=N3DhFh90eG4",
+      "image": "https://i.ytimg.com/vi/N3DhFh90eG4/hqdefault.jpg",
+      "alt": "CryptoMap360: A Map to Find Places That Accept Crypto Payments",
+      "badge": "FEATURED",
+      "duration": "4:38",
+      "timeAgo": "3 months ago",
+      "views": "60 views",
+      "title": "CryptoMap360: A Map to Find Places That Accept Crypto Payments",
+      "description": "Welcome to CryptoMap360, a map that helps you quickly and visually find places that accept crypto payments."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=1y-voVaCRrI",
+      "image": "https://i.ytimg.com/vi/1y-voVaCRrI/hqdefault.jpg",
+      "alt": "CryptoMap360.com",
+      "badge": "LATEST",
+      "duration": "5:16",
+      "timeAgo": "3 months ago",
+      "views": "103 views",
+      "title": "CryptoMap360.com",
+      "description": "A video introducing the CryptoMap360 directory map, helping users find places that accept crypto payments in real life and helping merchants be found easier."
+    }
+  ],
+  "channelVideos": [
+    {
+      "url": "https://www.youtube.com/watch?v=UiXE6MHRDZg",
+      "image": "https://i.ytimg.com/vi/UiXE6MHRDZg/hqdefault.jpg",
+      "alt": "Bitcoin Nail Bar",
+      "duration": "6:07",
+      "timeAgo": "3 months ago",
+      "views": "46 views",
+      "title": "Bitcoin Nail Bar",
+      "description": "An introduction to a salon model that accepts crypto payments, currently featured on the channel.",
+      "isExtra": false
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=EhFv5mTWuQw",
+      "image": "https://i.ytimg.com/vi/EhFv5mTWuQw/hqdefault.jpg",
+      "alt": "VLINKPAY Korean Mobile Merchant ATM",
+      "duration": "5:52",
+      "timeAgo": "3 months ago",
+      "views": "43 views",
+      "title": "VLINKPAY Partner Opportunity In Korean",
+      "description": "An introduction to the Mobile Merchant ATM model and the P2P cash-to-crypto network for Korean partners.",
+      "isExtra": false
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=zOtGaFmg-Eo",
+      "image": "https://i.ytimg.com/vi/zOtGaFmg-Eo/hqdefault.jpg",
+      "alt": "P2P Exchange Cash to Crypto",
+      "duration": "6:26",
+      "timeAgo": "3 months ago",
+      "views": "20 views",
+      "title": "P2P Exchange Cash ↔ Crypto | Mobile Merchant ATM",
+      "description": "An English video explaining the P2P Exchange model combined with Mobile Merchant ATM for cash, crypto, and gift cards.",
+      "isExtra": false
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=wNJ3RUjsnrw",
+      "image": "https://i.ytimg.com/vi/wNJ3RUjsnrw/hqdefault.jpg",
+      "alt": "Merchant and Mobile Merchant ATM",
+      "duration": "5:44",
+      "timeAgo": "3 months ago",
+      "views": "4 views",
+      "title": "La diferencia entre un Merchant y un Mobile Merchant ATM",
+      "description": "A Spanish version that clearly explains the difference between a fixed-location Merchant and a Mobile Merchant ATM.",
+      "isExtra": false
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Tb1uhh7-t7Q",
+      "image": "https://i.ytimg.com/vi/Tb1uhh7-t7Q/hqdefault.jpg",
+      "alt": "P2P Exchange la gi",
+      "duration": "5:35",
+      "timeAgo": "3 months ago",
+      "views": "13 views",
+      "title": "What Is P2P Exchange? Buy/Sell Crypto with Cash Through a Mobile Merchant ATM",
+      "description": "A Vietnamese version that clearly explains the P2P Exchange model and how cash-to-crypto transactions work.",
+      "isExtra": true
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=uDz1XfU7pZs",
+      "image": "https://i.ytimg.com/vi/uDz1XfU7pZs/hqdefault.jpg",
+      "alt": "Bi Mat Doanh Thu On Dinh",
+      "duration": "4:52",
+      "timeAgo": "3 months ago",
+      "views": "15 views",
+      "title": "The Secret Behind Stable Revenue That Most People Overlook",
+      "description": "A video about prepaid revenue and how gift cards help businesses generate revenue before providing services.",
+      "isExtra": true
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=cbOnP7rlHNo",
+      "image": "https://i.ytimg.com/vi/cbOnP7rlHNo/hqdefault.jpg",
+      "alt": "VLINKPAY Gift Card",
+      "duration": "5:20",
+      "timeAgo": "3 months ago",
+      "views": "32 views",
+      "title": "VLINKPAY Gift Card | Secure, Flexible & Easy Digital Gift Card Solution",
+      "description": "Giới thiệu giải pháp gift card số với trải nghiệm thanh toán linh hoạt và thuận tiện hơn cho người dùng.",
+      "isExtra": true
+    }
+  ],
+  "planTopics": [
+    {
+      "url": "https://www.youtube.com/watch?v=-9NqPtuWVL8",
+      "icon": "fa-sitemap",
+      "title": "6 Global Income Streams",
+      "description": "A video explaining the overall Compensation Plan, Franchise License, PV, BV, and the six income streams."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=4-B0qVrzE_Y",
+      "icon": "fa-chart-line",
+      "title": "PV & BV Breakdown",
+      "description": "An explanation of how PV, BV, Unilevel, and Binary work in the VLINKPAY system."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=wp_B3q5JYGA",
+      "icon": "fa-people-arrows",
+      "title": "IOU & Binary Policy",
+      "description": "A Vietnamese video covering the IOU compensation policy and sustainable team development."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=2j5-VjScsFk",
+      "icon": "fa-wallet",
+      "title": "Passive Income Intro",
+      "description": "A short video summarizing Franchise License, Direct Bonus 20%, PV, and BV in 5 minutes."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dgMx9Jp0DPs",
+      "icon": "fa-diagram-project",
+      "title": "Binary Team Development",
+      "description": "Extended content on how the Binary system works and how the reward policy aligns with real contributions."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=G5f_ERpwGaY",
+      "icon": "fa-coins",
+      "title": "Passive Income Structure",
+      "description": "A deeper explanation of Franchise License, PV, BV, and the compensation structure within the system."
+    }
+  ],
+  "morePlanVideos": [
+    {
+      "url": "https://www.youtube.com/watch?v=abJMQMCDq-s",
+      "title": "VLINKPAY – Passive Income for Those Seeking Financial Freedom",
+      "meta": "YouTube Video • 1:44 • 57 views"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=b5RKUsPDKng",
+      "title": "IOU Reward Policy and Binary Model",
+      "meta": "YouTube Video • 6:59 • 9 views"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dgMx9Jp0DPs",
+      "title": "IOU Reward Policy & Binary Team Development",
+      "meta": "YouTube Video • 7:58 • 16 views"
+    }
+  ],
+  "featuredContent": {
+    "url": "https://www.youtube.com/watch?v=efLkAhXheV8",
+    "image": "https://i.ytimg.com/vi/efLkAhXheV8/hqdefault.jpg",
+    "title": "VLINKPAY – Unlocking Upfront Revenue and Driving Global Growth",
+    "description": "A short overview video introducing the ecosystem, cash flow model, and VLINKPAY’s global growth direction.",
+    "duration": "2:29",
+    "views": "35 views"
+  },
+  "solutionPresentations": [
+    {
+      "url": "https://www.youtube.com/watch?v=cbOnP7rlHNo",
+      "title": "VLINKPAY Gift Card | Secure, Flexible & Easy Digital Gift Card Solution",
+      "meta": "YouTube Video • 5:20 • 32 views"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rhcIdcfnDxg",
+      "title": "Bridging Cash and Crypto | VLINKPAY P2P Exchange for Merchant & Mobile ATM",
+      "meta": "YouTube Video • 6:22 • 37 views"
+    }
+  ],
+  "trainingVideos": [
+    {
+      "url": "https://www.youtube.com/watch?v=Tb1uhh7-t7Q",
+      "image": "https://i.ytimg.com/vi/Tb1uhh7-t7Q/hqdefault.jpg",
+      "title": "What Is P2P Exchange? Buy/Sell Crypto with Cash Through a Mobile Merchant ATM",
+      "meta": "Video Guide • 5:35"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=C8pRpnWFt9Y",
+      "image": "https://i.ytimg.com/vi/C8pRpnWFt9Y/hqdefault.jpg",
+      "title": "Prepaid Revenue Through Gift Cards",
+      "meta": "Video Guide • 5:42"
+    }
+  ],
+  "upcomingSessions": [
+    {
+      "day": "Mon",
+      "date": "14",
+      "time": "08:00 PM EST",
+      "type": "Zoom Webinar",
+      "title": "Compensation Plan Overview Session",
+      "description": "An overview of the Compensation Plan, PV, BV, and key points for new members.",
+      "primaryAction": "Join Zoom",
+      "secondaryAction": "Details"
+    },
+    {
+      "day": "Wed",
+      "date": "16",
+      "time": "09:00 PM EST",
+      "type": "Live Training",
+      "title": "Member Orientation & Q&A",
+      "description": "A guidance session for members who need to understand the process, tools, and first steps.",
+      "primaryAction": "Register",
+      "secondaryAction": "Agenda"
+    },
+    {
+      "day": "Fri",
+      "date": "18",
+      "time": "07:30 PM EST",
+      "type": "Partner Zoom",
+      "title": "Merchant & ATM Partner Training",
+      "description": "An in-depth training session focused on merchant topics, mobile merchant ATM, and a Q&A at the end.",
+      "primaryAction": "Join Zoom",
+      "secondaryAction": "Details"
+    }
+  ],
+  "recentSessions": [
+    "Weekly Compensation Q&A",
+    "Member Onboarding Session",
+    "Merchant Partner Zoom Training"
+  ]
+}

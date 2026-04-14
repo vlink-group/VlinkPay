@@ -1,0 +1,231 @@
+{
+  "featuredVideos": [
+    {
+      "url": "https://www.youtube.com/watch?v=N3DhFh90eG4",
+      "image": "https://i.ytimg.com/vi/N3DhFh90eG4/hqdefault.jpg",
+      "alt": "CryptoMap360: Bản đồ tìm các địa điểm chấp nhận thanh toán bằng crypto",
+      "badge": "NỔI BẬT",
+      "duration": "4:38",
+      "timeAgo": "3 tháng trước",
+      "views": "60 lượt xem",
+      "title": "CryptoMap360: Bản đồ tìm các địa điểm chấp nhận thanh toán bằng crypto",
+      "description": "Chào mừng đến với CryptoMap360, bản đồ giúp bạn nhanh chóng và trực quan tìm các địa điểm chấp nhận thanh toán bằng crypto."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=1y-voVaCRrI",
+      "image": "https://i.ytimg.com/vi/1y-voVaCRrI/hqdefault.jpg",
+      "alt": "CryptoMap360.com",
+      "badge": "MỚI NHẤT",
+      "duration": "5:16",
+      "timeAgo": "3 tháng trước",
+      "views": "103 lượt xem",
+      "title": "CryptoMap360.com",
+      "description": "Video giới thiệu bản đồ thư mục CryptoMap360, giúp người dùng tìm các địa điểm chấp nhận thanh toán bằng crypto trong thực tế và giúp merchant dễ được tìm thấy hơn."
+    }
+  ],
+  "channelVideos": [
+    {
+      "url": "https://www.youtube.com/watch?v=UiXE6MHRDZg",
+      "image": "https://i.ytimg.com/vi/UiXE6MHRDZg/hqdefault.jpg",
+      "alt": "Bitcoin Nail Bar",
+      "duration": "6:07",
+      "timeAgo": "3 tháng trước",
+      "views": "46 lượt xem",
+      "title": "Bitcoin Nail Bar",
+      "description": "Giới thiệu mô hình salon chấp nhận thanh toán bằng crypto, hiện đang được giới thiệu trên kênh.",
+      "isExtra": false
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=EhFv5mTWuQw",
+      "image": "https://i.ytimg.com/vi/EhFv5mTWuQw/hqdefault.jpg",
+      "alt": "VLINKPAY Korean Mobile Merchant ATM",
+      "duration": "5:52",
+      "timeAgo": "3 tháng trước",
+      "views": "43 lượt xem",
+      "title": "Cơ hội đối tác VLINKPAY bằng tiếng Hàn",
+      "description": "Giới thiệu mô hình Mobile Merchant ATM và mạng lưới P2P tiền mặt sang crypto dành cho đối tác Hàn Quốc.",
+      "isExtra": false
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=zOtGaFmg-Eo",
+      "image": "https://i.ytimg.com/vi/zOtGaFmg-Eo/hqdefault.jpg",
+      "alt": "P2P Exchange Cash to Crypto",
+      "duration": "6:26",
+      "timeAgo": "3 tháng trước",
+      "views": "20 lượt xem",
+      "title": "P2P Exchange tiền mặt ↔ Crypto | Mobile Merchant ATM",
+      "description": "Video tiếng Anh giải thích mô hình P2P Exchange kết hợp Mobile Merchant ATM cho tiền mặt, crypto và gift card.",
+      "isExtra": false
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=wNJ3RUjsnrw",
+      "image": "https://i.ytimg.com/vi/wNJ3RUjsnrw/hqdefault.jpg",
+      "alt": "Merchant and Mobile Merchant ATM",
+      "duration": "5:44",
+      "timeAgo": "3 tháng trước",
+      "views": "4 lượt xem",
+      "title": "Sự khác biệt giữa Merchant và Mobile Merchant ATM",
+      "description": "Phiên bản tiếng Tây Ban Nha giải thích rõ sự khác nhau giữa Merchant tại địa điểm cố định và Mobile Merchant ATM.",
+      "isExtra": false
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Tb1uhh7-t7Q",
+      "image": "https://i.ytimg.com/vi/Tb1uhh7-t7Q/hqdefault.jpg",
+      "alt": "P2P Exchange là gì",
+      "duration": "5:35",
+      "timeAgo": "3 tháng trước",
+      "views": "13 lượt xem",
+      "title": "P2P Exchange là gì? Mua/Bán crypto bằng tiền mặt qua Mobile Merchant ATM",
+      "description": "Phiên bản tiếng Việt giải thích rõ mô hình P2P Exchange và cách giao dịch tiền mặt sang crypto hoạt động.",
+      "isExtra": true
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=uDz1XfU7pZs",
+      "image": "https://i.ytimg.com/vi/uDz1XfU7pZs/hqdefault.jpg",
+      "alt": "Bí mật doanh thu ổn định",
+      "duration": "4:52",
+      "timeAgo": "3 tháng trước",
+      "views": "15 lượt xem",
+      "title": "Bí mật phía sau nguồn doanh thu ổn định mà nhiều người bỏ qua",
+      "description": "Video nói về doanh thu trả trước và cách gift card giúp doanh nghiệp tạo doanh thu trước khi cung cấp dịch vụ.",
+      "isExtra": true
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=cbOnP7rlHNo",
+      "image": "https://i.ytimg.com/vi/cbOnP7rlHNo/hqdefault.jpg",
+      "alt": "VLINKPAY Gift Card",
+      "duration": "5:20",
+      "timeAgo": "3 tháng trước",
+      "views": "32 lượt xem",
+      "title": "VLINKPAY Gift Card | Giải pháp gift card số an toàn, linh hoạt và dễ dùng",
+      "description": "Giới thiệu giải pháp gift card số với trải nghiệm thanh toán linh hoạt và thuận tiện hơn cho người dùng.",
+      "isExtra": true
+    }
+  ],
+  "planTopics": [
+    {
+      "url": "https://www.youtube.com/watch?v=-9NqPtuWVL8",
+      "icon": "fa-sitemap",
+      "title": "6 dòng thu nhập toàn cầu",
+      "description": "Video giải thích tổng quan Compensation Plan, Franchise License, PV, BV và 6 dòng thu nhập."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=4-B0qVrzE_Y",
+      "icon": "fa-chart-line",
+      "title": "Phân tích PV & BV",
+      "description": "Giải thích cách PV, BV, Unilevel và Binary hoạt động trong hệ thống VLINKPAY."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=wp_B3q5JYGA",
+      "icon": "fa-people-arrows",
+      "title": "Chính sách IOU & Binary",
+      "description": "Video tiếng Việt về chính sách trả thưởng IOU và phát triển đội nhóm bền vững."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=2j5-VjScsFk",
+      "icon": "fa-wallet",
+      "title": "Giới thiệu thu nhập thụ động",
+      "description": "Video ngắn tóm tắt Franchise License, Direct Bonus 20%, PV và BV trong 5 phút."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dgMx9Jp0DPs",
+      "icon": "fa-diagram-project",
+      "title": "Phát triển đội nhóm Binary",
+      "description": "Nội dung mở rộng về cách hệ thống Binary vận hành và cách chính sách thưởng gắn với đóng góp thực tế."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=G5f_ERpwGaY",
+      "icon": "fa-coins",
+      "title": "Cấu trúc thu nhập thụ động",
+      "description": "Giải thích sâu hơn về Franchise License, PV, BV và cấu trúc trả thưởng trong hệ thống."
+    }
+  ],
+  "morePlanVideos": [
+    {
+      "url": "https://www.youtube.com/watch?v=abJMQMCDq-s",
+      "title": "VLINKPAY – Thu nhập thụ động cho những ai tìm kiếm tự do tài chính",
+      "meta": "Video YouTube • 1:44 • 57 lượt xem"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=b5RKUsPDKng",
+      "title": "Chính sách trả thưởng IOU và mô hình Binary",
+      "meta": "Video YouTube • 6:59 • 9 lượt xem"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dgMx9Jp0DPs",
+      "title": "Chính sách trả thưởng IOU & phát triển đội nhóm Binary",
+      "meta": "Video YouTube • 7:58 • 16 lượt xem"
+    }
+  ],
+  "featuredContent": {
+    "url": "https://www.youtube.com/watch?v=efLkAhXheV8",
+    "image": "https://i.ytimg.com/vi/efLkAhXheV8/hqdefault.jpg",
+    "title": "VLINKPAY – Mở khóa doanh thu trả trước và thúc đẩy tăng trưởng toàn cầu",
+    "description": "Video tổng quan ngắn giới thiệu hệ sinh thái, mô hình dòng tiền và định hướng tăng trưởng toàn cầu của VLINKPAY.",
+    "duration": "2:29",
+    "views": "35 lượt xem"
+  },
+  "solutionPresentations": [
+    {
+      "url": "https://www.youtube.com/watch?v=cbOnP7rlHNo",
+      "title": "VLINKPAY Gift Card | Giải pháp gift card số an toàn, linh hoạt và dễ dùng",
+      "meta": "Video YouTube • 5:20 • 32 lượt xem"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rhcIdcfnDxg",
+      "title": "Kết nối tiền mặt và crypto | VLINKPAY P2P Exchange cho Merchant & Mobile ATM",
+      "meta": "Video YouTube • 6:22 • 37 lượt xem"
+    }
+  ],
+  "trainingVideos": [
+    {
+      "url": "https://www.youtube.com/watch?v=Tb1uhh7-t7Q",
+      "image": "https://i.ytimg.com/vi/Tb1uhh7-t7Q/hqdefault.jpg",
+      "title": "P2P Exchange là gì? Mua/Bán crypto bằng tiền mặt qua Mobile Merchant ATM",
+      "meta": "Video hướng dẫn • 5:35"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=C8pRpnWFt9Y",
+      "image": "https://i.ytimg.com/vi/C8pRpnWFt9Y/hqdefault.jpg",
+      "title": "Doanh thu trả trước thông qua gift card",
+      "meta": "Video hướng dẫn • 5:42"
+    }
+  ],
+  "upcomingSessions": [
+    {
+      "day": "Thứ 2",
+      "date": "14",
+      "time": "08:00 PM EST",
+      "type": "Zoom Webinar",
+      "title": "Buổi tổng quan Compensation Plan",
+      "description": "Tổng quan về Compensation Plan, PV, BV và các điểm chính dành cho thành viên mới.",
+      "primaryAction": "Tham gia Zoom",
+      "secondaryAction": "Chi tiết"
+    },
+    {
+      "day": "Thứ 4",
+      "date": "16",
+      "time": "09:00 PM EST",
+      "type": "Đào tạo trực tiếp",
+      "title": "Định hướng thành viên & Hỏi đáp",
+      "description": "Buổi hướng dẫn cho thành viên cần hiểu quy trình, công cụ và các bước bắt đầu.",
+      "primaryAction": "Đăng ký",
+      "secondaryAction": "Nội dung"
+    },
+    {
+      "day": "Thứ 6",
+      "date": "18",
+      "time": "07:30 PM EST",
+      "type": "Partner Zoom",
+      "title": "Đào tạo đối tác Merchant & ATM",
+      "description": "Buổi đào tạo chuyên sâu tập trung vào nội dung merchant, mobile merchant ATM và phần hỏi đáp cuối buổi.",
+      "primaryAction": "Tham gia Zoom",
+      "secondaryAction": "Chi tiết"
+    }
+  ],
+  "recentSessions": [
+    "Hỏi đáp Compensation hàng tuần",
+    "Buổi onboarding thành viên",
+    "Buổi đào tạo Zoom cho đối tác Merchant"
+  ]
+}
