@@ -191,25 +191,49 @@
       "day": "Weekly",
       "date": "Tuesday",
       "time": "09:00 PM (Texas Time)",
-      "type": "Zoom Opportunity Presentation",
-      "title": "📣 LIVE ZOOM OPP – EARN WITH VLINKPAY 📣",
-      "description": "Join our live opportunity presentation to discover how to grow your income with VLINKPAY.",
+      "type": "Online Training",
+      "title": "ONLINE TRAINING – MAKE MONEY WITH VLINKPAY",
+      "description": "We warmly invite you to join VLINKPAY's online training session to improve your invitation skills, support new members, and build long-term customer relationships.",
       "primaryAction": "Join Zoom",
-      "secondaryAction": "Details",
+      "secondaryAction": "View Details",
       "link": "https://zoom.us/j/99961435338?pwd=sZ3uumKahhNrqhkpkxPF7pCiEDTQy2.1",
-      "htmlContent": "<div class=\"p-3 p-md-4\"><div class=\"mb-3\"><div class=\"badge text-bg-warning text-dark px-3 py-2 rounded-pill mb-3\">LIVE ZOOM EVENT</div><h3 class=\"fw-bold mb-3 text-warning-emphasis\">📣 LIVE ZOOM OPP – EARN WITH VLINKPAY 📣</h3><p class=\"mb-0 text-body-secondary\">We warmly invite you to join our opportunity presentation and discover how to grow your income with VLINKPAY.</p></div><div class=\"mb-4\"><h5 class=\"fw-bold mb-3\">🎯 Main Topics</h5><div class=\"list-group\"><div class=\"list-group-item\">✅ Real system – Real income – Real opportunity</div><div class=\"list-group-item\">✅ Opportunity with IOU</div><div class=\"list-group-item\">✅ Crypto &amp; Payments</div><div class=\"list-group-item\">✅ Global P2P</div><div class=\"list-group-item\">✅ Merchant &amp; Mobile ATM</div></div></div><div class=\"mb-4\"><h5 class=\"fw-bold mb-3\">🌟 Featured Speakers</h5><div class=\"list-group\"><div class=\"list-group-item\">• Mr. Brian Nguyen – President, Founder &amp; CEO of VLINKPAY</div><div class=\"list-group-item\">• Mr. Kevin Le – Speaker</div><div class=\"list-group-item\">• Ms. Ly Nguyen – Host</div></div></div><div class=\"mb-4\"><h5 class=\"fw-bold mb-3\">⏰ Schedule</h5><div class=\"list-group\"><div class=\"list-group-item\"><strong>09:00 PM (Texas)</strong> – Every Tuesday</div><div class=\"list-group-item\"><strong>09:00 AM (Vietnam)</strong> – Every Wednesday</div></div></div><div class=\"mb-4\"><h5 class=\"fw-bold mb-3\">🌐 Zoom Link</h5><div class=\"border rounded p-3 bg-light\"><a href=\"https://zoom.us/j/99961435338?pwd=sZ3uumKahhNrqhkpkxPF7pCiEDTQy2.1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"fw-semibold d-inline-block mb-3 text-break\">https://zoom.us/j/99961435338?pwd=sZ3uumKahhNrqhkpkxPF7pCiEDTQy2.1</a><div class=\"small\"><div><strong>Meeting ID:</strong> 999 6143 5338</div><div><strong>Passcode:</strong> 123456</div></div></div></div><div class=\"alert alert-warning mb-3\" role=\"alert\">🚀 Don’t join alone — invite others who may be a good fit to attend with you.</div><div class=\"fw-bold text-warning-emphasis\">VLINKPAY TEAM</div></div>"
+      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/Zoom-thu-3-training-hang-tuan.jpg?raw=true\" alt=\"VLINKPAY Online Training\" class=\"img-fluid rounded\" />"
+    },
+    {
+      "day": "Weekly",
+      "date": "Wednesday",
+      "time": "09:00 PM (Texas Time)",
+      "type": "Online Leadership Training",
+      "title": "ONLINE LEADERSHIP TRAINING – VLINKPAY",
+      "description": "We warmly invite you to join VLINKPAY's Leadership Training program, an in-depth session designed for members who have reached Bronze rank or above.",
+      "primaryAction": "Join Zoom",
+      "secondaryAction": "View Details",
+      "link": "https://zoom.us/j/95402504288?pwd=YeU1qOug7ae7ESQ23txBuoE3Gh1Ncw.1",
+      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/zoom-Thu-4-và-Chu-nhat.jpg?raw=true\" alt=\"VLINKPAY Leadership Training\" class=\"img-fluid rounded\" />"
+    },
+    {
+      "day": "Weekly",
+      "date": "Sunday",
+      "time": "08:30 PM (Texas Time)",
+      "type": "Online Leadership Training",
+      "title": "ONLINE LEADERSHIP TRAINING – VLINKPAY",
+      "description": "We warmly invite you to join VLINKPAY's Leadership Training program, an in-depth session designed for members who have reached Bronze rank or above.",
+      "primaryAction": "Join Zoom",
+      "secondaryAction": "View Details",
+      "link": "https://zoom.us/j/95402504288?pwd=YeU1qOug7ae7ESQ23txBuoE3Gh1Ncw.1",
+      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/zoom-Thu-4-và-Chu-nhat.jpg?raw=true\" alt=\"VLINKPAY Leadership Training\" class=\"img-fluid rounded\" />"
     },
     {
       "day": "Weekly",
       "date": "Thursday",
       "time": "09:00 PM (Texas Time)",
-      "type": "Live Training",
-      "title": "MAKE MONEY WITH VLINKPAY",
-      "description": "A live training session introducing the VLINKPAY earning opportunity, including IOU, crypto payments, global P2P, Merchant, and Mobile ATM.",
+      "type": "Online Opportunity Presentation",
+      "title": "OPPORTUNITY PRESENTATION – MAKE MONEY WITH VLINKPAY",
+      "description": "We warmly invite you to join our opportunity presentation and discover how to increase your income with VLINKPAY.",
       "primaryAction": "Join Zoom",
-      "secondaryAction": "Details",
-      "link": "https://zoom.us/j/99961435338?pwd=sZ3uumKahhNrqhkpkxPF7pCiEDTQy2.1",
-      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/zoom-5.jpg?raw=true\" alt=\"VLINKPAY Zoom Event\" class=\"img-fluid rounded\" />"
+      "secondaryAction": "View Details",
+      "link": "https://zoom.us/j/95402504288?pwd=YeU1qOug7ae7ESQ23txBuoE3Gh1Ncw.1",
+      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/Zoom-OPP-thu-5-MC-Ly-Nguyen.jpg?raw=true\" alt=\"VLINKPAY Opportunity Presentation\" class=\"img-fluid rounded\" />"
     }
   ],
   "recentSessions": []
