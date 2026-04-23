@@ -201,30 +201,6 @@
     },
     {
       "day": "Weekly",
-      "date": "Wednesday",
-      "time": "09:00 PM (Texas Time)",
-      "type": "Online Leadership Training",
-      "title": "ONLINE LEADERSHIP TRAINING – VLINKPAY",
-      "description": "We warmly invite you to join VLINKPAY's Leadership Training program, an in-depth session designed for members who have reached Bronze rank or above.",
-      "primaryAction": "Join Zoom",
-      "secondaryAction": "View Details",
-      "link": "https://zoom.us/j/95402504288?pwd=YeU1qOug7ae7ESQ23txBuoE3Gh1Ncw.1",
-      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/zoom-Thu-4-và-Chu-nhat.jpg?raw=true\" alt=\"VLINKPAY Leadership Training\" class=\"img-fluid rounded\" />"
-    },
-    {
-      "day": "Weekly",
-      "date": "Sunday",
-      "time": "08:30 PM (Texas Time)",
-      "type": "Online Leadership Training",
-      "title": "ONLINE LEADERSHIP TRAINING – VLINKPAY",
-      "description": "We warmly invite you to join VLINKPAY's Leadership Training program, an in-depth session designed for members who have reached Bronze rank or above.",
-      "primaryAction": "Join Zoom",
-      "secondaryAction": "View Details",
-      "link": "https://zoom.us/j/95402504288?pwd=YeU1qOug7ae7ESQ23txBuoE3Gh1Ncw.1",
-      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/zoom-Thu-4-và-Chu-nhat.jpg?raw=true\" alt=\"VLINKPAY Leadership Training\" class=\"img-fluid rounded\" />"
-    },
-    {
-      "day": "Weekly",
       "date": "Thursday",
       "time": "09:00 PM (Texas Time)",
       "type": "Online Opportunity Presentation",
