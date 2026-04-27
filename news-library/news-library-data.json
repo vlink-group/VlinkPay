@@ -1,5 +1,29 @@
 {
   "featuredVideos": [
+  {
+    "url": "https://www.youtube.com/watch?v=Ffyxxb_2O40",
+    "image": "https://i.ytimg.com/vi/Ffyxxb_2O40/hqdefault.jpg",
+    "alt": "Take Control With VLINKPAY - Easy Payments, Smart Money Management",
+    "badge": "FEATURED",
+    "duration": "",
+    "timeAgo": "",
+    "views": "",
+    "title": "Take Control With VLINKPAY - Easy Payments, Smart Money Management",
+    "description": "Discover how VLINKPAY empowers you to take control of your finances with intelligent payment solutions designed for modern living."
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=4TfNIr2Btf4",
+    "image": "https://i.ytimg.com/vi/4TfNIr2Btf4/hqdefault.jpg",
+    "alt": "Cryptomap360: The Easiest Way to Understand Crypto Markets",
+    "badge": "LATEST",
+    "duration": "",
+    "timeAgo": "",
+    "views": "",
+    "title": "Cryptomap360: The Easiest Way to Understand Crypto Markets",
+    "description": "Discover CryptoMap360, a powerful yet easy-to-use platform for visualizing cryptocurrency data, market trends, and blockchain insights."
+  }
+],
+  "channelVideos": [
     {
       "url": "https://www.youtube.com/watch?v=l8MeipGFJlI&t=3s",
       "image": "https://i.ytimg.com/vi/l8MeipGFJlI/hqdefault.jpg",
@@ -21,9 +45,7 @@
       "views": "103 views",
       "title": "CryptoMap360.com",
       "description": "A video introducing the CryptoMap360 directory map, helping users find places that accept crypto payments in real life and helping merchants be found easier."
-    }
-  ],
-  "channelVideos": [
+    },
     {
       "url": "https://www.youtube.com/watch?v=UiXE6MHRDZg",
       "image": "https://i.ytimg.com/vi/UiXE6MHRDZg/hqdefault.jpg",

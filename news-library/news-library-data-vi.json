@@ -1,6 +1,30 @@
 {
   "featuredVideos": [
     {
+      "url": "https://www.youtube.com/watch?v=Ffyxxb_2O40",
+      "image": "https://i.ytimg.com/vi/Ffyxxb_2O40/hqdefault.jpg",
+      "alt": "Làm Chủ Tài Chính Với VLINKPAY - Thanh Toán Dễ Dàng, Quản Lý Tiền Thông Minh",
+      "badge": "NỔI BẬT",
+      "duration": "",
+      "timeAgo": "",
+      "views": "",
+      "title": "Làm Chủ Tài Chính Với VLINKPAY - Thanh Toán Dễ Dàng, Quản Lý Tiền Thông Minh",
+      "description": "Khám phá cách VLINKPAY giúp bạn làm chủ tài chính với các giải pháp thanh toán thông minh, được thiết kế cho cuộc sống hiện đại."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=4TfNIr2Btf4",
+      "image": "https://i.ytimg.com/vi/4TfNIr2Btf4/hqdefault.jpg",
+      "alt": "Cryptomap360: Cách Dễ Nhất Để Hiểu Thị Trường Crypto",
+      "badge": "MỚI NHẤT",
+      "duration": "",
+      "timeAgo": "",
+      "views": "",
+      "title": "Cryptomap360: Cách Dễ Nhất Để Hiểu Thị Trường Crypto",
+      "description": "Khám phá CryptoMap360, nền tảng mạnh mẽ và dễ sử dụng giúp trực quan hóa dữ liệu tiền điện tử, xu hướng thị trường và thông tin blockchain."
+    }
+  ],
+  "channelVideos": [
+    {
       "url": "https://www.youtube.com/watch?v=l8MeipGFJlI&t=3s",
       "image": "https://i.ytimg.com/vi/l8MeipGFJlI/hqdefault.jpg",
       "alt": "VLINKPAY Mobile Merchant ATM | Quyền lợi Franchise License & Cơ hội kinh doanh",
@@ -21,9 +45,7 @@
       "views": "103 lượt xem",
       "title": "CryptoMap360.com",
       "description": "Video giới thiệu bản đồ thư mục CryptoMap360, giúp người dùng tìm các địa điểm chấp nhận thanh toán bằng crypto trong thực tế và giúp merchant dễ được tìm thấy hơn."
-    }
-  ],
-  "channelVideos": [
+    },
     {
       "url": "https://www.youtube.com/watch?v=UiXE6MHRDZg",
       "image": "https://i.ytimg.com/vi/UiXE6MHRDZg/hqdefault.jpg",
