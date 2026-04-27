@@ -1,28 +1,28 @@
 {
   "featuredVideos": [
-  {
-    "url": "https://www.youtube.com/watch?v=Ffyxxb_2O40",
-    "image": "https://i.ytimg.com/vi/Ffyxxb_2O40/hqdefault.jpg",
-    "alt": "Take Control With VLINKPAY - Easy Payments, Smart Money Management",
-    "badge": "FEATURED",
-    "duration": "",
-    "timeAgo": "",
-    "views": "",
-    "title": "Take Control With VLINKPAY - Easy Payments, Smart Money Management",
-    "description": "Discover how VLINKPAY empowers you to take control of your finances with intelligent payment solutions designed for modern living."
-  },
-  {
-    "url": "https://www.youtube.com/watch?v=4TfNIr2Btf4",
-    "image": "https://i.ytimg.com/vi/4TfNIr2Btf4/hqdefault.jpg",
-    "alt": "Cryptomap360: The Easiest Way to Understand Crypto Markets",
-    "badge": "LATEST",
-    "duration": "",
-    "timeAgo": "",
-    "views": "",
-    "title": "Cryptomap360: The Easiest Way to Understand Crypto Markets",
-    "description": "Discover CryptoMap360, a powerful yet easy-to-use platform for visualizing cryptocurrency data, market trends, and blockchain insights."
-  }
-],
+    {
+      "url": "https://www.youtube.com/watch?v=Ffyxxb_2O40",
+      "image": "https://i.ytimg.com/vi/Ffyxxb_2O40/hqdefault.jpg",
+      "alt": "Take Control With VLINKPAY - Easy Payments, Smart Money Management",
+      "badge": "FEATURED",
+      "duration": "",
+      "timeAgo": "",
+      "views": "",
+      "title": "Take Control With VLINKPAY - Easy Payments, Smart Money Management",
+      "description": "Discover how VLINKPAY empowers you to take control of your finances with intelligent payment solutions designed for modern living."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=4TfNlr2Btf4",
+      "image": "https://i.ytimg.com/vi/4TfNlr2Btf4/hqdefault.jpg",
+      "alt": "Cryptomap360: The Easiest Way to Understand Crypto Markets",
+      "badge": "LATEST",
+      "duration": "",
+      "timeAgo": "",
+      "views": "",
+      "title": "Cryptomap360: The Easiest Way to Understand Crypto Markets",
+      "description": "Discover CryptoMap360, a powerful yet easy-to-use platform for visualizing cryptocurrency data, market trends, and blockchain insights."
+    }
+  ],
   "channelVideos": [
     {
       "url": "https://www.youtube.com/watch?v=l8MeipGFJlI&t=3s",
@@ -138,7 +138,7 @@
       "description": "The Definitive Playbook for ATM Bonus Rank Advancement."
     },
     {
-     "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/chinh-sach-atm-va-iou-viet.pdf",
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/chinh-sach-atm-va-iou-viet.pdf",
       "icon": "fa-people-arrows",
       "title": "ATM & IOU Policy ",
       "description": "Operational guidelines and profit mechanisms for the ATM and IOU system"
