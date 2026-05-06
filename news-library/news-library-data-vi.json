@@ -236,5 +236,19 @@
       "passcode": "123456"
     }
   ],
+  "upcomingEvents": [
+    {
+      "day": "14 Tháng 5",
+      "date": "Thứ Năm",
+      "time": "06:00 PM - 10:00 PM (Giờ Texas)",
+      "type": "Sự kiện giao lưu cộng đồng",
+      "title": "SUMMER SOIRÉE - HỘI DOANH NHÂN VIỆT NAM TẠI HOUSTON",
+      "description": "Tham gia Summer Soirée do Hội Doanh Nhân Việt Nam tại Houston tổ chức — một sự kiện giao lưu cộng đồng sang trọng, nơi kết nối doanh nghiệp, mở rộng quan hệ và tạo thêm nhiều cơ hội hợp tác mới. Chương trình có sự góp mặt của ca sĩ Như Loan, khu vực bàn VIP giới hạn và không gian tiệc trang trọng theo phong cách black tie.",
+      "primaryAction": "Đặt bàn",
+      "secondaryAction": "Xem chi tiết",
+      "link": "tel:+18325880306",
+      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/summer-soiree-vietnamese-chamber-of-commerce-houston.jpg?raw=true\" alt=\"Summer Soirée - Hội Doanh Nhân Việt Nam tại Houston\" class=\"img-fluid rounded\" />"
+    }
+  ],
   "recentSessions": []
 }

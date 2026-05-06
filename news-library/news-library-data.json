@@ -234,5 +234,19 @@
       "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/Zoom-OPP-thu-5-MC-Ly-Nguyen.jpg?raw=true\" alt=\"VLINKPAY Opportunity Presentation\" class=\"img-fluid rounded\" />"
     }
   ],
+  "upcomingEvents": [
+    {
+      "day": "May 14",
+      "date": "Thursday",
+      "time": "06:00 PM - 10:00 PM (Texas Time)",
+      "type": "Community Networking Event",
+      "title": "SUMMER SOIRÉE - VIETNAMESE CHAMBER OF COMMERCE OF HOUSTON",
+      "description": "Join the Vietnamese Chamber of Commerce of Houston for Summer Soirée, an elegant community networking event filled with style, meaningful connections, and new business opportunities. The evening features singer Nhu Loan, VIP-only tables, and a formal black tie atmosphere.",
+      "primaryAction": "Reserve Table",
+      "secondaryAction": "View Details",
+      "link": "https://www.eventbrite.com/e/summer-soiree-tickets-1986015105643?aff=oddtdtcreator",
+      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/summer-soiree-vietnamese-chamber-of-commerce-houston.jpg?raw=true\" alt=\"Summer Soirée - Vietnamese Chamber of Commerce of Houston\" class=\"img-fluid rounded\" />"
+    }
+  ],
   "recentSessions": []
 }
