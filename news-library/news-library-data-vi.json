@@ -249,7 +249,7 @@
       "secondaryAction": "Xem chi tiết",
       "imgUrl": "https://github.com/vlink-group/VlinkPay/blob/main/news-library/summer-soiree-vietnamese-chamber-of-commerce-houston.jpg?raw=true",
       "link": "https://www.eventbrite.com/e/summer-soiree-tickets-1986015105643?aff=oddtdtcreator",
-      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/summer-soiree-vietnamese-chamber-of-commerce-houston.jpg?raw=true\" alt=\"Summer Soirée - Hội Doanh Nhân Việt Nam tại Houston\" class=\"img-fluid rounded\" />"
+      "htmlContent": "<video class=\"w-100 rounded mb-3\" controls playsinline preload=\"metadata\" poster=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/summer-soiree-vietnamese-chamber-of-commerce-houston.jpg?raw=true\"><source src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/files/launching.mp4?raw=true\" type=\"video/mp4\" />Trình duyệt của bạn không hỗ trợ phát video.</video><img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/summer-soiree-vietnamese-chamber-of-commerce-houston.jpg?raw=true\" alt=\"Summer Soirée - Hội Doanh Nhân Việt Nam tại Houston\" class=\"img-fluid rounded\" />"
     }
   ],
   "recentSessions": []
