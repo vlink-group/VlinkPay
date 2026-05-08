@@ -127,7 +127,7 @@
   "planTopics": [
     {
       "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/VLINKPAY_MAY.pdf",
-      "icon": "fa-network-wired",
+      "icon": "fa-globe",
       "title": "TỔNG QUAN HỆ SINH THÁI VLINKPAY",
       "description": "Giới thiệu hệ sinh thái VLINKPAY gồm Wallet, Exchange, Business Solutions, CryptoMap360, NailHub.ai, Impact, IOU/VMM, Mobile ATM và Merchant ATM."
     },
