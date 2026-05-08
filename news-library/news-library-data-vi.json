@@ -126,6 +126,12 @@
   ],
   "planTopics": [
     {
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/VLINKPAY_MAY.pdf",
+      "icon": "fa-network-wired",
+      "title": "TỔNG QUAN HỆ SINH THÁI VLINKPAY",
+      "description": "Giới thiệu hệ sinh thái VLINKPAY gồm Wallet, Exchange, Business Solutions, CryptoMap360, NailHub.ai, Impact, IOU/VMM, Mobile ATM và Merchant ATM."
+    },
+    {
       "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/vlinkpay-compensation-plan.pdf",
       "icon": "fa-university",
       "title": "CHƯƠNG TRÌNH MERCHANT & MOBILE ATM",
@@ -154,15 +160,16 @@
       "icon": "fa-diagram-project",
       "title": "Phát triển đội nhóm Binary",
       "description": "Nội dung mở rộng về cách hệ thống Binary vận hành và cách chính sách thưởng gắn với đóng góp thực tế."
-    },
+    }
+    
+  ],
+  "morePlanVideos": [
     {
       "url": "https://www.youtube.com/watch?v=G5f_ERpwGaY",
       "icon": "fa-coins",
       "title": "Cấu trúc thu nhập thụ động",
       "description": "Giải thích sâu hơn về Franchise License, PV, BV và cấu trúc trả thưởng trong hệ thống."
-    }
-  ],
-  "morePlanVideos": [
+    },
     {
       "url": "https://www.youtube.com/watch?v=abJMQMCDq-s",
       "title": "VLINKPAY – Thu nhập thụ động cho những ai tìm kiếm tự do tài chính",
