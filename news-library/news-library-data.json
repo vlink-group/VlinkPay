@@ -126,6 +126,12 @@
   ],
   "planTopics": [
     {
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/VLINKPAY_MAY.pdf",
+      "icon": "fa-network-wired",
+      "title": "VLINKPAY ECOSYSTEM OVERVIEW",
+      "description": "Introducing the VLINKPAY ecosystem across Wallet, Exchange, Business Solutions, CryptoMap360, NailHub.ai, Impact, IOU/VMM, Mobile ATM, and Merchant ATM."
+    },
+    {
       "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/vlinkpay-compensation-plan.pdf",
       "icon": "fa-university",
       "title": "MERCHANT & MOBILE ATM PROGRAM",
@@ -154,15 +160,15 @@
       "icon": "fa-diagram-project",
       "title": "Binary Team Development",
       "description": "Extended content on how the Binary system works and how the reward policy aligns with real contributions."
-    },
+    }
+  ],
+  "morePlanVideos": [
     {
       "url": "https://www.youtube.com/watch?v=G5f_ERpwGaY",
       "icon": "fa-coins",
       "title": "Passive Income Structure",
       "description": "A deeper explanation of Franchise License, PV, BV, and the compensation structure within the system."
-    }
-  ],
-  "morePlanVideos": [
+    },
     {
       "url": "https://www.youtube.com/watch?v=abJMQMCDq-s",
       "title": "VLINKPAY – Passive Income for Those Seeking Financial Freedom",
