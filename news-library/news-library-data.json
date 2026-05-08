@@ -127,7 +127,7 @@
   "planTopics": [
     {
       "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/VLINKPAY_MAY.pdf",
-      "icon": "fa-globe",
+      "icon": "fa-globe" ,
       "title": "VLINKPAY ECOSYSTEM OVERVIEW",
       "description": "Introducing the VLINKPAY ecosystem across Wallet, Exchange, Business Solutions, CryptoMap360, NailHub.ai, Impact, IOU/VMM, Mobile ATM, and Merchant ATM."
     },
