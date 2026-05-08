@@ -252,18 +252,18 @@
       "htmlContent": "<video class=\"w-100 rounded mb-3\" controls playsinline preload=\"metadata\"><source src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/files/launching.mp4?raw=true\" type=\"video/mp4\" />Trình duyệt của bạn không hỗ trợ phát video.</video><img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/summer-soiree-vietnamese-chamber-of-commerce-houston.jpg?raw=true\" alt=\"Summer Soirée - Hội Doanh Nhân Việt Nam tại Houston\" class=\"img-fluid rounded\" />"
     },
     {
-      "day": "May 15",
-      "date": "Friday",
-      "time": "06:00 PM - 11:00 PM (Texas Time)",
+      "day": "15 Tháng 5",
+      "date": "Thứ Sáu",
+      "time": "06:00 PM - 11:00 PM (Giờ Texas)",
       "icon": "fa-map-marker",
       "type": "Bitcoin Nail Bar, Houston, TX",
-      "title": "STAR TO DIAMOND GALA - RECOGNITION & APPOINTMENT GALA DINNER",
-      "description": "Join VLINKPAY for the Star to Diamond Gala — a formal recognition and appointment gala dinner honoring the journey, celebrating the rise, and recognizing rank achievements across Bronze, Silver, Gold, Platinum, and Diamond levels. The evening includes rank recognition, an appointment ceremony, gala dinner, and networking in a formal gold and black atmosphere.",
+      "title": "STAR TO DIAMOND GALA - TIỆC VINH DANH & BỔ NHIỆM",
+      "description": "Tham gia cùng VLINKPAY tại Star to Diamond Gala — đêm tiệc vinh danh và bổ nhiệm trang trọng, ghi nhận hành trình phát triển, tôn vinh sự thăng hạng và chúc mừng các thành tựu cấp bậc Bronze, Silver, Gold, Platinum và Diamond. Chương trình bao gồm vinh danh thành tích cấp bậc, lễ bổ nhiệm, tiệc gala dinner và networking trong không gian trang trọng với dress code vàng và đen.",
       "primaryAction": "",
-      "secondaryAction": "View Details",
+      "secondaryAction": "Xem chi tiết",
       "imgUrl": "https://github.com/vlink-group/VlinkPay/blob/main/news-library/files/15-5.png?raw=true",
       "link": "#",
-      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/files/15-5.png?raw=true\" alt=\"Star to Diamond Gala - Recognition & Appointment Gala Dinner\" class=\"img-fluid rounded\" />"
+      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/files/15-5.png?raw=true\" alt=\"Star to Diamond Gala - Tiệc Vinh Danh & Bổ Nhiệm\" class=\"img-fluid rounded\" />"
     }
   ],
   "recentSessions": []
