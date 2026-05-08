@@ -220,7 +220,9 @@
       "secondaryAction": "Xem chi tiết",
       "link": "https://zoom.us/j/99961435338?pwd=sZ3uumKahhNrqhkpkxPF7pCiEDTQy2.1",
       "meetingId": "999 6143 5338",
-      "passcode": "123456"
+      "passcode": "123456",
+      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/Zoom-thu-3-training-hang-tuan.jpg?raw=true\" alt=\"VLINKPAY Online Training\" class=\"img-fluid rounded\" />"
+  
     },
     {
       "day": "Hằng tuần",
@@ -233,7 +235,8 @@
       "secondaryAction": "Xem chi tiết",
       "link": "https://zoom.us/j/99961435338?pwd=sZ3uumKahhNrqhkpkxPF7pCiEDTQy2.1",
       "meetingId": "999 6143 5338",
-      "passcode": "123456"
+      "passcode": "123456",
+      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/Zoom-OPP-thu-5-MC-Ly-Nguyen.jpg?raw=true\" alt=\"VLINKPAY Opportunity Presentation\" class=\"img-fluid rounded\" />"
     }
   ],
   "upcomingEvents": [
