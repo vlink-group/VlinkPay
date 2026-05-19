@@ -241,34 +241,7 @@
     }
   ],
   "upcomingEvents": [
-    {
-      "day": "May 14",
-      "date": "Thursday",
-      "time": "06:00 PM - 10:00 PM (Texas Time)",
-      "icon": "fa-map-marker",
-      "type": "Kim Son, Houston, TX",
-      "title": "SUMMER SOIRÉE - VIETNAMESE CHAMBER OF COMMERCE OF HOUSTON",
-      "description": "Join the Vietnamese Chamber of Commerce of Houston for Summer Soirée — an elegant community networking event designed to connect business owners, expand professional relationships, and create new opportunities for collaboration. The program features singer Nhu Loan, limited VIP table options, and a formal black tie atmosphere.",
-      "primaryAction": "Reserve Table",
-      "secondaryAction": "View Details",
-      "imgUrl": "https://github.com/vlink-group/VlinkPay/blob/main/news-library/summer-soiree-vietnamese-chamber-of-commerce-houston.jpg?raw=true",
-      "link": "https://www.eventbrite.com/e/summer-soiree-tickets-1986015105643?aff=oddtdtcreator",
-      "htmlContent": "<video class=\"w-100 rounded mb-3\" controls playsinline preload=\"metadata\"><source src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/files/launching.mp4?raw=true\" type=\"video/mp4\" />Your browser does not support video playback.</video><img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/summer-soiree-vietnamese-chamber-of-commerce-houston.jpg?raw=true\" alt=\"Summer Soirée - Vietnamese Chamber of Commerce of Houston\" class=\"img-fluid rounded\" />"
-    },
-    {
-      "day": "May 15",
-      "date": "Friday",
-      "time": "06:00 PM - 11:00 PM (Texas Time)",
-      "icon": "fa-map-marker",
-      "type": "Bitcoin Nail Bar, Houston, TX",
-      "title": "STAR TO DIAMOND GALA - RECOGNITION & APPOINTMENT GALA DINNER",
-      "description": "Join VLINKPAY for the Star to Diamond Gala — a formal recognition and appointment gala dinner honoring the journey, celebrating the rise, and recognizing rank achievements across Bronze, Silver, Gold, Platinum, and Diamond levels. The evening includes rank recognition, an appointment ceremony, gala dinner, and networking in a formal gold and black atmosphere.",
-      "primaryAction": "",
-      "secondaryAction": "View Details",
-      "imgUrl": "https://github.com/vlink-group/VlinkPay/blob/main/news-library/files/15-5.png?raw=true",
-      "link": "",
-      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/files/15-5.png?raw=true\" alt=\"Star to Diamond Gala - Recognition & Appointment Gala Dinner\" class=\"img-fluid rounded\" />"
-    }
+     
   ],
   "recentSessions": []
 }

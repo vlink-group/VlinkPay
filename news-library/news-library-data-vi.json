@@ -247,34 +247,7 @@
     }
   ],
   "upcomingEvents": [
-    {
-      "day": "14 Tháng 5",
-      "date": "Thứ Năm",
-      "time": "06:00 PM - 10:00 PM (Giờ Texas)",
-      "icon": "fa-map-marker",
-      "type": "Kim Son, Houston, TX",
-      "title": "SUMMER SOIRÉE - HỘI DOANH NHÂN VIỆT NAM TẠI HOUSTON",
-      "description": "Tham gia Summer Soirée do Hội Doanh Nhân Việt Nam tại Houston tổ chức — một sự kiện giao lưu cộng đồng sang trọng, nơi kết nối doanh nghiệp, mở rộng quan hệ và tạo thêm nhiều cơ hội hợp tác mới. Chương trình có sự góp mặt của ca sĩ Như Loan, khu vực bàn VIP giới hạn và không gian tiệc trang trọng theo phong cách black tie.",
-      "primaryAction": "Đặt bàn",
-      "secondaryAction": "Xem chi tiết",
-      "imgUrl": "https://github.com/vlink-group/VlinkPay/blob/main/news-library/summer-soiree-vietnamese-chamber-of-commerce-houston.jpg?raw=true",
-      "link": "https://www.eventbrite.com/e/summer-soiree-tickets-1986015105643?aff=oddtdtcreator",
-      "htmlContent": "<video class=\"w-100 rounded mb-3\" controls playsinline preload=\"metadata\"><source src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/files/launching.mp4?raw=true\" type=\"video/mp4\" />Your browser does not support video playback.</video><img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/summer-soiree-vietnamese-chamber-of-commerce-houston.jpg?raw=true\" alt=\"Summer Soirée - Vietnamese Chamber of Commerce of Houston\" class=\"img-fluid rounded\" />"
-    },
-    {
-      "day": "15 Tháng 5",
-      "date": "Thứ Sáu",
-      "time": "06:00 PM - 11:00 PM (Giờ Texas)",
-      "icon": "fa-map-marker",
-      "type": "Bitcoin Nail Bar, Houston, TX",
-      "title": "STAR TO DIAMOND GALA - TIỆC VINH DANH & BỔ NHIỆM",
-      "description": "Tham gia cùng VLINKPAY tại Star to Diamond Gala — đêm tiệc vinh danh và bổ nhiệm trang trọng, ghi nhận hành trình phát triển, tôn vinh sự thăng hạng và chúc mừng các thành tựu cấp bậc Bronze, Silver, Gold, Platinum và Diamond. Chương trình bao gồm vinh danh thành tích cấp bậc, lễ bổ nhiệm, tiệc gala dinner và networking trong không gian trang trọng với dress code vàng và đen.",
-      "primaryAction": "",
-      "secondaryAction": "Xem chi tiết",
-      "imgUrl": "https://github.com/vlink-group/VlinkPay/blob/main/news-library/files/15-5.png?raw=true",
-      "link": "",
-      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/files/15-5.png?raw=true\" alt=\"Star to Diamond Gala - Tiệc Vinh Danh & Bổ Nhiệm\" class=\"img-fluid rounded\" />"
-    }
+    
   ],
   "recentSessions": []
 }
