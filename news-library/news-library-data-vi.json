@@ -127,7 +127,7 @@
   "planTopics": [
     {
       "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/vlinkpay_iou_program_explanation_viet.pdf",
-      "icon": "fa-diagram-project",
+      "icon": "fa fa-usd",
       "title": "Chương trình IOU VLINKPAY",
       "description": "Tài liệu giải thích đơn giản về mô hình IOU Debt Sell, bao gồm cách dùng VMM, tổng phân bổ tối đa 3X, các loại phí và quy tắc nhận phân bổ."
     },

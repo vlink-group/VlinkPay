@@ -127,7 +127,7 @@
   "planTopics": [
     {
       "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/vlinkpay_iou_program_english_only.pdf",
-      "icon": "fa-diagram-project",
+      "icon": "fa fa-usd",
       "title": "VLINKPAY IOU Program",
       "description": "A simple guide explaining how the IOU Debt Sell model works, including VMM usage, 3X max allocation, fees, and reward allocation rules."
     },
