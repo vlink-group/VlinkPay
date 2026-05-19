@@ -126,6 +126,12 @@
   ],
   "planTopics": [
     {
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/vlinkpay_iou_program_explanation_viet.pdf",
+      "icon": "fa-diagram-project",
+      "title": "Chương trình IOU VLINKPAY",
+      "description": "Tài liệu giải thích đơn giản về mô hình IOU Debt Sell, bao gồm cách dùng VMM, tổng phân bổ tối đa 3X, các loại phí và quy tắc nhận phân bổ."
+    },
+    {
       "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/VLINKPAY_MAY.pdf",
       "icon": "fa-globe",
       "title": "TỔNG QUAN HỆ SINH THÁI VLINKPAY",
@@ -154,13 +160,8 @@
       "icon": "fa-wallet",
       "title": "CHÍNH SÁCH FRANCHISE LICENSE ATM",
       "description": "Quy định điều kiện, quyền lợi và nguyên tắc vận hành khi kích hoạt và duy trì Franchise License ATM"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=dgMx9Jp0DPs",
-      "icon": "fa-diagram-project",
-      "title": "Phát triển đội nhóm Binary",
-      "description": "Nội dung mở rộng về cách hệ thống Binary vận hành và cách chính sách thưởng gắn với đóng góp thực tế."
     }
+    
     
   ],
   "morePlanVideos": [

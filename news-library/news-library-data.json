@@ -126,6 +126,12 @@
   ],
   "planTopics": [
     {
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/vlinkpay_iou_program_english_only.pdf",
+      "icon": "fa-diagram-project",
+      "title": "VLINKPAY IOU Program",
+      "description": "A simple guide explaining how the IOU Debt Sell model works, including VMM usage, 3X max allocation, fees, and reward allocation rules."
+    },
+    {
       "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/VLINKPAY_MAY.pdf",
       "icon": "fa-globe" ,
       "title": "VLINKPAY ECOSYSTEM OVERVIEW",
@@ -154,13 +160,8 @@
       "icon": "fa-wallet",
       "title": "Franchise License ATM Policy",
       "description": "Defines the requirements, benefits, and operating rules for activating and maintaining an ATM Franchise License,"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=dgMx9Jp0DPs",
-      "icon": "fa-diagram-project",
-      "title": "Binary Team Development",
-      "description": "Extended content on how the Binary system works and how the reward policy aligns with real contributions."
     }
+   
   ],
   "morePlanVideos": [
     {
