@@ -244,5 +244,15 @@
   "upcomingEvents": [
      
   ],
-  "recentSessions": []
+  "recentSessions": [
+  ],
+  "videoZoomHistory": [
+     {
+      "url": "https://www.youtube.com/watch?v=BEEDzpXVjNY",
+      "date": "",
+      "time": "",
+      "title": "CryptoMap360 Launch Event 2026 | Web3 Crypto Map Platform Official Reveal",
+      "description": "Welcome to the official launch event of CryptoMap360 — held on May 14, 2026. This was more than a product launch. This was the beginning of a new era in the Web3 and blockchain world."
+    }
+  ]
 }
