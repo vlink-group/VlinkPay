@@ -1,86 +1,26 @@
 [
 	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-1.png",
-		"navigateTo": ""
+		"image": "https://vlinkpay-storages-prod.nyc3.cdn.digitaloceanspaces.com/vlinkpay-storages-prod/cryptomap360/posting/dd35f14d-e2f4-4c17-a42a-f9805abecec9/banner-1.png",
+		"navigateTo": "https://www.bitcoinnailbar.com/"
 	},
 	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-2.png",
-		"navigateTo": ""
+		"image": "https://vlinkpay-storages-prod.nyc3.cdn.digitaloceanspaces.com/vlinkpay-storages-prod/cryptomap360/posting/e0dae563-6c5d-48ab-ab5e-c1be957b3b64/banner-2.png",
+		"navigateTo": "https://www.bitcoinnailbar.com/promotions"
 	},
 	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-3.png",
-		"navigateTo": ""
+		"image": "https://vlinkpay-storages-prod.nyc3.cdn.digitaloceanspaces.com/vlinkpay-storages-prod/cryptomap360/posting/0c2b09ef-b84a-4398-abe0-be1839c1c9fc/banner-5.png",
+		"navigateTo": "https://vlinkpay.com"
 	},
 	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-4.png",
-		"navigateTo": ""
+		"image": "https://vlinkpay-storages-prod.nyc3.cdn.digitaloceanspaces.com/vlinkpay-storages-prod/cryptomap360/posting/b0348d1f-664c-4a7a-9246-60742f22399a/banner-9.png",
+		"navigateTo": "https://merchant.vlinkpay.com/"
 	},
 	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-5.png",
-		"navigateTo": ""
+		"image": "https://vlinkpay-storages-prod.nyc3.cdn.digitaloceanspaces.com/vlinkpay-storages-prod/cryptomap360/posting/d4b9d7e3-ed92-4dc5-9bb8-fd410de254e2/banner-11.png",
+		"navigateTo": "https://nailhub.ai"
 	},
 	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-6.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-7.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-8.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-9.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-10.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-11.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-12.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-13.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-14.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-15.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-16.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-17.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-18.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-19.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-20.png",
-		"navigateTo": ""
-	},
-	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-21.png",
-		"navigateTo": ""
+		"image": "https://vlinkpay-storages-prod.nyc3.cdn.digitaloceanspaces.com/vlinkpay-storages-prod/cryptomap360/posting/5615bd4b-cabb-491f-b1f4-db9abb81065f/banner-12.png",
+		"navigateTo": "https://nailhub.ai"
 	}
 ]
