@@ -1,6 +1,30 @@
 {
   "featuredVideos": [
     {
+      "url": "https://www.youtube.com/watch?v=jbBM_lPAWoU&t=519s",
+      "image": "https://i.ytimg.com/vi/jbBM_lPAWoU/hqdefault.jpg",
+      "alt": "Đêm Gala VLINKPAY | Lễ Vinh Danh",
+      "badge": "NỔI BẬT",
+      "duration": "",
+      "timeAgo": "",
+      "views": "",
+      "title": "Đêm Gala VLINKPAY | Lễ Vinh Danh",
+      "description": "🌟 Đêm đi vào lịch sử VLINKPAY — tôn vinh những thành viên đạt cấp bậc cao nhất và chào đón sự ra mắt sản phẩm mới đột phá."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=BEEDzpXVjNY",
+      "image": "https://i.ytimg.com/vi/BEEDzpXVjNY/hqdefault.jpg",
+      "alt": "Sự kiện Ra mắt CryptoMap360 2026 | Chính thức giới thiệu nền tảng Bản đồ Crypto Web3",
+      "badge": "MỚI NHẤT",
+      "duration": "",
+      "timeAgo": "",
+      "views": "",
+      "title": "Sự kiện Ra mắt CryptoMap360 2026 | Chính thức giới thiệu nền tảng Bản đồ Crypto Web3",
+      "description": "Sự kiện ra mắt chính thức CryptoMap360 — khởi đầu kỷ nguyên mới trong thế giới Web3 và blockchain."
+    }
+  ],
+  "channelVideos": [
+    {
       "url": "https://www.youtube.com/watch?v=Ffyxxb_2O40",
       "image": "https://i.ytimg.com/vi/Ffyxxb_2O40/hqdefault.jpg",
       "alt": "Làm Chủ Tài Chính Với VLINKPAY - Thanh Toán Dễ Dàng, Quản Lý Tiền Thông Minh",
@@ -14,16 +38,14 @@
     {
       "url": "https://www.youtube.com/watch?v=4TfNlr2Btf4",
       "image": "https://i.ytimg.com/vi/4TfNlr2Btf4/hqdefault.jpg",
-      "alt": "Cryptomap360: Cách Dễ Nhất Để Hiểu Thị Trường Crypto ",
+      "alt": "Cryptomap360: Cách Dễ Nhất Để Hiểu Thị Trường Crypto",
       "badge": "MỚI NHẤT",
       "duration": "",
       "timeAgo": "",
       "views": "",
       "title": "Cryptomap360: Cách Dễ Nhất Để Hiểu Thị Trường Crypto",
       "description": "Khám phá CryptoMap360, nền tảng mạnh mẽ và dễ sử dụng giúp trực quan hóa dữ liệu tiền điện tử, xu hướng thị trường và thông tin blockchain."
-    }
-  ],
-  "channelVideos": [
+    },
     {
       "url": "https://www.youtube.com/watch?v=l8MeipGFJlI&t=3s",
       "image": "https://i.ytimg.com/vi/l8MeipGFJlI/hqdefault.jpg",

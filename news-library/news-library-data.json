@@ -1,13 +1,37 @@
 {
   "featuredVideos": [
     {
+      "url": "https://www.youtube.com/watch?v=jbBM_lPAWoU&t=519s",
+      "image": "https://i.ytimg.com/vi/jbBM_lPAWoU/hqdefault.jpg",
+      "alt": "VLINKPAY Gala Night | Recognition Ceremony Recap",
+      "badge": "FEATURED",
+      "duration": "",
+      "timeAgo": "",
+      "views": "",
+      "title": "VLINKPAY Gala Night | Recognition Ceremony Recap",
+      "description": "A historic night for VLINKPAY — honoring top rank achievers and celebrating the launch of our groundbreaking new product."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=BEEDzpXVjNY",
+      "image": "https://i.ytimg.com/vi/BEEDzpXVjNY/hqdefault.jpg",
+      "alt": "CryptoMap360 Launch Event 2026 | Web3 Crypto Map Platform Official Reveal",
+      "badge": "LATEST",
+      "duration": "",
+      "timeAgo": "",
+      "views": "",
+      "title": "CryptoMap360 Launch Event 2026 | Web3 Crypto Map Platform Official Reveal",
+      "description": "The official launch of CryptoMap360 — marking the beginning of a new era in the Web3 and blockchain world."
+    }
+  ],
+  "channelVideos": [
+    {
       "url": "https://www.youtube.com/watch?v=Ffyxxb_2O40",
       "image": "https://i.ytimg.com/vi/Ffyxxb_2O40/hqdefault.jpg",
       "alt": "Take Control With VLINKPAY - Easy Payments, Smart Money Management",
       "badge": "FEATURED",
       "duration": "",
       "timeAgo": "",
-      "views": "",
+      "views": "60 views",
       "title": "Take Control With VLINKPAY - Easy Payments, Smart Money Management",
       "description": "Discover how VLINKPAY empowers you to take control of your finances with intelligent payment solutions designed for modern living."
     },
@@ -21,9 +45,7 @@
       "views": "",
       "title": "Cryptomap360: The Easiest Way to Understand Crypto Markets",
       "description": "Discover CryptoMap360, a powerful yet easy-to-use platform for visualizing cryptocurrency data, market trends, and blockchain insights."
-    }
-  ],
-  "channelVideos": [
+    },
     {
       "url": "https://www.youtube.com/watch?v=l8MeipGFJlI&t=3s",
       "image": "https://i.ytimg.com/vi/l8MeipGFJlI/hqdefault.jpg",
@@ -233,20 +255,6 @@
       "time": "",
       "title": "CEO Brian Nguyen Introduces Growth Opportunities with VLINKPAY",
       "description": "CEO Brian Nguyen shares VLINKPAY's vision, business partnership opportunities, and the roadmap for building a global payment ecosystem."
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=jbBM_lPAWoU&t=519s",
-      "date": "May 15, 2026",
-      "time": "",
-      "title": "VLINKPAY Gala Night | Recognition Ceremony Recap",
-      "description": "A historic night for VLINKPAY — honoring top rank achievers and celebrating the launch of our groundbreaking new product."
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=BEEDzpXVjNY",
-      "date": "May 14, 2026",
-      "time": "",
-      "title": "CryptoMap360 Launch Event 2026 | Web3 Crypto Map Platform Official Reveal",
-      "description": "The official launch of CryptoMap360 — marking the beginning of a new era in the Web3 and blockchain world."
     },
     {
       "url": "https://www.youtube.com/watch?v=R0Z_xu8bOrY&t=1400s",
