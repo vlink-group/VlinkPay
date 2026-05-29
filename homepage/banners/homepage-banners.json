@@ -1,22 +1,106 @@
 [
+	// {
+	// 	"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/1Banner.png",
+	// 	"navigateTo": "giftHub/voucher"
+	// },
+	// {
+	// 	"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/2Banner.png",
+	// 	"navigateTo": "buy-egift?id=1"
+	// },
+	// {
+	// 	"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/3Banner.png",
+	// 	"navigateTo": "buy-egift?id=155"
+	// },
+	// {
+	// 	"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/4Banner.png",
+	// 	"navigateTo": "giftHub/voucher"
+	// },
+	// {
+	// 	"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/5Banner.png",
+	// 	"navigateTo": "giftHub/voucher"
+	// },
 	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/1Banner.png",
-		"navigateTo": "giftHub/voucher"
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-1.png",
+		"navigateTo": ""
 	},
 	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/2Banner.png",
-		"navigateTo": "buy-egift?id=1"
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-2.png",
+		"navigateTo": ""
 	},
 	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/3Banner.png",
-		"navigateTo": "buy-egift?id=155"
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-3.png",
+		"navigateTo": ""
 	},
 	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/4Banner.png",
-		"navigateTo": "giftHub/voucher"
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-4.png",
+		"navigateTo": ""
 	},
 	{
-		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/5Banner.png",
-		"navigateTo": "giftHub/voucher"
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-5.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-6.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-7.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-8.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-9.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-10.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-11.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-12.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-13.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-14.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-15.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-16.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-17.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-18.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-19.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-20.png",
+		"navigateTo": ""
+	},
+	{
+		"image": "https://raw.githubusercontent.com/vlink-group/VlinkPay/refs/heads/main/homepage/banners/banner-21.png",
+		"navigateTo": ""
 	}
 ]
