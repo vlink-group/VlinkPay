@@ -161,8 +161,6 @@
       "title": "CHÍNH SÁCH FRANCHISE LICENSE ATM",
       "description": "Quy định điều kiện, quyền lợi và nguyên tắc vận hành khi kích hoạt và duy trì Franchise License ATM"
     }
-    
-    
   ],
   "morePlanVideos": [
     {
@@ -219,18 +217,17 @@
   "upcomingSessions": [
     {
       "day": "Hằng tuần",
-      "date": "Thứ 5",
-      "time": "08:00 AM (Giờ Việt Nam)",
+      "date": "Thứ 4",
+      "time": "09:00 AM (Giờ Việt Nam)",
       "type": "Đào tạo trực tuyến",
       "title": "ONLINE TRAINING – KIẾM TIỀN CÙNG VLINKPAY",
-      "description": "Kính mời Quý Anh/Chị tham gia buổi đào tạo trực tuyến cùng VLINKPAY nhằm nâng cao kỹ năng mời khách, hỗ trợ thành viên mới và chăm sóc khách hàng hiệu quả.",
+      "description": "Kính mời Quý Anh/Chị tham gia buổi đào tạo trực tuyến cùng VLINKPAY nhằm nâng cao kỹ năng mời khách, hỗ trợ thành viên mới và chăm sóc, phát triển khách hàng bền vững.",
       "primaryAction": "Tham gia Zoom",
       "secondaryAction": "Xem chi tiết",
       "link": "https://zoom.us/j/99961435338?pwd=sZ3uumKahhNrqhkpkxPF7pCiEDTQy2.1",
       "meetingId": "999 6143 5338",
       "passcode": "123456",
-      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/Zoom-thu-3-training-hang-tuan.jpg?raw=true\" alt=\"VLINKPAY Online Training\" class=\"img-fluid rounded\" />"
-  
+      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/zoom-6.jpg?raw=true\" alt=\"VLINKPAY Online Training\" class=\"img-fluid rounded\" />"
     },
     {
       "day": "Hằng tuần",
@@ -247,9 +244,7 @@
       "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/Zoom-OPP-thu-5-MC-Ly-Nguyen.jpg?raw=true\" alt=\"VLINKPAY Opportunity Presentation\" class=\"img-fluid rounded\" />"
     }
   ],
-  "upcomingEvents": [
-
-  ],
+  "upcomingEvents": [],
   "recentSessions": [],
   "videoZoomHistory": [
     {

@@ -79,7 +79,7 @@
       "description": "An introduction to a salon model that accepts crypto payments, currently featured on the channel.",
       "isExtra": false
     },
-    
+
     {
       "url": "https://www.youtube.com/watch?v=zOtGaFmg-Eo",
       "image": "https://i.ytimg.com/vi/zOtGaFmg-Eo/hqdefault.jpg",
@@ -91,7 +91,7 @@
       "description": "An English video explaining the P2P Exchange model combined with Mobile Merchant ATM for cash, crypto, and gift cards.",
       "isExtra": false
     },
-    
+
     {
       "url": "https://www.youtube.com/watch?v=Tb1uhh7-t7Q",
       "image": "https://i.ytimg.com/vi/Tb1uhh7-t7Q/hqdefault.jpg",
@@ -135,7 +135,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/VLINKPAY_MAY.pdf",
-      "icon": "fa-globe" ,
+      "icon": "fa-globe",
       "title": "VLINKPAY ECOSYSTEM OVERVIEW",
       "description": "Introducing the VLINKPAY ecosystem across Wallet, Exchange, Business Solutions, CryptoMap360, NailHub.ai, Impact, IOU/VMM, Mobile ATM, and Merchant ATM."
     },
@@ -163,7 +163,6 @@
       "title": "Franchise License ATM Policy",
       "description": "Defines the requirements, benefits, and operating rules for activating and maintaining an ATM Franchise License,"
     }
-   
   ],
   "morePlanVideos": [
     {
@@ -220,8 +219,8 @@
   "upcomingSessions": [
     {
       "day": "Weekly",
-      "date": "Wednesday",
-      "time": "8:00 PM (Texas Time)",
+      "date": "Tuesday",
+      "time": "9:00 PM (Texas Time)",
       "type": "Online Training",
       "title": "ONLINE TRAINING - MAKE MONEY WITH VLINKPAY",
       "description": "We warmly invite you to join VLINKPAY's online training session to improve your invitation skills, support new members, and build long-term customer relationships.",
@@ -243,11 +242,8 @@
       "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/Zoom-OPP-thu-5-MC-Ly-Nguyen.jpg?raw=true\" alt=\"VLINKPAY Opportunity Presentation\" class=\"img-fluid rounded\" />"
     }
   ],
-  "upcomingEvents": [
-     
-  ],
-  "recentSessions": [
-  ],
+  "upcomingEvents": [],
+  "recentSessions": [],
   "videoZoomHistory": [
     {
       "url": "https://www.youtube.com/watch?v=zS1yJ7puczI&t=4378s",
