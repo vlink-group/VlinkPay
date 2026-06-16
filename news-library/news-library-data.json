@@ -128,7 +128,7 @@
   ],
   "planTopics": [
     {
-      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/vlinkpay_iou_program_english_only.pdf",
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/vlinkpay_iou_program_explanation_en.pdf",
       "icon": "fa fa-usd",
       "title": "VLINKPAY IOU Program",
       "description": "A simple guide explaining how the IOU Debt Sell model works, including VMM usage, 3X max allocation, fees, and reward allocation rules."
@@ -152,13 +152,13 @@
       "description": "The Definitive Playbook for ATM Bonus Rank Advancement."
     },
     {
-      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/chinh-sach-atm-va-iou-viet.pdf",
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/chinh-sach-atm-va-iou-en.pdf",
       "icon": "fa-people-arrows",
       "title": "ATM & IOU Policy ",
       "description": "Operational guidelines and profit mechanisms for the ATM and IOU system"
     },
     {
-      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/chinh-sach-franchise-license-atm-viet.pdf",
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/chinh-sach-franchise-license-atm-en.pdf",
       "icon": "fa-wallet",
       "title": "Franchise License ATM Policy",
       "description": "Defines the requirements, benefits, and operating rules for activating and maintaining an ATM Franchise License,"
