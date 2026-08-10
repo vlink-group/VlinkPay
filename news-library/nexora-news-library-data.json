@@ -1,0 +1,195 @@
+{
+  "featuredVideos": [
+    {
+      "url": "https://www.youtube.com/watch?v=pbI2Dcf9EUw",
+      "image": "https://i.ytimg.com/vi/pbI2Dcf9EUw/hqdefault.jpg",
+      "alt": "📞 HOW TO SET UP NEXORA AI VOICE",
+      "badge": "FEATURED",
+      "duration": "4:01",
+      "timeAgo": "3 giờ trước",
+      "views": "0 lượt xem",
+      "title": "📞 HOW TO SET UP NEXORA AI VOICE",
+      "description": "Step-by-step setup for Nexora AI Voice, including call forwarding and AI answering options for salons."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=yoe_izHL0Tw",
+      "image": "https://i.ytimg.com/vi/yoe_izHL0Tw/hqdefault.jpg",
+      "alt": "🚀 NEXORA TOUCH TUTORIAL | Account Setup, Free Trial & Core Features",
+      "badge": "FEATURED",
+      "duration": "8:29",
+      "timeAgo": "5 ngày trước",
+      "views": "10 lượt xem",
+      "title": "🚀 NEXORA TOUCH TUTORIAL | Account Setup, Free Trial & Core Features",
+      "description": "Complete Nexora Touch onboarding: create an account, activate trial, set up staff, dashboard, reviews, QR and AI Hub."
+    }
+  ],
+  "channelVideos": [
+     {
+      "url": "https://www.youtube.com/watch?v=9Y_0g8N0gec",
+      "image": "https://i.ytimg.com/vi/9Y_0g8N0gec/hqdefault.jpg",
+      "alt": "📞 HOW TO SET UP NEXORA AI VOICE",
+      "badge": "FEATURED",
+      "duration": "4:27",
+      "timeAgo": "7 ngày trước",
+      "views": "3 lượt xem",
+      "title": "📞 HOW TO SET UP NEXORA AI VOICE",
+      "description": "Set up Nexora AI Voice from device connection to phone number, call forwarding, testing and daily best practices."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=9jTyBjZGoB4",
+      "image": "https://i.ytimg.com/vi/9jTyBjZGoB4/hqdefault.jpg",
+      "alt": "NEXORA TOUCH – 1 Scan, 4 Benefits for Nail Shops",
+      "badge": "FEATURED",
+      "duration": "2:21",
+      "timeAgo": "1 tháng trước",
+      "views": "7 lượt xem",
+      "title": "NEXORA TOUCH – 1 Scan, 4 Benefits for Nail Shops",
+      "description": "Nexora Touch lets nail shop customers scan QR, send tips, leave reviews and receive rewards without downloading an app."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=k3ic0_8rNsc",
+      "image": "https://i.ytimg.com/vi/k3ic0_8rNsc/hqdefault.jpg",
+      "alt": "NEXORA TAX IQ – Smart Income & Expense Tracking Solution for the Nail Industry",
+      "badge": "FEATURED",
+      "duration": "2:06",
+      "timeAgo": "1 tháng trước",
+      "views": "9 lượt xem",
+      "title": "NEXORA TAX IQ – Smart Income & Expense Tracking Solution for the Nail Industry",
+      "description": "Nexora Tax IQ helps nail professionals track income, expenses, receipts, mileage and CPA-ready tax data in one platform."
+    }
+  ],
+  "planTopics": [
+    {
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/vlinkpay_iou_program_explanation_en.pdf",
+      "icon": "fa fa-usd",
+      "title": "VLINKPAY IOU Program",
+      "description": "A simple guide explaining how the IOU Debt Sell model works, including VMM usage, 3X max allocation, fees, and reward allocation rules."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/VLINKPAY_MAY_ENGLISH.pdf",
+      "icon": "fa-globe",
+      "title": "VLINKPAY ECOSYSTEM OVERVIEW",
+      "description": "Introducing the VLINKPAY ecosystem across Wallet, Exchange, Business Solutions, CryptoMap360, NailHub.ai, Impact, IOU/VMM, Mobile ATM, and Merchant ATM."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/vlinkpay-compensation-plan.pdf",
+      "icon": "fa-university",
+      "title": "MERCHANT & MOBILE ATM PROGRAM",
+      "description": "Building Sustainable Passive Income through Global P2P Exchange & Digital Infrastructure"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/atm_blueprint-rank.pdf",
+      "icon": "fa-chart-line",
+      "title": "Architecting Your Path to $100,000",
+      "description": "The Definitive Playbook for ATM Bonus Rank Advancement."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/chinh-sach-atm-va-iou-en.pdf",
+      "icon": "fa-people-arrows",
+      "title": "ATM & IOU Policy ",
+      "description": "Operational guidelines and profit mechanisms for the ATM and IOU system"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vlink-group/VlinkPay/main/news-library/files/chinh-sach-franchise-license-atm-en.pdf",
+      "icon": "fa-wallet",
+      "title": "Franchise License ATM Policy",
+      "description": "Defines the requirements, benefits, and operating rules for activating and maintaining an ATM Franchise License,"
+    }
+  ],
+  "morePlanVideos": [
+    {
+      "url": "https://www.youtube.com/watch?v=G5f_ERpwGaY",
+      "icon": "fa-coins",
+      "title": "Passive Income Structure",
+      "description": "A deeper explanation of Franchise License, PV, BV, and the compensation structure within the system."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=abJMQMCDq-s",
+      "title": "VLINKPAY – Passive Income for Those Seeking Financial Freedom",
+      "meta": "YouTube Video • 1:44 • 57 views"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dgMx9Jp0DPs",
+      "title": "IOU Reward Policy & Binary Team Development",
+      "meta": "YouTube Video • 7:58 • 16 views"
+    }
+  ],
+  "featuredContent": {
+    "url": "https://www.youtube.com/watch?v=l8MeipGFJlI",
+    "image": "https://i.ytimg.com/vi/l8MeipGFJlI/hqdefault.jpg",
+    "title": "VLINKPAY Mobile Merchant ATM | Franchise License Benefits & Business Opportunity",
+    "description": "Discover how the VlinkPay Mobile Merchant ATM model works and explore the key benefits of the Franchise License program.",
+    "duration": "12:04",
+    "views": "120 views"
+  },
+  "solutionPresentations": [
+    {
+      "url": "https://www.youtube.com/watch?v=cbOnP7rlHNo",
+      "title": "VLINKPAY Gift Card | Secure, Flexible & Easy Digital Gift Card Solution",
+      "meta": "YouTube Video • 5:20 • 32 views"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rhcIdcfnDxg",
+      "title": "Bridging Cash and Crypto | VLINKPAY P2P Exchange for Merchant & Mobile ATM",
+      "meta": "YouTube Video • 6:22 • 37 views"
+    }
+  ],
+  "trainingVideos": [
+    {
+      "url": "https://www.youtube.com/watch?v=Tb1uhh7-t7Q",
+      "image": "https://i.ytimg.com/vi/Tb1uhh7-t7Q/hqdefault.jpg",
+      "title": "What Is P2P Exchange? Buy/Sell Crypto with Cash Through a Mobile Merchant ATM",
+      "meta": "Video Guide • 5:35"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=C8pRpnWFt9Y",
+      "image": "https://i.ytimg.com/vi/C8pRpnWFt9Y/hqdefault.jpg",
+      "title": "Prepaid Revenue Through Gift Cards",
+      "meta": "Video Guide • 5:42"
+    }
+  ],
+  "upcomingSessions": [
+    {
+      "day": "Weekly",
+      "date": "Tuesday",
+      "time": "9:00 PM (Texas Time)",
+      "type": "Online Training",
+      "title": "ONLINE TRAINING - MAKE MONEY WITH VLINKPAY",
+      "description": "We warmly invite you to join VLINKPAY's online training session to improve your invitation skills, support new members, and build long-term customer relationships.",
+      "primaryAction": "Join Zoom",
+      "secondaryAction": "View Details",
+      "link": "https://zoom.us/j/99961435338?pwd=sZ3uumKahhNrqhkpkxPF7pCiEDTQy2.1",
+      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/zoom-6.jpg?raw=true\" alt=\"VLINKPAY Online Training\" class=\"img-fluid rounded\" />"
+    },
+    {
+      "day": "Weekly",
+      "date": "Thursday",
+      "time": "09:00 PM (Texas Time)",
+      "type": "Online Opportunity Presentation",
+      "title": "OPPORTUNITY PRESENTATION - MAKE MONEY WITH VLINKPAY",
+      "description": "We warmly invite you to join our opportunity presentation and discover how to increase your income with VLINKPAY.",
+      "primaryAction": "Join Zoom",
+      "secondaryAction": "View Details",
+      "link": "https://zoom.us/j/95402504288?pwd=YeU1qOug7ae7ESQ23txBuoE3Gh1Ncw.1",
+      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/Zoom-OPP-thu-5-MC-Ly-Nguyen.jpg?raw=true\" alt=\"VLINKPAY Opportunity Presentation\" class=\"img-fluid rounded\" />"
+    }
+  ],
+  "upcomingEvents": [],
+  "recentSessions": [],
+  "videoZoomHistory": [
+    {
+      "url": "https://www.youtube.com/watch?v=zS1yJ7puczI&t=4378s",
+      "date": "May 22, 2026",
+      "time": "",
+      "title": "CEO Brian Nguyen Introduces Growth Opportunities with VLINKPAY",
+      "description": "CEO Brian Nguyen shares VLINKPAY's vision, business partnership opportunities, and the roadmap for building a global payment ecosystem."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=R0Z_xu8bOrY&t=1400s",
+      "date": "May 8, 2026",
+      "time": "",
+      "title": "CEO Brian Nguyen Introduces Growth Opportunities with VLINKPAY",
+      "description": "CEO Brian Nguyen shares VLINKPAY's vision, business partnership opportunities, and the roadmap for building a global payment ecosystem."
+    }
+  ]
+}
