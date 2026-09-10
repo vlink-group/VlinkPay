@@ -219,27 +219,17 @@
   "upcomingSessions": [
     {
       "day": "Weekly",
-      "date": "Tuesday",
-      "time": "9:00 PM (Texas Time)",
-      "type": "Agent Training",
-      "title": "AGENT TRAINING – MASTER NEXORA TOUCH",
-      "description": "Master Nexora Touch and learn how to confidently introduce the platform, approach salon owners, create effective appointments, present key features and AI Voice, deliver professional demos, and handle real consultation scenarios. Speaker: Brian Nguyen – Founder & CEO.",
-      "primaryAction": "Join Zoom",
-      "secondaryAction": "View Details",
-      "link": "https://zoom.us/j/97500721757?pwd=mSPXCXaY5cGLNdeKbcZRU87Qb9lzeW.1",
-      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/zoom-3-nexora.jpg?raw=true\" alt=\"Nexora Touch Agent Training\" class=\"img-fluid rounded\" />"
-    },
-    {
-      "day": "Weekly",
       "date": "Thursday",
       "time": "9:00 PM (Texas Time)",
-      "type": "Online Opportunity Presentation",
-      "title": "OPPORTUNITY PRESENTATION – NEXORA TOUCH",
-      "description": "Discover the Nexora Touch opportunity for nail salon owners and nail professionals, including the technology ecosystem, AI Voice, partnership opportunities, income growth potential, and the roadmap to get started. Speaker: Brian Nguyen – Founder & CEO.",
+      "type": "Opportunity Presentation & Product Training",
+      "title": "📣 LIVE ZOOM – DISCOVER OPPORTUNITIES & NEXORA TOUCH PRODUCT TRAINING",
+      "description": "You are invited to join our weekly Nexora Touch Live Zoom to discover partnership opportunities, learn more about our products, and improve your consulting and sales skills. Speaker: Brian Nguyen – Founder & CEO.",
       "primaryAction": "Join Zoom",
       "secondaryAction": "View Details",
       "link": "https://zoom.us/j/98814084251?pwd=eawBbBQfWmRt4eKiqdHDmK0Qrv1h2U.1",
-      "htmlContent": "<img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/zoom-5-nexora.jpg?raw=true\" alt=\"Nexora Touch Opportunity Presentation\" class=\"img-fluid rounded\" />"
+      "meetingId": "988 1408 4251",
+      "passcode": "123456",
+      "htmlContent": "<p>You are invited to join our <strong>weekly Nexora Touch Live Zoom</strong> to <strong>discover partnership opportunities, learn more about our products, and improve your consulting and sales skills</strong>.</p><p>🎙 <strong>Speaker:</strong> Brian Nguyen – Founder &amp; CEO</p><p>⏰ <strong>Time:</strong><br /><strong>9:00 PM (Texas Time) – Every Thursday</strong></p><p>🔗 <strong>Zoom Link:</strong><br /><a href=\"https://zoom.us/j/98814084251?pwd=eawBbBQfWmRt4eKiqdHDmK0Qrv1h2U.1\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"overflow-wrap: anywhere;\">https://zoom.us/j/98814084251?pwd=eawBbBQfWmRt4eKiqdHDmK0Qrv1h2U.1</a></p><p>🖥 <strong>Meeting ID:</strong> 988 1408 4251<br />🔑 <strong>Passcode:</strong> 123456</p><p>🚀 <strong>Don’t join alone!</strong><br />Invite your friends, colleagues, salon owners, and nail technicians to join us and <strong>discover new opportunities with Nexora Touch</strong>.</p><p>📲 <strong>Follow Nexora Touch:</strong><br />🌐 Website | 📘 Facebook | ▶️ YouTube | 📢 Telegram</p><p><strong>Best regards,</strong><br /><strong>NEXORA TOUCH TEAM</strong></p><img src=\"https://github.com/vlink-group/VlinkPay/blob/main/news-library/zoom-nexora.jpg?raw=true\" alt=\"Nexora Touch Opportunity Presentation &amp; Product Training\" class=\"img-fluid rounded\" />"
     }
   ],
   "upcomingEvents": [],
