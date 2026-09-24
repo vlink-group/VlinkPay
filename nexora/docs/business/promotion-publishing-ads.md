@@ -6,6 +6,8 @@
 
 **Trạng thái:** Đang rà soát
 
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-publishing-ads.md)
+
 ### Tổng quan
 
 Promotion Studio giúp tiệm thu hút khách và tăng lượt sử dụng ưu đãi bằng cách kết nối nội dung Promotion với các kênh phân phối và kết quả booking/POS. Hệ thống cho phép thiết lập điều kiện, lịch, banner và bộ chia sẻ; xuất bản, gửi tới nhóm khách đủ điều kiện, quảng bá qua đối tác hoặc Paid Boost, đồng thời theo dõi hiệu quả từng ưu đãi và campaign. Owner và người được phân quyền chuẩn bị, điều chỉnh nội dung; Owner xác nhận kênh, ngân sách và nguồn Ads Credit, còn Admin kiểm duyệt nội dung thuộc phạm vi phụ trách. Nhân viên POS áp dụng ưu đãi theo quyền và điều kiện đã xác nhận.
@@ -18,7 +20,7 @@ Promotion Studio giúp tiệm thu hút khách và tăng lượt sử dụng ưu 
 
 **Promotion Studio** là nơi tiệm chuẩn bị ưu đãi và nội dung quảng bá. **Paid Boost/Campaign** là nơi chọn cách quảng cáo, đối tượng, lịch và hạn mức chi tiêu. **Ads Credit trong Quản lý gói** là nơi Owner nạp tiền và theo dõi số dư dùng để thanh toán quảng cáo. Ba phần nối thành một hành trình; tiệm có thể nạp credit trước hoặc nạp khi thiết lập campaign mà chưa đủ số dư.
 
-Đây là **luồng nghiệp vụ mục tiêu**, kết nối tài liệu Promotion với [tài liệu nạp và sử dụng Ads Credit](./merchant-ads-credit.md); không phải xác nhận toàn bộ luồng đã chạy trên staging.
+Đây là **luồng nghiệp vụ mục tiêu**, kết nối tài liệu Promotion với [tài liệu nạp và sử dụng Ads Credit](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md); không phải xác nhận toàn bộ luồng đã chạy trên staging.
 
 | Chặng | Tiệm thực hiện | Kết quả và điểm nối |
 | :--- | :--- | :--- |
@@ -122,9 +124,9 @@ Nguồn: Promotion Studio — Share, Channels & Ads tích hợp (nguồn `promot
 #### Ranh giới với các tài liệu đã có
 
 - **Kênh bên ngoài và gửi tin:** social kit/Meta/Google là bộ nội dung bàn giao; SMS/email/push dùng nguồn thanh toán và dịch vụ của module tương ứng khi được hỗ trợ. Chưa có quyết định dùng Ads Credit trả phí các kênh này.
-- **Ads Credit:** dùng lại nguồn tiền, số dư, nạp, lịch sử và biên nhận theo [Merchant Ads Credit](./merchant-ads-credit.md). Tài liệu này sở hữu thiết lập campaign, điều kiện chạy/dừng và căn cứ phát sinh chi phí; không xây ví hoặc luồng nạp thứ hai.
-- **Business OneQR Earnings:** chuyển sự kiện và điều chỉnh đã được xác nhận sang [Business OneQR Earnings](./business-oneqr-earnings.md); không mô tả lại dự phòng, chia thu nhập và nhận tiền.
-- **Sponsor:** tích hợp theo [OneQR Sponsor Override](./oneqr-sponsor-override.md). Không cố định tỷ lệ, cấp hoặc quan hệ hưởng từ mẫu HTML vào campaign.
+- **Ads Credit:** dùng lại nguồn tiền, số dư, nạp, lịch sử và biên nhận theo [Merchant Ads Credit](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md). Tài liệu này sở hữu thiết lập campaign, điều kiện chạy/dừng và căn cứ phát sinh chi phí; không xây ví hoặc luồng nạp thứ hai.
+- **Business OneQR Earnings:** chuyển sự kiện và điều chỉnh đã được xác nhận sang [Business OneQR Earnings](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/business-oneqr-earnings.md); không mô tả lại dự phòng, chia thu nhập và nhận tiền.
+- **Sponsor:** tích hợp theo [OneQR Sponsor Override](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/oneqr-sponsor-override.md). Không cố định tỷ lệ, cấp hoặc quan hệ hưởng từ mẫu HTML vào campaign.
 - **Discovery:** nhóm Discovery sở hữu tìm kiếm, Nearby/Explore, bản đồ và bộ lọc ngành. Campaign cung cấp nội dung đủ điều kiện; bộ lọc vẫn áp dụng với quảng cáo trả phí.
 - **Trang doanh nghiệp:** nhóm Template Studio sở hữu bố cục trang. Trang đó sử dụng cùng Promotion đã xuất bản, không tạo danh mục ưu đãi độc lập.
 - **KYB, booking và POS:** kế thừa chức năng hiện có và bổ sung điểm tích hợp. Viết tài liệu không đồng nghĩa phê duyệt sửa backend hoặc xây lại các module này.
@@ -1027,9 +1029,9 @@ Chưa. Đây là ví dụ; dùng chính sách Earnings/Sponsor và mô hình đ�
 
 | Tính năng | Mối liên hệ với tài liệu này |
 | :--- | :--- |
-| [Ads Credit](./merchant-ads-credit.md) | Quản lý nguồn tiền, nạp thẻ, số dư, lịch sử và biên nhận. Campaign kiểm tra số dư để phân phối và ghi chi phí hợp lệ vào nguồn này. |
-| [Business OneQR Earnings](./business-oneqr-earnings.md) | Nhận sự kiện và điều chỉnh đã xác nhận để xử lý thu nhập trực tiếp, đối soát, dự phòng và chi trả cho doanh nghiệp giới thiệu. |
-| [Sponsor Override](./oneqr-sponsor-override.md) | Xử lý phần thu nhập theo quan hệ giới thiệu và cấu hình chương trình; màn hình campaign không tự đặt tỷ lệ chia tiền Sponsor. |
+| [Ads Credit](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md) | Quản lý nguồn tiền, nạp thẻ, số dư, lịch sử và biên nhận. Campaign kiểm tra số dư để phân phối và ghi chi phí hợp lệ vào nguồn này. |
+| [Business OneQR Earnings](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/business-oneqr-earnings.md) | Nhận sự kiện và điều chỉnh đã xác nhận để xử lý thu nhập trực tiếp, đối soát, dự phòng và chi trả cho doanh nghiệp giới thiệu. |
+| [Sponsor Override](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/oneqr-sponsor-override.md) | Xử lý phần thu nhập theo quan hệ giới thiệu và cấu hình chương trình; màn hình campaign không tự đặt tỷ lệ chia tiền Sponsor. |
 | Discovery — tìm kiếm và khám phá | Sở hữu tìm kiếm, Nearby/Explore, bản đồ và bộ lọc ngành. Quảng cáo trả phí vẫn phải tuân thủ các bộ lọc phân phối. |
 | Booking và POS | Xác nhận đặt lịch, điều kiện dùng ưu đãi, giao dịch thanh toán và hoàn/hủy; cung cấp căn cứ chuyển đổi và báo cáo hiệu quả. |
 | Xác minh doanh nghiệp (KYB) | Cung cấp kết quả xác minh để xét điều kiện quảng cáo; được KYB duyệt không thay thế phê duyệt nội dung hoặc campaign. |
@@ -1043,10 +1045,10 @@ Các file HTML nguồn có nhắc đến `NEXORA-Promotion-Owner-Guide.html`, `N
 Các tài liệu nguồn có liên kết dưới đây được đính kèm trong thư mục references để đối chiếu. Đây là các bản mẫu, không phải bằng chứng chức năng đã triển khai. Nội dung nghiệp vụ và các quyết định áp dụng được trình bày trong tài liệu này; những nguồn chưa tìm thấy được ghi rõ riêng.
 
 - PO bổ sung ngày 24 tháng 9 — Promotion Studio, Share, Channels & Ads (nguồn `promotion-studio-share-channels-ads-integrated.html` được bản trước viện dẫn; chưa tìm thấy file trong workspace).
-- [Promotion Studio — prototype nội dung và kênh xuất bản](./references/NEXORA-Promotion-Studio.html).
-- [Advertiser Ads Dashboard — prototype campaign và báo cáo](./references/NEXORA-OneQR-Advertiser-Ads-Dashboard.html).
-- [Chính sách Ads/Referral ngày 21/09](./references/NEXORA-OneQR-Ads-Referral-Revenue-Policy.html).
-- [Pilot — phạm vi mẫu và phần mở rộng](./references/NEXORA-OneQR-Five-Part-Pilot.html).
+- [Promotion Studio — prototype nội dung và kênh xuất bản](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-Promotion-Studio.html).
+- [Advertiser Ads Dashboard — prototype campaign và báo cáo](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Advertiser-Ads-Dashboard.html).
+- [Chính sách Ads/Referral ngày 21/09](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Ads-Referral-Revenue-Policy.html).
+- [Pilot — phạm vi mẫu và phần mở rộng](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Five-Part-Pilot.html).
 
 #### Căn cứ mã nguồn nhánh tham chiếu và phụ thuộc tích hợp — tham chiếu nội bộ
 

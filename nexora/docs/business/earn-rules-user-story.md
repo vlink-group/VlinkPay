@@ -6,6 +6,8 @@
 
 **Trạng thái:** Đang rà soát
 
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/earn-rules-user-story.md)
+
 ### Tổng quan
 
 Earn Rules giúp doanh nghiệp xác định cách khách tích điểm Loyalty bằng một bộ quy tắc chung cho chi tiêu và sự kiện thưởng. Form tại **Loyalty & Rewards → Earn Rules** cho phép xem, chỉnh sửa và lưu tỷ lệ tích điểm, khoản chi đủ điều kiện, điểm thưởng, thời điểm điểm khả dụng và chính sách hết hạn. Business Owner cấu hình quy tắc; Manager được nhắc tới trong yêu cầu cấp quyền điều chỉnh điểm thủ công, là nghiệp vụ ngoài phạm vi form này.

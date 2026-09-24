@@ -6,11 +6,13 @@
 
 **Trạng thái:** Đang rà soát
 
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit-ticket.md)
+
 ### Tổng quan
 
 Ads Credit giúp Owner kiểm soát chi phí quảng bá Promotion bằng số dư trả trước dùng cho quảng cáo Nexora. Tại **Quản lý gói → Ads Credit**, Owner nạp bằng thẻ, xem số dư, lịch sử và biên nhận; trong campaign, Owner chọn credit làm nguồn thanh toán. Hệ thống xác nhận thanh toán, cấp credit và ghi chi phí hợp lệ; bộ phận vận hành giải quyết ngoại lệ theo quyền. Đây là bản phạm vi triển khai rút gọn của tài liệu Ads Credit chi tiết, chưa xác nhận tính năng đã triển khai.
 
-**Mức độ chốt:** bản rút gọn kế thừa quyết định và các điểm còn đề xuất trong [tài liệu Ads Credit chi tiết](./merchant-ads-credit.md). Phạm vi số dư theo từng doanh nghiệp, tiền tệ/quy đổi, phí/thuế, mệnh giá nhanh, giới hạn Custom và cơ chế giữ credit cần được thống nhất trước triển khai; việc nhắc lại trong luồng không biến các đề xuất này thành quyết định mới.
+**Mức độ chốt:** bản rút gọn kế thừa quyết định và các điểm còn đề xuất trong [tài liệu Ads Credit chi tiết](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md). Phạm vi số dư theo từng doanh nghiệp, tiền tệ/quy đổi, phí/thuế, mệnh giá nhanh, giới hạn Custom và cơ chế giữ credit cần được thống nhất trước triển khai; việc nhắc lại trong luồng không biến các đề xuất này thành quyết định mới.
 
 ### Khái niệm chính
 
@@ -228,10 +230,10 @@ Không. Chỉ campaign dừng vì thiếu credit và vẫn đáp ứng các đi�
 
 | Tính năng | Mối liên hệ với tài liệu này |
 | :--- | :--- |
-| [Ads Credit — nghiệp vụ chi tiết](./merchant-ads-credit.md) | Quy định nạp thẻ, cấp credit, số dư, lịch sử, biên nhận và các điểm thương mại còn cần chốt; bản này chỉ tóm tắt phạm vi triển khai. |
-| [Promotion và quảng cáo](./promotion-publishing-ads.md) | Quản lý nội dung, kiểm duyệt, lịch, ngân sách và phân phối campaign. Campaign sử dụng Ads Credit để ghi chi phí hợp lệ và xét chạy lại sau nạp. |
-| [Business OneQR Earnings](./business-oneqr-earnings.md) | Quản lý thu nhập trực tiếp và chi trả cho doanh nghiệp giới thiệu; số dư thu nhập tách khỏi Ads Credit. |
-| [Sponsor Override](./oneqr-sponsor-override.md) | Quản lý quyền hưởng theo quan hệ giới thiệu, cấp Sponsor và chi trả; tiền nạp quảng cáo chưa sử dụng không tự tạo thu nhập Sponsor. |
+| [Ads Credit — nghiệp vụ chi tiết](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md) | Quy định nạp thẻ, cấp credit, số dư, lịch sử, biên nhận và các điểm thương mại còn cần chốt; bản này chỉ tóm tắt phạm vi triển khai. |
+| [Promotion và quảng cáo](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-publishing-ads.md) | Quản lý nội dung, kiểm duyệt, lịch, ngân sách và phân phối campaign. Campaign sử dụng Ads Credit để ghi chi phí hợp lệ và xét chạy lại sau nạp. |
+| [Business OneQR Earnings](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/business-oneqr-earnings.md) | Quản lý thu nhập trực tiếp và chi trả cho doanh nghiệp giới thiệu; số dư thu nhập tách khỏi Ads Credit. |
+| [Sponsor Override](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/oneqr-sponsor-override.md) | Quản lý quyền hưởng theo quan hệ giới thiệu, cấp Sponsor và chi trả; tiền nạp quảng cáo chưa sử dụng không tự tạo thu nhập Sponsor. |
 
 #### Phụ thuộc cần xác nhận
 

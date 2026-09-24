@@ -6,6 +6,8 @@
 
 **Trạng thái:** Đang rà soát
 
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md)
+
 ### Tổng quan
 
 Ads Credit giúp tiệm chủ động kiểm soát chi phí quảng bá Promotion trên mạng Nexora bằng khoản trả trước dùng cho Paid Boost/campaign. Hệ thống cho phép nạp bằng thẻ tại **Quản lý gói (Package Management)**, chọn Ads Credit làm nguồn thanh toán trong campaign và theo dõi số dư, chi phí, lịch sử cùng biên nhận. Merchant Owner chủ động nạp và chọn nguồn tiền; hệ thống ghi nhận chi phí hợp lệ và đánh giá chạy lại campaign dừng do thiếu credit khi các điều kiện khác vẫn đáp ứng. Credit không hết hạn và không tự động nạp; thiết lập nội dung, ngân sách và quản lý campaign được mô tả trong tài liệu Promotion.
@@ -14,7 +16,7 @@ Ads Credit giúp tiệm chủ động kiểm soát chi phí quảng bá Promotio
 
 **Nhu cầu chính:** Là Merchant Owner, tôi muốn nạp Ads Credit bằng thẻ trong Quản lý gói và chọn credit làm nguồn thanh toán cho Paid Boost/campaign quảng bá Promotion, để tiếp cận khách hàng trên mạng lưới Nexora và kiểm soát rõ ngân sách đã nạp, đã sử dụng và còn lại.
 
-**Tổng quan xuyên suốt:** xem [Promotion Studio → Ads Credit → chạy quảng cáo](./promotion-studio-ads-credit-overview.md) để theo dõi hành trình tiệm tạo ưu đãi, xuất bản, nạp khi cần và sử dụng credit cho campaign.
+**Tổng quan xuyên suốt:** xem [Promotion Studio → Ads Credit → chạy quảng cáo](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-studio-ads-credit-overview.md) để theo dõi hành trình tiệm tạo ưu đãi, xuất bản, nạp khi cần và sử dụng credit cho campaign.
 
 #### Ads Credit được dùng ở đâu?
 
@@ -32,7 +34,7 @@ Ads Credit giúp tiệm chủ động kiểm soát chi phí quảng bá Promotio
 
 Tạo Promotion, chọn Public/Paid Boost, kiểm duyệt và phân phối thuộc ticket campaign. Paid Boost cần Public và không được vượt bộ lọc đối thủ trong phiên OneQR của doanh nghiệp. Việc nạp hoặc chọn Ads Credit không tự bật Public, tự duyệt Promotion hoặc bỏ qua bộ lọc này. Performance fee cho Public chỉ được nối với Ads Credit nếu campaign contract xác nhận nguồn thanh toán và Owner đã đồng ý mô hình tương ứng; không suy diễn rằng mọi giao dịch Public đều phải trừ credit.
 
-**Bổ sung ranh giới theo bản PO ngày 24 tháng 9 năm 2026:** Promotion Studio mở rộng social kit, Meta/Google handoff, CRM SMS/email/push, Partner Network và AI creative. Các phần này không mặc định sử dụng Ads Credit: nguồn phí AI/gửi tin/quảng cáo bên ngoài và phương án Partner Credit exchange phải được chốt riêng. Giữ nguyên luồng nạp và các quyết định Ads Credit dưới đây; xem [tài liệu Promotion tích hợp](./promotion-publishing-ads.md) để biết luồng bổ sung.
+**Bổ sung ranh giới theo bản PO ngày 24 tháng 9 năm 2026:** Promotion Studio mở rộng social kit, Meta/Google handoff, CRM SMS/email/push, Partner Network và AI creative. Các phần này không mặc định sử dụng Ads Credit: nguồn phí AI/gửi tin/quảng cáo bên ngoài và phương án Partner Credit exchange phải được chốt riêng. Giữ nguyên luồng nạp và các quyết định Ads Credit dưới đây; xem [tài liệu Promotion tích hợp](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-publishing-ads.md) để biết luồng bổ sung.
 
 #### Quyết định đã xác nhận
 
@@ -339,21 +341,21 @@ Credit chưa dùng không hết hạn; phần giữ được giải phóng khi n
 | Tính năng | Mối liên hệ với tài liệu này |
 | :--- | :--- |
 | Quản lý gói | Là nơi Owner mở Ads Credit để nạp bằng thẻ, xem số dư, lịch sử giao dịch và biên nhận. |
-| [Promotion Studio và campaign quảng cáo](./promotion-publishing-ads.md) | Chuẩn bị ưu đãi, duyệt quảng cáo, chọn lịch, ngân sách và nguồn thanh toán. Chỉ hoạt động đủ điều kiện mới ghi chi phí vào Ads Credit. |
-| [Business OneQR Earnings](./business-oneqr-earnings.md) | Nhận sự kiện có căn cứ để xét thu nhập của doanh nghiệp giới thiệu. Thu nhập này không dùng chung số dư với Ads Credit. |
-| [Sponsor Override](./oneqr-sponsor-override.md) | Xét quyền hưởng và chi trả theo chương trình Sponsor. Khoản nạp chưa tiêu không tự tạo thu nhập giới thiệu. |
+| [Promotion Studio và campaign quảng cáo](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-publishing-ads.md) | Chuẩn bị ưu đãi, duyệt quảng cáo, chọn lịch, ngân sách và nguồn thanh toán. Chỉ hoạt động đủ điều kiện mới ghi chi phí vào Ads Credit. |
+| [Business OneQR Earnings](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/business-oneqr-earnings.md) | Nhận sự kiện có căn cứ để xét thu nhập của doanh nghiệp giới thiệu. Thu nhập này không dùng chung số dư với Ads Credit. |
+| [Sponsor Override](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/oneqr-sponsor-override.md) | Xét quyền hưởng và chi trả theo chương trình Sponsor. Khoản nạp chưa tiêu không tự tạo thu nhập giới thiệu. |
 | SMS, Voice và quảng cáo ngoài Nexora | Có phạm vi tích hợp và nguồn phí riêng. Không mặc định dùng số dư Ads Credit cho gửi tin, Voice hoặc quảng cáo Meta/Google. |
 
 #### Tài liệu nguồn và mức độ xác minh
 
 Các bản HTML nguồn có liên kết dưới đây được đính kèm trong thư mục references. Mã nguồn kỹ thuật và bằng chứng kiểm tra vẫn là tham chiếu nội bộ, không nằm trong bộ tài liệu chia sẻ. Các quyết định và giới hạn nghiệp vụ đã được nêu trong nội dung phía trên.
 
-- [Ads Credit Terms](./references/NEXORA-OneQR-Ads-Credit-Terms.html).
-- [Ads Credit Accounting](./references/NEXORA-OneQR-Ads-Credit-Accounting.html).
-- [Ads / Referral / Revenue Policy](./references/NEXORA-OneQR-Ads-Referral-Revenue-Policy.html): phân biệt Internal/Public/Paid Boost, vị trí sponsored, billable event và ngân sách.
-- [Promotion Studio](./references/NEXORA-Promotion-Studio.html): chọn nơi hiển thị, Public và quảng cáo trả phí; đây là prototype.
-- [Advertiser Ads Dashboard](./references/NEXORA-OneQR-Advertiser-Ads-Dashboard.html): bước thiết lập campaign, số dư available/reserved và chi tiết billable event.
-- [Five-Part Pilot](./references/NEXORA-OneQR-Five-Part-Pilot.html): hướng thử CPC, chưa thu tiền thật hoặc triển khai mua voucher.
+- [Ads Credit Terms](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Ads-Credit-Terms.html).
+- [Ads Credit Accounting](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Ads-Credit-Accounting.html).
+- [Ads / Referral / Revenue Policy](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Ads-Referral-Revenue-Policy.html): phân biệt Internal/Public/Paid Boost, vị trí sponsored, billable event và ngân sách.
+- [Promotion Studio](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-Promotion-Studio.html): chọn nơi hiển thị, Public và quảng cáo trả phí; đây là prototype.
+- [Advertiser Ads Dashboard](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Advertiser-Ads-Dashboard.html): bước thiết lập campaign, số dư available/reserved và chi tiết billable event.
+- [Five-Part Pilot](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Five-Part-Pilot.html): hướng thử CPC, chưa thu tiền thật hoặc triển khai mua voucher.
 - Các bản HTML đính kèm được giữ nguyên từ tài liệu người dùng cung cấp. Chúng là nguồn nghiệp vụ/bản mẫu, không phải hợp đồng API đã triển khai.
 - **Khác biệt phiên bản:** dashboard tổng thể gợi ý auto top-up, tài liệu policy cũ có nhắc trạng thái expired/closed, còn Pilot thu hẹp thử CPC. Story này giữ các quyết định trực tiếp của user: **không auto top-up, credit không hết hạn, hỗ trợ cả bốn mô hình**. Không áp đơn giá/tỷ lệ chia demo thành cấu hình production và không suy rằng toàn bộ chức năng prototype đã tồn tại.
 - Tài liệu này phản ánh các câu trả lời mới nhất của user. Bản nháp cũ tại `user-story/US-051-merchant-ads-credit-top-up-and-usage.md` và README archive có các câu hỏi/phạm vi cũ; được giữ nguyên, không dùng để thay thế quyết định trong tài liệu này.

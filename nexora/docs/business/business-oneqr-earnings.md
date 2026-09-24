@@ -6,6 +6,8 @@
 
 **Trạng thái:** Đang rà soát
 
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/business-oneqr-earnings.md)
+
 ### Tổng quan
 
 Business OneQR — Kiếm tiền từ QR, đối soát và nhận tiền giúp doanh nghiệp tạo và kiểm soát thu nhập từ hoạt động quảng cáo hoặc giao dịch đủ điều kiện được QR giới thiệu. Hệ thống ghi nhận thu nhập, đối soát, giữ dự phòng hoàn tiền/tranh chấp, khấu trừ nghĩa vụ thu hồi và chi phần đủ điều kiện vào ví VlinkPay liên kết SSO của Business. Admin vận hành cấu hình thời gian đối soát, chính sách dự phòng, loại tiền nhận và tỷ lệ từng loại; Business Owner bật/tắt kiếm tiền, theo dõi nguồn thu và đối chiếu tiền thực nhận.
@@ -574,12 +576,12 @@ Payout hiển thị đã trả một phần, kèm kết quả từng loại. Ph�
 
 | Tính năng | Mối liên hệ với tài liệu này |
 | :--- | :--- |
-| [Promotion và quảng cáo](./promotion-publishing-ads.md) | Cung cấp hoạt động quảng cáo hoặc giao dịch đủ điều kiện, cùng các điều chỉnh, để làm căn cứ ghi nhận thu nhập cho doanh nghiệp giới thiệu. |
-| [Ads Credit](./merchant-ads-credit.md) | Là nguồn tiền quảng cáo của doanh nghiệp chạy quảng cáo. Số dư nạp quảng cáo và thu nhập OneQR được quản lý riêng. |
+| [Promotion và quảng cáo](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-publishing-ads.md) | Cung cấp hoạt động quảng cáo hoặc giao dịch đủ điều kiện, cùng các điều chỉnh, để làm căn cứ ghi nhận thu nhập cho doanh nghiệp giới thiệu. |
+| [Ads Credit](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md) | Là nguồn tiền quảng cáo của doanh nghiệp chạy quảng cáo. Số dư nạp quảng cáo và thu nhập OneQR được quản lý riêng. |
 | OneQR và Discovery | Xác định nguồn giới thiệu và nơi phân phối nội dung phù hợp. Quét QR hoặc mở menu không tự tạo thu nhập. |
 | Xác minh doanh nghiệp (KYB) | Cung cấp kết quả xác minh để xét điều kiện tham gia và nhận tiền; kế thừa quy trình xác minh hiện có. |
 | Ví VlinkPay liên kết SSO | Nhận phần thu nhập đủ điều kiện vào đúng ví của tài khoản Business; trả kết quả để đối chiếu từng phần chi. |
-| [Sponsor Override](./oneqr-sponsor-override.md) | Quản lý phần thu nhập theo quan hệ giới thiệu và cấp Sponsor. Thu nhập này có chính sách riêng, ngoài phạm vi thu nhập trực tiếp của Business. |
+| [Sponsor Override](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/oneqr-sponsor-override.md) | Quản lý phần thu nhập theo quan hệ giới thiệu và cấp Sponsor. Thu nhập này có chính sách riêng, ngoài phạm vi thu nhập trực tiếp của Business. |
 
 #### Tài liệu nguồn đi kèm
 
@@ -587,11 +589,11 @@ Các file HTML nguồn có nhắc đến `NEXORA-Promotion-Owner-Guide.html`, `N
 
 Các tài liệu nguồn có liên kết dưới đây được đính kèm trong thư mục references để đối chiếu. Đây là các bản mẫu, không phải bằng chứng chức năng đã triển khai. Nội dung nghiệp vụ và các quyết định áp dụng được trình bày trong tài liệu này; những nguồn chưa tìm thấy được ghi rõ riêng.
 
-- [Chính sách Ads/Referral 21/09 — nguồn tính thu nhập](./references/NEXORA-OneQR-Ads-Referral-Revenue-Policy.html).
-- [Menu Placement — onboarding, payout và hành vi tắt](./references/NEXORA-OneQR-Menu-Placement.html): chỉ lấy phần không mâu thuẫn chính sách 21/09 và quyết định user; không áp dụng tỷ lệ 70% của phần chính sách cũ trong file.
-- [Monetization & Sponsor Terms — điều kiện QR Host](./references/NEXORA-OneQR-Monetization-Sponsor-Terms.html): không lấy tỷ lệ minh họa làm tỷ lệ của story; Sponsor ngoài phạm vi.
-- [Business Verification / KYB — bối cảnh xác minh](./references/NEXORA-OneQR-Business-Verification-KYB.html): các level là đề xuất; không đồng nhất trực tiếp với trạng thái KYB đang chạy.
-- [Five-Part Pilot — không cộng hồi tố click lúc tắt](./references/NEXORA-OneQR-Five-Part-Pilot.html): tỷ lệ demo không thay thế chính sách 21/09.
+- [Chính sách Ads/Referral 21/09 — nguồn tính thu nhập](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Ads-Referral-Revenue-Policy.html).
+- [Menu Placement — onboarding, payout và hành vi tắt](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Menu-Placement.html): chỉ lấy phần không mâu thuẫn chính sách 21/09 và quyết định user; không áp dụng tỷ lệ 70% của phần chính sách cũ trong file.
+- [Monetization & Sponsor Terms — điều kiện QR Host](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Monetization-Sponsor-Terms.html): không lấy tỷ lệ minh họa làm tỷ lệ của story; Sponsor ngoài phạm vi.
+- [Business Verification / KYB — bối cảnh xác minh](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Business-Verification-KYB.html): các level là đề xuất; không đồng nhất trực tiếp với trạng thái KYB đang chạy.
+- [Five-Part Pilot — không cộng hồi tố click lúc tắt](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Five-Part-Pilot.html): tỷ lệ demo không thay thế chính sách 21/09.
 
 #### Hiện trạng và phụ thuộc tích hợp — tham chiếu nội bộ
 

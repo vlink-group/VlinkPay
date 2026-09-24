@@ -6,6 +6,8 @@
 
 **Trạng thái:** Đang rà soát
 
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/oneqr-sponsor-override.md)
+
 ### Tổng quan
 
 OneQR Sponsor nhằm khuyến khích người tham gia phát triển mạng lưới sử dụng OneQR thực tế bằng cách chia thu nhập override từ hoạt động đủ điều kiện của tài khoản B. Hệ thống cho phép cấu hình quyền hưởng theo người giới thiệu trực tiếp, người phía trên cây affiliate hoặc cả hai; xét B active và cấp Sponsor; tính, đối soát và chi trả thu nhập vào **ví VlinkPay liên kết SSO của đúng tài khoản Sponsor**. Admin thiết lập và điều chỉnh chính sách, gồm loại tiền nhận và tỷ lệ phân bổ cho mỗi loại; Sponsor thuộc mọi loại tài khoản theo dõi mạng lưới, điều kiện hưởng, khoản thu và lịch sử nhận tiền. Nexora ghi nhận, đối soát và điều phối chi trả; VlinkPay xác nhận kết quả ghi có vào ví. Người giới thiệu đã xác lập với B được giữ cố định, không có chức năng đổi Sponsor.
@@ -551,9 +553,9 @@ Không. Trạng thái và hành vi do Admin thiết lập. Tuy nhiên, một kho
 | Tính năng | Mối liên hệ với tài liệu này |
 | :--- | :--- |
 | Affiliate — quan hệ giới thiệu | Cung cấp người giới thiệu và cây quan hệ làm căn cứ xét quyền hưởng. Kế thừa quan hệ đã xác lập, không mở chức năng đổi Sponsor. |
-| [Promotion và quảng cáo](./promotion-publishing-ads.md) | Cung cấp sự kiện đủ điều kiện và các điều chỉnh liên quan. Quyền hưởng và số tiền Sponsor được xét theo chính sách chương trình. |
-| [Business OneQR Earnings](./business-oneqr-earnings.md) | Quản lý thu nhập QR trực tiếp của doanh nghiệp. Có thể tham khảo cách đối soát, dự phòng và tích hợp ví, nhưng không tự áp dụng ngưỡng hoặc kỳ chi của Business cho Sponsor. |
-| [Ads Credit](./merchant-ads-credit.md) | Là nguồn tiền của bên chạy quảng cáo. Tiền nạp chưa sử dụng không tự tạo khoản Sponsor Override. |
+| [Promotion và quảng cáo](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-publishing-ads.md) | Cung cấp sự kiện đủ điều kiện và các điều chỉnh liên quan. Quyền hưởng và số tiền Sponsor được xét theo chính sách chương trình. |
+| [Business OneQR Earnings](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/business-oneqr-earnings.md) | Quản lý thu nhập QR trực tiếp của doanh nghiệp. Có thể tham khảo cách đối soát, dự phòng và tích hợp ví, nhưng không tự áp dụng ngưỡng hoặc kỳ chi của Business cho Sponsor. |
+| [Ads Credit](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md) | Là nguồn tiền của bên chạy quảng cáo. Tiền nạp chưa sử dụng không tự tạo khoản Sponsor Override. |
 | Ví VlinkPay liên kết SSO | Nhận tiền vào đúng tài khoản Sponsor, xác nhận kết quả từng loại tiền và hỗ trợ đối chiếu khi kết quả chuyển tiền chưa rõ. |
 
 #### Tài liệu nguồn đi kèm
@@ -562,9 +564,9 @@ Các file HTML nguồn có nhắc đến `NEXORA-Promotion-Owner-Guide.html`, `N
 
 Các tài liệu nguồn có liên kết dưới đây được đính kèm trong thư mục references để đối chiếu. Đây là các bản mẫu, không phải bằng chứng chức năng đã triển khai. Nội dung nghiệp vụ và các quyết định áp dụng được trình bày trong tài liệu này; những nguồn chưa tìm thấy được ghi rõ riêng.
 
-- [Ads/Referral Revenue Policy — 21/09](./references/NEXORA-OneQR-Ads-Referral-Revenue-Policy.html): bối cảnh sự kiện hợp lệ, các phần tiền và refund/reversal; quyết định Admin cấu hình của user thay các tỷ lệ/quan hệ minh họa cố định.
-- [Sponsor Level Flow — bản mẫu nguồn](./references/NEXORA-OneQR-Sponsor-Level-Flow.html): nguyên tắc B hoạt động thật và quyền cấp; ngưỡng mẫu và bảng B gán sẵn không phải logic production.
-- [Monetization & Sponsor Terms](./references/NEXORA-OneQR-Monetization-Sponsor-Terms.html): quyền hưởng, điều kiện và lịch sử thu nhập; không áp dụng tỷ lệ demo như mặc định.
+- [Ads/Referral Revenue Policy — 21/09](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Ads-Referral-Revenue-Policy.html): bối cảnh sự kiện hợp lệ, các phần tiền và refund/reversal; quyết định Admin cấu hình của user thay các tỷ lệ/quan hệ minh họa cố định.
+- [Sponsor Level Flow — bản mẫu nguồn](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Sponsor-Level-Flow.html): nguyên tắc B hoạt động thật và quyền cấp; ngưỡng mẫu và bảng B gán sẵn không phải logic production.
+- [Monetization & Sponsor Terms](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Monetization-Sponsor-Terms.html): quyền hưởng, điều kiện và lịch sử thu nhập; không áp dụng tỷ lệ demo như mặc định.
 
 #### Hiện trạng và phụ thuộc tích hợp — tham chiếu nội bộ
 
