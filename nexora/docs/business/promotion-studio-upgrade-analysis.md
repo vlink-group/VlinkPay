@@ -1,8 +1,12 @@
 ## Promotion Studio — Phân tích nâng cấp
 
-**Cập nhật lần cuối:** 25 tháng 9 năm 2026  
-**Đối tượng đọc:** Product Owner, Business Owner, BA, Product Designer, Frontend, Backend, QA, Support  
+**Cập nhật lần cuối:** 25 tháng 9 năm 2026
+
+**Đối tượng đọc:** Product Owner, Business Owner, BA, Product Designer, Frontend, Backend, QA, Support
+
 **Trạng thái:** Bản nháp để thống nhất phạm vi
+
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/promotion-studio-analysis/nexora/docs/business/promotion-studio-upgrade-analysis.md)
 
 ---
 
