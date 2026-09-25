@@ -10,7 +10,7 @@
 
 Promotion Studio nâng cấp nhằm giúp doanh nghiệp tạo, phát hành và đo hiệu quả Promotion trong một luồng thống nhất bằng cách kế thừa nền Promotion hiện có trên `staging` và phát triển theo giao diện mục tiêu. Hệ thống mục tiêu cho phép chọn mẫu theo ngành, cấu hình ưu đãi và lịch, chọn vị trí hiển thị miễn phí, chuẩn bị banner, tạo banner bằng AI, gửi chiến dịch trả phí để duyệt và theo dõi hiệu quả theo Promotion, kỳ báo cáo và kênh. Business Owner quyết định nội dung, trạng thái và ngân sách; Manager hoặc Front Desk chuẩn bị Promotion theo quyền; hệ thống và Admin kiểm soát điều kiện phân phối, phê duyệt và số liệu.
 
-Tài liệu này phân biệt rõ ba lớp: khả năng đã có trên `staging`, định hướng trong mẫu PO cung cấp và yêu cầu cần bổ sung để đưa thiết kế mục tiêu vào production. Dữ liệu Tracking, AI credit và Paid Boost trong prototype là dữ liệu minh họa phía trình duyệt; không được xem là contract production.
+Tài liệu này phân biệt rõ ba lớp: khả năng đã có trên `staging`, định hướng trong mẫu PO cung cấp và yêu cầu cần bổ sung để đưa thiết kế mục tiêu vào production. Dữ liệu Tracking, AI Banner và Paid Boost trong prototype là dữ liệu minh họa phía trình duyệt; không được xem là contract production.
 
 #### Nguồn đối chiếu
 
@@ -32,7 +32,7 @@ Tài liệu này phân biệt rõ ba lớp: khả năng đã có trên `staging`
 | Paid Boost | Cấu hình quảng cáo trả phí gắn với một Promotion, gồm khu vực, mục tiêu, ngân sách và vị trí Sponsored. |
 | Sponsored Placement | Vị trí quảng cáo trả phí, được gắn nhãn Sponsored và chỉ chạy sau khi đủ điều kiện. |
 | Cover Banner | Banner đầu tiên, dùng làm ảnh đại diện và creative mặc định cho Promotion hoặc Paid Boost. |
-| AI Banner | Banner được tạo từ prompt bằng AI Ads; thao tác tạo có thể tiêu hao AI credit. |
+| AI Banner | Phần tạo banner của AI Ads được nhúng vào Promotion Studio; plan và credit sử dụng chung với gói AI Ads hiện tại. |
 | Tracking & Performance | Báo cáo view, click/scan, booking tap, redemption, revenue, cost và khách mới theo bộ lọc. |
 | Draft | Promotion đã lưu để tiếp tục chỉnh sửa, chưa bật và chưa phân phối. |
 | Approval | Quá trình kiểm tra nội dung/cấu hình trước khi Search Deals hoặc Paid Boost được phân phối. |
@@ -77,7 +77,7 @@ Tài liệu này phân biệt rõ ba lớp: khả năng đã có trên `staging`
 | Chỉ có Enabled/Disabled | Không biểu diễn Draft, Pending review, Changes required, Approved, Paused, Credit required hoặc Ended. |
 | Chưa có Tracking action và báo cáo | Không đo được hiệu quả theo Promotion/kênh/kỳ và không thể xuất báo cáo thật. |
 | Chưa có Paid Boost | Không có khu vực, mục tiêu, ngân sách, daily limit, sponsored placement, approval và Ads Credit. |
-| Chưa có AI Banner trong Promotion | Người dùng phải tự tạo/upload banner; chưa có credit, chất lượng, lịch sử và callback ảnh được chọn. |
+| Chưa nhúng AI Banner của AI Ads | Người dùng phải tự tạo/upload banner; Promotion chưa mở trực tiếp phần tạo banner của AI Ads và chưa nhận lại ảnh được chọn. |
 | Footer chỉ có Cancel và Save | Chưa phân biệt Save draft, Save promotion và Submit for approval. |
 | Search Deals chỉ là boolean request | Không có trạng thái duyệt, lý do từ chối hoặc phiên bản nội dung được duyệt. |
 | Template có nội dung ngoài contract | Các mẫu BOGO, free trial, gift card bonus, dịch vụ/add-on hoặc khách lần đầu chưa được mô hình giảm giá hiện tại cưỡng chế. |
@@ -107,7 +107,7 @@ Tài liệu này phân biệt rõ ba lớp: khả năng đã có trên `staging`
 | Start date / End date | Áp dụng | Cần cho Promotion theo mùa và trạng thái Ended. |
 | Check-in placement | Áp dụng | Tách quyền hiển thị Check-in khỏi trạng thái POS chung. |
 | Paid Boost tích hợp trong Promotion | Áp dụng theo giai đoạn riêng | Có phụ thuộc Ads Credit, approval, delivery và reporting. |
-| AI Banner Generator | Áp dụng theo tích hợp AI Ads | Cần contract tạo ảnh, credit và trả ảnh ổn định về Promotion. |
+| AI Banner Generator | Nhúng từ AI Ads | Dùng chung giao diện tạo banner, plan và credit của AI Ads; Promotion chỉ cần nhận lại ảnh người dùng chọn. |
 | Save draft / Save / Submit for approval | Áp dụng | Cần lifecycle rõ ràng và tránh hiểu nhầm lưu là đã chạy. |
 | Dữ liệu `localStorage` của prototype | Không dùng trong production | Không đáp ứng đồng bộ đa thiết bị, audit, quyền và độ tin cậy. |
 
@@ -120,7 +120,7 @@ Tài liệu này phân biệt rõ ba lớp: khả năng đã có trên `staging`
 | Giai đoạn 1 — UI và Promotion core | Cập nhật layout; filter template; Start/End date; Check-in placement; trạng thái Draft/Disabled/Enabled/Ended; Save draft/Save; Tracking action ở trạng thái chưa có dữ liệu khi API chưa sẵn sàng. | Promotion core bám sát giao diện mục tiêu, không tạo dữ liệu hoặc trạng thái giả. |
 | Giai đoạn 2 — Tracking thật | Event view/click/scan/booking tap/redemption; attribution; KPI; bảng channel; insight theo rule; export CSV. | Owner đo được hiệu quả theo dữ liệu production. |
 | Giai đoạn 3 — Approval và Paid Boost | Search Deals approval; Paid Boost; mục tiêu; khu vực; total budget; daily limit; Sponsored placements; Ads Credit; trạng thái chiến dịch. | Promotion có thể gửi duyệt và phân phối trả phí an toàn. |
-| Giai đoạn 4 — AI Banner | Prompt, ảnh tham chiếu, chất lượng, credit, lịch sử, generate và Use this banner. | Tạo banner trực tiếp và đưa về danh sách banner của Promotion. |
+| Giai đoạn 4 — Nhúng AI Banner | Nhúng phần tạo banner của AI Ads, dùng chung gói/credit và hỗ trợ Use this banner. | Tạo banner trong trải nghiệm AI Ads và đưa ảnh được chọn về danh sách banner của Promotion. |
 
 Giai đoạn có thể điều chỉnh theo ưu tiên, nhưng không nên đưa Tracking, approval, chi phí hoặc credit lên production trước khi contract và nguồn dữ liệu tương ứng tồn tại.
 
@@ -182,13 +182,12 @@ Giai đoạn có thể điều chỉnh theo ưu tiên, nhưng không nên đưa 
 #### 6. AI Banner
 
 - Mở từ nút **Generate banner with AI** trong khu vực Banners & Posters.
-- Người dùng chọn chất lượng, nhập prompt, có thể tải ảnh tham chiếu và dùng suggestion chip.
-- Trước khi tạo, hiển thị credit cần dùng và credit khả dụng.
-- Chỉ trừ credit khi backend xác nhận job tạo ảnh theo quy tắc billing được duyệt.
-- Hỗ trợ Loading, Success, Insufficient credit, Generation failed và Retry.
-- **Use this banner** thêm ảnh vào danh sách banner hiện tại; không làm mất dữ liệu form.
-- Ảnh AI tuân thủ cùng giới hạn tối đa 8 banner, thứ tự, cover, loại file và lifecycle lưu trữ như ảnh upload.
-- Lịch sử generation thuộc tài khoản/doanh nghiệp và không dùng `localStorage` làm nguồn chính.
+- Promotion Studio nhúng phần tạo banner hiện có của AI Ads; không xây một AI Banner Generator hoặc luồng billing riêng trong Promotion.
+- Giao diện nhúng sử dụng cùng tài khoản, plan, số dư credit, mức tiêu hao và lịch sử generation của AI Ads.
+- Các tùy chọn prompt, ảnh tham chiếu, chất lượng và suggestion dùng đúng khả năng AI Ads đang cung cấp.
+- Trạng thái Loading, Success, Insufficient credit, Generation failed và Retry được xử lý trong phần AI Ads nhúng.
+- **Use this banner** trả asset đã chọn về Promotion và thêm vào danh sách banner hiện tại mà không làm mất dữ liệu form.
+- Ảnh trả về tuân thủ cùng giới hạn tối đa 8 banner, thứ tự, cover và lifecycle lưu trữ như ảnh upload.
 
 #### 7. Footer actions
 
@@ -349,7 +348,7 @@ flowchart TD
 | Approval | SLA, reviewer, lý do từ chối, phiên bản, thời điểm và audit. |
 | Ads Credit | Nguồn số dư, giữ/trừ/hoàn credit, giới hạn và lịch sử giao dịch. |
 | Tracking | Event definition, attribution window, chống trùng, timezone, currency và retention. |
-| AI | Model/quality, giá credit, giới hạn ảnh, lịch sử job và chính sách nội dung. |
+| AI Ads | Promotion dùng lại plan, credit, model/quality, lịch sử job và chính sách nội dung của AI Ads; không tạo cấu hình credit riêng. |
 
 ---
 
@@ -442,7 +441,7 @@ stateDiagram-v2
 | PUT | `/api/v1/merchant/pos/{businessId}/promotions/{promotionId}` | Cập nhật toàn bộ Promotion. |
 | DELETE | `/api/v1/merchant/pos/{businessId}/promotions/{promotionId}` | Xóa Promotion chưa được sử dụng. |
 
-Contract hiện tại chưa có trường/nguồn dữ liệu production cho category template, Start/End date, Check-in placement, Draft/approval lifecycle, Paid Boost, Ads Credit, AI generation và Tracking & Performance.
+Contract hiện tại chưa có trường/nguồn dữ liệu production cho category template, Start/End date, Check-in placement, Draft/approval lifecycle, Paid Boost, Ads Credit, tích hợp AI Ads và Tracking & Performance.
 
 #### Năng lực backend cần bổ sung
 
@@ -454,7 +453,7 @@ Contract hiện tại chưa có trường/nguồn dữ liệu production cho cat
 | Tracking | Ingestion event, aggregation theo Promotion/kênh/kỳ, attribution và export. |
 | Paid Boost | Campaign config/status, budget enforcement, delivery, spend và Sponsored placements. |
 | Ads Credit | Balance, authorization/charge/refund hoặc cơ chế billing được chốt. |
-| AI Banner | Create job, status, credit cost, result asset, history và quyền sử dụng asset. |
+| AI Banner | Cơ chế nhúng phần tạo banner của AI Ads và callback trả asset đã chọn về Promotion; plan và credit tiếp tục do AI Ads quản lý. |
 
 Các endpoint mới cần được Backend thiết kế và đưa vào API contract trước khi frontend triển khai các phần phụ thuộc; tài liệu này không tự đặt tên endpoint chưa tồn tại.
 
@@ -471,7 +470,7 @@ Các endpoint mới cần được Backend thiết kế và đưa vào API contr
 | Search Deals bị từ chối | POS/Check-in/OneQR vẫn giữ trạng thái riêng; hiển thị lý do Search Deals. | Owner / Admin |
 | Thiếu Ads Credit | Không chạy quảng cáo; chuyển Credit required; không tắt Promotion miễn phí. | Owner |
 | Daily limit lớn hơn total budget | Chặn submit và hiển thị lỗi cạnh trường. | Hệ thống |
-| AI credit không đủ | Không tạo job; giữ nguyên form và hiển thị số credit thiếu. | Owner |
+| Credit AI Ads không đủ | Phần AI Ads nhúng hiển thị trạng thái thiếu credit theo gói hiện tại; Promotion giữ nguyên dữ liệu đang nhập. | Owner |
 | AI generation lỗi/timeout | Cho Retry; không thêm banner rỗng và không mất form. | Hệ thống / Owner |
 | Đã có 8 banner | Vô hiệu hóa Add/Upload/Use this banner và hướng dẫn xóa một banner. | Owner |
 | Tracking chưa có dữ liệu | Hiển thị “Chưa có dữ liệu”, không hiển thị số mẫu. | Hệ thống |
@@ -503,8 +502,7 @@ Các endpoint mới cần được Backend thiết kế và đưa vào API contr
 4. “Promo revenue” tính toàn bộ order có Promotion hay chỉ phần doanh thu được attribution cho Promotion?
 5. Cost gồm Ads Credit đã tiêu, chi phí quy đổi USD hay cả hai?
 6. Template BOGO, free trial, gift card bonus và add-on only sẽ chờ contract mới hay tạm ẩn?
-7. AI credit và Ads Credit là hai số dư độc lập hay cùng một nguồn?
-8. Khi thay cover/banner sau duyệt, chỉ Paid Boost cần duyệt lại hay cả Search Deals organic?
+7. Khi thay cover/banner sau duyệt, chỉ Paid Boost cần duyệt lại hay cả Search Deals organic?
 
 ---
 
@@ -531,6 +529,6 @@ Các endpoint mới cần được Backend thiết kế và đưa vào API contr
 - **OneQR Hero:** Vị trí hiển thị banner Promotion trong trải nghiệm OneQR.
 - **Search Deals:** Kênh organic và Sponsored cần trạng thái phân phối riêng.
 - **Ads Credit:** Nguồn kiểm soát chi phí cho Paid Boost khi mô hình billing được chốt.
-- **AI Ads:** Năng lực tạo banner và trả asset về Promotion Studio.
+- **AI Ads:** Cung cấp phần tạo banner được nhúng vào Promotion Studio; plan và credit dùng chung với gói AI Ads hiện tại.
 
 Không gắn tài liệu liên kết trong lần phân tích này; các mô tả trên đủ để xác định mối quan hệ trong phạm vi tài liệu.
