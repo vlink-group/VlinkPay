@@ -1,0 +1,1124 @@
+<!doctype html>\n<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nexora Promotions - Quick Create + Tools + Advanced</title>
+  <style>
+    :root {
+      --bg: #f6f8fa;
+      --panel: #fff;
+      --ink: #1d252c;
+      --muted: #687782;
+      --line: #dce4e8;
+      --teal: #0f766e;
+      --teal-dark: #0a5d57;
+      --rose: #c65d7a;
+      --gold: #b8872f;
+      --blue: #2563eb;
+      --soft: #eff7f5;
+      --radius: 8px;
+      --shadow: 0 12px 28px rgba(15, 23, 42, .08);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); }
+    button, input, textarea, select { font: inherit; }
+
+    .app { display: grid; grid-template-columns: 236px minmax(0, 1fr); min-height: 100vh; }
+    .sidebar { background: #12232a; color: #d9e5e8; padding: 18px 14px; }
+    .brand { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 800; margin: 4px 6px 24px; }
+    .logo { width: 34px; height: 34px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--teal), #d3a449); }
+    .nav { display: grid; gap: 4px; }
+    .nav a { color: #c8d6da; text-decoration: none; padding: 10px 12px; border-radius: 7px; font-size: 14px; }
+    .nav a.active { background: rgba(255,255,255,.12); color: #fff; }
+
+    .main { padding: 22px; min-width: 0; }
+    .crumb { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+    .page-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+    h1 { margin: 0 0 4px; font-size: 30px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0; font-size: 18px; }
+    h3 { margin: 0; font-size: 15px; }
+    p { margin: 0; color: var(--muted); line-height: 1.45; }
+    .sub { color: var(--muted); font-size: 14px; }
+
+    .toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+    .lang { display: inline-flex; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 3px; gap: 3px; }
+    .lang button { border: 0; background: transparent; color: var(--muted); border-radius: 999px; padding: 7px 10px; cursor: pointer; font-weight: 800; font-size: 12px; }
+    .lang button.active { background: var(--teal); color: #fff; }
+    .btn { min-height: 40px; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 7px; padding: 9px 12px; cursor: pointer; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap; }
+    .btn.primary { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .btn.blue { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .btn.small { min-height: 34px; padding: 7px 10px; font-size: 13px; }
+
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .tab { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 9px 12px; cursor: pointer; font-weight: 800; }
+    .tab.active { background: var(--teal); color: #fff; border-color: var(--teal); }
+
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 18px; }
+    .panel-head { padding: 14px 16px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .panel-body { padding: 14px 16px; }
+    .pill { display: inline-flex; align-items: center; border: 1px solid #b9dcd6; background: #effaf7; color: var(--teal-dark); border-radius: 999px; padding: 5px 8px; font-size: 12px; font-weight: 800; white-space: nowrap; }
+    .pill.warn { border-color: #f2d48c; background: #fff8e6; color: #83590e; }
+    .tooltip { position: relative; display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 999px; border: 1px solid #c9d4da; color: var(--muted); font-size: 12px; font-weight: 900; cursor: help; background: #fff; }
+    .tooltip .tip { position: absolute; right: 0; bottom: 24px; width: 280px; padding: 10px; border-radius: 8px; background: #101820; color: #fff; font-size: 12px; line-height: 1.45; font-weight: 650; box-shadow: var(--shadow); opacity: 0; pointer-events: none; transform: translateY(4px); transition: .16s ease; z-index: 10; }
+    .tooltip:hover .tip, .tooltip:focus-within .tip { opacity: 1; transform: translateY(0); }
+    .label-row { display: flex; align-items: center; gap: 7px; margin-bottom: 8px; }
+
+    .template-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .template { border: 1px solid var(--line); border-radius: 8px; padding: 0; background: #fbfcfc; display: grid; overflow: hidden; }
+    .template-visual { min-height: 112px; padding: 14px; background: linear-gradient(135deg, #fff7fb, #effaf7); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; border-bottom: 1px solid var(--line); }
+    .template-visual.gold { background: linear-gradient(135deg, #fff8e6, #f2fbf9); }
+    .template-visual.blue { background: linear-gradient(135deg, #eef5ff, #fff7fb); }
+    .template-visual.green { background: linear-gradient(135deg, #ecfdf5, #fff8e6); }
+    .template-visual strong { display: block; color: #07534d; font-size: 16px; margin-bottom: 4px; }
+    .template-visual span { color: var(--rose); font-size: 22px; font-weight: 950; }
+    .template-icon { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: rgba(255,255,255,.8); border: 1px solid rgba(255,255,255,.9); font-size: 25px; box-shadow: 0 10px 20px rgba(15, 23, 42, .08); }
+    .template-body { padding: 12px; display: grid; gap: 8px; }
+    .template .top { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+    .template p { font-size: 12px; }
+    .template-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .template-tag { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 4px 7px; color: var(--muted); font-size: 11px; font-weight: 800; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
+    .stat { border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 12px; }
+    .stat strong { display: block; font-size: 22px; margin-bottom: 3px; }
+    .stat span { color: var(--muted); font-size: 12px; }
+
+    .list { display: grid; gap: 10px; }
+    .promo-row { display: grid; grid-template-columns: minmax(220px, 1.2fr) 120px 150px 1fr auto; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: #fbfcfc; }
+    .badge { font-size: 11px; color: var(--rose); font-weight: 850; letter-spacing: .02em; }
+    .muted { color: var(--muted); font-size: 12px; }
+    .actions { display: flex; gap: 7px; flex-wrap: wrap; justify-content: flex-end; }
+    .tracking-summary { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
+    .metric { border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 11px; }
+    .metric strong { display: block; font-size: 20px; margin-bottom: 3px; }
+    .metric span { display: block; color: var(--muted); font-size: 11px; line-height: 1.3; }
+    .tracking-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); gap: 12px; align-items: start; }
+    .tracking-table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 8px; font-size: 12px; }
+    .tracking-table th, .tracking-table td { border-bottom: 1px solid var(--line); text-align: left; padding: 9px; }
+    .tracking-table th { background: #eef5f4; color: var(--teal-dark); font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+    .tracking-table tr:last-child td { border-bottom: 0; }
+    .insight-list { display: grid; gap: 8px; }
+    .insight { border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 10px; display: grid; gap: 4px; }
+    .insight strong { font-size: 13px; }
+    .insight span { color: var(--muted); font-size: 12px; line-height: 1.35; }
+
+    .ops-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .ops-card { border: 1px solid var(--line); background: #fbfcfc; border-radius: 8px; padding: 12px; display: grid; gap: 10px; align-content: start; }
+    .ops-card.full { grid-column: 1 / -1; }
+    .ops-card .head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .status-flow { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 7px; }
+    .status-step { min-height: 66px; border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 9px; display: grid; align-content: center; gap: 4px; }
+    .status-step strong { font-size: 12px; }
+    .status-step span { color: var(--muted); font-size: 11px; line-height: 1.25; }
+    .status-step.active { border-color: var(--teal); background: #effaf7; }
+    .status-step.warn { border-color: #f2d48c; background: #fff8e6; }
+    .connection-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .connection { border: 1px solid #b9dcd6; background: #fff; border-radius: 8px; padding: 10px; display: grid; gap: 4px; }
+    .connection strong { font-size: 13px; }
+    .connection span { color: var(--teal-dark); font-size: 11px; font-weight: 850; }
+    .connection.off { border-color: #e3c0c9; background: #fff8fa; }
+    .connection.off span { color: #9f3f5a; }
+    .connection.setup { border-color: #f2d48c; background: #fffdf5; }
+    .connection.setup span { color: #83590e; }
+    .setup-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+    .setup-step { border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 10px; display: grid; gap: 5px; }
+    .setup-step b { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 999px; background: var(--teal); color: #fff; font-size: 12px; }
+    .setup-step strong { font-size: 13px; }
+    .setup-step span { color: var(--muted); font-size: 12px; line-height: 1.35; }
+    .mini-list { display: grid; gap: 8px; }
+    .mini-row { border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 10px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+    .mini-row strong { font-size: 13px; }
+    .mini-row span { color: var(--muted); font-size: 12px; line-height: 1.3; }
+    .state-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .state-item { border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 10px; display: grid; gap: 4px; }
+    .state-item strong { font-size: 12px; }
+    .state-item span { color: var(--muted); font-size: 11px; line-height: 1.3; }
+
+    .create-layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 16px; align-items: start; }
+    .quick-form { display: grid; gap: 14px; }
+    .form-block { border: 1px solid var(--line); border-radius: 8px; background: #fbfcfc; padding: 12px; }
+    .form-block h3 { margin-bottom: 10px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    label { display: grid; gap: 6px; font-size: 12px; font-weight: 800; color: var(--ink); }
+    input, textarea, select { width: 100%; min-height: 40px; border: 1px solid var(--line); border-radius: 7px; background: #fff; padding: 9px 10px; color: var(--ink); }
+    textarea { min-height: 92px; resize: vertical; }
+    .checks { display: grid; grid-template-columns: repeat(7, 1fr); gap: 7px; }
+    .check-pill { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 8px; text-align: center; font-weight: 800; font-size: 12px; cursor: pointer; }
+    .check-pill.active { border-color: var(--teal); background: #effaf7; color: var(--teal-dark); }
+    .placement-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .placement { border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 10px; display: grid; gap: 5px; cursor: pointer; }
+    .placement.active { border-color: var(--teal); background: #effaf7; }
+    .placement strong { font-size: 13px; }
+    .placement span { font-size: 12px; color: var(--muted); }
+    .placement.paid { border-color: #f2d48c; background: #fffdf5; }
+    .launch-board { display: grid; gap: 12px; }
+    .launch-group { border: 1px solid var(--line); border-radius: 8px; background: #fff; overflow: hidden; }
+    .launch-group-head { padding: 11px 12px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+    .launch-group-head p { font-size: 12px; }
+    .launch-grid { padding: 10px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .launch-card { border: 1px solid var(--line); background: #fbfcfc; border-radius: 8px; padding: 10px; display: grid; gap: 6px; text-align: left; cursor: pointer; }
+    .launch-card.active { border-color: var(--teal); background: #effaf7; }
+    .launch-card.paid { border-color: #f2d48c; background: #fffdf5; }
+    .launch-card.off { border-color: #e3c0c9; background: #fff8fa; }
+    .launch-card strong { font-size: 13px; }
+    .launch-card span { color: var(--muted); font-size: 12px; line-height: 1.3; }
+    .launch-card .status { color: var(--teal-dark); font-size: 11px; font-weight: 900; }
+    .launch-card.paid .status { color: #83590e; }
+    .launch-card.off .status { color: #9f3f5a; }
+    .launch-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .hero-mix { border: 1px solid var(--line); border-radius: 8px; background: #fbfcfc; padding: 12px; display: grid; gap: 10px; }
+    .hero-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .hero-option { border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 10px; display: grid; gap: 5px; }
+    .hero-option.active { border-color: var(--teal); background: #effaf7; }
+    .hero-option strong { font-size: 13px; }
+    .hero-option span { color: var(--muted); font-size: 12px; line-height: 1.35; }
+
+    .tools { display: grid; gap: 10px; }
+    .tool { border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 11px; display: grid; gap: 8px; }
+    .tool strong { font-size: 13px; }
+    .tool p { font-size: 12px; }
+    .checklist-mini { display: grid; gap: 6px; }
+    .checkline { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 7px; align-items: start; font-size: 12px; color: var(--muted); line-height: 1.35; }
+    .checkline b { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 999px; background: #effaf7; color: var(--teal-dark); font-size: 11px; }
+    .checkline.warn b { background: #fff8e6; color: #83590e; }
+    .preview-card { border: 1px solid var(--line); background: #fff; border-radius: 8px; overflow: hidden; }
+    .banner { min-height: 178px; padding: 22px; display: grid; align-items: center; background: linear-gradient(135deg, #fff7fb, #f4fbf8); border-bottom: 1px solid var(--line); }
+    .banner .mini { color: var(--gold); font-weight: 900; font-size: 12px; letter-spacing: .08em; }
+    .banner .title { font-size: 25px; font-weight: 900; color: #07534d; margin: 6px 0; }
+    .banner .offer { font-size: 34px; font-weight: 950; color: var(--rose); }
+    .partner-strip { margin-top: 14px; border: 1px solid #d7c48a; background: rgba(255, 250, 232, .9); border-radius: 8px; padding: 8px 10px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px; align-items: center; }
+    .partner-strip .tag { color: #83590e; font-size: 10px; font-weight: 900; letter-spacing: .05em; }
+    .partner-strip span { color: #4b5563; font-size: 12px; font-weight: 750; }
+    .preview-meta { padding: 12px; display: grid; gap: 8px; }
+
+    details { border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+    summary { cursor: pointer; padding: 12px; font-weight: 900; display: flex; justify-content: space-between; gap: 10px; }
+    .advanced-body { border-top: 1px solid var(--line); padding: 12px; display: grid; gap: 12px; }
+    .advanced-note { border: 1px solid #b9dcd6; background: #f2fbf9; color: var(--teal-dark); border-radius: 8px; padding: 10px; font-size: 12px; line-height: 1.45; }
+
+    .footer-actions { display: flex; justify-content: flex-end; gap: 9px; flex-wrap: wrap; border-top: 1px solid var(--line); padding: 14px 16px; background: #fbfcfc; }
+    .toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(12px); background: #101820; color: #fff; border-radius: 999px; padding: 10px 14px; opacity: 0; pointer-events: none; transition: .18s ease; font-weight: 700; }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 1100px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .template-grid, .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .tracking-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .tracking-layout { grid-template-columns: 1fr; }
+      .ops-grid { grid-template-columns: 1fr; }
+      .status-flow, .connection-grid, .state-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .setup-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .launch-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .create-layout { grid-template-columns: 1fr; }
+      .promo-row { grid-template-columns: 1fr 1fr; }
+      .promo-row .actions { grid-column: 1 / -1; justify-content: flex-start; }
+    }
+    @media (max-width: 720px) {
+      .main { padding: 16px; }
+      .page-head { flex-direction: column; }
+      .toolbar { justify-content: flex-start; }
+      .template-grid, .stats, .grid-2, .grid-3, .placement-grid { grid-template-columns: 1fr; }
+      .status-flow, .connection-grid, .state-list, .setup-flow { grid-template-columns: 1fr; }
+      .launch-grid { grid-template-columns: 1fr; }
+      .checks { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="logo">N</div><div>Nexora Touch</div></div>
+      <nav class="nav">
+        <a href="#" data-en="Dashboard" data-vi="Dashboard">Dashboard</a>
+        <a href="#" data-en="One QR" data-vi="One QR">One QR</a>
+        <a href="#">POS</a>
+        <a href="#" class="active" data-en="Promotions" data-vi="Khuyến mãi">Promotions</a>
+        <a href="#channel-connections" data-scroll="channel-connections" data-en="Channel Connections" data-vi="Liên kết kênh">Channel Connections</a>
+        <a href="#" data-en="Gift Card Center" data-vi="Gift Card Center">Gift Card Center</a>
+        <a href="#" data-en="Analytics" data-vi="Phân tích">Analytics</a>
+        <a href="#" data-en="Settings" data-vi="Cài đặt">Settings</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="crumb" data-en="Reward / Promotions" data-vi="Reward / Khuyến mãi">Reward / Promotions</div>
+      <div class="page-head">
+        <div>
+          <h1 data-en="Promotions" data-vi="Khuyến mãi">Promotions</h1>
+          <div class="sub" data-en="Quick offers with a few smart tools and optional advanced controls." data-vi="Tạo khuyến mãi nhanh, thêm vài công cụ thông minh và phần nâng cao khi cần.">Quick offers with a few smart tools and optional advanced controls.</div>
+        </div>
+        <div class="toolbar">
+          <div class="lang">
+            <button class="active" data-lang="en">EN</button>
+            <button data-lang="vi">VI</button>
+          </div>
+          <button class="btn" id="downloadHtml" data-en="Download HTML" data-vi="Tải HTML">Download HTML</button>
+          <button class="btn" data-scroll="templates" data-en="Templates" data-vi="Mẫu">Templates</button>
+          <button class="btn primary" data-scroll="quick-create" data-en="+ Add promotion" data-vi="+ Tạo khuyến mãi">+ Add promotion</button>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-scroll="overview" data-en="Overview" data-vi="Tổng quan">Overview</button>
+        <button class="tab" data-scroll="templates" data-en="Templates" data-vi="Mẫu">Templates</button>
+        <button class="tab" data-scroll="manage" data-en="Manage" data-vi="Quản lý">Manage</button>
+        <button class="tab" data-scroll="tracking" data-en="Tracking" data-vi="Tracking">Tracking</button>
+        <button class="tab" data-scroll="channel-connections" data-en="Connections" data-vi="Liên kết">Connections</button>
+        <button class="tab" data-scroll="operations" data-en="Operations" data-vi="Vận hành">Operations</button>
+        <button class="tab" data-scroll="quick-create" data-en="Create" data-vi="Tạo nhanh">Create</button>
+        <button class="tab" data-scroll="advanced" data-en="Advanced" data-vi="Nâng cao">Advanced</button>
+      </div>
+
+      <section class="panel" id="overview">
+        <div class="panel-head">
+          <div>
+            <h2 data-en="Promotion overview" data-vi="Tổng quan khuyến mãi">Promotion overview</h2>
+            <p data-en="Keep the current simple workflow. Add small tools only where they help the owner create faster." data-vi="Giữ quy trình đơn giản như hiện tại. Chỉ thêm công cụ nhỏ ở nơi giúp chủ tiệm tạo nhanh hơn.">Keep the current simple workflow. Add small tools only where they help the owner create faster.</p>
+          </div>
+          <span class="pill" data-en="Simple first" data-vi="Đơn giản trước">Simple first</span>
+        </div>
+        <div class="panel-body">
+          <div class="stats">
+            <div class="stat"><strong>8</strong><span data-en="Promotions" data-vi="Khuyến mãi">Promotions</span></div>
+            <div class="stat"><strong>8</strong><span data-en="Enabled" data-vi="Đang bật">Enabled</span></div>
+            <div class="stat"><strong>8</strong><span data-en="Banners created" data-vi="Banner đã tạo">Banners created</span></div>
+            <div class="stat"><strong>$6.4k</strong><span data-en="Tracked revenue" data-vi="Doanh thu tracking">Tracked revenue</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="templates">
+        <div class="panel-head">
+          <div>
+            <h2 data-en="Start with a template" data-vi="Bắt đầu với mẫu">Start with a template</h2>
+            <p data-en="Templates fill in the name, terms, discount, schedule, and a first banner." data-vi="Mẫu tự điền tên, điều khoản, giảm giá, lịch chạy và banner đầu tiên.">Templates fill in the name, terms, discount, schedule, and a first banner.</p>
+          </div>
+          <button class="btn small" data-en="View all" data-vi="Xem tất cả">View all</button>
+        </div>
+        <div class="panel-body">
+          <div class="template-grid">
+            <div class="template">
+              <div class="template-visual">
+                <div><strong data-en="Weekday Pedicure Glow" data-vi="Pedicure ngày thường">Weekday Pedicure Glow</strong><span>15% OFF</span></div>
+                <div class="template-icon">💅</div>
+              </div>
+              <div class="template-body">
+                <div class="top"><strong data-en="Pedicure + Gel Polish" data-vi="Pedicure + Gel Polish">Pedicure + Gel Polish</strong><span class="pill" data-en="Nail salon" data-vi="Nail salon">Nail salon</span></div>
+                <p data-en="Best for slow hours. Mon-Thu, 10 AM-3 PM. Includes banner, SMS, receipt coupon, OneQR Hero and Discover Nearby copy." data-vi="Phù hợp lấp giờ vắng. Thứ 2-5, 10 AM-3 PM. Có banner, SMS, coupon receipt, OneQR Hero và copy Discover Nearby.">Best for slow hours. Mon-Thu, 10 AM-3 PM. Includes banner, SMS, receipt coupon, OneQR Hero and Discover Nearby copy.</p>
+                <div class="template-tags"><span class="template-tag">OneQR</span><span class="template-tag">POS</span><span class="template-tag">SMS</span></div>
+                <button class="btn small primary" data-apply="Weekday Glow" data-en="Use template" data-vi="Dùng mẫu">Use template</button>
+              </div>
+            </div>
+            <div class="template">
+              <div class="template-visual gold">
+                <div><strong data-en="Add-On Upgrade" data-vi="Nâng cấp thêm">Add-On Upgrade</strong><span>20% OFF</span></div>
+                <div class="template-icon">✨</div>
+              </div>
+              <div class="template-body">
+                <div class="top"><strong data-en="Nail art or massage add-on" data-vi="Nail art hoặc massage thêm">Nail art or massage add-on</strong><span class="pill">Upsell</span></div>
+                <p data-en="Encourage higher ticket value. Applies to add-on only, not the full ticket. Good for checkout and rebook messages." data-vi="Tăng giá trị hóa đơn. Chỉ áp dụng add-on, không áp dụng toàn bill. Phù hợp checkout và tin nhắn rebook.">Encourage higher ticket value. Applies to add-on only, not the full ticket. Good for checkout and rebook messages.</p>
+                <div class="template-tags"><span class="template-tag">Checkout</span><span class="template-tag">Receipt</span><span class="template-tag">Rebook</span></div>
+                <button class="btn small" data-apply="Add-On Upgrade" data-en="Use template" data-vi="Dùng mẫu">Use template</button>
+              </div>
+            </div>
+            <div class="template">
+              <div class="template-visual blue">
+                <div><strong data-en="Rebook &amp; Save" data-vi="Đặt lại lịch &amp; tiết kiệm">Rebook &amp; Save</strong><span>$5 OFF</span></div>
+                <div class="template-icon">📅</div>
+              </div>
+              <div class="template-body">
+                <div class="top"><strong data-en="Next visit coupon" data-vi="Coupon lần ghé tiếp">Next visit coupon</strong><span class="pill">Retention</span></div>
+                <p data-en="Offer prints or texts after checkout. Helps bring customers back and can be triggered by POS receipt or SMS." data-vi="Offer in hoặc gửi sau checkout. Giúp kéo khách quay lại, chạy qua receipt POS hoặc SMS.">Offer prints or texts after checkout. Helps bring customers back and can be triggered by POS receipt or SMS.</p>
+                <div class="template-tags"><span class="template-tag">POS</span><span class="template-tag">SMS</span><span class="template-tag">Coupon</span></div>
+                <button class="btn small" data-apply="Rebook &amp; Save" data-en="Use template" data-vi="Dùng mẫu">Use template</button>
+              </div>
+            </div>
+            <div class="template">
+              <div class="template-visual green">
+                <div><strong data-en="Gift Card Bonus" data-vi="Bonus Gift Card">Gift Card Bonus</strong><span>$15 BONUS</span></div>
+                <div class="template-icon">🎁</div>
+              </div>
+              <div class="template-body">
+                <div class="top"><strong data-en="Holiday or birthday gift cards" data-vi="Gift card mùa lễ/sinh nhật">Holiday or birthday gift cards</strong><span class="pill">Gift Card</span></div>
+                <p data-en="Promote gift cards through Gift Card Center, OneQR, email, and receipt coupon. Great for holiday seasons." data-vi="Đẩy gift card qua Gift Card Center, OneQR, email và receipt coupon. Phù hợp mùa lễ.">Promote gift cards through Gift Card Center, OneQR, email, and receipt coupon. Great for holiday seasons.</p>
+                <div class="template-tags"><span class="template-tag">Gift Card</span><span class="template-tag">Email</span><span class="template-tag">OneQR</span></div>
+                <button class="btn small" data-apply="Gift Card Bonus" data-en="Use template" data-vi="Dùng mẫu">Use template</button>
+              </div>
+            </div>
+            <div class="template">
+              <div class="template-visual">
+                <div><strong data-en="Lunch Combo" data-vi="Combo ăn trưa">Lunch Combo</strong><span>$3 OFF</span></div>
+                <div class="template-icon">🍽️</div>
+              </div>
+              <div class="template-body">
+                <div class="top"><strong data-en="Restaurant slow-hour offer" data-vi="Ưu đãi giờ vắng nhà hàng">Restaurant slow-hour offer</strong><span class="pill">Restaurant</span></div>
+                <p data-en="Sample for restaurants: main dish and drink combo, Mon-Fri 11 AM-2 PM, shown in OneQR menu and local search." data-vi="Mẫu cho nhà hàng: combo món chính và nước, Thứ 2-6 11 AM-2 PM, hiện trên OneQR menu và local search.">Sample for restaurants: main dish and drink combo, Mon-Fri 11 AM-2 PM, shown in OneQR menu and local search.</p>
+                <div class="template-tags"><span class="template-tag">Menu QR</span><span class="template-tag">Nearby</span><span class="template-tag">Search</span></div>
+                <button class="btn small" data-apply="Lunch Combo" data-en="Use template" data-vi="Dùng mẫu">Use template</button>
+              </div>
+            </div>
+            <div class="template">
+              <div class="template-visual gold">
+                <div><strong data-en="Coffee Happy Hour" data-vi="Giờ vàng cà phê">Coffee Happy Hour</strong><span>BOGO 50%</span></div>
+                <div class="template-icon">☕</div>
+              </div>
+              <div class="template-body">
+                <div class="top"><strong data-en="Cafe afternoon traffic" data-vi="Tăng khách buổi chiều">Cafe afternoon traffic</strong><span class="pill">Cafe</span></div>
+                <p data-en="Buy one drink, get 50% off the second drink, Monday-Friday 2 PM-5 PM. Good for OneQR menu, nearby deals, and social posts." data-vi="Mua 1 ly, giảm 50% ly thứ hai, Thứ 2-6 2 PM-5 PM. Phù hợp OneQR menu, Nearby deals và social post.">Buy one drink, get 50% off the second drink, Monday-Friday 2 PM-5 PM. Good for OneQR menu, nearby deals, and social posts.</p>
+                <div class="template-tags"><span class="template-tag">Cafe</span><span class="template-tag">Social</span><span class="template-tag">Nearby</span></div>
+                <button class="btn small" data-apply="Coffee Happy Hour" data-en="Use template" data-vi="Dùng mẫu">Use template</button>
+              </div>
+            </div>
+            <div class="template">
+              <div class="template-visual green">
+                <div><strong data-en="Retail Bundle" data-vi="Combo bán lẻ">Retail Bundle</strong><span>15% OFF</span></div>
+                <div class="template-icon">🛍️</div>
+              </div>
+              <div class="template-body">
+                <div class="top"><strong data-en="Gift set or product bundle" data-vi="Gift set hoặc combo sản phẩm">Gift set or product bundle</strong><span class="pill">Retail</span></div>
+                <p data-en="15% off selected gift sets or product bundles. Use for retail stores, salons with product shelves, and holiday displays." data-vi="Giảm 15% gift set hoặc combo sản phẩm được chọn. Dùng cho retail, salon có kệ sản phẩm và mùa lễ.">15% off selected gift sets or product bundles. Use for retail stores, salons with product shelves, and holiday displays.</p>
+                <div class="template-tags"><span class="template-tag">Retail</span><span class="template-tag">Gift</span><span class="template-tag">Receipt</span></div>
+                <button class="btn small" data-apply="Retail Bundle" data-en="Use template" data-vi="Dùng mẫu">Use template</button>
+              </div>
+            </div>
+            <div class="template">
+              <div class="template-visual blue">
+                <div><strong data-en="Oil Change Return" data-vi="Khách quay lại thay dầu">Oil Change Return</strong><span>$10 OFF</span></div>
+                <div class="template-icon">🔧</div>
+              </div>
+              <div class="template-body">
+                <div class="top"><strong data-en="Auto service reminder" data-vi="Nhắc lịch auto service">Auto service reminder</strong><span class="pill">Auto</span></div>
+                <p data-en="$10 off next oil change for returning customers. Send by SMS, receipt coupon, and Google Business post." data-vi="Giảm $10 lần thay dầu tiếp theo cho khách quay lại. Gửi qua SMS, receipt coupon và Google Business post.">$10 off next oil change for returning customers. Send by SMS, receipt coupon, and Google Business post.</p>
+                <div class="template-tags"><span class="template-tag">SMS</span><span class="template-tag">Reminder</span><span class="template-tag">Google</span></div>
+                <button class="btn small" data-apply="Oil Change Return" data-en="Use template" data-vi="Dùng mẫu">Use template</button>
+              </div>
+            </div>
+            <div class="template">
+              <div class="template-visual">
+                <div><strong data-en="Fitness Trial Week" data-vi="Tuần tập thử">Fitness Trial Week</strong><span>7 DAYS</span></div>
+                <div class="template-icon">🏋️</div>
+              </div>
+              <div class="template-body">
+                <div class="top"><strong data-en="Gym or studio trial" data-vi="Gym hoặc studio trial">Gym or studio trial</strong><span class="pill">Fitness</span></div>
+                <p data-en="Free 7-day trial or intro class. Promote through local discovery, website widget, and tracked booking link." data-vi="Tặng 7 ngày tập thử hoặc lớp intro. Đẩy qua local discovery, website widget và booking link tracking.">Free 7-day trial or intro class. Promote through local discovery, website widget, and tracked booking link.</p>
+                <div class="template-tags"><span class="template-tag">Booking</span><span class="template-tag">Nearby</span><span class="template-tag">Website</span></div>
+                <button class="btn small" data-apply="Fitness Trial Week" data-en="Use template" data-vi="Dùng mẫu">Use template</button>
+              </div>
+            </div>
+            <div class="template">
+              <div class="template-visual gold">
+                <div><strong data-en="Wellness First Visit" data-vi="Lần đầu wellness">Wellness First Visit</strong><span>$25 OFF</span></div>
+                <div class="template-icon">🌿</div>
+              </div>
+              <div class="template-body">
+                <div class="top"><strong data-en="Med spa or wellness consult" data-vi="Med spa hoặc wellness consult">Med spa or wellness consult</strong><span class="pill">Wellness</span></div>
+                <p data-en="$25 off first consultation or selected wellness service. Requires clear terms and approval before public distribution." data-vi="Giảm $25 cho consultation lần đầu hoặc dịch vụ wellness được chọn. Cần điều khoản rõ và duyệt trước khi public.">$25 off first consultation or selected wellness service. Requires clear terms and approval before public distribution.</p>
+                <div class="template-tags"><span class="template-tag">Approval</span><span class="template-tag">Booking</span><span class="template-tag">Search</span></div>
+                <button class="btn small" data-apply="Wellness First Visit" data-en="Use template" data-vi="Dùng mẫu">Use template</button>
+              </div>
+            </div>
+            <div class="template">
+              <div class="template-visual green">
+                <div><strong data-en="Event Night Promo" data-vi="Ưu đãi đêm sự kiện">Event Night Promo</strong><span>2 FOR 1</span></div>
+                <div class="template-icon">🎤</div>
+              </div>
+              <div class="template-body">
+                <div class="top"><strong data-en="Bar, venue, or entertainment" data-vi="Bar, venue hoặc giải trí">Bar, venue, or entertainment</strong><span class="pill">Event</span></div>
+                <p data-en="2-for-1 entry or selected drink special for event night. Good for OneQR audience, CryptoMap360, and social assets." data-vi="2 vé 1 giá hoặc drink special cho đêm sự kiện. Phù hợp OneQR audience, CryptoMap360 và social assets.">2-for-1 entry or selected drink special for event night. Good for OneQR audience, CryptoMap360, and social assets.</p>
+                <div class="template-tags"><span class="template-tag">Event</span><span class="template-tag">Social</span><span class="template-tag">CryptoMap360</span></div>
+                <button class="btn small" data-apply="Event Night Promo" data-en="Use template" data-vi="Dùng mẫu">Use template</button>
+              </div>
+            </div>
+            <div class="template">
+              <div class="template-visual blue">
+                <div><strong data-en="Build My Year" data-vi="Tạo kế hoạch năm">Build My Year</strong><span data-en="12 MONTHS" data-vi="12 THÁNG">12 MONTHS</span></div>
+                <div class="template-icon">🗓️</div>
+              </div>
+              <div class="template-body">
+                <div class="top"><strong data-en="Seasonal campaign set" data-vi="Bộ campaign theo mùa">Seasonal campaign set</strong><span class="pill" data-en="1 year" data-vi="1 năm">1 year</span></div>
+                <p data-en="Creates Spring, Summer, Fall, and Holiday drafts with suggested banners, channels, schedule, and tracking goals." data-vi="Tạo nháp Xuân, Hè, Thu và Mùa lễ với banner, kênh chạy, lịch và mục tiêu tracking gợi ý.">Creates Spring, Summer, Fall, and Holiday drafts with suggested banners, channels, schedule, and tracking goals.</p>
+                <div class="template-tags"><span class="template-tag">Automation</span><span class="template-tag">Seasonal</span><span class="template-tag">Drafts</span></div>
+                <button class="btn small" data-apply="Build My Year" data-en="Create drafts" data-vi="Tạo bản nháp">Create drafts</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="manage">
+        <div class="panel-head">
+          <div>
+            <h2 data-en="Manage promotions" data-vi="Quản lý khuyến mãi">Manage promotions</h2>
+            <p data-en="Search, edit, duplicate, preview, or turn offers on and off." data-vi="Tìm, sửa, nhân bản, xem trước hoặc bật/tắt ưu đãi.">Search, edit, duplicate, preview, or turn offers on and off.</p>
+          </div>
+          <select aria-label="Status filter">
+            <option data-en="All statuses" data-vi="Tất cả trạng thái">All statuses</option>
+            <option data-en="Enabled" data-vi="Đang bật">Enabled</option>
+            <option data-en="Disabled" data-vi="Đã tắt">Disabled</option>
+          </select>
+        </div>
+        <div class="panel-body list">
+          <div class="promo-row">
+            <div><div class="badge" data-en="FALL COLORS" data-vi="MÀU MÙA THU">FALL COLORS</div><h3 data-en="Fall Color Collection" data-vi="Bộ màu mùa thu">Fall Color Collection</h3><div class="muted">Tue · Wed · Thu / 10:00 AM-03:00 PM</div></div>
+            <strong>$5.00 off</strong>
+            <span class="pill" data-en="Enabled" data-vi="Đang bật">Enabled</span>
+            <div class="muted">POS checkout · OneQR hero · 1 banner</div>
+            <div class="actions"><button class="btn small" data-en="Edit" data-vi="Sửa">Edit</button><button class="btn small" data-en="Disable" data-vi="Tắt">Disable</button><button class="btn small" data-en="Duplicate" data-vi="Nhân bản">Duplicate</button><button class="btn small" data-scroll="tracking" data-en="Tracking" data-vi="Tracking">Tracking</button></div>
+          </div>
+          <div class="promo-row">
+            <div><div class="badge" data-en="SUMMER TOES" data-vi="SUMMER TOES">SUMMER TOES</div><h3 data-en="Summer Pedicure Glow" data-vi="Pedicure mùa hè rạng rỡ">Summer Pedicure Glow</h3><div class="muted">Mon · Tue · Wed · Thu / 10:00 AM-03:00 PM</div></div>
+            <strong>15% off</strong>
+            <span class="pill" data-en="Enabled" data-vi="Đang bật">Enabled</span>
+            <div class="muted">POS checkout · OneQR hero · 1 banner</div>
+            <div class="actions"><button class="btn small" data-en="Edit" data-vi="Sửa">Edit</button><button class="btn small" data-en="Disable" data-vi="Tắt">Disable</button><button class="btn small" data-en="Duplicate" data-vi="Nhân bản">Duplicate</button><button class="btn small" data-scroll="tracking" data-en="Tracking" data-vi="Tracking">Tracking</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="tracking">
+        <div class="panel-head">
+          <div>
+            <h2 data-en="Tracking &amp; performance" data-vi="Tracking &amp; hiệu quả">Tracking &amp; performance</h2>
+            <p data-en="Show where customers saw the deal, what they clicked, what they redeemed, and how much revenue came from each channel." data-vi="Cho thấy khách thấy deal ở đâu, bấm gì, redeem bao nhiêu và mỗi kênh tạo ra doanh thu bao nhiêu.">Show where customers saw the deal, what they clicked, what they redeemed, and how much revenue came from each channel.</p>
+          </div>
+          <div class="actions">
+            <button class="btn small" data-en="Export report" data-vi="Xuất báo cáo">Export report</button>
+            <button class="btn small primary" data-en="Open full analytics" data-vi="Mở phân tích đầy đủ">Open full analytics</button>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="tracking-summary">
+            <div class="metric"><strong>4,982</strong><span data-en="Total views" data-vi="Tổng lượt xem">Total views</span></div>
+            <div class="metric"><strong>674</strong><span data-en="Clicks / QR scans" data-vi="Clicks / QR scans">Clicks / QR scans</span></div>
+            <div class="metric"><strong>92</strong><span data-en="Booking taps" data-vi="Bấm đặt lịch">Booking taps</span></div>
+            <div class="metric"><strong>61</strong><span data-en="POS redemptions" data-vi="Redeem tại POS">POS redemptions</span></div>
+            <div class="metric"><strong>$6.4k</strong><span data-en="Promo revenue" data-vi="Doanh thu promo">Promo revenue</span></div>
+            <div class="metric"><strong>21</strong><span data-en="New customers" data-vi="Khách mới">New customers</span></div>
+          </div>
+          <div class="tracking-layout">
+            <div>
+              <table class="tracking-table">
+                <thead>
+                  <tr>
+                    <th data-en="Channel" data-vi="Kênh">Channel</th>
+                    <th data-en="Views" data-vi="Lượt xem">Views</th>
+                    <th data-en="Clicks" data-vi="Clicks">Clicks</th>
+                    <th data-en="Redeems" data-vi="Redeem">Redeems</th>
+                    <th data-en="Revenue" data-vi="Doanh thu">Revenue</th>
+                    <th data-en="Cost" data-vi="Chi phí">Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>OneQR Hero</td><td>1,140</td><td>152</td><td>18</td><td>$1,720</td><td>$0</td></tr>
+                  <tr><td data-en="Partner strip in Hero" data-vi="Partner strip trong Hero">Partner strip in Hero</td><td>820</td><td>64</td><td>7</td><td>$420</td><td>$0</td></tr>
+                  <tr><td>Discover Nearby</td><td>1,420</td><td>188</td><td>17</td><td>$1,640</td><td>$0</td></tr>
+                  <tr><td>Search Deals</td><td>610</td><td>74</td><td>7</td><td>$690</td><td>$0</td></tr>
+                  <tr><td>POS checkout</td><td>480</td><td>96</td><td>14</td><td>$1,180</td><td>$0</td></tr>
+                  <tr><td data-en="SMS receipt" data-vi="SMS receipt">SMS receipt</td><td>312</td><td>58</td><td>9</td><td>$890</td><td>$0</td></tr>
+                  <tr><td data-en="Paid boost" data-vi="Đẩy trả phí">Paid boost</td><td>200</td><td>42</td><td>3</td><td>$260</td><td>$38</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="insight-list">
+              <div class="insight">
+                <strong data-en="Best owned channel" data-vi="Kênh nội bộ tốt nhất">Best owned channel</strong>
+                <span data-en="OneQR Hero and Discover Nearby are producing the strongest no-ad-spend traffic." data-vi="OneQR Hero và Discover Nearby đang tạo traffic tốt nhất mà không tốn ad spend.">OneQR Hero and Discover Nearby are producing the strongest no-ad-spend traffic.</span>
+              </div>
+              <div class="insight">
+                <strong data-en="Hero cross-promo result" data-vi="Kết quả chạy chéo trong Hero">Hero cross-promo result</strong>
+                <span data-en="Partner strip generated 64 clicks and 7 redemptions. Keep it secondary under the salon's own offer." data-vi="Partner strip tạo 64 click và 7 redeem. Nên giữ nó là vị trí phụ dưới offer chính của tiệm.">Partner strip generated 64 clicks and 7 redemptions. Keep it secondary under the salon's own offer.</span>
+              </div>
+              <div class="insight">
+                <strong data-en="Paid boost note" data-vi="Ghi chú đẩy trả phí">Paid boost note</strong>
+                <span data-en="Paid boost spent $38 and produced $260 revenue. Show ROI before recommending more budget." data-vi="Paid boost đã tốn $38 và tạo $260 doanh thu. Nên hiển thị ROI trước khi gợi ý tăng ngân sách.">Paid boost spent $38 and produced $260 revenue. Show ROI before recommending more budget.</span>
+              </div>
+              <div class="insight">
+                <strong data-en="Next action" data-vi="Gợi ý tiếp theo">Next action</strong>
+                <span data-en="Run Weekday Pedicure Glow again next week and keep partner strip enabled only for approved non-competing businesses." data-vi="Chạy lại Weekday Pedicure Glow tuần tới và chỉ bật partner strip cho business đã duyệt, không cạnh tranh.">Run Weekday Pedicure Glow again next week and keep partner strip enabled only for approved non-competing businesses.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="channel-connections">
+        <div class="panel-head">
+          <div>
+            <h2 data-en="Channel connections setup" data-vi="Thiết lập liên kết kênh">Channel connections setup</h2>
+            <p data-en="Connect once, then use these channels in every campaign from Nexora Campaign Hub." data-vi="Kết nối một lần, sau đó dùng các kênh này cho mọi campaign từ Nexora Campaign Hub.">Connect once, then use these channels in every campaign from Nexora Campaign Hub.</p>
+          </div>
+          <button class="btn small primary" data-en="+ Connect channel" data-vi="+ Kết nối kênh">+ Connect channel</button>
+        </div>
+        <div class="panel-body">
+          <div class="setup-flow">
+            <div class="setup-step"><b>1</b><strong data-en="Choose channel" data-vi="Chọn kênh">Choose channel</strong><span data-en="Pick Facebook, Google, SMS, Email, agency, or another vendor." data-vi="Chọn Facebook, Google, SMS, Email, agency hoặc vendor khác.">Pick Facebook, Google, SMS, Email, agency, or another vendor.</span></div>
+            <div class="setup-step"><b>2</b><strong data-en="Connect account" data-vi="Kết nối account">Connect account</strong><span data-en="OAuth login or manual export setup. Keep it one-click where possible." data-vi="OAuth login hoặc setup export thủ công. Ưu tiên một click khi có thể.">OAuth login or manual export setup. Keep it one-click where possible.</span></div>
+            <div class="setup-step"><b>3</b><strong data-en="Select asset target" data-vi="Chọn nơi đăng">Select asset target</strong><span data-en="Choose page, location, ad account, audience, or agency recipient." data-vi="Chọn page, location, ad account, audience hoặc người nhận agency.">Choose page, location, ad account, audience, or agency recipient.</span></div>
+            <div class="setup-step"><b>4</b><strong data-en="Test &amp; ready" data-vi="Test &amp; sẵn sàng">Test &amp; ready</strong><span data-en="Nexora tests permission, tracking URL, posting ability, and budget rules." data-vi="Nexora test quyền, tracking URL, khả năng đăng và quy tắc ngân sách.">Nexora tests permission, tracking URL, posting ability, and budget rules.</span></div>
+          </div>
+
+          <div style="height:12px"></div>
+          <div class="ops-grid">
+            <div class="ops-card">
+              <div class="head">
+                <h3 data-en="Ready channels" data-vi="Kênh đã sẵn sàng">Ready channels</h3>
+                <span class="pill" data-en="Use in campaigns" data-vi="Dùng được trong campaign">Use in campaigns</span>
+              </div>
+              <div class="connection-grid">
+                <div class="connection"><strong>OneQR</strong><span data-en="Native · ready" data-vi="Nội bộ · sẵn sàng">Native · ready</span></div>
+                <div class="connection"><strong>POS Receipt</strong><span data-en="Native · ready" data-vi="Nội bộ · sẵn sàng">Native · ready</span></div>
+                <div class="connection"><strong>Customer SMS</strong><span data-en="Opt-in checked" data-vi="Đã kiểm tra opt-in">Opt-in checked</span></div>
+                <div class="connection"><strong>Email</strong><span data-en="Sender verified" data-vi="Sender đã verify">Sender verified</span></div>
+                <div class="connection"><strong>Google Business</strong><span data-en="Location selected" data-vi="Đã chọn location">Location selected</span></div>
+                <div class="connection"><strong>Facebook Page</strong><span data-en="Page selected" data-vi="Đã chọn page">Page selected</span></div>
+              </div>
+            </div>
+
+            <div class="ops-card">
+              <div class="head">
+                <h3 data-en="Needs setup" data-vi="Cần setup">Needs setup</h3>
+                <button class="btn small" data-en="Fix all" data-vi="Setup tất cả">Fix all</button>
+              </div>
+              <div class="connection-grid">
+                <div class="connection setup"><strong>Meta Ads</strong><span data-en="Choose ad account" data-vi="Chọn ad account">Choose ad account</span></div>
+                <div class="connection setup"><strong>Google Ads</strong><span data-en="Connect billing-safe account" data-vi="Kết nối account có billing">Connect billing-safe account</span></div>
+                <div class="connection setup"><strong>ChatGPT Ads</strong><span data-en="Connect OpenAI Ads account" data-vi="Kết nối OpenAI Ads account">Connect OpenAI Ads account</span></div>
+                <div class="connection off"><strong>TikTok Ads</strong><span data-en="Not connected" data-vi="Chưa kết nối">Not connected</span></div>
+                <div class="connection setup"><strong data-en="External agency" data-vi="Đơn vị ads ngoài">External agency</strong><span data-en="Invite contact" data-vi="Mời liên hệ">Invite contact</span></div>
+                <div class="connection off"><strong>Yelp / Local Ads</strong><span data-en="Manual export" data-vi="Export thủ công">Manual export</span></div>
+                <div class="connection setup"><strong data-en="Other vendor" data-vi="Vendor khác">Other vendor</strong><span data-en="Create tracked link" data-vi="Tạo tracking link">Create tracked link</span></div>
+              </div>
+            </div>
+
+            <div class="ops-card full">
+              <div class="head">
+                <h3 data-en="Connection rules" data-vi="Quy tắc liên kết">Connection rules</h3>
+                <span class="pill warn" data-en="Simple for merchant" data-vi="Đơn giản cho merchant">Simple for merchant</span>
+              </div>
+              <div class="state-list">
+                <div class="state-item"><strong data-en="One-click first" data-vi="Ưu tiên một click">One-click first</strong><span data-en="Use OAuth and guided setup instead of technical settings." data-vi="Dùng OAuth và hướng dẫn từng bước, không đưa cấu hình kỹ thuật khó hiểu.">Use OAuth and guided setup instead of technical settings.</span></div>
+                <div class="state-item"><strong data-en="Nexora owns tracking" data-vi="Nexora giữ tracking">Nexora owns tracking</strong><span data-en="Every channel uses Nexora deal URL, QR, coupon token, and report." data-vi="Mọi kênh dùng deal URL, QR, coupon token và báo cáo của Nexora.">Every channel uses Nexora deal URL, QR, coupon token, and report.</span></div>
+                <div class="state-item"><strong data-en="Paid needs approval" data-vi="Paid cần duyệt">Paid needs approval</strong><span data-en="No external ad spend without budget cap and owner approval." data-vi="Không phát sinh tiền ads ngoài khi chưa có ngân sách và owner duyệt.">No external ad spend without budget cap and owner approval.</span></div>
+                <div class="state-item"><strong data-en="Manual fallback" data-vi="Có phương án thủ công">Manual fallback</strong><span data-en="If API is not connected, export assets and tracked links for agency/vendor." data-vi="Nếu chưa có API, export asset và tracking link cho agency/vendor.">If API is not connected, export assets and tracked links for agency/vendor.</span></div>
+                <div class="state-item"><strong data-en="Test before use" data-vi="Test trước khi dùng">Test before use</strong><span data-en="Check permission, posting, tracking, and redeem before campaign launch." data-vi="Kiểm tra quyền, đăng bài, tracking và redeem trước khi launch.">Check permission, posting, tracking, and redeem before campaign launch.</span></div>
+                <div class="state-item"><strong data-en="Reconnect alerts" data-vi="Cảnh báo reconnect">Reconnect alerts</strong><span data-en="Show needs reauth before campaign launch, not after it fails." data-vi="Báo cần reauth trước khi launch, không đợi chạy lỗi.">Show needs reauth before campaign launch, not after it fails.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="operations">
+        <div class="panel-head">
+          <div>
+            <h2 data-en="Operations &amp; launch checks" data-vi="Vận hành &amp; kiểm tra trước khi chạy">Operations &amp; launch checks</h2>
+            <p data-en="Status, channel readiness, seasonal schedule, permissions, test redeem, and settlement visibility." data-vi="Theo dõi trạng thái, kết nối kênh, lịch theo mùa, quyền duyệt, test redeem và đối soát payout.">Status, channel readiness, seasonal schedule, permissions, test redeem, and settlement visibility.</p>
+          </div>
+          <span class="pill" data-en="Ready to launch" data-vi="Sẵn sàng chạy">Ready to launch</span>
+        </div>
+        <div class="panel-body">
+          <div class="ops-grid">
+            <div class="ops-card full">
+              <div class="head">
+                <h3 data-en="Campaign status timeline" data-vi="Timeline trạng thái campaign">Campaign status timeline</h3>
+                <button class="btn small" data-en="View history" data-vi="Xem lịch sử">View history</button>
+              </div>
+              <div class="status-flow">
+                <div class="status-step"><strong data-en="Draft" data-vi="Nháp">Draft</strong><span data-en="Saved by staff" data-vi="Staff đã lưu">Saved by staff</span></div>
+                <div class="status-step"><strong data-en="Scheduled" data-vi="Đã lên lịch">Scheduled</strong><span data-en="Dates ready" data-vi="Ngày đã sẵn sàng">Dates ready</span></div>
+                <div class="status-step warn"><strong data-en="Pending approval" data-vi="Chờ duyệt">Pending approval</strong><span data-en="Owner review" data-vi="Owner kiểm tra">Owner review</span></div>
+                <div class="status-step active"><strong data-en="Active" data-vi="Đang chạy">Active</strong><span data-en="Live now" data-vi="Đang live">Live now</span></div>
+                <div class="status-step"><strong data-en="Paused" data-vi="Tạm dừng">Paused</strong><span data-en="Can resume" data-vi="Có thể bật lại">Can resume</span></div>
+                <div class="status-step"><strong data-en="Ended" data-vi="Đã kết thúc">Ended</strong><span data-en="Report ready" data-vi="Có báo cáo">Report ready</span></div>
+                <div class="status-step warn"><strong data-en="Rejected" data-vi="Bị từ chối">Rejected</strong><span data-en="Needs edits" data-vi="Cần chỉnh sửa">Needs edits</span></div>
+              </div>
+            </div>
+
+            <div class="ops-card">
+              <div class="head">
+                <h3 data-en="Channel connection status" data-vi="Trạng thái kết nối kênh">Channel connection status</h3>
+                <button class="btn small" data-en="Connect channels" data-vi="Kết nối kênh">Connect channels</button>
+              </div>
+              <div class="connection-grid">
+                <div class="connection"><strong>OneQR</strong><span data-en="Connected" data-vi="Đã kết nối">Connected</span></div>
+                <div class="connection"><strong>POS</strong><span data-en="Connected" data-vi="Đã kết nối">Connected</span></div>
+                <div class="connection"><strong>SMS</strong><span data-en="Connected" data-vi="Đã kết nối">Connected</span></div>
+                <div class="connection"><strong>Email</strong><span data-en="Connected" data-vi="Đã kết nối">Connected</span></div>
+                <div class="connection"><strong data-en="Gift Card Center" data-vi="Gift Card Center">Gift Card Center</strong><span data-en="Connected" data-vi="Đã kết nối">Connected</span></div>
+                <div class="connection"><strong data-en="AI Voice" data-vi="AI Voice">AI Voice</strong><span data-en="Connected" data-vi="Đã kết nối">Connected</span></div>
+                <div class="connection off"><strong>Google Ads</strong><span data-en="Needs setup" data-vi="Cần setup">Needs setup</span></div>
+                <div class="connection off"><strong>Meta Ads</strong><span data-en="Needs setup" data-vi="Cần setup">Needs setup</span></div>
+                <div class="connection"><strong>Merchant ATM</strong><span data-en="Connected" data-vi="Đã kết nối">Connected</span></div>
+                <div class="connection"><strong>Mobile ATM</strong><span data-en="Connected" data-vi="Đã kết nối">Connected</span></div>
+                <div class="connection"><strong>CryptoMap360</strong><span data-en="Connected" data-vi="Đã kết nối">Connected</span></div>
+                <div class="connection off"><strong data-en="External agency" data-vi="Đơn vị ads ngoài">External agency</strong><span data-en="Invite required" data-vi="Cần mời">Invite required</span></div>
+              </div>
+            </div>
+
+            <div class="ops-card">
+              <div class="head">
+                <h3 data-en="Seasonal campaign calendar" data-vi="Lịch campaign theo mùa">Seasonal campaign calendar</h3>
+                <button class="btn small" data-en="Build my year" data-vi="Tạo kế hoạch năm">Build my year</button>
+              </div>
+              <div class="mini-list">
+                <div class="mini-row"><div><strong data-en="Spring Color Refresh" data-vi="Spring Color Refresh">Spring Color Refresh</strong><span data-en="Mar-May · repeat next year" data-vi="Tháng 3-5 · tự lặp năm sau">Mar-May · repeat next year</span></div><span class="pill" data-en="Draft" data-vi="Nháp">Draft</span></div>
+                <div class="mini-row"><div><strong data-en="Summer Pedicure Glow" data-vi="Pedicure mùa hè rạng rỡ">Summer Pedicure Glow</strong><span data-en="Jun-Aug · slow hour fill" data-vi="Tháng 6-8 · lấp giờ vắng">Jun-Aug · slow hour fill</span></div><span class="pill" data-en="Scheduled" data-vi="Đã lên lịch">Scheduled</span></div>
+                <div class="mini-row"><div><strong data-en="Fall Color Collection" data-vi="Bộ màu mùa thu">Fall Color Collection</strong><span data-en="Sep-Nov · active now" data-vi="Tháng 9-11 · đang chạy">Sep-Nov · active now</span></div><span class="pill" data-en="Active" data-vi="Đang chạy">Active</span></div>
+                <div class="mini-row"><div><strong data-en="Holiday Gift Card Bonus" data-vi="Bonus gift card mùa lễ">Holiday Gift Card Bonus</strong><span data-en="Dec · owner approval needed" data-vi="Tháng 12 · cần owner duyệt">Dec · owner approval needed</span></div><span class="pill warn" data-en="Pending" data-vi="Chờ duyệt">Pending</span></div>
+              </div>
+            </div>
+
+            <div class="ops-card">
+              <div class="head">
+                <h3 data-en="Redeem test &amp; coupon preview" data-vi="Test redeem &amp; xem coupon">Redeem test &amp; coupon preview</h3>
+                <button class="btn small primary" id="runTestRedeem" data-en="Run test redeem" data-vi="Chạy test redeem">Run test redeem</button>
+              </div>
+              <div class="checklist-mini">
+                <div class="checkline"><b>✓</b><span data-en="Public deal page opens correctly." data-vi="Trang deal public mở đúng.">Public deal page opens correctly.</span></div>
+                <div class="checkline"><b>✓</b><span data-en="QR token is unique and traceable." data-vi="QR token là duy nhất và tracking được.">QR token is unique and traceable.</span></div>
+                <div class="checkline"><b>✓</b><span data-en="POS can validate the coupon at checkout." data-vi="POS xác thực coupon khi checkout được.">POS can validate the coupon at checkout.</span></div>
+                <div class="checkline"><b>✓</b><span data-en="Receipt and SMS previews include the coupon." data-vi="Receipt và SMS preview có coupon.">Receipt and SMS previews include the coupon.</span></div>
+                <div class="checkline warn"><b>!</b><span data-en="Paid boost preview stays locked until owner approves budget." data-vi="Preview paid boost khóa cho tới khi owner duyệt ngân sách.">Paid boost preview stays locked until owner approves budget.</span></div>
+              </div>
+            </div>
+
+            <div class="ops-card">
+              <div class="head">
+                <h3 data-en="Roles &amp; approval" data-vi="Quyền &amp; duyệt">Roles &amp; approval</h3>
+                <button class="btn small" data-en="Edit roles" data-vi="Sửa quyền">Edit roles</button>
+              </div>
+              <div class="mini-list">
+                <div class="mini-row"><div><strong data-en="Staff" data-vi="Staff">Staff</strong><span data-en="Can draft and request review." data-vi="Có thể tạo nháp và gửi duyệt.">Can draft and request review.</span></div><span class="pill">Draft</span></div>
+                <div class="mini-row"><div><strong data-en="Manager" data-vi="Manager">Manager</strong><span data-en="Can edit owned channels and schedule." data-vi="Có thể sửa kênh nội bộ và lịch.">Can edit owned channels and schedule.</span></div><span class="pill">Edit</span></div>
+                <div class="mini-row"><div><strong data-en="Owner" data-vi="Owner">Owner</strong><span data-en="Approves paid, public, partner, and budget changes." data-vi="Duyệt paid, public, partner và ngân sách.">Approves paid, public, partner, and budget changes.</span></div><span class="pill warn" data-en="Approve" data-vi="Duyệt">Approve</span></div>
+                <div class="mini-row"><div><strong data-en="Agency" data-vi="Agency">Agency</strong><span data-en="Can submit assets but cannot spend budget." data-vi="Có thể gửi asset nhưng không được tiêu ngân sách.">Can submit assets but cannot spend budget.</span></div><span class="pill">Submit</span></div>
+              </div>
+            </div>
+
+            <div class="ops-card">
+              <div class="head">
+                <h3 data-en="Audit log" data-vi="Lịch sử thay đổi">Audit log</h3>
+                <button class="btn small" data-en="Export log" data-vi="Xuất log">Export log</button>
+              </div>
+              <div class="mini-list">
+                <div class="mini-row"><div><strong>10:18 AM</strong><span data-en="Kayla updated budget cap to $250." data-vi="Kayla đổi giới hạn ngân sách thành $250.">Kayla updated budget cap to $250.</span></div><span class="pill">Budget</span></div>
+                <div class="mini-row"><div><strong>10:04 AM</strong><span data-en="Owner approved OneQR Hero placement." data-vi="Owner duyệt vị trí OneQR Hero.">Owner approved OneQR Hero placement.</span></div><span class="pill">OneQR</span></div>
+                <div class="mini-row"><div><strong>09:42 AM</strong><span data-en="System blocked competitor category from partner strip." data-vi="Hệ thống chặn ngành cạnh tranh khỏi partner strip.">System blocked competitor category from partner strip.</span></div><span class="pill warn">Partner</span></div>
+                <div class="mini-row"><div><strong>09:12 AM</strong><span data-en="Admin approved Search Deals listing." data-vi="Admin duyệt listing Search Deals.">Admin approved Search Deals listing.</span></div><span class="pill">Search</span></div>
+              </div>
+            </div>
+
+            <div class="ops-card full">
+              <div class="head">
+                <h3 data-en="Cross-promo settlement mini report" data-vi="Báo cáo đối soát quảng cáo chéo">Cross-promo settlement mini report</h3>
+                <button class="btn small" data-en="Open settlement" data-vi="Mở đối soát">Open settlement</button>
+              </div>
+              <table class="tracking-table">
+                <thead>
+                  <tr>
+                    <th data-en="Host business" data-vi="Business host">Host business</th>
+                    <th data-en="Advertiser" data-vi="Advertiser">Advertiser</th>
+                    <th data-en="Valid redeems" data-vi="Redeem hợp lệ">Valid redeems</th>
+                    <th data-en="Referral fee" data-vi="Phí referral">Referral fee</th>
+                    <th data-en="Nexora fee" data-vi="Phí Nexora">Nexora fee</th>
+                    <th data-en="Payout status" data-vi="Trạng thái payout">Payout status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Bitcoin Nail Bar</td><td>ABC Coffee</td><td>7</td><td>$8.75</td><td>$5.25</td><td data-en="Ready" data-vi="Sẵn sàng">Ready</td></tr>
+                  <tr><td>Bitcoin Nail Bar</td><td>Yoga Loft</td><td>4</td><td>$5.00</td><td>$3.00</td><td data-en="Held for review" data-vi="Giữ để kiểm tra">Held for review</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="ops-card full">
+              <div class="head">
+                <h3 data-en="Required system states" data-vi="Các trạng thái hệ thống cần có">Required system states</h3>
+                <span class="pill" data-en="Prototype data" data-vi="Dữ liệu prototype">Prototype data</span>
+              </div>
+              <div class="state-list">
+                <div class="state-item"><strong data-en="No tracking yet" data-vi="Chưa có tracking">No tracking yet</strong><span data-en="Show after launch before first impression." data-vi="Hiện sau khi launch nhưng chưa có impression.">Show after launch before first impression.</span></div>
+                <div class="state-item"><strong data-en="Approval rejected" data-vi="Duyệt bị từ chối">Approval rejected</strong><span data-en="Explain reason and show edit button." data-vi="Nêu lý do và nút sửa.">Explain reason and show edit button.</span></div>
+                <div class="state-item"><strong data-en="Budget exceeded" data-vi="Vượt ngân sách">Budget exceeded</strong><span data-en="Pause paid channels automatically." data-vi="Tự tắt kênh paid.">Pause paid channels automatically.</span></div>
+                <div class="state-item"><strong data-en="Redemption cap reached" data-vi="Đạt giới hạn redeem">Redemption cap reached</strong><span data-en="Stop coupon issue and show report." data-vi="Ngưng cấp coupon và hiện báo cáo.">Stop coupon issue and show report.</span></div>
+                <div class="state-item"><strong data-en="Channel not connected" data-vi="Kênh chưa kết nối">Channel not connected</strong><span data-en="Show connect action before launch." data-vi="Hiện nút kết nối trước khi chạy.">Show connect action before launch.</span></div>
+                <div class="state-item"><strong data-en="Competitor blocked" data-vi="Chặn đối thủ">Competitor blocked</strong><span data-en="Remove conflicting partner campaign." data-vi="Loại campaign partner bị trùng ngành cạnh tranh.">Remove conflicting partner campaign.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="quick-create">
+        <div class="panel-head">
+          <div>
+            <h2 data-en="Create promotion" data-vi="Tạo khuyến mãi">Create promotion</h2>
+            <p data-en="Same quick flow as today, with a few helpful tools on the right." data-vi="Giữ flow tạo nhanh như hiện tại, thêm vài công cụ hữu ích bên phải.">Same quick flow as today, with a few helpful tools on the right.</p>
+          </div>
+          <span class="pill" data-en="Quick create" data-vi="Tạo nhanh">Quick create</span>
+        </div>
+        <div class="panel-body create-layout">
+          <div class="quick-form">
+            <div class="form-block">
+              <h3 data-en="01 / Promotion details" data-vi="01 / Chi tiết khuyến mãi">01 / Promotion details</h3>
+              <div class="grid-2">
+                <label><span data-en="Promotion name" data-vi="Tên khuyến mãi">Promotion name</span><input id="promoName" value="Weekday Pedicure Glow"></label>
+                <label><span data-en="Badge · optional" data-vi="Badge · tùy chọn">Badge · optional</span><input value="THIS WEEK ONLY"></label>
+              </div>
+              <div style="height:10px"></div>
+              <label><span data-en="Description" data-vi="Mô tả">Description</span><textarea id="promoDesc">Enjoy 15% off Pedicure with Gel Polish, Monday through Thursday from 10 AM to 3 PM. Cannot be combined with other offers.</textarea></label>
+            </div>
+
+            <div class="form-block">
+              <h3 data-en="02 / Discount &amp; schedule" data-vi="02 / Giảm giá &amp; lịch chạy">02 / Discount &amp; schedule</h3>
+              <div class="grid-3">
+                <label><span data-en="Goal" data-vi="Mục tiêu">Goal</span><select><option data-en="Fill slow hours" data-vi="Lấp giờ vắng">Fill slow hours</option><option data-en="Bring customers back" data-vi="Kéo khách cũ quay lại">Bring customers back</option><option data-en="Get new customers" data-vi="Tìm khách mới">Get new customers</option><option data-en="Sell gift cards" data-vi="Bán gift card">Sell gift cards</option></select></label>
+                <label><span data-en="Discount type" data-vi="Loại giảm giá">Discount type</span><select><option data-en="Percent · %" data-vi="Phần trăm · %">Percent · %</option><option data-en="Amount · $" data-vi="Số tiền · $">Amount · $</option></select></label>
+                <label><span data-en="Discount value" data-vi="Giá trị giảm">Discount value</span><input value="15"></label>
+              </div>
+              <div style="height:10px"></div>
+              <label><span data-en="Days it runs" data-vi="Ngày chạy">Days it runs</span></label>
+              <div class="checks">
+                <button class="check-pill" data-en="Sun" data-vi="CN">Sun</button><button class="check-pill active" data-en="Mon" data-vi="T2">Mon</button><button class="check-pill active" data-en="Tue" data-vi="T3">Tue</button><button class="check-pill active" data-en="Wed" data-vi="T4">Wed</button><button class="check-pill active" data-en="Thu" data-vi="T5">Thu</button><button class="check-pill" data-en="Fri" data-vi="T6">Fri</button><button class="check-pill" data-en="Sat" data-vi="T7">Sat</button>
+              </div>
+              <div style="height:10px"></div>
+              <div class="grid-2">
+                <label><span data-en="Starts at" data-vi="Bắt đầu lúc">Starts at</span><input type="time" value="10:00"></label>
+                <label><span data-en="Ends at" data-vi="Kết thúc lúc">Ends at</span><input type="time" value="15:00"></label>
+              </div>
+            </div>
+
+            <div class="form-block">
+              <h3 data-en="03 / Placements" data-vi="03 / Nơi chạy">03 / Placements</h3>
+              <div class="placement-grid">
+                <button class="placement active"><strong>POS checkout</strong><span data-en="Apply at checkout" data-vi="Áp dụng khi checkout">Apply at checkout</span></button>
+                <button class="placement active"><strong>OneQR hero</strong><span data-en="Show on OneQR" data-vi="Hiện trên OneQR">Show on OneQR</span></button>
+                <button class="placement"><strong>Search Deals</strong><span data-en="Submit for review" data-vi="Gửi duyệt">Submit for review</span></button>
+              </div>
+            </div>
+
+            <div class="form-block">
+              <div class="label-row">
+                <h3 data-en="04 / Nexora Campaign Hub" data-vi="04 / Trung tâm chiến dịch Nexora">04 / Nexora Campaign Hub</h3>
+                <span class="tooltip" tabindex="0">?
+                  <span class="tip" data-en="Nexora is the main campaign platform. Merchants create, approve, track, redeem, and report here first. Other channels receive Nexora-generated assets, tracked links, or publish jobs. Paid channels require connected ad accounts, budget, and owner approval before spending." data-vi="Nexora là nền tảng chính của campaign. Merchant tạo, duyệt, tracking, redeem và xem báo cáo tại Nexora trước. Các kênh khác nhận asset, tracking link hoặc lệnh publish từ Nexora. Kênh paid cần connect tài khoản ads, ngân sách và owner duyệt trước khi phát sinh chi phí.">Nexora is the main campaign platform. Merchants create, approve, track, redeem, and report here first. Other channels receive Nexora-generated assets, tracked links, or publish jobs. Paid channels require connected ad accounts, budget, and owner approval before spending.</span>
+                </span>
+                <span class="pill" data-en="Select all or choose channels" data-vi="Chọn tất cả hoặc từng kênh">Select all or choose channels</span>
+              </div>
+              <div class="advanced-note" data-en="Nexora stays the source of truth. Every selected channel uses a Nexora deal page, QR, coupon token, tracking URL, approval record, and performance report." data-vi="Nexora là nguồn dữ liệu chính. Mỗi kênh được chọn đều dùng trang deal, QR, coupon token, tracking URL, hồ sơ duyệt và báo cáo hiệu quả từ Nexora.">Nexora stays the source of truth. Every selected channel uses a Nexora deal page, QR, coupon token, tracking URL, approval record, and performance report.</div>
+              <div class="launch-board">
+                <div class="launch-group">
+                  <div class="launch-group-head">
+                    <div>
+                      <strong data-en="Nexora core surfaces" data-vi="Các điểm chạm chính của Nexora">Nexora core surfaces</strong>
+                      <p data-en="Primary places where Nexora can publish, redeem, and measure the campaign directly." data-vi="Những nơi Nexora có thể publish, redeem và đo hiệu quả trực tiếp.">Primary places where Nexora can publish, redeem, and measure the campaign directly.</p>
+                    </div>
+                    <button class="btn small" data-en="Select all" data-vi="Chọn tất cả">Select all</button>
+                  </div>
+                  <div class="launch-grid">
+                    <button class="launch-card active"><strong>OneQR Hero</strong><span data-en="Primary deal on business QR." data-vi="Deal chính trên QR của business.">Primary deal on business QR.</span><span class="status" data-en="No ad spend" data-vi="Không tốn ad spend">No ad spend</span></button>
+                    <button class="launch-card active"><strong>Discover Nearby</strong><span data-en="Nexora local discovery feed." data-vi="Feed khám phá local của Nexora.">Nexora local discovery feed.</span><span class="status" data-en="Review required" data-vi="Cần duyệt">Review required</span></button>
+                    <button class="launch-card"><strong>Search Deals</strong><span data-en="Show when customers search deals." data-vi="Hiện khi khách search deal.">Show when customers search deals.</span><span class="status" data-en="Review required" data-vi="Cần duyệt">Review required</span></button>
+                    <button class="launch-card active"><strong>POS Receipt</strong><span data-en="Coupon on print or SMS receipt." data-vi="Coupon trên receipt in hoặc SMS.">Coupon on print or SMS receipt.</span><span class="status" data-en="Connected" data-vi="Đã kết nối">Connected</span></button>
+                    <button class="launch-card"><strong>Gift Card Center</strong><span data-en="Bundle offer with gift card campaign." data-vi="Gắn offer vào gift card campaign.">Bundle offer with gift card campaign.</span><span class="status" data-en="Connected" data-vi="Đã kết nối">Connected</span></button>
+                    <button class="launch-card"><strong>AI Voice</strong><span data-en="Use offer in outbound or missed-call flow." data-vi="Dùng offer trong outbound hoặc missed-call flow.">Use offer in outbound or missed-call flow.</span><span class="status" data-en="Connected" data-vi="Đã kết nối">Connected</span></button>
+                    <button class="launch-card"><strong>Merchant ATM</strong><span data-en="Show inside ATM merchant app." data-vi="Hiện trong app Merchant ATM.">Show inside ATM merchant app.</span><span class="status" data-en="Connected" data-vi="Đã kết nối">Connected</span></button>
+                    <button class="launch-card"><strong>CryptoMap360</strong><span data-en="Local map promotion card." data-vi="Card quảng cáo trên local map.">Local map promotion card.</span><span class="status" data-en="Connected" data-vi="Đã kết nối">Connected</span></button>
+                  </div>
+                </div>
+
+                <div class="launch-group">
+                  <div class="launch-group-head">
+                    <div>
+                      <strong data-en="Merchant owned channels" data-vi="Kênh riêng của doanh nghiệp">Merchant owned channels</strong>
+                      <p data-en="Nexora creates the assets and tracking links, then publishes or exports to channels the business controls." data-vi="Nexora tạo asset và tracking link, sau đó publish hoặc export qua kênh business đang sở hữu.">Nexora creates the assets and tracking links, then publishes or exports to channels the business controls.</p>
+                    </div>
+                    <button class="btn small" data-en="Copy bundle" data-vi="Copy bộ asset">Copy bundle</button>
+                  </div>
+                  <div class="launch-grid">
+                    <button class="launch-card active"><strong>Customer SMS</strong><span data-en="Send to opt-in customer segments." data-vi="Gửi nhóm khách đã opt-in.">Send to opt-in customer segments.</span><span class="status" data-en="Connected" data-vi="Đã kết nối">Connected</span></button>
+                    <button class="launch-card active"><strong>Email</strong><span data-en="Send campaign email with tracking link." data-vi="Gửi email campaign có tracking link.">Send campaign email with tracking link.</span><span class="status" data-en="Connected" data-vi="Đã kết nối">Connected</span></button>
+                    <button class="launch-card"><strong>Facebook Page</strong><span data-en="Post banner and caption to page." data-vi="Đăng banner và caption lên page.">Post banner and caption to page.</span><span class="status" data-en="Connected" data-vi="Đã kết nối">Connected</span></button>
+                    <button class="launch-card"><strong>Instagram</strong><span data-en="Export feed and story sizes." data-vi="Xuất size feed và story.">Export feed and story sizes.</span><span class="status" data-en="Asset ready" data-vi="Asset sẵn sàng">Asset ready</span></button>
+                    <button class="launch-card"><strong>Google Business</strong><span data-en="Create update post with booking link." data-vi="Tạo bài update kèm booking link.">Create update post with booking link.</span><span class="status" data-en="Connected" data-vi="Đã kết nối">Connected</span></button>
+                    <button class="launch-card"><strong>Website Widget</strong><span data-en="Embed public deal on website." data-vi="Nhúng deal public vào website.">Embed public deal on website.</span><span class="status" data-en="Code ready" data-vi="Code sẵn sàng">Code ready</span></button>
+                    <button class="launch-card"><strong>Booking Page</strong><span data-en="Show offer beside appointment flow." data-vi="Hiện offer cạnh flow đặt lịch.">Show offer beside appointment flow.</span><span class="status" data-en="Connected" data-vi="Đã kết nối">Connected</span></button>
+                    <button class="launch-card"><strong data-en="Custom link" data-vi="Link tuỳ chỉnh">Custom link</strong><span data-en="UTM link for any other channel." data-vi="Link UTM cho bất kỳ kênh nào khác.">UTM link for any other channel.</span><span class="status" data-en="Ready" data-vi="Sẵn sàng">Ready</span></button>
+                  </div>
+                </div>
+
+                <div class="launch-group">
+                  <div class="launch-group-head">
+                    <div>
+                      <strong data-en="External paid ads through Nexora" data-vi="Ads ngoài được quản lý qua Nexora">External paid ads through Nexora</strong>
+                      <p data-en="Nexora prepares the campaign and tracking. These channels may spend money only after account connection, budget cap, and owner approval." data-vi="Nexora chuẩn bị campaign và tracking. Các kênh này chỉ có thể tốn tiền sau khi connect account, đặt ngân sách và owner duyệt.">Nexora prepares the campaign and tracking. These channels may spend money only after account connection, budget cap, and owner approval.</p>
+                    </div>
+                    <div class="launch-actions">
+                      <button class="btn small" data-en="Connect ad account" data-vi="Kết nối tài khoản ads">Connect ad account</button>
+                      <button class="btn small primary" data-en="Submit for approval" data-vi="Gửi duyệt">Submit for approval</button>
+                    </div>
+                  </div>
+                  <div class="launch-grid">
+                    <button class="launch-card paid"><strong>Meta Ads</strong><span data-en="Facebook and Instagram paid campaign." data-vi="Campaign paid Facebook và Instagram.">Facebook and Instagram paid campaign.</span><span class="status" data-en="Budget required" data-vi="Cần ngân sách">Budget required</span></button>
+                    <button class="launch-card paid"><strong>Google Ads</strong><span data-en="Search/display ads with tracked deal URL." data-vi="Search/display ads với deal URL tracking.">Search/display ads with tracked deal URL.</span><span class="status" data-en="Budget required" data-vi="Cần ngân sách">Budget required</span></button>
+                    <button class="launch-card paid"><strong>ChatGPT Ads</strong><span data-en="OpenAI Ads campaign using Nexora deal page and conversion tracking." data-vi="Campaign OpenAI Ads dùng trang deal Nexora và conversion tracking.">OpenAI Ads campaign using Nexora deal page and conversion tracking.</span><span class="status" data-en="Budget required" data-vi="Cần ngân sách">Budget required</span></button>
+                    <button class="launch-card paid"><strong>ChatGPT Sponsored Agent</strong><span data-en="Optional AI representative for approved advertisers." data-vi="Tùy chọn AI representative cho advertiser được duyệt.">Optional AI representative for approved advertisers.</span><span class="status" data-en="Early access" data-vi="Early access">Early access</span></button>
+                    <button class="launch-card paid off"><strong>TikTok Ads</strong><span data-en="Export creative and tracking URL." data-vi="Xuất creative và tracking URL.">Export creative and tracking URL.</span><span class="status" data-en="Not connected" data-vi="Chưa kết nối">Not connected</span></button>
+                    <button class="launch-card paid"><strong>Yelp / Local Ads</strong><span data-en="Use deal link with local ad vendor." data-vi="Dùng deal link với vendor local ads.">Use deal link with local ad vendor.</span><span class="status" data-en="Manual push" data-vi="Đẩy thủ công">Manual push</span></button>
+                    <button class="launch-card paid"><strong data-en="External agency" data-vi="Đơn vị chạy ads">External agency</strong><span data-en="Share asset bundle and tracking links." data-vi="Chia sẻ bộ asset và tracking link.">Share asset bundle and tracking links.</span><span class="status" data-en="Invite required" data-vi="Cần mời">Invite required</span></button>
+                    <button class="launch-card paid"><strong data-en="Premium Nexora boost" data-vi="Nexora boost premium">Premium Nexora boost</strong><span data-en="Paid reach across approved local surfaces." data-vi="Mua reach trên các vị trí local được duyệt.">Paid reach across approved local surfaces.</span><span class="status" data-en="Budget required" data-vi="Cần ngân sách">Budget required</span></button>
+                    <button class="launch-card paid"><strong data-en="Partner network boost" data-vi="Đẩy qua partner network">Partner network boost</strong><span data-en="Cross-business reach with settlement." data-vi="Reach qua business khác có đối soát.">Cross-business reach with settlement.</span><span class="status" data-en="Approval required" data-vi="Cần duyệt">Approval required</span></button>
+                    <button class="launch-card paid off"><strong data-en="Other vendor" data-vi="Vendor khác">Other vendor</strong><span data-en="Generate tracked link and creative ZIP." data-vi="Tạo tracking link và file ZIP creative.">Generate tracked link and creative ZIP.</span><span class="status" data-en="Manual setup" data-vi="Setup thủ công">Manual setup</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <details id="advanced" open="">
+              <summary><span data-en="Advanced settings" data-vi="Cài đặt nâng cao">Advanced settings</span><span class="pill" data-en="Optional" data-vi="Tùy chọn">Optional</span></summary>
+              <div class="advanced-body">
+                <div class="advanced-note" data-en="Keep this section collapsed by default. Owners who need more control can open it without making the basic flow harder." data-vi="Phần này nên thu gọn mặc định. Owner cần chỉnh sâu có thể mở ra mà không làm flow cơ bản khó hơn.">Keep this section collapsed by default. Owners who need more control can open it without making the basic flow harder.</div>
+                <div class="grid-3">
+                  <label><span data-en="Start date" data-vi="Ngày bắt đầu">Start date</span><input type="date"></label>
+                  <label><span data-en="End date" data-vi="Ngày kết thúc">End date</span><input type="date"></label>
+                  <label><span data-en="Redemption cap" data-vi="Giới hạn redeem">Redemption cap</span><input value="100"></label>
+                </div>
+                <div class="grid-3">
+                  <label><span data-en="Budget cap" data-vi="Giới hạn ngân sách">Budget cap</span><input value="$250"></label>
+                  <label><span data-en="Audience" data-vi="Nhóm khách">Audience</span><select><option data-en="Let Nexora recommend" data-vi="Để Nexora gợi ý">Let Nexora recommend</option><option data-en="Existing customers" data-vi="Khách hiện có">Existing customers</option><option data-en="Nearby OneQR visitors" data-vi="Khách OneQR gần tiệm">Nearby OneQR visitors</option><option data-en="Inactive 45+ days" data-vi="Khách 45+ ngày chưa quay lại">Inactive 45+ days</option></select></label>
+                  <label><span data-en="Approval" data-vi="Duyệt">Approval</span><select><option data-en="Save as draft" data-vi="Lưu nháp">Save as draft</option><option data-en="Owner approval required" data-vi="Cần owner duyệt">Owner approval required</option><option data-en="Auto-enable internal only" data-vi="Tự bật nội bộ">Auto-enable internal only</option></select></label>
+                </div>
+                <div class="placement-grid">
+                  <button class="placement"><strong data-en="Customer SMS" data-vi="SMS khách hàng">Customer SMS</strong><span data-en="Send to opt-in customers" data-vi="Gửi khách đã opt-in">Send to opt-in customers</span></button>
+                  <button class="placement"><strong>Discover Nearby</strong><span data-en="Nexora local traffic" data-vi="Traffic local của Nexora">Nexora local traffic</span></button>
+                  <button class="placement"><strong data-en="Cross-promo partners" data-vi="Partner quảng cáo chéo">Cross-promo partners</strong><span data-en="Non-competing local businesses" data-vi="Doanh nghiệp local không cạnh tranh">Non-competing local businesses</span></button>
+                </div>
+                <div class="hero-mix">
+                  <div class="label-row">
+                    <strong data-en="OneQR Hero content mix" data-vi="Nội dung chạy cùng OneQR Hero">OneQR Hero content mix</strong>
+                    <span class="tooltip" tabindex="0">?
+                      <span class="tip" data-en="The salon's own promotion stays as the main Hero. Cross-promo content can appear as a secondary strip or rotating card only after owner approval and non-compete checks." data-vi="Khuyến mãi của tiệm luôn là Hero chính. Nội dung quảng cáo chéo chỉ hiện như strip/card phụ hoặc card xoay sau khi owner duyệt và kiểm tra không cạnh tranh.">The salon's own promotion stays as the main Hero. Cross-promo content can appear as a secondary strip or rotating card only after owner approval and non-compete checks.</span>
+                    </span>
+                    <span class="pill" data-en="Owner controlled" data-vi="Owner kiểm soát">Owner controlled</span>
+                  </div>
+                  <div class="hero-options">
+                    <button class="hero-option active"><strong data-en="Own offer only" data-vi="Chỉ offer của tiệm">Own offer only</strong><span data-en="Default. No partner content inside Hero." data-vi="Mặc định. Không có nội dung partner trong Hero.">Default. No partner content inside Hero.</span></button>
+                    <button class="hero-option active"><strong data-en="Partner strip below Hero" data-vi="Strip partner dưới Hero">Partner strip below Hero</strong><span data-en="Recommended. Small labeled partner deal under the main offer." data-vi="Nên dùng. Một deal partner nhỏ có nhãn nằm dưới offer chính.">Recommended. Small labeled partner deal under the main offer.</span></button>
+                    <button class="hero-option"><strong data-en="Rotating partner card" data-vi="Card partner xoay vòng">Rotating partner card</strong><span data-en="Advanced. Rotate after the salon offer has been shown first." data-vi="Nâng cao. Xoay sau khi offer của tiệm đã được hiển thị trước.">Advanced. Rotate after the salon offer has been shown first.</span></button>
+                  </div>
+                </div>
+                <div class="hero-mix">
+                  <div class="label-row">
+                    <strong data-en="Paid boost / ads" data-vi="Đẩy chạy trả phí / ads">Paid boost / ads</strong>
+                    <span class="tooltip" tabindex="0">?
+                      <span class="tip" data-en="POS checkout, OneQR Hero, and owned CRM channels can run without ad spend. Paid boost may spend money only when the owner sets a budget and submits the campaign to paid channels such as Google, Meta, or premium Nexora network inventory." data-vi="POS checkout, OneQR Hero và kênh CRM nội bộ có thể chạy không tốn ad spend. Đẩy chạy trả phí chỉ có thể tốn tiền khi owner đặt ngân sách và gửi campaign qua kênh paid như Google, Meta hoặc inventory premium của Nexora.">POS checkout, OneQR Hero, and owned CRM channels can run without ad spend. Paid boost may spend money only when the owner sets a budget and submits the campaign to paid channels such as Google, Meta, or premium Nexora network inventory.</span>
+                    </span>
+                    <span class="pill warn" data-en="Budget required" data-vi="Cần ngân sách">Budget required</span>
+                  </div>
+                  <div class="placement-grid">
+                    <button class="placement active"><strong data-en="Owned channels" data-vi="Kênh nội bộ">Owned channels</strong><span data-en="No extra ad spend: POS, OneQR, SMS opt-in, receipt." data-vi="Không tốn thêm ad spend: POS, OneQR, SMS opt-in, receipt.">No extra ad spend: POS, OneQR, SMS opt-in, receipt.</span></button>
+                    <button class="placement paid"><strong data-en="Paid social/search" data-vi="Social/Search trả phí">Paid social/search</strong><span data-en="Costs money after budget approval." data-vi="Tốn tiền sau khi duyệt ngân sách.">Costs money after budget approval.</span></button>
+                    <button class="placement paid"><strong data-en="Premium network boost" data-vi="Đẩy premium network">Premium network boost</strong><span data-en="Optional paid reach across Nexora/partner surfaces." data-vi="Tùy chọn trả phí để tăng reach trên Nexora/partner.">Optional paid reach across Nexora/partner surfaces.</span></button>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <aside class="tools">
+            <div class="tool">
+              <strong data-en="Smart tools" data-vi="Công cụ nhanh">Smart tools</strong>
+              <p data-en="Helpful shortcuts, not extra required steps." data-vi="Công cụ hỗ trợ, không biến thành bước bắt buộc.">Helpful shortcuts, not extra required steps.</p>
+            </div>
+            <div class="tool">
+              <strong data-en="AI content" data-vi="Nội dung AI">AI content</strong>
+              <p data-en="Generate name, description, SMS, email, and social caption." data-vi="Tạo tên, mô tả, SMS, email và caption social.">Generate name, description, SMS, email, and social caption.</p>
+              <button class="btn small" id="generateCopy" data-en="Generate copy" data-vi="Tạo nội dung">Generate copy</button>
+            </div>
+            <div class="tool">
+              <strong data-en="AI banner" data-vi="Banner AI">AI banner</strong>
+              <p data-en="Create a banner from the current offer." data-vi="Tạo banner từ ưu đãi hiện tại.">Create a banner from the current offer.</p>
+              <button class="btn small" data-en="Generate banner" data-vi="Tạo banner">Generate banner</button>
+            </div>
+            <div class="tool">
+              <strong data-en="Audience recommendation" data-vi="Gợi ý nhóm khách">Audience recommendation</strong>
+              <p data-en="Best match: pedicure customers, inactive 45+ days, nearby OneQR visitors." data-vi="Phù hợp nhất: khách pedicure, 45+ ngày chưa quay lại, khách OneQR gần tiệm.">Best match: pedicure customers, inactive 45+ days, nearby OneQR visitors.</p>
+              <button class="btn small" data-en="Use recommended" data-vi="Dùng gợi ý">Use recommended</button>
+            </div>
+            <div class="tool">
+              <strong data-en="Preflight check" data-vi="Kiểm tra trước khi chạy">Preflight check</strong>
+              <div class="checklist-mini">
+                <div class="checkline"><b>✓</b><span data-en="Offer, schedule, and terms are complete." data-vi="Offer, lịch chạy và điều khoản đã đủ.">Offer, schedule, and terms are complete.</span></div>
+                <div class="checkline"><b>✓</b><span data-en="Owned channels selected: POS checkout and OneQR Hero." data-vi="Đã chọn kênh nội bộ: POS checkout và OneQR Hero.">Owned channels selected: POS checkout and OneQR Hero.</span></div>
+                <div class="checkline"><b>✓</b><span data-en="SMS audience has opt-in customers available." data-vi="Nhóm SMS có khách đã opt-in.">SMS audience has opt-in customers available.</span></div>
+                <div class="checkline warn"><b>!</b><span data-en="Paid boost needs owner approval before any ad spend." data-vi="Đẩy trả phí cần owner duyệt trước khi phát sinh ad spend.">Paid boost needs owner approval before any ad spend.</span></div>
+                <div class="checkline warn"><b>!</b><span data-en="Partner strip needs non-compete approval." data-vi="Partner strip cần duyệt không cạnh tranh.">Partner strip needs non-compete approval.</span></div>
+              </div>
+              <button class="btn small" data-en="Test redeem flow" data-vi="Test redeem">Test redeem flow</button>
+            </div>
+            <div class="preview-card">
+              <div class="banner">
+                <div>
+                  <div class="mini">THIS WEEK ONLY</div>
+                  <div class="title">Weekday Pedicure Glow</div>
+                  <div class="offer">15% OFF</div>
+                  <div class="partner-strip">
+                    <div class="tag" data-en="PARTNER DEAL" data-vi="DEAL PARTNER">PARTNER DEAL</div>
+                    <span data-en="ABC Coffee: Free pastry with coffee purchase" data-vi="ABC Coffee: Tặng pastry khi mua coffee">ABC Coffee: Free pastry with coffee purchase</span>
+                  </div>
+                </div>
+              </div>
+              <div class="preview-meta">
+                <strong data-en="Live preview" data-vi="Xem trước">Live preview</strong>
+                <p data-en="Preview public deal page, QR, social sizes, and receipt coupon." data-vi="Xem trước trang deal public, QR, social sizes và coupon receipt.">Preview public deal page, QR, social sizes, and receipt coupon.</p>
+                <button class="btn small blue" data-en="Preview deal" data-vi="Xem deal">Preview deal</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <div class="footer-actions">
+          <button class="btn" data-en="Cancel" data-vi="Hủy">Cancel</button>
+          <button class="btn" data-en="Save draft" data-vi="Lưu nháp">Save draft</button>
+          <button class="btn" data-en="Submit for approval" data-vi="Gửi duyệt">Submit for approval</button>
+          <button class="btn primary" data-en="Save promotion" data-vi="Lưu khuyến mãi">Save promotion</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast">Done</div>
+
+  <script>
+    const toast = document.getElementById('toast');
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove('show'), 1600);
+    }
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en][data-vi]').forEach((node) => {
+        node.textContent = node.dataset[lang];
+      });
+      document.querySelectorAll('[data-lang]').forEach((button) => {
+        button.classList.toggle('active', button.dataset.lang === lang);
+      });
+      showToast(lang === 'vi' ? 'Đã đổi sang Tiếng Việt' : 'Switched to English');
+    }
+
+    document.querySelectorAll('[data-lang]').forEach((button) => {
+      button.addEventListener('click', () => setLang(button.dataset.lang));
+    });
+
+    document.querySelectorAll('[data-scroll]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const target = document.getElementById(button.dataset.scroll);
+        if (!target) return;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelectorAll('.tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.scroll === button.dataset.scroll));
+      });
+    });
+
+    document.querySelectorAll('.check-pill, .placement, .hero-option, .launch-card').forEach((button) => {
+      button.addEventListener('click', () => button.classList.toggle('active'));
+    });
+
+    document.querySelectorAll('[data-apply]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const name = button.dataset.apply;
+        const templateCopy = {
+          'Build My Year': {
+            title: 'Seasonal Promotion Plan',
+            desc: 'Create seasonal offers for Spring, Summer, Fall, and Holiday. Save as drafts with suggested banners, launch channels, and tracking goals for owner review.'
+          },
+          'Gift Card Bonus': {
+            title: 'Holiday Gift Card Bonus',
+            desc: 'Buy a $100 gift card and receive a $15 bonus card. Promote through Gift Card Center, OneQR, email, receipt coupon, and customer SMS.'
+          },
+          'Lunch Combo': {
+            title: 'Lunch Combo Deal',
+            desc: 'Save $3 on a main dish and drink combo, Monday through Friday from 11 AM to 2 PM. Promote through OneQR menu, Discover Nearby, and Search Deals.'
+          },
+          'Coffee Happy Hour': {
+            title: 'Coffee Happy Hour',
+            desc: 'Buy one drink and get 50% off the second drink, Monday through Friday from 2 PM to 5 PM. Promote through OneQR menu, Discover Nearby, and social posts.'
+          },
+          'Retail Bundle': {
+            title: 'Retail Bundle Offer',
+            desc: 'Get 15% off selected gift sets or product bundles. Promote through receipt coupons, email, Google Business, and in-store QR display.'
+          },
+          'Oil Change Return': {
+            title: 'Oil Change Return Coupon',
+            desc: 'Save $10 on your next oil change as a returning customer. Send by SMS reminder, receipt coupon, and Google Business update.'
+          },
+          'Fitness Trial Week': {
+            title: '7-Day Fitness Trial',
+            desc: 'Try a free 7-day pass or intro class. Use a tracked booking link and promote through Discover Nearby, website widget, and social assets.'
+          },
+          'Wellness First Visit': {
+            title: 'Wellness First Visit Offer',
+            desc: 'Save $25 on your first consultation or selected wellness service. Requires clear terms and owner approval before public distribution.'
+          },
+          'Event Night Promo': {
+            title: 'Event Night 2-for-1 Promo',
+            desc: 'Bring a friend with 2-for-1 entry or a selected event-night special. Promote through OneQR, CryptoMap360, social assets, and tracked event links.'
+          },
+          'Weekday Glow': {
+            title: 'Weekday Pedicure Glow',
+            desc: 'Enjoy 15% off Pedicure with Gel Polish, Monday through Thursday from 10 AM to 3 PM. Cannot be combined with other offers.'
+          },
+          'Add-On Upgrade': {
+            title: 'Add-On Upgrade',
+            desc: 'Get 20% off nail art or foot massage add-on with any main service. Applies to add-on only and cannot be combined with other offers.'
+          },
+          'Rebook & Save': {
+            title: 'Rebook & Save',
+            desc: 'Save $5 on your next visit when you book your next appointment before leaving today. Coupon can print on receipt or send by SMS.'
+          }
+        };
+        const selected = templateCopy[name] || { title: name, desc: 'Offer details were filled from the selected template. Review services, schedule, terms, and placements before saving.' };
+        document.getElementById('promoName').value = selected.title;
+        document.getElementById('promoDesc').value = selected.desc;
+        document.getElementById('quick-create').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        showToast('Template applied');
+      });
+    });
+
+    document.getElementById('generateCopy').addEventListener('click', () => {
+      document.getElementById('promoName').value = 'Weekday Pedicure Glow';
+      document.getElementById('promoDesc').value = 'Treat yourself to a fresh Pedicure with Gel Polish. Enjoy 15% off Monday through Thursday from 10 AM to 3 PM. Cannot be combined with other offers.';
+      showToast('AI copy generated');
+    });
+
+    document.getElementById('runTestRedeem').addEventListener('click', () => {
+      showToast(document.documentElement.lang === 'vi' ? 'Test redeem thành công' : 'Redeem test passed');
+    });
+
+    document.querySelectorAll('.btn').forEach((button) => {
+      if (!button.dataset.scroll && !button.dataset.apply && button.id !== 'downloadHtml' && button.id !== 'generateCopy') {
+        button.addEventListener('click', () => showToast(button.textContent.trim() + ' clicked'));
+      }
+    });
+
+    document.getElementById('downloadHtml').addEventListener('click', () => {
+      const html = '<!doctype html>\\n' + document.documentElement.outerHTML;
+      const blob = new Blob([html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'promotion-current-flow-quick-tools-advanced.html';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      showToast('HTML downloaded');
+    });
+  </script>
+
+
+</body></html>
