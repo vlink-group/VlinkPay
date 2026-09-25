@@ -33,7 +33,7 @@ Tài liệu này phân biệt rõ ba lớp: khả năng đã có trên `staging`
 | Sponsored Placement | Vị trí quảng cáo trả phí, được gắn nhãn Sponsored và chỉ chạy sau khi đủ điều kiện. |
 | Cover Banner | Banner đầu tiên, dùng làm ảnh đại diện và creative mặc định cho Promotion hoặc Paid Boost. |
 | AI Banner | Phần tạo banner của AI Ads được nhúng vào Promotion Studio; plan và credit sử dụng chung với gói AI Ads hiện tại. |
-| Manage Plan | Màn quản lý gói hiện có của Nexora tại `/dashboard/subscriptions`; là nơi mua, nâng cấp và quản lý gói AI Ads dùng chung với Promotion Studio. |
+| Manage Plan | Màn quản lý gói hiện có của Nexora tại `/dashboard/subscriptions`; được bổ sung tab **AI Ads** để mua, nâng cấp và theo dõi gói/credit dùng chung với Promotion Studio. |
 | Tracking & Performance | Báo cáo view, click/scan, booking tap, redemption, revenue, cost và khách mới theo bộ lọc. |
 | Draft | Promotion đã lưu để tiếp tục chỉnh sửa, chưa bật và chưa phân phối. |
 | Approval | Quá trình kiểm tra nội dung/cấu hình trước khi Search Deals hoặc Paid Boost được phân phối. |
@@ -67,6 +67,7 @@ Tài liệu này phân biệt rõ ba lớp: khả năng đã có trên `staging`
 | Quản lý | Có Edit, Enable/Disable, Duplicate, Preview và Delete. Bản sao bắt đầu ở trạng thái tắt. |
 | Xóa | Chỉ xóa khi Promotion chưa được sử dụng; Promotion đã dùng phải được tắt để giữ lịch sử. |
 | API frontend đang dùng | Danh sách, chi tiết, template, tạo, cập nhật và xóa Promotion. Contract hiện chỉ có nội dung cơ bản, lịch tuần/giờ, bật/tắt, OneQR, Search Deals và banner. |
+| Manage Plan | Đã có màn `/dashboard/subscriptions` để hiển thị và checkout gói Nexora hiện tại; chưa có tab AI Ads hoặc lịch sử credit/gói AI Ads. |
 
 #### Giới hạn so với giao diện mục tiêu
 
@@ -79,6 +80,7 @@ Tài liệu này phân biệt rõ ba lớp: khả năng đã có trên `staging`
 | Chưa có Tracking action và báo cáo | Không đo được hiệu quả theo Promotion/kênh/kỳ và không thể xuất báo cáo thật. |
 | Chưa có Paid Boost | Không có khu vực, mục tiêu, ngân sách, daily limit, sponsored placement, approval và Ads Credit. |
 | Chưa nhúng AI Banner của AI Ads | Người dùng phải tự tạo/upload banner; Promotion chưa mở trực tiếp phần tạo banner của AI Ads và chưa nhận lại ảnh được chọn. |
+| Manage Plan chưa có tab AI Ads | Chưa có catalog gói AI Ads, số dư credit, Credit Usage History hoặc Package Usage History để người dùng tự mua và đối soát. |
 | Footer chỉ có Cancel và Save | Chưa phân biệt Save draft, Save promotion và Submit for approval. |
 | Search Deals chỉ là boolean request | Không có trạng thái duyệt, lý do từ chối hoặc phiên bản nội dung được duyệt. |
 | Template có nội dung ngoài contract | Các mẫu BOGO, free trial, gift card bonus, dịch vụ/add-on hoặc khách lần đầu chưa được mô hình giảm giá hiện tại cưỡng chế. |
@@ -121,7 +123,7 @@ Tài liệu này phân biệt rõ ba lớp: khả năng đã có trên `staging`
 | Giai đoạn 1 — UI và Promotion core | Cập nhật layout; filter template; Start/End date; Check-in placement; trạng thái Draft/Disabled/Enabled/Ended; Save draft/Save; Tracking action ở trạng thái chưa có dữ liệu khi API chưa sẵn sàng. | Promotion core bám sát giao diện mục tiêu, không tạo dữ liệu hoặc trạng thái giả. |
 | Giai đoạn 2 — Tracking thật | Event view/click/scan/booking tap/redemption; attribution; KPI; bảng channel; insight theo rule; export CSV. | Owner đo được hiệu quả theo dữ liệu production. |
 | Giai đoạn 3 — Approval và Paid Boost | Search Deals approval; Paid Boost; mục tiêu; khu vực; total budget; daily limit; Sponsored placements; Ads Credit; trạng thái chiến dịch. | Promotion có thể gửi duyệt và phân phối trả phí an toàn. |
-| Giai đoạn 4 — Nhúng AI Banner | Nhúng phần tạo banner của AI Ads, dùng chung gói/credit và hỗ trợ Use this banner. | Tạo banner trong trải nghiệm AI Ads và đưa ảnh được chọn về danh sách banner của Promotion. |
+| Giai đoạn 4 — AI Banner và gói AI Ads | Nhúng phần tạo banner của AI Ads; bổ sung tab AI Ads trong Manage Plan với gói hiện tại, danh sách gói, checkout, số dư credit, Credit Usage History và Package Usage History; hỗ trợ Use this banner và quay lại Promotion. | Người dùng mua/quản lý gói tại một nơi, tạo banner trong trải nghiệm AI Ads và đưa ảnh được chọn về Promotion. |
 
 Giai đoạn có thể điều chỉnh theo ưu tiên, nhưng không nên đưa Tracking, approval, chi phí hoặc credit lên production trước khi contract và nguồn dữ liệu tương ứng tồn tại.
 
@@ -185,13 +187,52 @@ Giai đoạn có thể điều chỉnh theo ưu tiên, nhưng không nên đưa 
 - Mở từ nút **Generate banner with AI** trong khu vực Banners & Posters.
 - Promotion Studio nhúng phần tạo banner hiện có của AI Ads; không xây một AI Banner Generator hoặc luồng billing riêng trong Promotion.
 - Giao diện nhúng sử dụng cùng tài khoản, plan, số dư credit, mức tiêu hao và lịch sử generation của AI Ads.
-- Việc mua, nâng cấp, gia hạn và thanh toán gói AI Ads được thực hiện trong **Manage Plan** hiện có của Nexora tại `/dashboard/subscriptions`.
-- Khi chưa có gói phù hợp hoặc không đủ credit, phần nhúng hiển thị CTA **Manage Plan** và điều hướng đến màn này; Promotion không mở checkout riêng.
+- Việc mua, nâng cấp, gia hạn và thanh toán gói AI Ads được thực hiện trong tab **AI Ads** của **Manage Plan** hiện có tại `/dashboard/subscriptions`.
+- Khi chưa có gói phù hợp hoặc không đủ credit, phần nhúng hiển thị CTA **Manage Plan** và mở thẳng tab AI Ads; Promotion không mở checkout riêng.
 - Hệ thống giữ dữ liệu Promotion đang nhập và truyền điểm quay lại. Sau khi mua/nâng cấp thành công, người dùng quay về Promotion, hệ thống tải lại trạng thái gói và số dư credit để tiếp tục tạo banner.
 - Các tùy chọn prompt, ảnh tham chiếu, chất lượng và suggestion dùng đúng khả năng AI Ads đang cung cấp.
 - Trạng thái Loading, Success, Insufficient credit, Generation failed và Retry được xử lý trong phần AI Ads nhúng.
 - **Use this banner** trả asset đã chọn về Promotion và thêm vào danh sách banner hiện tại mà không làm mất dữ liệu form.
 - Ảnh trả về tuân thủ cùng giới hạn tối đa 8 banner, thứ tự, cover và lifecycle lưu trữ như ảnh upload.
+
+#### 6.1. Manage Plan — tab AI Ads
+
+Manage Plan được bổ sung tab cấp một **AI Ads**. CTA từ Promotion mở trực tiếp tab này, ưu tiên deep link `/dashboard/subscriptions?tab=ai-ads`; nếu ứng dụng chuẩn hóa route khác khi triển khai, route phải vẫn mở đúng tab AI Ads và giữ tham số quay lại Promotion.
+
+Tab AI Ads gồm ba khu vực:
+
+| Khu vực | Nội dung bắt buộc | Hành động chính |
+| :--- | :--- | :--- |
+| Gói hiện tại và credit | Tên gói, trạng thái, chu kỳ, ngày gia hạn/hết hạn, tổng credit, credit đã dùng và credit còn lại. | Quản lý gói hoặc mua thêm/nâng cấp theo chính sách. |
+| Danh sách gói AI Ads | Tên gói, giá, chu kỳ thanh toán, số credit được cấp, quyền lợi/giới hạn và nhãn gói hiện tại/đề xuất. | Buy, Upgrade hoặc Current plan; mở checkout chung của Nexora. |
+| Usage History | Nhóm tab con dạng pill gồm **Credit Usage History** và **Package Usage History** như mẫu PO cung cấp. | Chuyển loại lịch sử, lọc và xem chi tiết giao dịch. |
+
+**Credit Usage History** hiển thị lịch sử cộng/trừ credit của AI Ads:
+
+| Trường | Ý nghĩa |
+| :--- | :--- |
+| Date & time | Thời điểm giao dịch theo múi giờ doanh nghiệp. |
+| Activity / Source | Hành động sử dụng, ví dụ tạo banner từ AI Ads hoặc Promotion Studio. |
+| Credit change | Số credit cộng hoặc trừ, thể hiện rõ dấu và đơn vị. |
+| Balance after | Số dư sau giao dịch. |
+| Status | Completed, Pending, Refunded hoặc Failed theo contract. |
+| Reference | Mã job/giao dịch để Support có thể tra cứu. |
+
+**Package Usage History** hiển thị vòng đời và giao dịch của gói AI Ads:
+
+| Trường | Ý nghĩa |
+| :--- | :--- |
+| Package | Tên gói và phiên bản/quyền lợi áp dụng tại thời điểm giao dịch. |
+| Transaction type | Purchase, Upgrade, Renewal, Credit allocation, Expiration hoặc Refund. |
+| Period | Ngày bắt đầu và kết thúc chu kỳ. |
+| Credits | Số credit được cấp, điều chỉnh hoặc hết hạn. |
+| Amount | Số tiền và tiền tệ thực trả; không hiển thị khi giao dịch không phát sinh tiền. |
+| Status / Reference | Trạng thái thanh toán/gói và mã giao dịch để đối soát. |
+
+- Hai tab lịch sử dùng cùng chiều rộng, kiểu pill và trạng thái active rõ ràng; mặc định mở **Credit Usage History**.
+- Bộ lọc tối thiểu gồm khoảng thời gian và trạng thái; dữ liệu phân trang, sắp xếp mới nhất trước và phân biệt rõ empty/loading/error.
+- Mọi số dư hiển thị trong Promotion, AI Ads và Manage Plan phải lấy từ cùng một nguồn dữ liệu, không tính riêng ở frontend.
+- Chỉ người có quyền quản lý subscription mới thấy hành động Buy/Upgrade; người chỉ có quyền xem vẫn xem được gói hiện tại và lịch sử theo phạm vi được cấp.
 
 #### 7. Footer actions
 
@@ -280,8 +321,8 @@ flowchart TD
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | Owner | Chọn **Generate banner with AI**. | Phần AI Ads nhúng kiểm tra gói và số dư credit hiện tại. | Dùng chung trạng thái với AI Ads. |
 | 2 | Hệ thống | Phát hiện chưa có gói phù hợp hoặc không đủ credit. | Hiển thị trạng thái chặn và CTA **Manage Plan**. | Không xóa dữ liệu Promotion. |
-| 3 | Owner | Chọn **Manage Plan**. | Điều hướng đến `/dashboard/subscriptions` và giữ điểm quay lại Promotion. | Không mở checkout trong Promotion. |
-| 4 | Owner | Chọn gói AI Ads hoặc nâng cấp gói hiện tại và hoàn tất thanh toán. | Manage Plan xử lý subscription, billing và kết quả giao dịch. | Dùng luồng thanh toán chung của Nexora. |
+| 3 | Owner | Chọn **Manage Plan**. | Mở thẳng tab **AI Ads** trong Manage Plan và giữ điểm quay lại Promotion. | Deep link mục tiêu: `/dashboard/subscriptions?tab=ai-ads`; không mở checkout trong Promotion. |
+| 4 | Owner | Chọn gói trong danh sách AI Ads hoặc nâng cấp gói hiện tại và hoàn tất thanh toán. | Manage Plan xử lý subscription, billing và ghi Package Usage History. | Dùng luồng thanh toán chung của Nexora. |
 | 5 | Owner | Quay lại Promotion. | Hệ thống tải lại plan/credit và mở lại ngữ cảnh AI Banner. | Giữ form và danh sách banner trước đó. |
 | 6 | Owner | Tạo banner và chọn **Use this banner**. | Asset được thêm vào Promotion. | Áp dụng giới hạn tối đa 8 banner. |
 
@@ -290,7 +331,7 @@ flowchart TD
     A([Mở AI Banner]) --> B{Có gói phù hợp và đủ credit?}
     B -- Có --> C[Tạo banner trong AI Ads nhúng]
     B -- Không --> D[Hiển thị CTA Manage Plan]
-    D --> E[Mở /dashboard/subscriptions]
+    D --> E[Mở Manage Plan, tab AI Ads]
     E --> F{Mua hoặc nâng cấp thành công?}
     F -- Không --> G[Quay lại hoặc thử lại trong Manage Plan]
     F -- Có --> H[Quay lại Promotion]
@@ -393,7 +434,7 @@ flowchart TD
 | Ads Credit | Nguồn số dư, giữ/trừ/hoàn credit, giới hạn và lịch sử giao dịch. |
 | Tracking | Event definition, attribution window, chống trùng, timezone, currency và retention. |
 | AI Ads | Promotion dùng lại plan, credit, model/quality, lịch sử job và chính sách nội dung của AI Ads; không tạo cấu hình credit riêng. |
-| Manage Plan | Bổ sung gói/quyền lợi AI Ads vào màn `/dashboard/subscriptions`; xử lý mua, nâng cấp, gia hạn, thanh toán và điểm quay lại Promotion. |
+| Manage Plan | Bổ sung tab AI Ads vào màn `/dashboard/subscriptions`; quản lý gói/credit, danh sách gói, checkout, Credit Usage History, Package Usage History và điểm quay lại Promotion. |
 
 ---
 
@@ -470,8 +511,10 @@ stateDiagram-v2
 - **Quy tắc 10:** AI generation thất bại không làm mất dữ liệu Promotion đang nhập.
 - **Quy tắc 11:** 💰 Lưu Promotion hoặc gửi duyệt không tự trừ Ads Credit; chỉ delivery hợp lệ mới tạo spend theo contract billing.
 - **Quy tắc 12:** 💰 Tổng spend không vượt Total campaign budget và spend trong ngày không vượt Daily spending limit.
-- **Quy tắc 13:** Gói và credit dùng để tạo AI Banner thuộc AI Ads; mọi thao tác mua, nâng cấp, gia hạn và thanh toán được thực hiện trong Manage Plan tại `/dashboard/subscriptions`.
+- **Quy tắc 13:** Gói và credit dùng để tạo AI Banner thuộc AI Ads; mọi thao tác mua, nâng cấp, gia hạn và thanh toán được thực hiện trong tab AI Ads của Manage Plan.
 - **Quy tắc 14:** Promotion không có checkout riêng; điều hướng sang Manage Plan phải giữ dữ liệu form và cho phép quay lại đúng ngữ cảnh AI Banner.
+- **Quy tắc 15:** Mỗi lần cộng/trừ/hoàn credit phải xuất hiện trong Credit Usage History; mỗi thay đổi vòng đời hoặc giao dịch gói phải xuất hiện trong Package Usage History.
+- **Quy tắc 16:** Số dư credit sau giao dịch phải nhất quán giữa Promotion, AI Ads và Manage Plan; trạng thái Pending/Failed không được ghi nhận như credit đã sử dụng thành công.
 
 ---
 
@@ -488,7 +531,7 @@ stateDiagram-v2
 | PUT | `/api/v1/merchant/pos/{businessId}/promotions/{promotionId}` | Cập nhật toàn bộ Promotion. |
 | DELETE | `/api/v1/merchant/pos/{businessId}/promotions/{promotionId}` | Xóa Promotion chưa được sử dụng. |
 
-Contract hiện tại chưa có trường/nguồn dữ liệu production cho category template, Start/End date, Check-in placement, Draft/approval lifecycle, Paid Boost, Ads Credit, tích hợp AI Ads và Tracking & Performance.
+Contract hiện tại chưa có trường/nguồn dữ liệu production cho category template, Start/End date, Check-in placement, Draft/approval lifecycle, Paid Boost, Ads Credit, tích hợp AI Ads, catalog/số dư/lịch sử gói AI Ads và Tracking & Performance.
 
 #### Năng lực backend cần bổ sung
 
@@ -501,7 +544,7 @@ Contract hiện tại chưa có trường/nguồn dữ liệu production cho cat
 | Paid Boost | Campaign config/status, budget enforcement, delivery, spend và Sponsored placements. |
 | Ads Credit | Balance, authorization/charge/refund hoặc cơ chế billing được chốt. |
 | AI Banner | Cơ chế nhúng phần tạo banner của AI Ads và callback trả asset đã chọn về Promotion; plan và credit tiếp tục do AI Ads quản lý. |
-| Manage Plan | Hiển thị và xử lý gói AI Ads trong luồng subscription hiện có; trả trạng thái giao dịch, plan/credit mới và hỗ trợ quay lại Promotion. Không tạo checkout riêng cho Promotion. |
+| Manage Plan | Tab AI Ads trong luồng subscription hiện có: catalog gói, gói hiện tại, checkout, số dư credit, Credit Usage History, Package Usage History, trạng thái giao dịch và điểm quay lại Promotion. Không tạo checkout riêng cho Promotion. |
 
 Các endpoint mới cần được Backend thiết kế và đưa vào API contract trước khi frontend triển khai các phần phụ thuộc; tài liệu này không tự đặt tên endpoint chưa tồn tại.
 
@@ -518,10 +561,12 @@ Các endpoint mới cần được Backend thiết kế và đưa vào API contr
 | Search Deals bị từ chối | POS/Check-in/OneQR vẫn giữ trạng thái riêng; hiển thị lý do Search Deals. | Owner / Admin |
 | Thiếu Ads Credit | Không chạy quảng cáo; chuyển Credit required; không tắt Promotion miễn phí. | Owner |
 | Daily limit lớn hơn total budget | Chặn submit và hiển thị lỗi cạnh trường. | Hệ thống |
-| Chưa có gói AI Ads phù hợp | Phần AI Ads nhúng hiển thị CTA **Manage Plan**; mở `/dashboard/subscriptions` để mua/nâng cấp và giữ nguyên dữ liệu Promotion. | Owner |
-| Credit AI Ads không đủ | Hiển thị số dư và CTA **Manage Plan** để nâng cấp/mua thêm theo chính sách gói; Promotion giữ nguyên dữ liệu đang nhập. | Owner |
+| Chưa có gói AI Ads phù hợp | Phần AI Ads nhúng hiển thị CTA **Manage Plan**; mở thẳng tab AI Ads để chọn gói và giữ nguyên dữ liệu Promotion. | Owner |
+| Credit AI Ads không đủ | Hiển thị số dư và CTA **Manage Plan** để mở tab AI Ads, nâng cấp/mua thêm theo chính sách gói; Promotion giữ nguyên dữ liệu đang nhập. | Owner |
 | Thanh toán bị hủy hoặc thất bại | Giữ người dùng trong Manage Plan với trạng thái rõ ràng; khi quay lại Promotion vẫn giữ form và tiếp tục ở trạng thái thiếu gói/credit. | Hệ thống / Owner |
 | Đã mua gói nhưng số dư chưa cập nhật | Tải lại trạng thái subscription/credit; cho Retry và không trừ credit hai lần. | Hệ thống |
+| Lịch sử credit/gói chưa có dữ liệu | Hiển thị empty state đúng tab, không tạo giao dịch mẫu. | Hệ thống |
+| Giao dịch Pending hoặc Refunded | Hiển thị đúng trạng thái và số dư thực tế theo ledger; không cộng/trừ lặp khi người dùng tải lại. | Hệ thống |
 | AI generation lỗi/timeout | Cho Retry; không thêm banner rỗng và không mất form. | Hệ thống / Owner |
 | Đã có 8 banner | Vô hiệu hóa Add/Upload/Use this banner và hướng dẫn xóa một banner. | Owner |
 | Tracking chưa có dữ liệu | Hiển thị “Chưa có dữ liệu”, không hiển thị số mẫu. | Hệ thống |
@@ -540,10 +585,13 @@ Các endpoint mới cần được Backend thiết kế và đưa vào API contr
 6. Tracking chỉ dùng dữ liệu thật, phản ánh đúng bộ lọc và phân biệt 0 với chưa có dữ liệu.
 7. Paid Boost không vượt daily/total budget; thiếu credit hoặc chưa duyệt thì không delivery.
 8. AI Banner trả asset ổn định về Promotion, tuân thủ giới hạn 8 banner và không làm mất dữ liệu form.
-9. Khi chưa có gói AI Ads phù hợp hoặc không đủ credit, CTA **Manage Plan** mở đúng `/dashboard/subscriptions`; việc mua/nâng cấp dùng luồng subscription hiện có và không tạo checkout trong Promotion.
-10. Sau khi mua/nâng cấp, người dùng quay lại đúng Promotion, plan/credit được tải lại và dữ liệu form trước đó vẫn còn.
-11. Các select/dropdown mới có một chevron 16px, cách biên phải 12px và có ít nhất 36px khoảng trống cho text.
-12. Desktop và mobile giữ được thứ tự nội dung, label, focus, keyboard, error state và không che khuất action footer.
+9. Manage Plan có tab cấp một **AI Ads** gồm trạng thái gói/credit hiện tại, danh sách gói có Buy/Upgrade và checkout chung của Nexora.
+10. Tab AI Ads có hai tab con **Credit Usage History** và **Package Usage History** đúng mục đích, mặc định mở Credit Usage History và hiển thị dữ liệu thật.
+11. Khi chưa có gói AI Ads phù hợp hoặc không đủ credit, CTA **Manage Plan** mở thẳng tab AI Ads; việc mua/nâng cấp dùng luồng subscription hiện có và không tạo checkout trong Promotion.
+12. Sau khi mua/nâng cấp, người dùng quay lại đúng Promotion, plan/credit được tải lại và dữ liệu form trước đó vẫn còn.
+13. Giao dịch credit và gói xuất hiện đúng lịch sử, có trạng thái/reference và không bị ghi lặp khi retry hoặc reload.
+14. Các select/dropdown mới có một chevron 16px, cách biên phải 12px và có ít nhất 36px khoảng trống cho text.
+15. Desktop và mobile giữ được thứ tự nội dung, label, focus, keyboard, error state và không che khuất action footer.
 
 ---
 
@@ -556,6 +604,9 @@ Các endpoint mới cần được Backend thiết kế và đưa vào API contr
 5. Cost gồm Ads Credit đã tiêu, chi phí quy đổi USD hay cả hai?
 6. Template BOGO, free trial, gift card bonus và add-on only sẽ chờ contract mới hay tạm ẩn?
 7. Khi thay cover/banner sau duyệt, chỉ Paid Boost cần duyệt lại hay cả Search Deals organic?
+8. Catalog AI Ads có những gói nào, giá/chu kỳ, số credit, thời hạn credit và quyền lợi cụ thể của từng gói?
+9. Credit AI Ads được mua thêm độc lập hay chỉ tăng thông qua Upgrade/Renewal?
+10. Package Usage History có cần hiển thị invoice/receipt và cho tải chứng từ thanh toán không?
 
 ---
 
@@ -572,7 +623,7 @@ Các endpoint mới cần được Backend thiết kế và đưa vào API contr
 
 **Hỏi: Mua hoặc nâng cấp gói để tạo AI Banner ở đâu?**
 
-Đáp: Thực hiện trong **Manage Plan** hiện có của Nexora tại `/dashboard/subscriptions`. Nếu chưa có gói phù hợp hoặc không đủ credit, Promotion hiển thị CTA **Manage Plan**, giữ dữ liệu đang nhập và cho phép quay lại tiếp tục sau khi mua hoặc nâng cấp.
+Đáp: Thực hiện trong tab **AI Ads** của **Manage Plan**. Tab này hiển thị gói hiện tại, danh sách gói để Buy/Upgrade, Credit Usage History và Package Usage History. Nếu chưa có gói phù hợp hoặc không đủ credit, Promotion mở thẳng tab này, giữ dữ liệu đang nhập và cho phép quay lại tiếp tục sau khi mua hoặc nâng cấp.
 
 **Hỏi: Check-in hiện đã hiển thị Promotion, vì sao vẫn cần trường mới?**  
 Đáp: Hiện Check-in lấy mọi Promotion đang bật và đúng lịch. Trường riêng giúp Owner chọn Promotion nào được xuất hiện tại Check-in.
@@ -587,6 +638,6 @@ Các endpoint mới cần được Backend thiết kế và đưa vào API contr
 - **Search Deals:** Kênh organic và Sponsored cần trạng thái phân phối riêng.
 - **Ads Credit:** Nguồn kiểm soát chi phí cho Paid Boost khi mô hình billing được chốt.
 - **AI Ads:** Cung cấp phần tạo banner được nhúng vào Promotion Studio; plan và credit dùng chung với gói AI Ads hiện tại.
-- **Manage Plan:** Màn `/dashboard/subscriptions` hiện có của Nexora, được mở rộng để người dùng mua, nâng cấp, gia hạn và quản lý gói AI Ads dùng cho AI Banner.
+- **Manage Plan:** Màn `/dashboard/subscriptions` hiện có của Nexora, được bổ sung tab AI Ads để mua/nâng cấp gói, theo dõi credit và xem Credit Usage History/Package Usage History dùng cho AI Banner.
 
 Không gắn tài liệu liên kết trong lần phân tích này; các mô tả trên đủ để xác định mối quan hệ trong phạm vi tài liệu.
