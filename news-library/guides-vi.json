@@ -515,7 +515,133 @@
       "ai",
       "voice"
     ],
-    "nextArticleId": null,
+    "nextArticleId": "connect-staff-account-to-salon",
     "iconKey": "phone-call"
+  },
+  {
+    "id": "connect-staff-account-to-salon",
+    "slug": "connect-staff-account-to-salon",
+    "category": "staff-operations",
+    "categoryTitle": "Dành cho thợ",
+    "categoryOrder": 4,
+    "order": 1,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Kết nối tài khoản thợ với tiệm",
+    "summary": "Nhận lời mời của tiệm, kiểm tra liên kết và chọn các dịch vụ bạn có thể thực hiện.",
+    "htmlContent": "<section><h2>Lợi ích cho thợ</h2><p>Kết nối tài khoản của bạn với đúng tiệm để xem lịch hẹn và phiếu dịch vụ được giao. Nếu làm ở nhiều tiệm, bạn có thể kiểm tra từng tiệm trong cùng tài khoản thợ.</p><h2>Trước khi bắt đầu</h2><p>Đăng nhập bằng tài khoản của bạn và mở khu vực dành cho thợ. Kiểm tra hồ sơ đã có tên và thông tin liên hệ để chủ tiệm nhận ra bạn.</p><h2>1. Nhận lời mời hoặc gửi yêu cầu tham gia tiệm</h2><ol><li>Mở <a href=\"/staff/salons\" target=\"_blank\" rel=\"noopener noreferrer\">Salon của tôi</a>. Nếu tiệm đã gửi lời mời, tìm phần <strong>Yêu cầu liên kết</strong>.</li><li>Kiểm tra tên tiệm và vai trò được mời. Chọn <strong>Chấp nhận</strong> nếu đúng tiệm bạn làm việc; chọn <strong>Từ chối</strong> nếu lời mời bị nhầm.</li><li>Nếu chưa có lời mời, nhờ chủ tiệm mời bạn hoặc quét mã QR mời nhân viên của tiệm rồi làm theo hướng dẫn. Nếu yêu cầu đang chờ duyệt, liên hệ chủ tiệm để kiểm tra.</li><li>Quay lại <strong>Salon của tôi</strong> và kiểm tra liên kết với tiệm đã hoạt động trước khi mở công việc được giao.</li></ol><h2>2. Kiểm tra tên hiển thị và dịch vụ bạn làm</h2><ol><li>Tại đúng tiệm, chọn <strong>Sửa kỹ năng</strong>, chọn các dịch vụ bạn có thể thực hiện rồi chọn <strong>Lưu</strong>. Thống nhất danh sách này với chủ tiệm để lễ tân giao việc phù hợp.</li><li>Nếu cần đổi tên hiển thị tại tiệm, chọn <strong>Sửa nickname</strong>. Tên này chỉ dùng tại tiệm đó; để trống nếu muốn dùng tên gốc.</li><li>Chọn <strong>Đơn công việc</strong> để xem phiếu được giao, hoặc mở <a href=\"/staff/calendar\" target=\"_blank\" rel=\"noopener noreferrer\">Lịch của tôi</a> để xem lịch hẹn.</li></ol><h2>Tiệm và thợ cần thống nhất gì?</h2><p>Chủ tiệm kiểm tra đúng người và tình trạng liên kết. Thợ kiểm tra tên hiển thị và dịch vụ mình làm được. Hai bên thống nhất giờ làm; nếu cần sửa giờ làm, nhờ người quản lý lịch tại tiệm cập nhật.</p><h2>Nếu chưa thấy tiệm hoặc chưa mở được công việc</h2><p>Kiểm tra bạn đang dùng đúng tài khoản, lời mời đã được chấp nhận và liên kết đã hoạt động. Nếu vẫn đang chờ duyệt hoặc tên tiệm không đúng, gửi tên tài khoản và tên tiệm cho chủ tiệm kiểm tra.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=add-staff-and-work-schedules\" target=\"_self\" rel=\"noopener noreferrer\">Thêm nhân viên, chọn dịch vụ và giờ làm</a> · <a href=\"?tab=guides&amp;article=view-assigned-tickets-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Xem và nhận phiếu dịch vụ được giao</a> · <a href=\"?tab=guides&amp;article=coordinate-salon-and-staff\" target=\"_self\" rel=\"noopener noreferrer\">Phối hợp giữa tiệm và thợ trong ca làm</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "tài khoản thợ",
+      "liên kết tiệm",
+      "kỹ năng"
+    ],
+    "nextArticleId": "view-assigned-tickets-as-staff",
+    "iconKey": "users"
+  },
+  {
+    "id": "view-assigned-tickets-as-staff",
+    "slug": "view-assigned-tickets-as-staff",
+    "category": "staff-operations",
+    "categoryTitle": "Dành cho thợ",
+    "categoryOrder": 4,
+    "order": 2,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Xem và nhận phiếu dịch vụ được giao",
+    "summary": "Tìm đúng phiếu trong Tickets của tôi, kiểm tra yêu cầu của khách và nhận hoặc từ chối dịch vụ được giao.",
+    "htmlContent": "<section><h2>Lợi ích cho thợ</h2><p>Biết khách nào và dịch vụ nào được giao cho mình, rồi xác nhận nhận việc để lễ tân tiếp tục sắp xếp khách.</p><h2>Ticket và Work Order là gì?</h2><p>Ticket là phiếu ghi thông tin khách và các dịch vụ trong lần đến tiệm. Trong tài khoản thợ, <strong>Tickets của tôi</strong> là danh sách phiếu được giao cho bạn. Khi mở một phiếu, màn hình <strong>Đơn công việc (Work Order)</strong> cho phép bạn xem và xử lý phần dịch vụ của mình. Một phiếu có thể có dịch vụ do nhiều thợ thực hiện.</p><h2>1. Tìm đúng phiếu</h2><ol><li>Đăng nhập tài khoản thợ và mở <a href=\"/staff/work-orders\" target=\"_blank\" rel=\"noopener noreferrer\">Tickets của tôi</a>. Kiểm tra tên tiệm ở đầu màn hình.</li><li>Nếu cần đổi tiệm, chọn tên tiệm hoặc quay lại <a href=\"/staff/salons\" target=\"_blank\" rel=\"noopener noreferrer\">Salon của tôi</a>, rồi chọn <strong>Đơn công việc</strong> tại tiệm cần xem.</li><li>Chọn ngày cần xem. Nếu chưa thấy phiếu, chọn <strong>Tất cả</strong> để kiểm tra cả các phiếu đã bắt đầu hoặc đã hoàn thành.</li><li>Chọn phiếu trong danh sách hoặc <strong>Xem đơn</strong> ở phiếu mới được giao. Kiểm tra tên khách, mã phiếu, dịch vụ, giá, thời gian và ghi chú của khách nếu có.</li></ol><h2>2. Nhận hoặc từ chối dịch vụ được giao</h2><ol><li>Tìm dịch vụ của bạn đang ở trạng thái <strong>Chờ thợ xác nhận</strong>.</li><li>Chọn <strong>Nhận</strong> nếu bạn có thể thực hiện. Kiểm tra trạng thái đã chuyển sang <strong>Đã nhận</strong>.</li><li>Nếu không thể nhận việc, chọn <strong>Từ chối</strong> và xác nhận. Dịch vụ được trả về quầy để giao cho người khác. Báo lý do cho lễ tân nếu cần sắp xếp lại khách.</li></ol><h2>Đọc trạng thái thế nào?</h2><p>Các nhóm <strong>Đã gán</strong>, <strong>Đang phục vụ</strong> và <strong>Hoàn thành</strong> giúp bạn tìm phiếu theo tiến độ phần việc của mình. Dù phần việc của bạn đã hoàn thành, phiếu vẫn có thể còn dịch vụ của thợ khác hoặc đang chờ thu ngân tính tiền.</p><h2>Nếu không thấy phiếu vừa được giao</h2><p>Kiểm tra đúng tiệm, ngày và bộ lọc trước. Nếu phiếu báo bạn không còn được giao việc, nhờ lễ tân kiểm tra lại thợ trên từng dịch vụ. Nếu màn hình báo lỗi tải dữ liệu, chọn <strong>Thử lại</strong>.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=connect-staff-account-to-salon\" target=\"_self\" rel=\"noopener noreferrer\">Kết nối tài khoản thợ với tiệm</a> · <a href=\"?tab=guides&amp;article=start-complete-services-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Bắt đầu và hoàn tất dịch vụ trên Work Order</a> · <a href=\"?tab=guides&amp;article=track-service-tickets\" target=\"_self\" rel=\"noopener noreferrer\">Theo dõi khách chờ và tiến độ dịch vụ</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "ticket",
+      "phiếu dịch vụ",
+      "nhận dịch vụ"
+    ],
+    "nextArticleId": "start-complete-services-as-staff",
+    "iconKey": "list-ordered"
+  },
+  {
+    "id": "start-complete-services-as-staff",
+    "slug": "start-complete-services-as-staff",
+    "category": "staff-operations",
+    "categoryTitle": "Dành cho thợ",
+    "categoryOrder": 4,
+    "order": 3,
+    "active": true,
+    "estimatedMinutes": 5,
+    "title": "Bắt đầu và hoàn tất dịch vụ trên Work Order",
+    "summary": "Cập nhật tiến độ phần việc của bạn và ghi chú khi hoàn tất để lễ tân biết lúc nào có thể tính tiền.",
+    "htmlContent": "<section><h2>Lợi ích cho thợ và tiệm</h2><p>Cập nhật đúng lúc bắt đầu và hoàn tất giúp lễ tân biết bạn đang phục vụ khách nào, dịch vụ nào còn đang làm và lúc nào có thể chuẩn bị tính tiền.</p><h2>Trước khi bắt đầu</h2><p>Mở đúng phiếu trong <a href=\"/staff/work-orders\" target=\"_blank\" rel=\"noopener noreferrer\">Tickets của tôi</a>, kiểm tra tên khách và đọc ghi chú. Nếu dịch vụ còn chờ bạn xác nhận, chọn <strong>Nhận</strong> trước.</p><h2>1. Bắt đầu dịch vụ của bạn</h2><ol><li>Tìm dịch vụ bạn đã nhận.</li><li>Khi thực sự bắt đầu làm cho khách, chọn <strong>Bắt đầu</strong> ở dịch vụ đó. Kiểm tra trạng thái chuyển sang <strong>Đang làm</strong>.</li><li>Nếu bắt đầu các dịch vụ của mình cùng lúc, có thể dùng <strong>Bắt đầu phục vụ</strong> ở cuối phiếu khi nút này hiển thị. Kiểm tra các dịch vụ của mình trước khi chọn.</li></ol><h2>2. Hoàn tất và ghi chú cho tiệm</h2><ol><li>Khi làm xong một dịch vụ, chọn <strong>Hoàn tất</strong> tại dịch vụ đó và kiểm tra trạng thái <strong>Xong</strong>.</li><li>Nếu dùng nút <strong>Hoàn thành</strong> ở cuối phiếu để kết thúc các dịch vụ đang làm của mình, kiểm tra toàn bộ phần việc trước khi chọn.</li><li>Trong cửa sổ hoàn thành, chọn ghi chú gợi ý hoặc nhập <strong>Ghi chú thêm</strong> nếu tiệm cần nhớ thông tin về lần phục vụ này. Chọn <strong>Xác nhận hoàn thành</strong>.</li><li>Báo lễ tân phần việc đã xong và những điều cần lưu ý trước khi tính tiền.</li></ol><h2>Hoàn thành dịch vụ và tính tiền là hai bước</h2><p><strong>Hoàn thành</strong> trong tài khoản thợ cho biết phần việc của bạn đã xong. Lễ tân hoặc thu ngân kiểm tra các dịch vụ trên phiếu và thực hiện thanh toán để đóng phiếu.</p><p>Ví dụ: bạn làm móng tay, một thợ khác làm móng chân cho cùng khách. Bạn chỉ hoàn tất phần móng tay của mình. Tiệm kiểm tra phần móng chân trước khi tính tiền cho khách.</p><h2>Nếu chưa thao tác được</h2><p>Kiểm tra dịch vụ đã được nhận chưa, có thay đổi đang chờ khách duyệt không, và phiếu còn giao cho bạn không. Nếu nút <strong>Bắt đầu phục vụ</strong> chưa sẵn sàng, kiểm tra ngày trên phiếu với lễ tân. Khi thao tác báo lỗi, mở lại phiếu và xem trạng thái đã thay đổi chưa trước khi thử lại.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=view-assigned-tickets-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Xem và nhận phiếu dịch vụ được giao</a> · <a href=\"?tab=guides&amp;article=update-work-order-services-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Thêm, đổi hoặc bỏ dịch vụ trên Work Order</a> · <a href=\"?tab=guides&amp;article=checkout-and-receipt\" target=\"_self\" rel=\"noopener noreferrer\">Tính tiền và gửi hóa đơn cho khách</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "work order",
+      "bắt đầu dịch vụ",
+      "hoàn tất dịch vụ"
+    ],
+    "nextArticleId": "update-work-order-services-as-staff",
+    "iconKey": "clipboard-check"
+  },
+  {
+    "id": "update-work-order-services-as-staff",
+    "slug": "update-work-order-services-as-staff",
+    "category": "staff-operations",
+    "categoryTitle": "Dành cho thợ",
+    "categoryOrder": 4,
+    "order": 4,
+    "active": true,
+    "estimatedMinutes": 5,
+    "title": "Thêm, đổi hoặc bỏ dịch vụ trên Work Order",
+    "summary": "Cập nhật dịch vụ theo yêu cầu của khách, kiểm tra giá và thời gian, rồi xin khách xác nhận khi màn hình yêu cầu.",
+    "htmlContent": "<section><h2>Lợi ích cho thợ và khách</h2><p>Ghi đúng dịch vụ khách chọn, giá và thời gian thực hiện để thợ, khách và thu ngân cùng kiểm tra trước khi tính tiền.</p><h2>Trước khi sửa phiếu</h2><p>Mở đúng khách trong <a href=\"/staff/work-orders\" target=\"_blank\" rel=\"noopener noreferrer\">Tickets của tôi</a>. Trao đổi với khách về dịch vụ và giá trước khi thay đổi. Nếu phiếu đã được tính tiền hoặc đã hủy, nhờ lễ tân kiểm tra cách xử lý.</p><h2>1. Thêm, đổi hoặc bỏ dịch vụ</h2><ul><li><strong>Thêm dịch vụ:</strong> chọn <strong>+ Thêm dịch vụ</strong>, tìm dịch vụ trong danh sách của tiệm, kiểm tra giá và thời gian rồi xác nhận lựa chọn.</li><li><strong>Đổi dịch vụ:</strong> chọn <strong>Đổi</strong> tại dịch vụ cần sửa rồi chọn dịch vụ thay thế. Kiểm tra lại giá và thời gian thực hiện của dịch vụ mới.</li><li><strong>Thêm dịch vụ ngoài danh sách:</strong> chọn <strong>+ Tùy chỉnh</strong>, nhập tên, giá và thời gian thực hiện rồi chọn <strong>Thêm dịch vụ tùy chỉnh</strong>.</li><li><strong>Bỏ dịch vụ:</strong> chọn <strong>Bỏ</strong>, kiểm tra tên trong cửa sổ xác nhận rồi đồng ý xóa. Nếu dịch vụ đã được thực hiện nhưng ghi sai trên phiếu, trao đổi với lễ tân trước khi bỏ.</li></ul><h2>2. Xin khách xác nhận khi có yêu cầu</h2><ol><li>Nếu thay đổi hiện <strong>Chờ duyệt</strong>, cùng khách kiểm tra dịch vụ vừa thêm hoặc đổi.</li><li>Nhờ khách nhập <strong>4 số cuối điện thoại</strong> khớp với số điện thoại của khách trên phiếu, rồi chọn <strong>Duyệt</strong>.</li><li>Chờ lưu thành công và kiểm tra lại dịch vụ trên phiếu. Nếu khách không đồng ý thay đổi, chọn <strong>Hủy</strong> trong phần chờ duyệt.</li></ol><p>Chỉ các dịch vụ được tiệm đặt yêu cầu xác nhận mới có bước duyệt này. Dịch vụ không có yêu cầu xác nhận và dịch vụ tùy chỉnh được lưu trực tiếp; vẫn cần kiểm tra kết quả sau khi lưu. Thao tác <strong>Bỏ</strong> dùng cửa sổ xác nhận xóa.</p><h2>3. Báo thay đổi cho lễ tân</h2><p>Kiểm tra danh sách dịch vụ, <strong>Tổng dịch vụ</strong> và thời gian sau khi cập nhật. Báo lễ tân nếu giá hoặc thời gian thay đổi để quầy kiểm tra phiếu và sắp xếp các khách tiếp theo.</p><h2>Nếu không tìm thấy dịch vụ hoặc không duyệt được</h2><p>Kiểm tra dịch vụ đó có trong danh sách kỹ năng của bạn tại tiệm không. Nếu cần bổ sung, mở <strong>Salon của tôi</strong> → <strong>Sửa kỹ năng</strong> hoặc nhờ chủ tiệm kiểm tra. Nếu 4 số cuối điện thoại không khớp, nhờ lễ tân kiểm tra thông tin khách trên phiếu. Khi báo lỗi lưu, kiểm tra lại phiếu trước khi thêm lần nữa.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=connect-staff-account-to-salon\" target=\"_self\" rel=\"noopener noreferrer\">Kết nối tài khoản thợ với tiệm</a> · <a href=\"?tab=guides&amp;article=start-complete-services-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Bắt đầu và hoàn tất dịch vụ trên Work Order</a> · <a href=\"?tab=guides&amp;article=coordinate-salon-and-staff\" target=\"_self\" rel=\"noopener noreferrer\">Phối hợp giữa tiệm và thợ trong ca làm</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "work order",
+      "đổi dịch vụ",
+      "khách xác nhận"
+    ],
+    "nextArticleId": "view-staff-calendar",
+    "iconKey": "list-checks"
+  },
+  {
+    "id": "view-staff-calendar",
+    "slug": "view-staff-calendar",
+    "category": "staff-operations",
+    "categoryTitle": "Dành cho thợ",
+    "categoryOrder": 4,
+    "order": 5,
+    "active": true,
+    "estimatedMinutes": 3,
+    "title": "Xem lịch hẹn của bạn trong Calendar",
+    "summary": "Chọn tiệm và ngày để xem khách được giao cho bạn, giờ hẹn, thời gian dịch vụ và phiếu liên quan.",
+    "htmlContent": "<section><h2>Lợi ích cho thợ</h2><p>Xem khách nào có hẹn với bạn, giờ bắt đầu và thời gian dự kiến để chuẩn bị trước mỗi ca và mỗi lượt khách.</p><h2>Lịch này hiển thị gì?</h2><p><strong>Lịch của tôi (Calendar)</strong> hiển thị lịch hẹn được giao cho bạn tại tiệm đang chọn. Đây là nơi xem lịch phục vụ khách; nếu cần đổi giờ làm hoặc giờ hẹn, trao đổi với người quản lý lịch tại tiệm.</p><h2>1. Chọn tiệm và ngày</h2><ol><li>Đăng nhập tài khoản thợ và mở <a href=\"/staff/calendar\" target=\"_blank\" rel=\"noopener noreferrer\">Lịch của tôi</a>.</li><li>Nếu bạn liên kết với nhiều tiệm, chọn đúng tiệm trong danh sách.</li><li>Chọn <strong>Hôm nay</strong> để xem lịch trong ngày, chọn một ngày trên dãy ngày hoặc dùng mũi tên để xem ngày trước và ngày sau.</li></ol><h2>2. Kiểm tra lịch và mở phiếu</h2><ol><li>Xem tên khách, dịch vụ, giờ hẹn, thời gian thực hiện, mã phiếu và trạng thái.</li><li>Chọn một lịch hẹn để mở <strong>Đơn công việc</strong> tương ứng. Kiểm tra ghi chú của khách và các dịch vụ của mình trước khi bắt đầu.</li><li>Nếu lịch trùng giờ hoặc thời gian thực hiện không phù hợp, báo lễ tân kèm tên khách, mã phiếu và giờ đang hiển thị.</li></ol><h2>Khi khách đổi giờ hoặc tiệm đổi người thực hiện</h2><p>Thống nhất với lễ tân trước. Người quản lý lịch tại tiệm cập nhật giờ hẹn hoặc thợ được giao; sau đó bạn mở lại lịch và phiếu để kiểm tra thông tin mới.</p><h2>Nếu lịch trống hoặc không tải được</h2><p>Kiểm tra lại tiệm và ngày. Phiếu chưa có giờ hẹn có thể không xuất hiện trong Calendar; mở <a href=\"/staff/work-orders\" target=\"_blank\" rel=\"noopener noreferrer\">Tickets của tôi</a> để kiểm tra công việc được giao. Lịch trống không có nghĩa là tiệm không còn khách cần phục vụ.</p><p>Nếu màn hình báo chưa liên kết tiệm, kiểm tra tại <a href=\"/staff/salons\" target=\"_blank\" rel=\"noopener noreferrer\">Salon của tôi</a>. Nếu báo lỗi tải lịch, chọn <strong>Thử lại</strong>.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=view-assigned-tickets-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Xem và nhận phiếu dịch vụ được giao</a> · <a href=\"?tab=guides&amp;article=start-complete-services-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Bắt đầu và hoàn tất dịch vụ trên Work Order</a> · <a href=\"?tab=guides&amp;article=manage-appointments\" target=\"_self\" rel=\"noopener noreferrer\">Tạo và cập nhật lịch hẹn</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "calendar",
+      "lịch của thợ",
+      "lịch hẹn"
+    ],
+    "nextArticleId": "coordinate-salon-and-staff",
+    "iconKey": "calendar-days"
+  },
+  {
+    "id": "coordinate-salon-and-staff",
+    "slug": "coordinate-salon-and-staff",
+    "category": "staff-operations",
+    "categoryTitle": "Dành cho thợ",
+    "categoryOrder": 4,
+    "order": 6,
+    "active": true,
+    "estimatedMinutes": 5,
+    "title": "Phối hợp giữa tiệm và thợ trong ca làm",
+    "summary": "Trao đổi với tiệm qua chat, trả lời khi lễ tân gọi và bàn giao thông tin khách, dịch vụ trước khi tính tiền.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm và thợ</h2><p>Giúp hai bên biết ai đang phục vụ khách, khi nào thợ sẵn sàng nhận khách tiếp theo và phiếu cần cập nhật gì trước khi tính tiền.</p><h2>1. Thống nhất việc trước ca</h2><ul><li><strong>Chủ tiệm hoặc người quản lý:</strong> kiểm tra liên kết tài khoản, dịch vụ thợ có thể làm và giờ làm.</li><li><strong>Lễ tân:</strong> cập nhật lịch hẹn, giao từng dịch vụ cho đúng thợ và kiểm tra phản hồi nhận việc.</li><li><strong>Thợ:</strong> kiểm tra tiệm đang chọn, lịch trong ngày, dịch vụ được giao và ghi chú của khách; báo sớm nếu không nhận được việc.</li></ul><h2>2. Trao đổi qua chat</h2><ol><li>Thợ mở <a href=\"/staff/salons\" target=\"_blank\" rel=\"noopener noreferrer\">Salon của tôi</a>, tìm đúng tiệm đang liên kết và chọn <strong>Chat</strong> để trao đổi với tiệm.</li><li>Phía tiệm mở danh sách nhân viên, tìm đúng thợ và chọn nút chat của người đó.</li><li>Gửi nội dung cụ thể: tên khách, mã phiếu, dịch vụ cần trao đổi và điều bạn đề nghị. Ví dụ: “Phiếu của khách Linh cần thêm 15 phút. Nhờ lễ tân kiểm tra giờ của khách tiếp theo.”</li></ol><p>Sau khi hai bên thống nhất thay đổi, người phụ trách cập nhật lịch hoặc phiếu và bên còn lại kiểm tra kết quả. Tin nhắn giúp trao đổi; thông tin công việc cần được ghi đúng trên lịch và phiếu.</p><h2>3. Trả lời khi lễ tân gọi</h2><p>Khi xuất hiện thông báo lễ tân gọi bạn (beep), kiểm tra tên tiệm và nội dung rồi chọn phản hồi phù hợp:</p><ul><li><strong>Đang tới:</strong> khi bạn có thể đến quầy.</li><li><strong>Bận — cho tôi vài phút:</strong> khi chưa thể đến ngay; chọn số phút dự kiến trên màn hình.</li><li><strong>Không tới được:</strong> khi không thể đến; nhập lý do nếu cần rồi chọn <strong>Gửi</strong>.</li></ul><p>Chờ thông báo gửi thành công để biết lễ tân đã nhận phản hồi. Nút <strong>Đóng</strong> chỉ ẩn lời gọi trên màn hình của bạn và chưa gửi câu trả lời cho lễ tân. Sau khi trả lời, mở phiếu để kiểm tra công việc được giao.</p><h2>4. Bàn giao trước khi tính tiền</h2><ol><li>Thợ kiểm tra các dịch vụ mình thực hiện đã được đánh dấu xong. Báo lễ tân dịch vụ thêm, thay đổi giá hoặc ghi chú cần lưu.</li><li>Nếu có nhiều thợ cùng làm cho khách, mỗi người kiểm tra phần việc của mình; lễ tân kiểm tra cả phiếu.</li><li>Lễ tân hoặc thu ngân đối chiếu dịch vụ và thực hiện thanh toán. Nếu cần sửa lịch, đổi thợ hoặc xử lý phiếu đã tính tiền, báo người phụ trách tại tiệm.</li></ol><h2>Khi thông tin hai bên chưa khớp</h2><p>Gửi mã phiếu, ngày phục vụ và phần thông tin đang khác nhau để cùng kiểm tra. Nếu chat chưa mở được hoặc lời gọi báo không còn hiệu lực, liên hệ trực tiếp với quầy để xác nhận công việc.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=view-staff-calendar\" target=\"_self\" rel=\"noopener noreferrer\">Xem lịch hẹn của bạn trong Calendar</a> · <a href=\"?tab=guides&amp;article=start-complete-services-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Bắt đầu và hoàn tất dịch vụ trên Work Order</a> · <a href=\"?tab=guides&amp;article=use-turn-board\" target=\"_self\" rel=\"noopener noreferrer\">Chia lượt cho thợ bằng Turn Board</a> · <a href=\"?tab=guides&amp;article=checkout-and-receipt\" target=\"_self\" rel=\"noopener noreferrer\">Tính tiền và gửi hóa đơn cho khách</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "tiệm và thợ",
+      "chat",
+      "lễ tân gọi thợ"
+    ],
+    "nextArticleId": null,
+    "iconKey": "users-round"
   }
 ]

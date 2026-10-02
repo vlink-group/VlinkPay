@@ -512,7 +512,133 @@
       "ai",
       "voice"
     ],
-    "nextArticleId": null,
+    "nextArticleId": "connect-staff-account-to-salon",
     "iconKey": "phone-call"
+  },
+  {
+    "id": "connect-staff-account-to-salon",
+    "slug": "connect-staff-account-to-salon",
+    "category": "staff-operations",
+    "categoryTitle": "For Technicians",
+    "categoryOrder": 4,
+    "order": 1,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Connect Your Technician Account to a Salon",
+    "summary": "Accept a salon invitation, check your connection, and select the services you can perform.",
+    "htmlContent": "<section><h2>Benefits for technicians</h2><p>Connect your account to the right salon to see your assigned appointments and service tickets. If you work at several salons, you can check each one from your technician account.</p><h2>Before you start</h2><p>Sign in with your own account and open the technician workspace. Check that your profile includes your name and contact details so the salon owner can identify you.</p><h2>1. Accept an invitation or request to join</h2><ol><li>Open <a href=\"/staff/salons\" target=\"_blank\" rel=\"noopener noreferrer\">My Salons</a>. If the salon has invited you, find <strong>Link Requests</strong>.</li><li>Check the salon name and invited role. Select <strong>Accept</strong> for the salon where you work, or <strong>Decline</strong> if the invitation is incorrect.</li><li>If there is no invitation, ask the owner to invite you or scan the salon’s staff invitation QR and follow the instructions. If your request is awaiting approval, ask the owner to check it.</li><li>Return to <strong>My Salons</strong> and check that your salon connection is active before opening your assigned work.</li></ol><h2>2. Check your display name and services</h2><ol><li>At the correct salon, select <strong>Edit Work Skill</strong>, choose the services you can perform, and select <strong>Save</strong>. Agree on this list with the owner so the front desk can assign suitable work.</li><li>To change your name at this salon, select <strong>Edit Nickname</strong>. This name applies only at that salon; leave it blank to use your original name.</li><li>Select <strong>Work Order</strong> to see assigned tickets, or open <a href=\"/staff/calendar\" target=\"_blank\" rel=\"noopener noreferrer\">My Calendar</a> to see appointments.</li></ol><h2>What should the salon and technician agree on?</h2><p>The owner checks the staff member and salon connection. You check your display name and the services you can perform. Agree on working hours, and ask the person managing the salon schedule to update them when needed.</p><h2>If the salon or your work is unavailable</h2><p>Check that you are using the correct account, have accepted the invitation, and have an active connection. If approval is still pending or the salon name is wrong, give the owner your account name and the salon name to check.</p><p>Related: <a href=\"?tab=guides&amp;article=add-staff-and-work-schedules\" target=\"_self\" rel=\"noopener noreferrer\">Add Staff and Set Their Services and Hours</a> · <a href=\"?tab=guides&amp;article=view-assigned-tickets-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">View and Accept Your Assigned Tickets</a> · <a href=\"?tab=guides&amp;article=coordinate-salon-and-staff\" target=\"_self\" rel=\"noopener noreferrer\">Coordinate with Your Salon During a Shift</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "technician account",
+      "salon link",
+      "work skills"
+    ],
+    "nextArticleId": "view-assigned-tickets-as-staff",
+    "iconKey": "users"
+  },
+  {
+    "id": "view-assigned-tickets-as-staff",
+    "slug": "view-assigned-tickets-as-staff",
+    "category": "staff-operations",
+    "categoryTitle": "For Technicians",
+    "categoryOrder": 4,
+    "order": 2,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "View and Accept Your Assigned Tickets",
+    "summary": "Find the right ticket in My Tickets, review the customer’s requests, and accept or decline an assigned service.",
+    "htmlContent": "<section><h2>Benefits for technicians</h2><p>See which customers and services are assigned to you, then confirm that you can take the work so the front desk can continue arranging customers.</p><h2>What are Tickets and Work Orders?</h2><p>A ticket records a customer’s details and services for a salon visit. In your technician account, <strong>My Tickets</strong> lists tickets assigned to you. Opening a ticket shows the <strong>Work Order</strong> screen, where you can review and manage your services. Several technicians may perform different services on the same ticket.</p><h2>1. Find the right ticket</h2><ol><li>Sign in to your technician account and open <a href=\"/staff/work-orders\" target=\"_blank\" rel=\"noopener noreferrer\">My Tickets</a>. Check the salon name at the top.</li><li>To change salons, select the salon name or return to <a href=\"/staff/salons\" target=\"_blank\" rel=\"noopener noreferrer\">My Salons</a>, then select <strong>Work Order</strong> at the salon you need.</li><li>Choose the date. If a ticket is missing, select <strong>All</strong> to include work that has already started or finished.</li><li>Select a ticket from the list, or select <strong>View ticket</strong> on a new assignment. Check the customer’s name, ticket number, services, prices, service times, and any customer notes.</li></ol><h2>2. Accept or decline an assigned service</h2><ol><li>Find your service marked <strong>Awaiting acceptance</strong>.</li><li>Select <strong>Accept</strong> if you can perform it. Check that the status changes to <strong>Assigned</strong>.</li><li>If you cannot take the work, select <strong>Decline</strong> and confirm. The service returns to the front desk for reassignment. Explain why to the front desk when they need to rearrange the customer’s visit.</li></ol><h2>How should you read the statuses?</h2><p><strong>Assigned</strong>, <strong>In Service</strong>, and <strong>Completed</strong> help you find tickets by the progress of your own work. After your services are complete, the ticket may still include another technician’s work or be waiting for checkout.</p><h2>If a new assignment is missing</h2><p>Check the salon, date, and filter first. If a ticket says you are no longer assigned, ask the front desk to check the technician on each service. If the screen shows a loading error, select <strong>Try again</strong>.</p><p>Related: <a href=\"?tab=guides&amp;article=connect-staff-account-to-salon\" target=\"_self\" rel=\"noopener noreferrer\">Connect Your Technician Account to a Salon</a> · <a href=\"?tab=guides&amp;article=start-complete-services-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Start and Complete Services on a Work Order</a> · <a href=\"?tab=guides&amp;article=track-service-tickets\" target=\"_self\" rel=\"noopener noreferrer\">Track Waiting Customers and Service Progress</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "my tickets",
+      "assigned services",
+      "accept service"
+    ],
+    "nextArticleId": "start-complete-services-as-staff",
+    "iconKey": "list-ordered"
+  },
+  {
+    "id": "start-complete-services-as-staff",
+    "slug": "start-complete-services-as-staff",
+    "category": "staff-operations",
+    "categoryTitle": "For Technicians",
+    "categoryOrder": 4,
+    "order": 3,
+    "active": true,
+    "estimatedMinutes": 5,
+    "title": "Start and Complete Services on a Work Order",
+    "summary": "Update the progress of your services and add completion notes so the front desk knows when to prepare checkout.",
+    "htmlContent": "<section><h2>Benefits for technicians and the salon</h2><p>Recording when you start and finish helps the front desk see which customer you are serving, which services are still in progress, and when to prepare checkout.</p><h2>Before you start</h2><p>Open the correct ticket in <a href=\"/staff/work-orders\" target=\"_blank\" rel=\"noopener noreferrer\">My Tickets</a>, check the customer’s name, and read the notes. If a service is awaiting your acceptance, select <strong>Accept</strong> first.</p><h2>1. Start your services</h2><ol><li>Find a service assigned to and accepted by you.</li><li>When you begin working on it, select <strong>Start</strong> on that service. Check that its status changes to <strong>In progress</strong>.</li><li>If you are starting your services together, you can use <strong>Start Service</strong> at the bottom of the ticket when it appears. Check your services before selecting it.</li></ol><h2>2. Complete your work and leave notes</h2><ol><li>After finishing a service, select <strong>Complete</strong> on that service and check for the <strong>Done</strong> status.</li><li>To finish your services in progress using <strong>Complete</strong> at the bottom of the ticket, review all your work before selecting it.</li><li>In the completion window, choose a suggested note or enter an <strong>Additional note</strong> if the salon should remember something about the visit. Select <strong>Confirm Completion</strong>.</li><li>Tell the front desk that your work is finished and share anything they should check before checkout.</li></ol><h2>Service completion and checkout are separate steps</h2><p><strong>Completed</strong> in your technician account means your work is finished. The front desk or cashier reviews the ticket’s services and takes payment to close the ticket.</p><p>For example, you perform a manicure while another technician performs a pedicure for the same customer. Complete your manicure service. The salon checks the pedicure before checking out the customer.</p><h2>If an action is unavailable</h2><p>Check whether you have accepted the service, a change is waiting for customer approval, or the ticket is still assigned to you. If <strong>Start Service</strong> is unavailable, check the ticket date with the front desk. If an action fails, reopen the ticket and check its status before trying again.</p><p>Related: <a href=\"?tab=guides&amp;article=view-assigned-tickets-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">View and Accept Your Assigned Tickets</a> · <a href=\"?tab=guides&amp;article=update-work-order-services-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Add, Change, or Remove Work Order Services</a> · <a href=\"?tab=guides&amp;article=checkout-and-receipt\" target=\"_self\" rel=\"noopener noreferrer\">Take Payment and Give Customers a Receipt</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "work order",
+      "start service",
+      "complete service"
+    ],
+    "nextArticleId": "update-work-order-services-as-staff",
+    "iconKey": "clipboard-check"
+  },
+  {
+    "id": "update-work-order-services-as-staff",
+    "slug": "update-work-order-services-as-staff",
+    "category": "staff-operations",
+    "categoryTitle": "For Technicians",
+    "categoryOrder": 4,
+    "order": 4,
+    "active": true,
+    "estimatedMinutes": 5,
+    "title": "Add, Change, or Remove Work Order Services",
+    "summary": "Update services at the customer’s request, check prices and service times, and obtain customer approval when prompted.",
+    "htmlContent": "<section><h2>Benefits for technicians and customers</h2><p>Record the customer’s chosen services, prices, and service times so you, the customer, and the cashier can review them before checkout.</p><h2>Before changing a ticket</h2><p>Open the correct customer in <a href=\"/staff/work-orders\" target=\"_blank\" rel=\"noopener noreferrer\">My Tickets</a>. Discuss the service and price with the customer before making changes. If the ticket has been checked out or canceled, ask the front desk how to handle it.</p><h2>1. Add, change, or remove a service</h2><ul><li><strong>Add a service:</strong> select <strong>+ Add service</strong>, find it in the salon’s catalog, check its price and service time, and confirm your selection.</li><li><strong>Change a service:</strong> select <strong>Change</strong> on the service and choose its replacement. Check the new service’s price and duration.</li><li><strong>Add a service outside the catalog:</strong> select <strong>+ Custom</strong>, enter its name, price, and service time, then select <strong>Add custom service</strong>.</li><li><strong>Remove a service:</strong> select <strong>Remove</strong>, check the name in the confirmation window, and confirm removal. If a service was performed but entered incorrectly, speak with the front desk before removing it.</li></ul><h2>2. Obtain customer approval when prompted</h2><ol><li>If a change shows <strong>Pending Approval</strong>, review the added or replacement service with the customer.</li><li>Ask the customer to enter the <strong>Last 4 phone digits</strong> matching the phone number on the ticket, then select <strong>Approve</strong>.</li><li>Wait for the change to save and check the ticket’s services. If the customer does not agree, select <strong>Cancel</strong> in the approval section.</li></ol><p>This approval step applies to services the salon has marked as requiring confirmation. Services without that requirement and custom services save directly; check the result after saving. <strong>Remove</strong> uses a removal confirmation window.</p><h2>3. Tell the front desk about the change</h2><p>Review the service list, <strong>Service total</strong>, and service times after updating. Tell the front desk if the price or service time changed so they can check the ticket and arrange upcoming customers.</p><h2>If a service or approval is unavailable</h2><p>Check whether the service is included in your work skills at this salon. To update them, open <strong>My Salons</strong> → <strong>Edit Work Skill</strong>, or ask the owner to check. If the last 4 phone digits do not match, ask the front desk to check the customer’s details on the ticket. After a save error, check the ticket before adding the service again.</p><p>Related: <a href=\"?tab=guides&amp;article=connect-staff-account-to-salon\" target=\"_self\" rel=\"noopener noreferrer\">Connect Your Technician Account to a Salon</a> · <a href=\"?tab=guides&amp;article=start-complete-services-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Start and Complete Services on a Work Order</a> · <a href=\"?tab=guides&amp;article=coordinate-salon-and-staff\" target=\"_self\" rel=\"noopener noreferrer\">Coordinate with Your Salon During a Shift</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "work order",
+      "service changes",
+      "customer approval"
+    ],
+    "nextArticleId": "view-staff-calendar",
+    "iconKey": "list-checks"
+  },
+  {
+    "id": "view-staff-calendar",
+    "slug": "view-staff-calendar",
+    "category": "staff-operations",
+    "categoryTitle": "For Technicians",
+    "categoryOrder": 4,
+    "order": 5,
+    "active": true,
+    "estimatedMinutes": 3,
+    "title": "View Your Appointments in My Calendar",
+    "summary": "Choose a salon and day to see your assigned customers, appointment times, service durations, and related tickets.",
+    "htmlContent": "<section><h2>Benefits for technicians</h2><p>See who is booked with you, their start times, and expected service durations so you can prepare for your shift and each customer.</p><h2>What does this calendar show?</h2><p><strong>My Calendar</strong> shows appointments assigned to you at the selected salon. Use it to review customer appointments. To change your working hours or an appointment time, speak with the person managing the salon’s schedule.</p><h2>1. Choose a salon and day</h2><ol><li>Sign in to your technician account and open <a href=\"/staff/calendar\" target=\"_blank\" rel=\"noopener noreferrer\">My Calendar</a>.</li><li>If you are linked to several salons, select the correct one from the list.</li><li>Select <strong>Today</strong> for today’s schedule, select a day in the date strip, or use the arrows to view the previous or next day.</li></ol><h2>2. Review an appointment and open its ticket</h2><ol><li>Check the customer’s name, service, appointment time, service duration, ticket number, and status.</li><li>Select an appointment to open its <strong>Work Order</strong>. Read the customer notes and check your services before starting.</li><li>If appointments overlap or the service time is unsuitable, tell the front desk the customer’s name, ticket number, and displayed time.</li></ol><h2>When a customer changes their time or the salon changes technicians</h2><p>Agree on the change with the front desk first. The person managing the salon’s schedule updates the appointment time or assigned technician. Reopen the calendar and ticket to check the updated details.</p><h2>If your calendar is empty or will not load</h2><p>Check the salon and date. Tickets without an appointment time may not appear in My Calendar; open <a href=\"/staff/work-orders\" target=\"_blank\" rel=\"noopener noreferrer\">My Tickets</a> to check your assigned work. An empty calendar does not mean the salon has no customers to serve.</p><p>If the screen says no salon is linked, check <a href=\"/staff/salons\" target=\"_blank\" rel=\"noopener noreferrer\">My Salons</a>. If it shows a loading error, select <strong>Try again</strong>.</p><p>Related: <a href=\"?tab=guides&amp;article=view-assigned-tickets-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">View and Accept Your Assigned Tickets</a> · <a href=\"?tab=guides&amp;article=start-complete-services-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Start and Complete Services on a Work Order</a> · <a href=\"?tab=guides&amp;article=manage-appointments\" target=\"_self\" rel=\"noopener noreferrer\">Create and Update Appointments</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "my calendar",
+      "technician schedule",
+      "appointments"
+    ],
+    "nextArticleId": "coordinate-salon-and-staff",
+    "iconKey": "calendar-days"
+  },
+  {
+    "id": "coordinate-salon-and-staff",
+    "slug": "coordinate-salon-and-staff",
+    "category": "staff-operations",
+    "categoryTitle": "For Technicians",
+    "categoryOrder": 4,
+    "order": 6,
+    "active": true,
+    "estimatedMinutes": 5,
+    "title": "Coordinate with Your Salon During a Shift",
+    "summary": "Chat with your salon, respond to front desk calls, and hand off customer and service details before checkout.",
+    "htmlContent": "<section><h2>Benefits for the salon and technicians</h2><p>Keep everyone informed about who is serving each customer, when a technician can take the next customer, and what needs updating before checkout.</p><h2>1. Agree on work before the shift</h2><ul><li><strong>Owner or manager:</strong> check account connections, the services each technician can perform, and working hours.</li><li><strong>Front desk:</strong> update appointments, assign services to the right technicians, and check their acceptance responses.</li><li><strong>Technician:</strong> check the selected salon, today’s appointments, assigned services, and customer notes. Tell the front desk promptly if you cannot take an assignment.</li></ul><h2>2. Communicate through chat</h2><ol><li>As a technician, open <a href=\"/staff/salons\" target=\"_blank\" rel=\"noopener noreferrer\">My Salons</a>, find the correct linked salon, and select <strong>Chat</strong> to message the salon.</li><li>On the salon side, open the staff list, find the correct technician, and select their chat button.</li><li>Be specific: include the customer’s name, ticket number, relevant service, and what you need. For example: “Linh’s ticket needs another 15 minutes. Please check the next customer’s appointment time.”</li></ol><p>After agreeing on a change, the person responsible updates the appointment or ticket, and the other person checks the result. Use chat to discuss work and keep the calendar and ticket details accurate.</p><h2>3. Respond when the front desk calls</h2><p>When a front desk beep appears, check the salon name and message, then choose the appropriate response:</p><ul><li><strong>On my way:</strong> when you can come to the front desk.</li><li><strong>Busy — give me a few minutes:</strong> when you need more time; select an estimated number of minutes on the screen.</li><li><strong>Can’t come:</strong> when you cannot come; add a reason if needed and select <strong>Send</strong>.</li></ul><p>Wait for the success message to confirm that your response was sent. <strong>Dismiss</strong> hides the call on your screen without sending an answer to the front desk. After responding, open your ticket to check the assigned work.</p><h2>4. Hand off before checkout</h2><ol><li>Check that the services you performed are marked done. Tell the front desk about added services, price changes, or notes to keep.</li><li>When several technicians serve the customer, each checks their own services, and the front desk checks the whole ticket.</li><li>The front desk or cashier reviews the services and takes payment. Ask the person responsible at the salon to handle appointment changes, technician changes, or tickets already checked out.</li></ol><h2>When your information does not match the salon’s</h2><p>Share the ticket number, service date, and the details that differ so you can check them together. If chat is unavailable or a beep is no longer active, contact the front desk directly to confirm the work.</p><p>Related: <a href=\"?tab=guides&amp;article=view-staff-calendar\" target=\"_self\" rel=\"noopener noreferrer\">View Your Appointments in My Calendar</a> · <a href=\"?tab=guides&amp;article=start-complete-services-as-staff\" target=\"_self\" rel=\"noopener noreferrer\">Start and Complete Services on a Work Order</a> · <a href=\"?tab=guides&amp;article=use-turn-board\" target=\"_self\" rel=\"noopener noreferrer\">Assign Waiting Customers with the Turn Board</a> · <a href=\"?tab=guides&amp;article=checkout-and-receipt\" target=\"_self\" rel=\"noopener noreferrer\">Take Payment and Give Customers a Receipt</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "salon coordination",
+      "chat",
+      "front desk beep"
+    ],
+    "nextArticleId": null,
+    "iconKey": "users-round"
   }
 ]
