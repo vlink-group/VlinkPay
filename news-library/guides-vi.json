@@ -10,10 +10,15 @@
     "estimatedMinutes": 5,
     "title": "Thiết lập tiệm lần đầu",
     "summary": "Hoàn tất những thiết lập cần thiết để tiệm có thể nhận lịch, phục vụ khách và tính tiền.",
-    "htmlContent": "<section><p>Hoàn tất những thiết lập cần thiết trước khi tiệm bắt đầu phục vụ khách trên NEXORA TOUCH.</p><h2>Trước khi bắt đầu</h2><p>Chuẩn bị thông tin và giờ mở cửa của tiệm, danh sách dịch vụ và giá, danh sách nhân viên, cùng máy tính bảng hoặc máy tính dùng tại quầy.</p><h2>1. Cập nhật thông tin tiệm</h2><p>Trong menu bên trái, chọn <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a> (màn hình bán hàng), sau đó chọn <a href=\"/dashboard/pos/settings/salon-information\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cài Đặt Salon</strong> và <strong>Thông Tin Salon</strong></a>.</p><p>Cập nhật tên, địa chỉ, số điện thoại, email và giờ hoạt động của tiệm.</p><p><strong>Hoàn tất khi:</strong> Thông tin liên hệ và giờ mở cửa đã chính xác.</p><h2>2. Thêm dịch vụ</h2><p>Mở tab <a href=\"/dashboard/pos/settings/services\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Dịch Vụ</strong></a>, sau đó thêm tên dịch vụ, giá và thời lượng thực hiện.</p><p><strong>Hoàn tất khi:</strong> Có ít nhất một dịch vụ đang hoạt động.</p><h2>3. Thêm nhân viên</h2><p>Mở tab <a href=\"/dashboard/pos/settings/staff\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Nhân Viên</strong></a>, thêm nhân viên rồi gán dịch vụ và lịch làm việc.</p><p><strong>Hoàn tất khi:</strong> Có ít nhất một nhân viên sẵn sàng nhận lịch.</p><h2>4. Kiểm tra chức năng đặt lịch</h2><p>Mở phần <a href=\"/dashboard/pos?tab=booking\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Đặt lịch</strong></a> rồi tạo một lịch hẹn thử.</p><p><strong>Hoàn tất khi:</strong> Lịch hẹn xuất hiện đúng ngày, giờ, dịch vụ và nhân viên.</p><h2>5. Kiểm tra màn hình tính tiền</h2><p>Mở màn hình bán hàng <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a>, rồi kiểm tra dịch vụ, tiền tip và cách thanh toán. Kết nối máy in hoặc máy quẹt thẻ nếu tiệm sử dụng.</p><p><strong>Hoàn tất khi:</strong> Màn hình tính tiền đã sẵn sàng.</p><h2>6. Thực hiện giao dịch thử</h2><ol><li>Tạo khách hàng.</li><li>Tạo lịch hẹn.</li><li>Check-in, tức là xác nhận khách đã đến tiệm.</li><li>Hoàn thành dịch vụ.</li><li>Tính tiền và hoàn tất thanh toán.</li></ol><p><strong>Hoàn tất khi:</strong> Giao dịch và hóa đơn được ghi nhận đúng.</p><h2>Tiệm đã sẵn sàng</h2><p>Tiệm có thể bắt đầu vận hành khi hoàn thành được luồng:</p><p><strong>Đặt lịch → Khách đến tiệm → Làm dịch vụ → Tính tiền → Thanh toán</strong></p><p>Các tính năng như khách tự check-in, đánh giá, tin nhắn và AI Voice có thể thiết lập sau.</p><h2>Nếu gặp vấn đề</h2><ul><li><strong>Không tạo được lịch:</strong> Kiểm tra giờ hoạt động, lịch nhân viên và thời lượng dịch vụ.</li><li><strong>Không thấy nhân viên:</strong> Kiểm tra trạng thái, dịch vụ được gán và lịch làm việc.</li><li><strong>Không tính tiền được:</strong> Kiểm tra đơn đã có dịch vụ và cách thanh toán cần thiết.</li></ul></section>",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp nhân viên nhận lịch hẹn, đón khách và tính tiền thuận tiện ngay từ ngày đầu sử dụng.</p><h2>Trước khi bắt đầu</h2><p>Sử dụng tài khoản có quyền quản lý cài đặt tiệm. Chuẩn bị thông tin liên hệ, giờ mở cửa, giá dịch vụ, lịch làm việc của nhân viên và thông tin nhận thanh toán.</p><h2>1. Hoàn tất thông tin cần thiết</h2><ol><li>Mở <a href=\"/dashboard/pos/settings/salon-information\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cài Đặt Salon và Thông Tin Salon</strong></a>. Lưu thông tin liên hệ, giờ hoạt động và múi giờ.</li><li>Mở <a href=\"/dashboard/pos/settings/services\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Dịch Vụ</strong></a>. Thêm tên, giá, thời lượng và bật trạng thái hoạt động cho dịch vụ.</li><li>Mở <a href=\"/dashboard/pos/settings/staff\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Nhân Viên</strong></a>. Thêm nhân viên, lưu phần <strong>Role, Lương &amp; Tip</strong>, chọn dịch vụ nhân viên có thể làm và lưu lịch làm việc.</li></ol><h2>2. Kiểm tra đặt lịch từ phía khách</h2><p>Mở <a href=\"/dashboard/pos?tab=booking\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Đặt lịch</strong></a>, sao chép liên kết đặt lịch trực tuyến và mở trên điện thoại hoặc cửa sổ trình duyệt riêng tư. Chọn dịch vụ, giờ còn trống và dùng thông tin liên hệ của mình để đặt thử. Trở lại Đặt lịch, mở lịch vừa tạo và kiểm tra tên khách, dịch vụ, ngày, giờ hẹn cùng nhân viên có khớp với thông tin vừa chọn hay không. Kiểm tra lịch đang chờ duyệt hay đã được xác nhận. Sau đó hủy lịch thử để trả lại khung giờ cho khách.</p><p>Xem <a href=\"?tab=guides&amp;article=set-up-online-booking\" target=\"_self\" rel=\"noopener noreferrer\">Thiết lập đặt lịch trực tuyến</a> để kiểm tra xác nhận lịch và thông báo.</p><h2>3. Chuẩn bị tính tiền và hóa đơn</h2><ul><li>Kiểm tra tài khoản nhận tiền cho từng phương thức tiệm sử dụng. Xem <a href=\"?tab=guides&amp;article=set-up-checkout-payment-methods\" target=\"_self\" rel=\"noopener noreferrer\">Thiết lập tính tiền và phương thức thanh toán</a>.</li><li>Xác nhận mức thuế, cách chia tip và phí vật tư của nhân viên. Xem <a href=\"?tab=guides&amp;article=set-up-taxes-tips-fees\" target=\"_self\" rel=\"noopener noreferrer\">Thiết lập thuế, tiền tip và phụ phí</a>.</li><li>Nếu tiệm in hóa đơn, mở <a href=\"/dashboard/pos/printer\" target=\"_blank\" rel=\"noopener noreferrer\">In hóa đơn</a> trên từng thiết bị tính tiền và chọn <strong>In hóa đơn thử</strong>. Thao tác này in mẫu, không hoàn tất một đơn bán hàng.</li></ul><h2>Trước lần thu tiền đầu tiên</h2><p>Cùng nhân viên thu ngân đọc <a href=\"?tab=guides&amp;article=checkout-and-receipt\" target=\"_self\" rel=\"noopener noreferrer\">Hoàn tất tính tiền và giao hóa đơn</a>. Chỉ ghi nhận Tiền mặt sau khi đã nhận tiền. Nếu muốn thử tính tiền trước khi phục vụ khách, hãy liên hệ bộ phận hỗ trợ để được hướng dẫn. Hỏi rõ nên dùng tài khoản và phương thức thanh toán nào. Việc thanh toán thử có thể sử dụng tiền thật; đơn đã hoàn tất vẫn được tính vào báo cáo.</p><h2>Nếu cần kiểm tra thêm</h2><ul><li>Nếu không chọn được giờ hẹn, kiểm tra giờ mở cửa của tiệm và lịch làm việc của nhân viên.</li><li>Nếu không mở được một mục cài đặt, nhờ chủ tiệm kiểm tra quyền sử dụng của tài khoản.</li></ul></section>",
     "updatedAt": "2026-10-02",
-    "keywords": ["thiết lập tiệm", "bắt đầu", "POS"],
-    "nextArticleId": "set-up-salon-information"
+    "keywords": [
+      "thiết lập tiệm",
+      "bắt đầu",
+      "POS"
+    ],
+    "nextArticleId": "set-up-salon-information",
+    "iconKey": "rocket"
   },
   {
     "id": "set-up-salon-information",
@@ -26,10 +31,15 @@
     "estimatedMinutes": 4,
     "title": "Thiết lập thông tin và giờ hoạt động của tiệm",
     "summary": "Cập nhật thông tin liên hệ và giờ mở cửa để khách đặt lịch đúng thời gian tiệm làm việc.",
-    "htmlContent": "<section><p>Cập nhật thông tin liên hệ và giờ mở cửa để khách chỉ đặt lịch vào thời gian tiệm làm việc.</p><h2>Trước khi bắt đầu</h2><p>Chuẩn bị tên và địa chỉ tiệm, số điện thoại, email, logo nếu có và giờ mở cửa của từng ngày.</p><h2>1. Mở Thông Tin Salon</h2><p>Trong menu bên trái, chọn <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a> (màn hình bán hàng), sau đó chọn <a href=\"/dashboard/pos/settings/salon-information\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cài Đặt Salon</strong> và <strong>Thông Tin Salon</strong></a>.</p><h2>2. Cập nhật thông tin tiệm</h2><p>Chọn biểu tượng chỉnh sửa, sau đó kiểm tra tên tiệm, địa chỉ, số điện thoại, email và logo. Chọn <strong>Lưu</strong> sau khi hoàn tất.</p><h2>3. Cập nhật giờ hoạt động</h2><p>Tại phần <strong>Giờ hoạt động</strong>, chọn biểu tượng chỉnh sửa. Với mỗi ngày trong tuần:</p><ul><li>Bật ngày tiệm mở cửa.</li><li>Chọn giờ mở cửa.</li><li>Chọn giờ đóng cửa.</li><li>Tắt những ngày tiệm nghỉ.</li></ul><p>Chọn <strong>Lưu</strong>.</p><h2>Bạn đã hoàn tất khi</h2><ul><li>Thông tin liên hệ của tiệm đã chính xác.</li><li>Các ngày làm việc hiển thị đúng giờ mở cửa và đóng cửa.</li><li>Ngày nghỉ hiển thị là đóng cửa.</li><li>Có thể chọn khung giờ hợp lệ khi tạo lịch hẹn thử.</li></ul><h2>Nếu gặp vấn đề</h2><h3>Không lưu được giờ hoạt động</h3><p>Kiểm tra giờ đóng cửa phải sau giờ mở cửa và các ngày đang bật đều có đủ hai mốc giờ.</p><h3>Giờ lịch hẹn bị lệch</h3><p>Kiểm tra phần múi giờ. Đây là khu vực giờ địa phương mà tiệm đang sử dụng.</p><h3>Khách không đặt được một ngày cụ thể</h3><p>Kiểm tra ngày đó có phải ngày nghỉ hoặc thời gian khách chọn có nằm ngoài giờ mở cửa không.</p><h2>Mẹo</h2><p>Sau khi đổi giờ hoạt động, hãy kiểm tra các lịch hẹn đã được tạo trong khoảng thời gian bị ảnh hưởng.</p></section>",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp khách dễ tìm địa chỉ, số điện thoại và giờ mở cửa của tiệm. Nhân viên cũng có thể dựa vào những thông tin này để trả lời khách.</p><h2>Trước khi bắt đầu</h2><p>Chuẩn bị tên và địa chỉ tiệm, số điện thoại, email, logo nếu có và giờ mở cửa của từng ngày.</p><h2>1. Mở Thông Tin Salon</h2><p>Trong menu bên trái, chọn <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a> (màn hình bán hàng), sau đó chọn <a href=\"/dashboard/pos/settings/salon-information\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cài Đặt Salon</strong> và <strong>Thông Tin Salon</strong></a>.</p><h2>2. Cập nhật thông tin tiệm</h2><p>Chọn biểu tượng chỉnh sửa, sau đó kiểm tra tên tiệm, địa chỉ, số điện thoại, email và logo. Chọn <strong>Lưu</strong> sau khi hoàn tất.</p><h2>3. Cập nhật giờ hoạt động</h2><p>Tại phần <strong>Giờ hoạt động</strong>, chọn biểu tượng chỉnh sửa. Với mỗi ngày trong tuần:</p><ul><li>Bật ngày tiệm mở cửa.</li><li>Chọn giờ mở cửa.</li><li>Chọn giờ đóng cửa.</li><li>Tắt những ngày tiệm nghỉ.</li></ul><p>Chọn <strong>Lưu</strong>.</p><h2>Hoàn tất khi</h2><ul><li>Thông tin liên hệ của tiệm đã chính xác.</li><li>Các ngày làm việc hiển thị đúng giờ mở cửa và đóng cửa.</li><li>Ngày nghỉ hiển thị là đóng cửa.</li><li>Khi tạo lịch hẹn thử, có thể chọn giờ trong thời gian tiệm mở cửa và nhân viên làm việc.</li></ul><h2>Kiểm tra nhanh</h2><h3>Không lưu được giờ hoạt động</h3><p>Kiểm tra giờ đóng cửa phải sau giờ mở cửa và các ngày đang bật đều có đủ hai mốc giờ.</p><h3>Giờ lịch hẹn bị lệch</h3><p>Kiểm tra múi giờ đã chọn có đúng với nơi tiệm hoạt động hay không.</p><h3>Khách không đặt được một ngày cụ thể</h3><p>Kiểm tra ngày đó có phải ngày nghỉ hoặc thời gian khách chọn có nằm ngoài giờ mở cửa không.</p><h2>Lưu ý</h2><p>Sau khi đổi giờ hoạt động, hãy kiểm tra các lịch hẹn đã được tạo trong khoảng thời gian bị ảnh hưởng.</p></section>",
     "updatedAt": "2026-10-02",
-    "keywords": ["thông tin tiệm", "giờ hoạt động", "múi giờ"],
-    "nextArticleId": "add-services-pricing-and-durations"
+    "keywords": [
+      "thông tin tiệm",
+      "giờ hoạt động",
+      "múi giờ"
+    ],
+    "nextArticleId": "add-services-pricing-and-durations",
+    "iconKey": "store"
   },
   {
     "id": "add-services-pricing-and-durations",
@@ -42,10 +52,16 @@
     "estimatedMinutes": 4,
     "title": "Thêm dịch vụ, giá và thời lượng",
     "summary": "Tạo danh sách dịch vụ để khách đặt lịch và nhân viên chọn khi tính tiền.",
-    "htmlContent": "<section><p>Tạo danh sách dịch vụ để khách đặt lịch và nhân viên chọn khi tính tiền.</p><h2>Trước khi bắt đầu</h2><p>Chuẩn bị tên dịch vụ, giá, thời lượng thực hiện và nhóm dịch vụ, ví dụ làm móng tay, làm móng chân hoặc waxing.</p><h2>1. Mở danh sách dịch vụ</h2><p>Trong menu bên trái, chọn <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a> (màn hình bán hàng), sau đó chọn <a href=\"/dashboard/pos/settings/services\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cài Đặt Salon</strong> và <strong>Dịch Vụ</strong></a>.</p><h2>2. Tạo nhóm dịch vụ</h2><p>Chọn <strong>Quản Lý Danh Mục</strong> nếu tiệm chưa có nhóm dịch vụ. Thêm tên nhóm, sắp xếp theo thứ tự mong muốn rồi lưu.</p><h2>3. Thêm dịch vụ mới</h2><p>Chọn <strong>Thêm Dịch Vụ</strong> và nhập:</p><ul><li>Tên dịch vụ.</li><li>Giá.</li><li>Thời lượng.</li><li>Mô tả nếu cần.</li><li>Ít nhất một nhóm dịch vụ.</li></ul><h2>4. Bật dịch vụ</h2><p>Bật <strong>Đang hoạt động</strong> để dịch vụ có thể được sử dụng, sau đó chọn <strong>Lưu</strong>.</p><h2>Bạn đã hoàn tất khi</h2><ul><li>Dịch vụ xuất hiện trong danh sách.</li><li>Giá và thời lượng hiển thị đúng.</li><li>Dịch vụ nằm trong đúng nhóm.</li><li>Trạng thái của dịch vụ là <strong>Hoạt động</strong>.</li></ul><h2>Nếu gặp vấn đề</h2><h3>Không lưu được dịch vụ</h3><p>Kiểm tra tên, giá, thời lượng và nhóm dịch vụ đã được nhập đầy đủ.</p><h3>Không thấy dịch vụ khi tạo lịch</h3><p>Kiểm tra dịch vụ đang hoạt động và đã được giao cho ít nhất một nhân viên.</p><h3>Không xóa được nhóm dịch vụ</h3><p>Chuyển hoặc gỡ các dịch vụ đang thuộc nhóm đó trước khi xóa.</p><h2>Mẹo</h2><ul><li>Bắt đầu với những dịch vụ phổ biến nhất của tiệm.</li><li>Dùng tên ngắn để nhân viên dễ tìm khi tính tiền.</li><li>Đặt thời lượng sát với thời gian phục vụ thực tế để tránh trùng lịch.</li></ul></section>",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><ul><li>Giúp khách dễ hiểu và lựa chọn dịch vụ phù hợp.</li><li>Giúp nhân viên tra cứu giá và thời gian làm dịch vụ khi đặt lịch hoặc tính tiền cho khách.</li></ul><h2>Trước khi bắt đầu</h2><p>Chuẩn bị tên dịch vụ, giá, thời lượng thực hiện và nhóm dịch vụ, ví dụ làm móng tay, làm móng chân hoặc waxing.</p><h2>1. Mở danh sách dịch vụ</h2><p>Trong menu bên trái, chọn <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a> (màn hình bán hàng), sau đó chọn <a href=\"/dashboard/pos/settings/services\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cài Đặt Salon</strong> và <strong>Dịch Vụ</strong></a>.</p><h2>2. Tạo nhóm dịch vụ</h2><p>Chọn <strong>Quản Lý Danh Mục</strong> nếu tiệm chưa có nhóm dịch vụ. Thêm tên nhóm, sắp xếp theo thứ tự mong muốn rồi lưu.</p><h2>3. Thêm dịch vụ mới</h2><p>Chọn <strong>Thêm Dịch Vụ</strong> và nhập:</p><ul><li>Tên dịch vụ.</li><li>Giá.</li><li>Thời lượng.</li><li>Mô tả nếu cần.</li><li>Ít nhất một nhóm dịch vụ.</li></ul><h2>4. Bật dịch vụ</h2><p>Bật <strong>Đang hoạt động</strong> để dịch vụ có thể được sử dụng, sau đó chọn <strong>Lưu</strong>.</p><h2>Hoàn tất khi</h2><ul><li>Dịch vụ xuất hiện trong danh sách.</li><li>Giá và thời lượng hiển thị đúng.</li><li>Dịch vụ nằm trong đúng nhóm.</li><li>Trạng thái của dịch vụ là <strong>Hoạt động</strong>.</li></ul><h2>Kiểm tra nhanh</h2><h3>Không lưu được dịch vụ</h3><p>Kiểm tra tên, giá, thời lượng và nhóm dịch vụ đã được nhập đầy đủ.</p><h3>Không thấy dịch vụ khi tạo lịch</h3><p>Kiểm tra dịch vụ đang hoạt động và đã được giao cho ít nhất một nhân viên.</p><h3>Không xóa được nhóm dịch vụ</h3><p>Chuyển hoặc gỡ các dịch vụ đang thuộc nhóm đó trước khi xóa.</p><h2>Lưu ý</h2><ul><li>Bắt đầu với những dịch vụ phổ biến nhất của tiệm.</li><li>Dùng tên ngắn để nhân viên dễ tìm khi tính tiền.</li><li>Đặt thời lượng sát với thời gian làm dịch vụ thực tế để nhân viên có đủ thời gian phục vụ từng khách.</li></ul></section>",
     "updatedAt": "2026-10-02",
-    "keywords": ["dịch vụ", "giá", "thời lượng", "danh mục"],
-    "nextArticleId": "add-staff-and-work-schedules"
+    "keywords": [
+      "dịch vụ",
+      "giá",
+      "thời lượng",
+      "danh mục"
+    ],
+    "nextArticleId": "add-staff-and-work-schedules",
+    "iconKey": "list-checks"
   },
   {
     "id": "add-staff-and-work-schedules",
@@ -57,11 +73,16 @@
     "active": true,
     "estimatedMinutes": 5,
     "title": "Thêm nhân viên và thiết lập lịch làm việc",
-    "summary": "Thêm thợ, gán dịch vụ và đặt giờ làm việc để thợ có thể nhận lịch.",
-    "htmlContent": "<section><p>Thêm thợ, chọn những dịch vụ thợ có thể làm và đặt giờ làm việc để thợ có thể nhận lịch.</p><h2>Trước khi bắt đầu</h2><p>Chuẩn bị tên nhân viên, số điện thoại hoặc email, các dịch vụ nhân viên có thể thực hiện và lịch làm việc hằng tuần.</p><h2>1. Mở danh sách nhân viên</h2><p>Trong menu bên trái, chọn <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a> (màn hình bán hàng), sau đó chọn <a href=\"/dashboard/pos/settings/staff\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cài Đặt Salon</strong> và <strong>Nhân Viên</strong></a>.</p><h2>2. Thêm thợ</h2><p>Chọn <strong>Thêm Staff</strong>, sau đó chọn cách phù hợp:</p><ul><li>Liên kết thợ đã có tài khoản NEXORA.</li><li>Gửi lời mời cho thợ tạo tài khoản.</li><li>Thêm hồ sơ dùng riêng trong tiệm nếu thợ chưa cần tài khoản NEXORA.</li></ul><h2>3. Mở hồ sơ của thợ</h2><p>Tìm thợ vừa thêm và chọn <strong>Xem & Chỉnh sửa</strong>.</p><h2>4. Chọn quyền sử dụng</h2><p>Tại phần <strong>Role, Lương & Tip</strong>, chọn vai trò phù hợp với công việc của thợ rồi lưu.</p><h2>5. Gán dịch vụ</h2><p>Tại phần <strong>Phân Công Dịch Vụ</strong>, chọn một số dịch vụ cụ thể, toàn bộ dịch vụ trong một nhóm hoặc tất cả dịch vụ tiệm đang sử dụng. Chọn <strong>Lưu Dịch Vụ</strong>.</p><h2>6. Thiết lập lịch làm việc</h2><p>Tại phần <strong>Lịch Làm Việc Hàng Tuần</strong>:</p><ul><li>Bật những ngày nhân viên làm việc.</li><li>Chọn giờ bắt đầu và kết thúc.</li><li>Đánh dấu ngày nghỉ khi cần.</li></ul><p>Chọn <strong>Lưu Lịch</strong>.</p><h2>Bạn đã hoàn tất khi</h2><ul><li>Thợ xuất hiện trong danh sách nhân viên.</li><li>Vai trò của thợ đã được lưu.</li><li>Thợ có ít nhất một dịch vụ được giao.</li><li>Lịch làm việc hiển thị đúng ngày và giờ.</li><li>Có thể chọn thợ khi tạo lịch hẹn thử.</li></ul><h2>Nếu gặp vấn đề</h2><h3>Không tìm thấy tài khoản của thợ</h3><p>Kiểm tra mã Staff, số điện thoại hoặc email. Nếu thợ chưa có tài khoản, hãy gửi lời mời.</p><h3>Không thể gán dịch vụ hoặc lịch làm việc</h3><p>Lưu phần <strong>Role, Lương & Tip</strong> trước, sau đó thử lại.</p><h3>Không thấy thợ khi tạo lịch</h3><p>Kiểm tra thợ đang ở trạng thái làm việc, đã được giao dịch vụ và có lịch làm việc tại giờ khách chọn.</p><h2>Mẹo</h2><p>Nếu thợ làm được mọi dịch vụ, chọn <strong>Tất Cả Dịch Vụ</strong> để thiết lập nhanh. Hãy kiểm tra lại khi tiệm thêm dịch vụ mới.</p></section>",
+    "summary": "Thêm nhân viên, chọn dịch vụ họ có thể làm và lưu lịch làm việc để khách đặt hẹn.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><ul><li>Giúp khách đặt lịch với nhân viên có thể làm dịch vụ đã chọn, vào giờ nhân viên đó có mặt tại tiệm.</li><li>Giúp tiệm sắp xếp nhân viên và lịch làm việc thuận tiện hơn.</li></ul><h2>Trước khi bắt đầu</h2><p>Chuẩn bị tên nhân viên, số điện thoại hoặc email, các dịch vụ nhân viên có thể thực hiện và lịch làm việc hằng tuần.</p><h2>1. Mở danh sách nhân viên</h2><p>Trong menu bên trái, chọn <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a> (màn hình bán hàng), sau đó chọn <a href=\"/dashboard/pos/settings/staff\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cài Đặt Salon</strong> và <strong>Nhân Viên</strong></a>.</p><h2>2. Thêm nhân viên</h2><p>Chọn <strong>Thêm Staff</strong>, sau đó chọn cách phù hợp:</p><ul><li>Liên kết nhân viên đã có tài khoản NEXORA.</li><li>Gửi lời mời cho nhân viên tạo tài khoản.</li><li>Thêm hồ sơ dùng riêng trong tiệm nếu nhân viên chưa cần tài khoản NEXORA.</li></ul><h2>3. Mở hồ sơ của nhân viên</h2><p>Tìm nhân viên vừa thêm và chọn <strong>Xem & Chỉnh sửa</strong>.</p><h2>4. Chọn quyền sử dụng</h2><p>Tại phần <strong>Role, Lương & Tip</strong>, chọn vai trò phù hợp với công việc của nhân viên rồi lưu.</p><h2>5. Chọn dịch vụ nhân viên có thể làm</h2><p>Tại phần <strong>Phân Công Dịch Vụ</strong>, chọn một số dịch vụ cụ thể, toàn bộ dịch vụ trong một nhóm hoặc tất cả dịch vụ tiệm đang sử dụng. Chọn <strong>Lưu Dịch Vụ</strong>.</p><h2>6. Thiết lập lịch làm việc</h2><p>Tại phần <strong>Lịch Làm Việc Hàng Tuần</strong>:</p><ul><li>Bật những ngày nhân viên làm việc.</li><li>Chọn giờ bắt đầu và kết thúc.</li><li>Đánh dấu ngày nghỉ khi cần.</li></ul><p>Chọn <strong>Lưu Lịch</strong>.</p><h2>Hoàn tất khi</h2><ul><li>Nhân viên xuất hiện trong danh sách nhân viên.</li><li>Vai trò của nhân viên đã được lưu.</li><li>Nhân viên có ít nhất một dịch vụ được giao.</li><li>Lịch làm việc hiển thị đúng ngày và giờ.</li><li>Có thể chọn nhân viên khi tạo lịch hẹn thử.</li></ul><h2>Kiểm tra nhanh</h2><h3>Không tìm thấy tài khoản của nhân viên</h3><p>Kiểm tra mã nhân viên (Staff ID), số điện thoại hoặc email. Nếu nhân viên chưa có tài khoản, hãy gửi lời mời.</p><h3>Không thể gán dịch vụ hoặc lịch làm việc</h3><p>Lưu phần <strong>Role, Lương & Tip</strong> trước, sau đó thử lại.</p><h3>Không thấy nhân viên khi tạo lịch</h3><p>Kiểm tra hồ sơ nhân viên đang hoạt động, đã chọn dịch vụ họ có thể làm và đã lưu lịch làm việc vào giờ khách muốn đặt.</p><h2>Lưu ý</h2><p>Nếu nhân viên làm được mọi dịch vụ, chọn <strong>Tất Cả Dịch Vụ</strong> để thiết lập nhanh. Hãy kiểm tra lại khi tiệm thêm dịch vụ mới.</p></section>",
     "updatedAt": "2026-10-02",
-    "keywords": ["nhân viên", "gán dịch vụ", "lịch làm việc"],
-    "nextArticleId": "set-up-online-booking"
+    "keywords": [
+      "nhân viên",
+      "gán dịch vụ",
+      "lịch làm việc"
+    ],
+    "nextArticleId": "set-up-online-booking",
+    "iconKey": "users"
   },
   {
     "id": "set-up-online-booking",
@@ -72,12 +93,17 @@
     "order": 5,
     "active": true,
     "estimatedMinutes": 5,
-    "title": "Thiết lập đặt lịch online",
-    "summary": "Chọn cách khách đặt lịch qua mạng và tạo lịch hẹn thử trước khi chia sẻ đường dẫn đặt lịch.",
-    "htmlContent": "<section><p>Chọn cách khách đặt lịch qua mạng và tạo một lịch hẹn thử trước khi tiệm bắt đầu sử dụng.</p><h2>Trước khi bắt đầu</h2><p>Bảo đảm tiệm đã có giờ hoạt động, ít nhất một dịch vụ đang hoạt động và ít nhất một thợ đã được giao dịch vụ và có lịch làm việc.</p><h2>1. Mở phần cài đặt đặt lịch</h2><p>Trong menu bên trái, chọn <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a> (màn hình bán hàng), sau đó chọn <a href=\"/dashboard/pos/settings/salon-information\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cài Đặt Salon</strong> và <strong>Thông Tin Salon</strong></a>. Tìm phần <strong>Cài đặt Đặt lịch</strong>.</p><h2>2. Chọn cách xác nhận lịch</h2><p>Bật <strong>Tự động xác nhận booking online</strong> nếu muốn hệ thống tự xác nhận ngay lịch khách đặt qua mạng. Tắt lựa chọn này nếu tiệm muốn kiểm tra từng lịch trước khi xác nhận.</p><h2>3. Chọn giới hạn thời gian đặt lịch</h2><p>Cập nhật:</p><ul><li><strong>Thời gian báo trước tối thiểu:</strong> Khách phải đặt trước ít nhất bao nhiêu phút.</li><li><strong>Đặt trước tối đa:</strong> Khách có thể đặt trước tối đa bao nhiêu ngày.</li><li><strong>Gửi nhắc lịch:</strong> Gửi lời nhắc trước giờ hẹn bao nhiêu giờ.</li></ul><h2>4. Chọn người nhận thông báo</h2><p>Nếu tiệm đang sử dụng tin nhắn đặt lịch, chọn người cần nhận thông báo: khách hàng, tiệm và nhân viên được phân công.</p><h2>5. Lưu cài đặt</h2><p>Chọn <strong>Lưu</strong> và kiểm tra các giá trị vừa cập nhật.</p><h2>6. Tạo lịch hẹn thử</h2><p>Mở màn hình <a href=\"/dashboard/pos?tab=booking\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Đặt lịch</strong></a> và chọn <strong>Lịch hẹn mới</strong>. Nhập tên và số điện thoại khách hàng, ngày và giờ, dịch vụ và nhân viên. Chọn <strong>Tạo lịch hẹn</strong>.</p><h2>Bạn đã hoàn tất khi</h2><ul><li>Phần cài đặt đặt lịch đã được lưu.</li><li>Lịch hẹn thử xuất hiện đúng ngày và giờ.</li><li>Dịch vụ và nhân viên hiển thị chính xác.</li><li>Lịch được xác nhận ngay hoặc chờ tiệm xác nhận, đúng với cài đặt đã chọn.</li></ul><h2>Nếu gặp vấn đề</h2><h3>Không có khung giờ phù hợp</h3><p>Kiểm tra giờ mở cửa của tiệm, lịch làm việc của thợ và thời lượng dịch vụ.</p><h3>Không thấy nhân viên</h3><p>Kiểm tra thợ đang làm việc, đã được giao dịch vụ và có lịch làm việc tại thời điểm được chọn.</p><h3>Lịch bị báo quá sớm</h3><p>Chọn giờ muộn hơn hoặc giảm thời gian báo trước tối thiểu nếu phù hợp với tiệm.</p><h3>Lịch bị báo quá xa</h3><p>Chọn ngày gần hơn hoặc tăng số ngày được phép đặt trước nếu tiệm cho phép.</p><h3>Thời gian bị trùng</h3><p>Chọn thợ hoặc khung giờ khác.</p><h2>Mẹo</h2><p>Nếu tiệm mới sử dụng đặt lịch online, hãy tạo vài lịch thử trước khi gửi đường dẫn đặt lịch cho khách.</p></section>",
+    "title": "Thiết lập đặt lịch trực tuyến",
+    "summary": "Chọn cách khách đặt lịch trực tuyến và tạo lịch hẹn thử trước khi chia sẻ đường dẫn đặt lịch.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp khách chủ động chọn giờ phù hợp và giúp nhân viên có lịch rõ ràng để chuẩn bị đón khách.</p><h2>Trước khi bắt đầu</h2><p>Trước hết, lưu giờ mở cửa, bật các dịch vụ tiệm cung cấp, chọn dịch vụ từng nhân viên có thể làm và lưu lịch làm việc của họ. Sử dụng tài khoản có quyền chỉnh sửa cài đặt tiệm.</p><h2>1. Chọn cách tiếp nhận lịch</h2><ol><li>Mở <a href=\"/dashboard/pos/settings/salon-information\" target=\"_blank\" rel=\"noopener noreferrer\">Thông Tin Salon</a>, tìm <strong>Cài đặt đặt lịch (Booking Settings)</strong> và chọn biểu tượng chỉnh sửa.</li><li>Chọn khách cần đặt trước giờ hẹn ít nhất bao nhiêu phút và có thể đặt trước tối đa bao nhiêu ngày.</li><li>Chọn có tự động xác nhận lịch trực tuyến hay không. Nếu tắt, lịch mới sẽ chờ tiệm duyệt.</li><li>Kiểm tra thời gian gửi nhắc hẹn và người nhận trong phần thông báo SMS đặt lịch, rồi lưu.</li></ol><h2>2. Lấy liên kết dành cho khách</h2><p>Mở <a href=\"/dashboard/pos?tab=booking\" target=\"_blank\" rel=\"noopener noreferrer\">Đặt lịch</a>. Tại phần liên kết đặt lịch trực tuyến, chọn <strong>Sao chép</strong>. Mở liên kết trên điện thoại của mình hoặc cửa sổ trình duyệt riêng tư. Dùng trang này để kiểm tra trải nghiệm đặt lịch của khách. Nút <strong>+ Lịch hẹn mới</strong> trong màn hình quản lý dành riêng cho nhân viên nhập lịch.</p><h2>3. Đặt một lịch để kiểm tra</h2><ol><li>Kiểm tra tên tiệm. Chọn dịch vụ, nhân viên hoặc tùy chọn thợ còn trống, ngày và giờ phù hợp.</li><li>Nhập thông tin liên hệ của mình và gửi yêu cầu đặt lịch. Kiểm tra kết quả hiển thị trước khi gửi lại.</li><li>Trở lại Đặt lịch, chọn đúng ngày hẹn. Mở lịch vừa tạo. Kiểm tra tên khách, dịch vụ, ngày, giờ hẹn và nhân viên có khớp với thông tin đã chọn hay không. Nếu bật tự động xác nhận, lịch cần hiển thị đã xác nhận; nếu tắt, lịch cần hiển thị chờ duyệt.</li><li>Kiểm tra điện thoại có nhận thông báo đã bật hay không. Kiểm tra tin nhắc hẹn vào thời điểm đã chọn trong cài đặt thông báo.</li><li>Mở lịch thử, chọn <strong>Hủy lịch (Cancel Booking)</strong> sau khi kiểm tra và xác nhận lịch đã chuyển sang trạng thái hủy.</li></ol><h2>Nếu chưa thấy kết quả</h2><ul><li><strong>Không có giờ trống:</strong> Kiểm tra giờ mở cửa, lịch nhân viên, dịch vụ nhân viên có thể làm, thời gian làm dịch vụ và giới hạn đặt trước.</li><li><strong>Không có liên kết:</strong> Nhờ chủ tiệm hoặc bộ phận hỗ trợ kiểm tra thiết lập trang đặt lịch của tiệm.</li><li><strong>Không nhận SMS:</strong> Kiểm tra số điện thoại và cài đặt thông báo. Dùng lịch hẹn hiện có khi nhờ hỗ trợ kiểm tra việc gửi tin.</li></ul><p><strong>Chia sẻ liên kết với khách:</strong> Sau khi kiểm tra thông tin lịch hẹn, trạng thái xác nhận và hủy lịch thử, gửi liên kết đã sao chép cho khách để họ tự đặt lịch.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=add-staff-and-set-work-schedules\" target=\"_self\" rel=\"noopener noreferrer\">Nhân viên và lịch làm việc</a> · <a href=\"?tab=guides&amp;article=manage-appointments\" target=\"_self\" rel=\"noopener noreferrer\">Quản lý lịch hẹn</a></p></section>",
     "updatedAt": "2026-10-02",
-    "keywords": ["đặt lịch online", "lịch hẹn", "cài đặt đặt lịch"],
-    "nextArticleId": "set-up-checkout-payment-methods"
+    "keywords": [
+      "đặt lịch trực tuyến",
+      "lịch hẹn",
+      "cài đặt đặt lịch"
+    ],
+    "nextArticleId": "set-up-checkout-payment-methods",
+    "iconKey": "calendar-days"
   },
   {
     "id": "set-up-checkout-payment-methods",
@@ -89,11 +115,16 @@
     "active": true,
     "estimatedMinutes": 4,
     "title": "Thiết lập tính tiền và phương thức thanh toán",
-    "summary": "Chọn cách khách thanh toán và thực hiện một lần tính tiền thử trước khi phục vụ khách.",
-    "htmlContent": "<section><p>Chuẩn bị màn hình tính tiền để quầy lễ tân có thể nhận thanh toán mà không phải dừng lại sửa cài đặt.</p><h2>Trước khi bắt đầu</h2><p>Xác định những cách thanh toán tiệm chấp nhận, ví dụ tiền mặt, thẻ hoặc các phương thức thanh toán trực tiếp tiệm đang sử dụng.</p><h2>1. Thiết lập cách nhận tiền</h2><p>Mở <a href=\"/dashboard/settings/profile\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cài đặt và Hồ sơ</strong></a>. Tìm phần <strong>Phương thức nhận thanh toán</strong>, chỉ bật những phương thức tiệm chấp nhận và kiểm tra thông tin tài khoản nhận tiền.</p><h2>2. Mở màn hình tính tiền</h2><p>Mở <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a>, thêm một dịch vụ vào đơn thử rồi chuyển đến bước tính tiền.</p><h2>3. Kiểm tra từng cách thanh toán</h2><ul><li>Bảo đảm các phương thức tiệm sử dụng đều xuất hiện.</li><li>Bảo đảm nhân viên biết khi nào chọn tiền mặt, thẻ hoặc thanh toán trực tiếp.</li><li>Nếu tiệm nhận thanh toán bằng nhiều phương thức cho một đơn, hướng dẫn nhân viên cách chia số tiền.</li></ul><h2>4. Thực hiện một lần thanh toán thử</h2><p>Dùng phương thức thử đã được tiệm cho phép. Nếu phải dùng giao dịch thật, chỉ dùng số tiền nhỏ và làm theo quy trình hủy hoặc hoàn tiền của tiệm.</p><h2>Bạn đã hoàn tất khi</h2><ul><li>Các phương thức đúng xuất hiện khi tính tiền.</li><li>Số tiền cần thanh toán khớp với tổng đơn.</li><li>Thanh toán hoàn tất xuất hiện trong lịch sử đơn.</li></ul><h2>Nếu gặp vấn đề</h2><ul><li><strong>Thiếu phương thức thanh toán:</strong> Kiểm tra phương thức đã được bật và có đủ thông tin tài khoản.</li><li><strong>Thanh toán chưa được ghi nhận:</strong> Giữ nguyên đơn và nhờ chủ tiệm hoặc quản lý kiểm tra trước khi thử lại.</li></ul></section>",
+    "summary": "Chuẩn bị phương thức thanh toán và kiểm tra thông tin nhận tiền trước khi phục vụ khách.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp khách có lựa chọn thanh toán rõ ràng và giúp thu ngân ghi nhận đúng phương thức, đúng tài khoản nhận tiền.</p><h2>Trước khi bắt đầu</h2><p>Chuẩn bị các phương thức chủ tiệm đồng ý sử dụng và thông tin tài khoản nhận tiền. Thông tin tài khoản nhận tiền và kích hoạt máy đọc thẻ là hai phần thiết lập riêng.</p><h2>1. Kiểm tra thông tin nhận tiền</h2><p>Mở <a href=\"/dashboard/settings/profile\" target=\"_blank\" rel=\"noopener noreferrer\">Cài đặt hồ sơ</a> và tìm <strong>Phương thức nhận thanh toán (Receive Payment Methods)</strong>. Thiết lập những lựa chọn được hỗ trợ mà tiệm sử dụng, chẳng hạn Zelle, Cash App hoặc Venmo. Lưu thông tin nhận tiền và bật phương thức đó.</p><p>Tại bước tính tiền, các phương thức này cần có đủ thông tin và đang hoạt động. Kiểm tra tài khoản trong phần <strong>Gửi thanh toán đến (Send payment to)</strong> trước khi hướng dẫn khách chuyển tiền.</p><h2>2. Phân biệt các cách thanh toán</h2><ul><li><strong>Tiền mặt:</strong> Kiểm đếm tiền đã nhận, nhập số tiền khách đưa và kiểm tra tiền thối lại.</li><li><strong>Thẻ:</strong> Thu tiền qua máy thanh toán hoặc đơn vị xử lý và xác nhận giao dịch thành công. Sau đó chọn Thẻ để ghi nhận phương thức đã nhận tiền.</li><li><strong>Ứng dụng chuyển tiền:</strong> Xác nhận tiền đã vào trực tiếp trong tài khoản của tiệm trước khi ghi nhận thanh toán.</li><li><strong>Gift Card hoặc Crypto:</strong> Thực hiện trong cửa sổ thanh toán VlinkPay và chờ xác nhận trước khi hoàn tất đơn.</li><li><strong>Chia thanh toán (Split Pay):</strong> Kiểm tra từng khoản và bảo đảm tổng bằng số tiền cần thu. Xác nhận đủ các khoản trước khi hoàn tất.</li></ul><h2>3. Kiểm tra trước khi thu tiền</h2><p>Cùng thu ngân kiểm tra các lựa chọn trước khi bấm <strong>Thanh toán (Pay)</strong>. Để kiểm tra hóa đơn, mở <a href=\"/dashboard/pos/printer\" target=\"_blank\" rel=\"noopener noreferrer\">In hóa đơn</a> → <strong>In hóa đơn thử</strong>; không cần hoàn tất một đơn bán hàng.</p><p>Chỉ ghi nhận Tiền mặt sau khi đã nhận tiền. Nếu muốn thử tính tiền trước khi phục vụ khách, hãy liên hệ bộ phận hỗ trợ để được hướng dẫn. Hỏi rõ tài khoản, phương thức thanh toán cần dùng và cách xử lý nếu cần sửa đơn hoặc hoàn tiền. Thanh toán thử có thể sử dụng tiền thật. Ghi chú là đơn thử không loại đơn đã hoàn tất khỏi báo cáo.</p><h2>Sẵn sàng tính tiền</h2><p>Thu ngân cần biết tiền được chuyển vào tài khoản nào và cách kiểm tra giao dịch thành công trên máy thanh toán hoặc trong ứng dụng nhận tiền. Nếu không chọn được phương thức, kiểm tra thông tin đã lưu và trạng thái hoạt động. Nếu khách cho biết đã trả tiền nhưng đơn chưa hiển thị đã thanh toán, kiểm tra giao dịch trong tài khoản nhận tiền hoặc trên máy thanh toán trước khi thử lại.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=checkout-and-receipt\" target=\"_self\" rel=\"noopener noreferrer\">Hoàn tất tính tiền và giao hóa đơn</a> · <a href=\"?tab=guides&amp;article=set-up-devices-receipt-printing\" target=\"_self\" rel=\"noopener noreferrer\">Thiết bị và in hóa đơn</a></p></section>",
     "updatedAt": "2026-10-02",
-    "keywords": ["tính tiền", "phương thức thanh toán", "thanh toán thử"],
-    "nextArticleId": "set-up-taxes-tips-fees"
+    "keywords": [
+      "tính tiền",
+      "phương thức thanh toán",
+      "thanh toán thử"
+    ],
+    "nextArticleId": "set-up-taxes-tips-fees",
+    "iconKey": "credit-card"
   },
   {
     "id": "set-up-taxes-tips-fees",
@@ -105,11 +136,16 @@
     "active": true,
     "estimatedMinutes": 4,
     "title": "Thiết lập thuế, tiền tip và phụ phí",
-    "summary": "Kiểm tra thuế của tiệm, phụ phí dịch vụ và tiền tip trước lần tính tiền thật đầu tiên.",
-    "htmlContent": "<section><p>Kiểm tra thuế, tiền tip và phụ phí để số tiền hiển thị cho khách luôn chính xác.</p><h2>Trước khi bắt đầu</h2><p>Xác nhận mức thuế bán hàng với chủ tiệm hoặc chuyên gia thuế. Chuẩn bị phụ phí vật tư nếu một số dịch vụ cần áp dụng.</p><h2>1. Kiểm tra mức thuế bán hàng</h2><p>Mở <a href=\"/dashboard/pos/settings/salon-information\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Thông Tin Salon</strong></a>, chỉnh sửa thông tin tiệm và kiểm tra <strong>Mức thuế bán hàng</strong>. Lưu mức thuế chính xác.</p><h2>2. Kiểm tra phụ phí dịch vụ</h2><p>Mở <a href=\"/dashboard/pos/settings/services\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Dịch Vụ</strong></a>. Mở từng dịch vụ cần phụ phí vật tư, kiểm tra số tiền rồi lưu.</p><h2>3. Kiểm tra tiền tip khi tính tiền</h2><p>Mở <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a> và tạo một đơn thử. Thêm tiền tip rồi kiểm tra tiền tip và tổng tiền hiển thị đúng.</p><h2>4. Kiểm tra tổng tiền cuối cùng</h2><p>Trước khi thanh toán, so sánh tiền dịch vụ, thuế, tip, phụ phí và tổng tiền. Không tiếp tục nếu có số tiền không đúng.</p><h2>Bạn đã hoàn tất khi</h2><ul><li>Mức thuế của tiệm đã chính xác.</li><li>Chỉ những dịch vụ cần thiết mới có phụ phí vật tư.</li><li>Tiền tip và tổng tiền được tính đúng trên đơn thử.</li></ul><h2>Nếu gặp vấn đề</h2><ul><li><strong>Thuế không đúng:</strong> Kiểm tra lại mức thuế đã lưu.</li><li><strong>Phụ phí không đúng:</strong> Mở dịch vụ và kiểm tra giá cùng phụ phí vật tư.</li><li><strong>Tiệm chưa chắc về mức thuế:</strong> Xác nhận với chuyên gia thuế phù hợp trước khi nhận thanh toán.</li></ul></section>",
+    "summary": "Kiểm tra mức thuế, cách tính tip và phí vật tư trước khi tính tiền cho khách.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp tiệm giải thích số tiền cần thu rõ ràng và giúp nhân viên đối chiếu tiền tip, thu nhập thuận tiện hơn.</p><h2>Trước khi bắt đầu</h2><p>Chủ tiệm cần xác nhận mức thuế của tiệm với kế toán hoặc chuyên viên thuế. Thống nhất cách chia tip và phí vật tư trước khi nhập; mức thuế trong ví dụ dưới đây chỉ để minh họa phép tính.</p><h2>1. Lưu mức thuế</h2><p>Mở <a href=\"/dashboard/pos/settings/salon-information\" target=\"_blank\" rel=\"noopener noreferrer\">Thông Tin Salon</a>, chỉnh sửa thông tin doanh nghiệp, nhập <strong>Thuế bán hàng (%) — Sales Tax Rate (%)</strong> và lưu. Khi tính tiền, thuế được tính trên tiền dịch vụ sau giảm giá cộng tiền sản phẩm. Tiền tip không nằm trong phần tính thuế này.</p><h2>2. Kiểm tra tip trên từng đơn</h2><p>Tại <a href=\"/dashboard/pos?tab=checkoutcustomer\" target=\"_blank\" rel=\"noopener noreferrer\">Thanh toán khách hàng</a>, mở đơn của khách và chọn tùy chọn tip. Tip theo phần trăm được tính trên tổng tiền dịch vụ trước giảm giá, không phải tổng tiền gồm sản phẩm và thuế. Nếu khách tip một số tiền cụ thể, nhập số tiền đó và kiểm tra phần chia cho từng nhân viên trước khi lưu.</p><h2>3. Phân biệt phí vật tư</h2><p>Kiểm tra <strong>Phí vật tư (Supply Fee)</strong> của từng dịch vụ trong <a href=\"/dashboard/pos/settings/services\" target=\"_blank\" rel=\"noopener noreferrer\">Dịch Vụ</a>. Phí này được trừ khỏi tiền dịch vụ trước khi tính hoa hồng cho nhân viên, không thu thêm từ khách. Kiểm tra thỏa thuận thu nhập tại <a href=\"/dashboard/pos/settings/staff\" target=\"_blank\" rel=\"noopener noreferrer\">Nhân Viên</a> → <strong>Role, Lương &amp; Tip</strong>.</p><p>Phí xử lý là phí do đơn vị thanh toán thu. Theo dõi khoản phí này riêng với tiền khách trả và phí vật tư dùng để tính hoa hồng.</p><h2>Ví dụ đối chiếu tổng tiền</h2><ul><li>Dịch vụ: $100, giảm $10, còn $90.</li><li>Sản phẩm: $20. Số tiền dùng để tính thuế: $110.</li><li>Giả sử thuế 5%: $5.50.</li><li>Nhập tip theo số tiền là $15.</li><li><strong>Khách trả: $90 + $20 + $5.50 + $15 = $130.50.</strong></li></ul><p>Với đơn này, tip 20% được tính trên $100 tiền dịch vụ trước giảm giá, tương ứng $20. Kiểm tra số tiền tip đang hiển thị trước khi tiếp tục.</p><h2>Kiểm tra trước khi thu tiền</h2><p>Đơn cần hiển thị đúng giảm giá, thuế, tip và tổng tiền. Nếu lệch so với phép tính, kiểm tra mức thuế đã lưu, tiền dịch vụ và sản phẩm, các khoản giảm giá, cùng cách nhập tip theo phần trăm hay số tiền. Làm rõ chênh lệch trước khi bấm <strong>Thanh toán</strong>.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=checkout-and-receipt\" target=\"_self\" rel=\"noopener noreferrer\">Hoàn tất tính tiền và giao hóa đơn</a> · <a href=\"?tab=guides&amp;article=track-staff-performance-earnings\" target=\"_self\" rel=\"noopener noreferrer\">Hiệu suất và thu nhập nhân viên</a></p></section>",
     "updatedAt": "2026-10-02",
-    "keywords": ["thuế bán hàng", "tiền tip", "phụ phí vật tư"],
-    "nextArticleId": "set-up-devices-receipt-printing"
+    "keywords": [
+      "thuế bán hàng",
+      "tiền tip",
+      "phụ phí vật tư"
+    ],
+    "nextArticleId": "set-up-devices-receipt-printing",
+    "iconKey": "badge-dollar-sign"
   },
   {
     "id": "set-up-devices-receipt-printing",
@@ -121,11 +157,16 @@
     "active": true,
     "estimatedMinutes": 4,
     "title": "Thiết lập thiết bị và in hóa đơn",
-    "summary": "Kết nối thiết bị dùng tại quầy và in thử một hóa đơn trước khi mở tiệm.",
-    "htmlContent": "<section><p>Chuẩn bị máy tính hoặc máy tính bảng tại quầy, thiết bị thanh toán và máy in hóa đơn trước khi mở cửa.</p><h2>Trước khi bắt đầu</h2><p>Bật các thiết bị, kết nối nguồn điện và mạng của tiệm, đồng thời lắp giấy vào máy in.</p><h2>1. Kiểm tra thiết bị POS</h2><p>Mở <a href=\"/dashboard/pos/devices\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Thiết bị POS</strong></a>. Kiểm tra thiết bị dùng tại quầy đã xuất hiện và sẵn sàng.</p><h2>2. Mở phần thiết lập máy in</h2><p>Trên đúng máy tính hoặc máy tính bảng sẽ dùng để in hóa đơn, mở <a href=\"/dashboard/pos/printer\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Máy in</strong></a>.</p><h2>3. Chọn nội dung hóa đơn</h2><p>Kiểm tra số bản cần in và những thông tin cần xuất hiện trên hóa đơn, sau đó lưu cài đặt.</p><h2>4. In hóa đơn mẫu</h2><p>Chọn chức năng in thử. Kiểm tra hóa đơn dễ đọc và hiển thị đúng tên cùng thông tin liên hệ của tiệm.</p><h2>Bạn đã hoàn tất khi</h2><ul><li>Thiết bị tại quầy đã sẵn sàng.</li><li>Máy in in được hóa đơn mẫu đầy đủ.</li><li>Nhân viên biết dùng thiết bị và máy in nào.</li></ul><h2>Nếu gặp vấn đề</h2><ul><li><strong>Không thấy thiết bị:</strong> Kiểm tra nguồn điện, kết nối mạng và trạng thái ghép nối.</li><li><strong>Máy in không in:</strong> Kiểm tra giấy, nguồn điện, kết nối và máy in đã chọn trên thiết bị này.</li><li><strong>Thông tin hóa đơn sai:</strong> Cập nhật Thông Tin Salon rồi in thử lại.</li></ul><h2>Lưu ý quan trọng</h2><p>Thiết lập máy in có thể riêng cho từng máy tính hoặc máy tính bảng. Hãy in thử trên mọi thiết bị tại quầy sẽ dùng để in hóa đơn.</p></section>",
+    "summary": "Thiết lập máy in hóa đơn và kết nối máy tính bảng nếu tiệm cho khách tự check-in.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp khách nhận hóa đơn dễ đọc sau khi tính tiền. Nếu tiệm dùng máy tính bảng để khách tự check-in, bài viết cũng hướng dẫn cách kết nối máy với tiệm.</p><h2>Trước khi bắt đầu</h2><p>Cài đặt in trên từng thiết bị dùng để xuất hóa đơn. Chuẩn bị giấy và máy in tương thích. Nếu tiệm dùng máy tính bảng chung để khách check-in, hãy kết nối máy bằng tài khoản có quyền quản lý thiết bị check-in. Máy đọc thẻ có quy trình thiết lập riêng.</p><h2>1. Chọn cách in phù hợp</h2><p>Mở <a href=\"/dashboard/pos/printer\" target=\"_blank\" rel=\"noopener noreferrer\">In hóa đơn</a> trên thiết bị tính tiền và chọn cách in phù hợp với máy đang sử dụng.</p><h3>Máy in hóa đơn Star</h3><ol><li>Chọn <strong>Máy in hóa đơn Star (Star receipt printer)</strong>. Nếu chưa có Star PassPRNT, chọn <strong>Cài đặt (Install)</strong>.</li><li>Mở Star PassPRNT, chọn máy in Star tương thích bằng kết nối mà máy hỗ trợ, chẳng hạn Bluetooth hoặc mạng nội bộ.</li><li>Trở lại màn hình in hóa đơn, chọn khổ giấy đúng với cuộn đang lắp: 58 mm hoặc 80 mm.</li></ol><h3>AirPrint hoặc máy in trên máy tính</h3><ol><li>Chọn <strong>AirPrint / Máy in máy tính (AirPrint / Computer printer)</strong>.</li><li>Với iPad, kết nối cùng mạng với máy in có hỗ trợ AirPrint. Với máy tính, kiểm tra máy in hoạt động trong cửa sổ in trên máy tính trước.</li><li>Khi cửa sổ in mở ra, chọn đúng máy in và khổ giấy. Xác nhận máy in hỗ trợ cách in đã chọn: AirPrint hoặc Star PassPRNT.</li></ol><h2>2. Lưu cài đặt và in mẫu</h2><p>Kiểm tra <strong>Cài đặt hóa đơn (Receipt settings)</strong>, gồm số bản in, rồi chọn <strong>Lưu cài đặt</strong>. Chọn <strong>In hóa đơn thử</strong> và xác nhận trong cửa sổ in nếu có. Không cần tạo đơn bán hàng để in mẫu.</p><p>Kiểm tra tờ hóa đơn thực tế: chữ rõ, tổng tiền hiển thị đầy đủ và số bản đúng như mong muốn. Nếu chưa in, kiểm tra nguồn điện, giấy, kết nối đã chọn và cửa sổ in đang chờ xác nhận trước khi thử lại.</p><h2>3. Kết nối máy tính bảng để khách tự check-in</h2><ol><li>Mở <a href=\"/dashboard/pos/devices\" target=\"_blank\" rel=\"noopener noreferrer\">Thiết bị khách tự check-in</a> bằng tài khoản có quyền.</li><li>Dùng máy tính bảng quét mã QR ghép đôi.</li><li>Tại trang <strong>Ghép đôi máy tính bảng (Pair this tablet)</strong>, nhập tên thiết bị, mã PIN truy cập gồm 4–6 chữ số và xác nhận PIN. Chọn <strong>Ghép đôi (Pair tablet)</strong>.</li><li>Kiểm tra thiết bị có trạng thái hoạt động và máy tính bảng mở được màn hình check-in dành cho khách.</li></ol><p>Mã ghép đôi chỉ dùng một lần và hết hạn sau 15 phút. Nếu mã hết hạn hoặc đã dùng, tạo mã mới. Chỉ chia sẻ PIN với nhân viên được phép quản lý thiết bị.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=set-up-customer-self-check-in\" target=\"_self\" rel=\"noopener noreferrer\">Khách tự check-in</a> · <a href=\"?tab=guides&amp;article=checkout-and-receipt\" target=\"_self\" rel=\"noopener noreferrer\">Tính tiền và giao hóa đơn</a></p></section>",
     "updatedAt": "2026-10-02",
-    "keywords": ["thiết bị POS", "máy in hóa đơn", "in thử"],
-    "nextArticleId": "test-complete-salon-workflow"
+    "keywords": [
+      "thiết bị POS",
+      "máy in hóa đơn",
+      "in thử"
+    ],
+    "nextArticleId": "test-complete-salon-workflow",
+    "iconKey": "printer"
   },
   {
     "id": "test-complete-salon-workflow",
@@ -137,11 +178,16 @@
     "active": true,
     "estimatedMinutes": 5,
     "title": "Kiểm tra toàn bộ quy trình vận hành",
-    "summary": "Cho một khách thử đi từ bước đặt lịch đến thanh toán và nhận hóa đơn.",
-    "htmlContent": "<section><p>Thực hiện đúng các bước nhân viên sẽ dùng với khách thật và sửa mọi vấn đề trước khi mở tiệm.</p><h2>Trước khi bắt đầu</h2><p>Dùng một khách hàng thử có tên dễ nhận biết. Báo cho nhân viên biết đây là giao dịch thực hành.</p><h2>1. Tạo lịch hẹn thử</h2><p>Mở <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a>. Tạo lịch hẹn với đúng dịch vụ, nhân viên, ngày và giờ.</p><h2>2. Check-in khách</h2><p>Tìm lịch hẹn và xác nhận khách thử đã đến. Kiểm tra khách xuất hiện đúng trong quy trình tại quầy.</p><h2>3. Hoàn thành dịch vụ</h2><p>Chuyển đơn qua các bước phục vụ thông thường. Kiểm tra nhân viên, dịch vụ, giá và thời lượng.</p><h2>4. Tính tiền và nhận thanh toán</h2><p>Kiểm tra tiền dịch vụ, thuế, tip, phụ phí và tổng tiền. Dùng phương thức thử đã được tiệm cho phép rồi hoàn tất tính tiền.</p><h2>5. Kiểm tra kết quả</h2><ul><li>Xác nhận đơn đã hoàn tất.</li><li>Mở hoặc in hóa đơn.</li><li>Kiểm tra thanh toán và tiền tip được ghi nhận đúng.</li><li>Xóa hoặc đánh dấu rõ dữ liệu thử theo quy trình của tiệm.</li></ul><h2>Bạn đã hoàn tất khi</h2><p>Một nhân viên có thể tự hoàn thành toàn bộ luồng:</p><p><strong>Đặt lịch → Check-in → Làm dịch vụ → Tính tiền → Thanh toán → Giao hóa đơn</strong></p><h2>Nếu gặp vấn đề</h2><p>Dừng tại bước bị lỗi, sửa phần thiết lập liên quan rồi thử lại từ đầu. Không dùng khách thật để kiểm tra một quy trình chưa hoàn tất.</p></section>",
+    "summary": "Kiểm tra các bước đặt lịch, đón khách, làm dịch vụ và tính tiền trước khi sử dụng NEXORA TOUCH.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp nhân viên nắm từng bước phục vụ trước khi tiếp đón khách.</p><h2>Kiểm tra trước khi đón khách</h2><p><strong>Để làm quen với các bước phục vụ:</strong> kiểm tra cài đặt, mở liên kết đặt lịch dành cho khách và in hóa đơn mẫu nếu tiệm dùng máy in. Không cần tạo đơn thanh toán thử trên tài khoản tiệm đang sử dụng.</p><p><strong>Nếu muốn thử tính tiền trước khi phục vụ khách:</strong> liên hệ bộ phận hỗ trợ để được hướng dẫn. Hỏi rõ tài khoản và phương thức thanh toán cần dùng, có thể sửa đơn hoặc hoàn tiền hay không, và cần xử lý lịch hẹn, đơn thử như thế nào sau đó. Thanh toán thử có thể sử dụng tiền thật. Đơn đã hoàn tất vẫn được tính vào báo cáo, kể cả khi có ghi chú là đơn thử.</p><h2>1. Rà soát mà không thu tiền</h2><ol><li>Làm theo <a href=\"?tab=guides&amp;article=set-up-online-booking\" target=\"_self\" rel=\"noopener noreferrer\">Thiết lập đặt lịch trực tuyến</a> để kiểm tra liên kết dành cho khách. Nếu đặt lịch thử, dùng thông tin liên hệ của mình, kiểm tra tại <a href=\"/dashboard/pos?tab=booking\" target=\"_blank\" rel=\"noopener noreferrer\">Đặt lịch</a> và hủy lịch sau đó.</li><li>Cùng nhân viên đọc <a href=\"?tab=guides&amp;article=check-in-customers-walk-ins\" target=\"_self\" rel=\"noopener noreferrer\">Tiếp nhận khách</a>, <a href=\"?tab=guides&amp;article=track-service-tickets\" target=\"_self\" rel=\"noopener noreferrer\">Theo dõi phiếu dịch vụ</a> và <a href=\"?tab=guides&amp;article=checkout-and-receipt\" target=\"_self\" rel=\"noopener noreferrer\">Tính tiền và hóa đơn</a>. Xem từng bước và giữ nguyên phiếu của khách thật.</li><li>Nếu tiệm dùng hóa đơn giấy, mở <a href=\"/dashboard/pos/printer\" target=\"_blank\" rel=\"noopener noreferrer\">In hóa đơn</a>, chọn <strong>In hóa đơn thử</strong> và kiểm tra bản in. Không cần tạo đơn bán hàng.</li><li>Xác nhận tài khoản nhận tiền và đọc <a href=\"?tab=guides&amp;article=set-up-taxes-tips-fees\" target=\"_self\" rel=\"noopener noreferrer\">Thuế, tip và phụ phí</a>. Ở bước này, chỉ kiểm tra thông tin và không bấm <strong>Thanh toán</strong>.</li></ol><h2>2. Thử các bước phục vụ sau khi được hỗ trợ hướng dẫn</h2><p>Chỉ thực hiện phần này sau khi bộ phận hỗ trợ đã xác nhận tài khoản và phương thức thanh toán cần dùng. Đăng nhập tài khoản đó, rồi:</p><ol><li>Đặt lịch thử bằng thông tin liên hệ đã thống nhất với bộ phận hỗ trợ.</li><li>Check-in cho lịch vừa tạo và tìm phiếu của khách trong danh sách đang chờ.</li><li>Chọn nhân viên thực hiện dịch vụ. Làm theo bài Theo dõi phiếu dịch vụ ở trên để chọn bắt đầu và hoàn tất từng dịch vụ.</li><li>Kiểm tra tổng tiền, tip và cách nhận hóa đơn. Chỉ tiếp tục thanh toán theo cách bộ phận hỗ trợ đã hướng dẫn.</li><li>Kiểm tra số tiền trên đơn đã hoàn tất và hóa đơn. Sau đó xử lý lịch hẹn, đơn thử theo hướng dẫn của bộ phận hỗ trợ.</li></ol><h2>Khi cần hỗ trợ</h2><p>Nếu gặp lỗi, chụp màn hình thông báo và ghi lại mã lịch hẹn hoặc mã đơn. Kiểm tra thao tác trước đã thành công chưa rồi mới thử lại. Nếu trạng thái thanh toán chưa rõ, cùng chủ tiệm hoặc hỗ trợ kiểm tra giao dịch tại đơn vị thanh toán trước khi thu tiền lần nữa.</p><p><strong>Sau khi kiểm tra:</strong> Nhân viên cần biết cách tìm lịch hẹn, check-in cho khách, chọn thợ, theo dõi dịch vụ và tính tiền. Nếu còn bước nào chưa rõ, mở bài hướng dẫn tương ứng ở trên hoặc liên hệ bộ phận hỗ trợ.</p></section>",
     "updatedAt": "2026-10-02",
-    "keywords": ["kiểm tra quy trình", "tính tiền", "hóa đơn"],
-    "nextArticleId": "salon-go-live-checklist"
+    "keywords": [
+      "kiểm tra quy trình",
+      "tính tiền",
+      "hóa đơn"
+    ],
+    "nextArticleId": "salon-go-live-checklist",
+    "iconKey": "clipboard-check"
   },
   {
     "id": "salon-go-live-checklist",
@@ -152,11 +198,324 @@
     "order": 10,
     "active": true,
     "estimatedMinutes": 3,
-    "title": "Checklist trước khi tiệm bắt đầu vận hành",
+    "title": "Danh sách kiểm tra trước khi tiệm bắt đầu vận hành",
     "summary": "Kiểm tra lần cuối trước khi tiệm phục vụ khách đầu tiên bằng NEXORA TOUCH.",
-    "htmlContent": "<section><p>Kiểm tra danh sách này cùng chủ tiệm hoặc quản lý trước khi bắt đầu dùng NEXORA TOUCH với khách.</p><h2>Thiết lập tiệm</h2><ul><li>Tên, địa chỉ, số điện thoại và giờ hoạt động của tiệm đã đúng.</li><li>Dịch vụ có đúng giá, thời lượng, nhóm và trạng thái hoạt động.</li><li>Nhân viên có đúng dịch vụ, vai trò và lịch làm việc.</li><li>Cài đặt đặt lịch online đã được kiểm tra.</li></ul><h2>Thiết lập tính tiền</h2><ul><li>Mức thuế và phụ phí dịch vụ đã đúng.</li><li>Các phương thức tiệm nhận xuất hiện khi tính tiền.</li><li>Thiết bị tại quầy đã sẵn sàng.</li><li>Hóa đơn mẫu được in đúng trên mọi thiết bị sẽ dùng để in.</li></ul><h2>Kiểm tra lần cuối</h2><ul><li>Tạo được lịch hẹn thử.</li><li>Check-in được khách.</li><li>Hoàn thành dịch vụ và tính tiền được.</li><li>Thanh toán, tiền tip và hóa đơn được ghi nhận đúng.</li></ul><h2>Mở nhanh các màn hình chính</h2><p>Dùng <a href=\"/dashboard/pos/settings/salon-information\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Thông Tin Salon</strong></a> để sửa thông tin tiệm, <a href=\"/dashboard/pos/settings/services\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Dịch Vụ</strong></a> để sửa danh sách dịch vụ, <a href=\"/dashboard/pos/settings/staff\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Nhân Viên</strong></a> để sửa phân công và lịch làm việc hoặc <a href=\"/dashboard/pos\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>POS</strong></a> để thực hiện lại toàn bộ bài kiểm tra.</p><h2>Tiệm sẵn sàng khi</h2><p>Mọi mục trên đã được kiểm tra và có ít nhất một nhân viên tự hoàn thành được toàn bộ quy trình. Hãy sửa các mục chưa đạt trước khi phục vụ khách đầu tiên.</p></section>",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp chủ tiệm và nhân viên kiểm tra những việc cần hoàn tất trước khi bắt đầu nhận lịch và phục vụ khách.</p><h2>Thông tin tiệm và đặt lịch</h2><ul><li><a href=\"?tab=guides&amp;article=set-up-salon-information-and-business-hours\" target=\"_self\" rel=\"noopener noreferrer\">Thông tin tiệm</a>: thông tin liên hệ, giờ hoạt động và múi giờ chính xác.</li><li><a href=\"?tab=guides&amp;article=add-services-pricing-and-durations\" target=\"_self\" rel=\"noopener noreferrer\">Dịch vụ</a>: đã kiểm tra giá, thời gian làm dịch vụ, nhóm dịch vụ và bật các dịch vụ tiệm cung cấp.</li><li><a href=\"?tab=guides&amp;article=add-staff-and-set-work-schedules\" target=\"_self\" rel=\"noopener noreferrer\">Nhân viên</a>: đã lưu quyền sử dụng, cách tính thu nhập, các dịch vụ mỗi người có thể làm và lịch làm việc.</li><li><a href=\"?tab=guides&amp;article=set-up-online-booking\" target=\"_self\" rel=\"noopener noreferrer\">Đặt lịch trực tuyến</a>: đã đặt lịch thử qua liên kết dành cho khách và kiểm tra tên khách, dịch vụ, ngày, giờ hẹn, nhân viên. Trạng thái chờ duyệt hoặc đã xác nhận khớp với lựa chọn tự động xác nhận của tiệm. Đã hủy lịch thử sau khi kiểm tra.</li></ul><h2>Tính tiền và thiết bị</h2><ul><li><a href=\"?tab=guides&amp;article=set-up-checkout-payment-methods\" target=\"_self\" rel=\"noopener noreferrer\">Phương thức thanh toán</a>: tài khoản nhận tiền đúng và thu ngân biết cách kiểm tra tiền đã nhận.</li><li><a href=\"?tab=guides&amp;article=set-up-taxes-tips-fees\" target=\"_self\" rel=\"noopener noreferrer\">Thuế, tip và phụ phí</a>: chủ tiệm đã xác nhận cài đặt, nhân viên giải thích được các khoản tiền.</li><li><a href=\"?tab=guides&amp;article=set-up-devices-receipt-printing\" target=\"_self\" rel=\"noopener noreferrer\">Thiết bị và hóa đơn</a>: nếu dùng hóa đơn giấy, <strong>In hóa đơn thử</strong> cho bản in rõ trên từng thiết bị tính tiền sẽ dùng để in.</li><li><a href=\"?tab=guides&amp;article=set-up-customer-self-check-in\" target=\"_self\" rel=\"noopener noreferrer\">Khách tự check-in</a>: kiểm tra theo cách tiệm sử dụng. Với điện thoại của khách, quét mã QR check-in và xác nhận mở đúng trang của tiệm. Với máy tính bảng dùng chung, làm theo <a href=\"?tab=guides&amp;article=set-up-devices-receipt-printing\" target=\"_self\" rel=\"noopener noreferrer\">hướng dẫn ghép đôi thiết bị</a> rồi kiểm tra màn hình check-in trên máy đó. Nếu cung cấp cả hai cách, kiểm tra cả hai.</li></ul><h2>Những việc nhân viên cần biết</h2><ul><li>Nhân viên đã đọc hướng dẫn <a href=\"?tab=guides&amp;article=check-in-customers-walk-ins\" target=\"_self\" rel=\"noopener noreferrer\">tiếp nhận khách</a>, <a href=\"?tab=guides&amp;article=track-service-tickets\" target=\"_self\" rel=\"noopener noreferrer\">theo dõi dịch vụ</a> và <a href=\"?tab=guides&amp;article=checkout-and-receipt\" target=\"_self\" rel=\"noopener noreferrer\">tính tiền, giao hóa đơn</a>.</li><li>Nhân viên biết cách xác nhận tiền đã nhận theo từng phương thức và biết liên hệ ai để được hỗ trợ về trạng thái thanh toán.</li><li>Chủ tiệm đã kiểm tra từng nhân viên có thể mở các màn hình cần dùng cho công việc.</li></ul><h2>Không bắt buộc tạo đơn thanh toán thử</h2><p>Có thể kiểm tra cách tính tiền và in hóa đơn mẫu mà không cần thu tiền trên tài khoản tiệm đang sử dụng. Đơn đã hoàn tất vẫn được tính vào báo cáo, kể cả khi có ghi chú là đơn thử.</p><p>Nếu muốn thử tính tiền trước khi phục vụ khách, đọc <a href=\"?tab=guides&amp;article=test-complete-salon-workflow\" target=\"_self\" rel=\"noopener noreferrer\">Kiểm tra toàn bộ quy trình vận hành</a> và liên hệ bộ phận hỗ trợ để được hướng dẫn dùng tài khoản, phương thức thanh toán nào.</p><p><strong>Trước khi đón khách:</strong> Kiểm tra từng mục ở trên cùng nhân viên phụ trách. Chỉ cần kiểm tra máy in và các cách khách tự check-in mà tiệm sử dụng.</p></section>",
     "updatedAt": "2026-10-02",
-    "keywords": ["bắt đầu vận hành", "checklist tiệm", "sẵn sàng hoạt động"],
-    "nextArticleId": null
+    "keywords": [
+      "bắt đầu vận hành",
+      "danh sách kiểm tra tiệm",
+      "sẵn sàng hoạt động"
+    ],
+    "nextArticleId": "manage-appointments",
+    "iconKey": "check-circle"
+  },
+  {
+    "id": "manage-appointments",
+    "slug": "manage-appointments",
+    "category": "daily-operations",
+    "categoryTitle": "Vận hành hằng ngày",
+    "categoryOrder": 2,
+    "order": 1,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Quản lý lịch hẹn",
+    "summary": "Tạo, kiểm tra và cập nhật lịch hẹn trong ngày làm việc của tiệm.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><ul><li>Giúp khách chọn giờ hẹn phù hợp với dịch vụ và nhân viên mong muốn.</li><li>Giúp nhân viên lễ tân dễ theo dõi lịch hẹn và sắp xếp việc đón khách trong ngày.</li></ul><h2>Trước khi bắt đầu</h2><p>Chuẩn bị tên khách hàng, dịch vụ, thời gian mong muốn và nhân viên thực hiện.</p><h2>1. Mở Lịch hẹn</h2><p>Mở <a href=\"/dashboard/pos?tab=booking\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Lịch hẹn</strong></a> và chọn ngày cần kiểm tra.</p><h2>2. Tạo lịch hẹn</h2><p>Chọn <strong>+ Lịch hẹn mới</strong>, nhập thông tin khách và dịch vụ, sau đó chọn thời gian cùng nhân viên còn trống.</p><h2>3. Kiểm tra hoặc cập nhật lịch hẹn</h2><p>Mở lịch hẹn trước khi thay đổi. Kiểm tra lại ngày, giờ, dịch vụ và nhân viên trước khi lưu.</p><h2>Hoàn tất khi</h2><ul><li>Lịch hẹn xuất hiện đúng ngày và giờ.</li><li>Thông tin khách hàng, dịch vụ và nhân viên đã chính xác.</li></ul><h2>Kiểm tra nhanh</h2><ul><li>Nếu không có giờ phù hợp, kiểm tra giờ hoạt động, thời lượng dịch vụ và lịch làm việc của nhân viên.</li><li>Nếu không tìm thấy khách, kiểm tra số điện thoại trước. Chỉ tạo hồ sơ khi khách chưa có hồ sơ tại tiệm.</li></ul></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "quản",
+      "lý",
+      "lịch",
+      "hẹn"
+    ],
+    "nextArticleId": "check-in-customers-walk-ins",
+    "iconKey": "calendar-clock"
+  },
+  {
+    "id": "check-in-customers-walk-ins",
+    "slug": "check-in-customers-walk-ins",
+    "category": "daily-operations",
+    "categoryTitle": "Vận hành hằng ngày",
+    "categoryOrder": 2,
+    "order": 2,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Tiếp nhận khách có lịch hẹn và khách vãng lai",
+    "summary": "Xác nhận khách đã đến và kiểm tra dịch vụ trước khi bắt đầu phục vụ.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp tiệm đón khách nhanh và giúp nhân viên biết khách nào đã đến, cần làm những dịch vụ gì.</p><h2>Trước khi bắt đầu</h2><p>Sử dụng tài khoản có quyền thao tác tại quầy. Hỏi tên, số điện thoại và xác nhận khách có lịch hẹn hay không. Kiểm tra xem khách đã có phiếu cho lần đến này chưa trước khi tạo phiếu mới.</p><h2>Khách có lịch hẹn</h2><ol><li>Mở <a href=\"/dashboard/pos?tab=orderlist\" target=\"_blank\" rel=\"noopener noreferrer\">Phiếu</a>, chọn <strong>Chưa đến</strong> để xem khách dự kiến đến hôm nay.</li><li>Kiểm tra tên, giờ hẹn và dịch vụ. Bấm <strong>Check-in</strong> ở đúng lịch của khách.</li><li>Chờ thông báo phiếu đã chuyển sang đang chờ. Chọn <strong>Đang chờ</strong> và kiểm tra phiếu của khách.</li></ol><p>Nếu không thấy lịch, mở <a href=\"/dashboard/pos?tab=booking\" target=\"_blank\" rel=\"noopener noreferrer\">Đặt lịch</a> để kiểm tra ngày và số điện thoại trước khi tiếp nhận như khách vãng lai.</p><h2>Khách vãng lai</h2><ol><li>Mở <a href=\"/dashboard/pos?tab=checkin\" target=\"_blank\" rel=\"noopener noreferrer\">Check-in</a>, nhập số điện thoại cùng mã quốc gia chính xác và chọn <strong>Tiếp tục</strong>.</li><li>Nếu hiện lịch hẹn hôm nay, chọn lịch đúng của khách. Chỉ chọn <strong>Check-in không theo lịch hẹn</strong> khi đây là một lượt đến riêng không có lịch.</li><li>Nhập hoặc kiểm tra tên khách. Chọn dịch vụ và thợ, hoặc <strong>Nhân viên bất kỳ</strong> nếu nhân viên lễ tân sẽ chọn thợ sau. Có thể thêm dịch vụ sau nếu khách chưa quyết định.</li><li>Giải thích ô đồng ý nhận tin nhắn và hỏi khách có đồng ý nhận tin hay không. Khách cần đồng ý nhận tin để tiếp tục với biểu mẫu hiện tại. Chỉ chọn ô này sau khi khách đồng ý. Nhờ chủ tiệm hỗ trợ nếu khách từ chối.</li><li>Chọn <strong>Check-in</strong> trên biểu mẫu một trang. Nếu tiệm dùng giao diện từng bước, tiếp tục đến phần kiểm tra cuối và gửi tại đó.</li><li>Kiểm tra thông báo thành công và số phiếu, chọn <strong>Xong</strong>, rồi tìm khách trong Phiếu.</li></ol><h2>Dùng phiếu đã có của khách</h2><p>Nếu hiện <strong>Bạn đang có phiếu…</strong> cho chính khách này, chọn <strong>Đúng là tôi — xong rồi</strong> và dùng phiếu hiện có. <strong>Check-in cho khách khác</strong> dành cho một người khác dùng chung số điện thoại.</p><p><strong>Hoàn tất khi:</strong> Mỗi lượt đến có một phiếu, hiển thị đúng khách và dịch vụ đã chọn. Check-in chỉ xác nhận khách đã đến tiệm. Tiếp theo, chọn nhân viên làm dịch vụ, theo dõi khách đã làm xong hay chưa, rồi tính tiền.</p><p>Tiếp theo: <a href=\"?tab=guides&amp;article=use-turn-board\" target=\"_self\" rel=\"noopener noreferrer\">Phân công khách bằng Turn Board</a> · <a href=\"?tab=guides&amp;article=track-service-tickets\" target=\"_self\" rel=\"noopener noreferrer\">Theo dõi phiếu dịch vụ</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "tiếp",
+      "nhận",
+      "khách",
+      "có"
+    ],
+    "nextArticleId": "track-service-tickets",
+    "iconKey": "user-check"
+  },
+  {
+    "id": "track-service-tickets",
+    "slug": "track-service-tickets",
+    "category": "daily-operations",
+    "categoryTitle": "Vận hành hằng ngày",
+    "categoryOrder": 2,
+    "order": 3,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Theo dõi khách đang chờ và đang làm dịch vụ",
+    "summary": "Dùng danh sách phiếu để biết khách đang chờ, đang làm dịch vụ hoặc sẵn sàng tính tiền.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp từng nhân viên biết khách đã làm xong dịch vụ nào và cần được phục vụ gì tiếp theo.</p><h2>1. Mở phiếu của khách</h2><p>Mở <a href=\"/dashboard/pos?tab=orderlist\" target=\"_blank\" rel=\"noopener noreferrer\">Phiếu</a>. Chọn <strong>Chưa đến</strong> để xem lịch hôm nay chưa check-in, <strong>Đang chờ</strong> để xem khách đã đến, hoặc <strong>Đang phục vụ</strong> để xem lượt đang phục vụ. Mở phiếu cần xử lý, kiểm tra khách, dịch vụ và nhân viên.</p><h2>2. Giao dịch vụ cho nhân viên</h2><p>Ở dịch vụ chưa có thợ, chọn <strong>Chọn thợ</strong> và chọn người phù hợp. Nếu cần đổi, dùng <strong>Đổi</strong>. Nếu có thông báo việc đổi nhân viên chưa được lưu, bấm <strong>Giao việc</strong> để lưu trước khi tiếp tục.</p><p>Dịch vụ có thể hiện <strong>Chờ thợ xác nhận</strong> cho đến khi nhân viên nhận, hoặc <strong>Đã nhận</strong> sau khi chấp nhận. Sau khi phân công, chọn Bắt đầu khi thực hiện dịch vụ theo hướng dẫn bên dưới.</p><h2>3. Bắt đầu và kết thúc dịch vụ</h2><ol><li>Khi thực tế bắt đầu phục vụ, chọn <strong>Bắt đầu</strong> ở dòng dịch vụ tương ứng. Trạng thái chuyển sang <strong>Đang làm</strong>. Nhân viên lễ tân cũng có thể chọn Bắt đầu thay cho thợ khi thợ bắt đầu làm dịch vụ.</li><li>Khi làm xong, mở phiếu từ <a href=\"/dashboard/pos?tab=checkoutcustomer\" target=\"_blank\" rel=\"noopener noreferrer\">Thanh toán khách hàng</a>. Bấm <strong>Hoàn tất</strong> ở từng dòng đã làm xong. Dòng đó chuyển sang <strong>Xong</strong>.</li><li>Kiểm tra số dịch vụ đã xong. Nếu phiếu có nhiều dịch vụ nhưng mới xong một phần, xác nhận các phần còn lại trước khi tính tiền.</li></ol><h2>4. Chuyển sang thu tiền</h2><p>Trạng thái <strong>Xong</strong> xác nhận dịch vụ đã kết thúc. Bước tiếp theo là thanh toán. Làm theo <a href=\"?tab=guides&amp;article=checkout-and-receipt\" target=\"_self\" rel=\"noopener noreferrer\">Hoàn tất tính tiền và giao hóa đơn</a> để kiểm tra tiền đã nhận và hoàn tất đơn. Sau thanh toán thành công, tìm đơn tại <a href=\"/dashboard/pos?tab=completed\" target=\"_blank\" rel=\"noopener noreferrer\">Dịch vụ đã hoàn thành</a>.</p><h2>Nếu trạng thái chưa đúng</h2><ul><li><strong>Không có nút Bắt đầu hoặc Hoàn tất:</strong> Kiểm tra trạng thái dịch vụ, tên thợ đã được lưu và tài khoản có quyền thực hiện thao tác này hay không. Nút Hoàn tất xuất hiện cho dịch vụ đang làm tại màn hình thanh toán.</li><li><strong>Không thấy phiếu:</strong> Kiểm tra bộ lọc và đơn đã thanh toán hay chưa. Tiếp tục thao tác trên phiếu hiện có của lượt khách đó.</li><li><strong>Cảnh báo dịch vụ chưa xong:</strong> Đối chiếu công việc thực tế, quay lại sửa trạng thái trước khi tiếp tục.</li></ul><p>Bài liên quan: <a href=\"?tab=guides&amp;article=check-in-customers-walk-ins\" target=\"_self\" rel=\"noopener noreferrer\">Tiếp nhận khách</a> · <a href=\"?tab=guides&amp;article=use-turn-board\" target=\"_self\" rel=\"noopener noreferrer\">Turn Board</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "theo",
+      "dõi",
+      "khách",
+      "đang"
+    ],
+    "nextArticleId": "use-turn-board",
+    "iconKey": "list-ordered"
+  },
+  {
+    "id": "use-turn-board",
+    "slug": "use-turn-board",
+    "category": "daily-operations",
+    "categoryTitle": "Vận hành hằng ngày",
+    "categoryOrder": 2,
+    "order": 4,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Phân công khách bằng Turn Board",
+    "summary": "Xem nhân viên nào đang rảnh và chọn người phục vụ khách đang chờ trên Turn Board.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp tiệm sắp xếp nhân viên phục vụ khách đang chờ và giúp từng nhân viên biết dịch vụ mình phụ trách.</p><h2>Trước khi bắt đầu</h2><p>Khách đã check-in, có phiếu đang chờ và còn dịch vụ chưa được chọn thợ. Nhân viên phải được phép làm dịch vụ đó. Sử dụng tài khoản có quyền quản lý hoạt động tại quầy.</p><h2>1. Kiểm tra nhân viên</h2><p>Mở <a href=\"/dashboard/pos?tab=turnboard\" target=\"_blank\" rel=\"noopener noreferrer\">Turn Board</a>. Kiểm tra trạng thái chấm công và đang bận của nhân viên. Nếu cần, mở <a href=\"/dashboard/pos?tab=timeclock\" target=\"_blank\" rel=\"noopener noreferrer\">Chấm công</a> trước khi giao việc. Xác nhận nhân viên đã chấm công và sẵn sàng phục vụ trước khi phân công khách.</p><h2>2. Gán khách đang chờ</h2><ol><li>Tại phần chọn cách hiển thị phía trên bảng, chọn <strong>Thẻ (Cards)</strong>. Nếu đang xem <strong>Lưới lượt (Turn Grid)</strong>, chuyển sang Thẻ để thấy nút <strong>Gán khách</strong> trên thẻ của từng nhân viên.</li><li>Tìm thẻ của nhân viên dự định phân công, chọn <strong>Gán khách</strong>.</li><li>Trong <strong>Gán khách đang chờ tiếp theo</strong>, kiểm tra tên nhân viên ở đầu cửa sổ.</li><li>Tìm dòng của khách, đối chiếu số phiếu và dịch vụ. <strong>Khi chọn dòng khách, dịch vụ được giao ngay cho nhân viên</strong>, không có nút xác nhận riêng.</li><li>Chờ thông báo đã gán và cửa sổ đóng. Mở phiếu khách tại <a href=\"/dashboard/pos?tab=orderlist\" target=\"_blank\" rel=\"noopener noreferrer\">Phiếu</a>, kiểm tra tên thợ trên dịch vụ.</li></ol><p>Ví dụ: chọn một nhân viên làm móng tay đang rảnh, bấm Gán khách, rồi chọn khách đang chờ làm móng tay. Mỗi lần chọn chỉ giao một dịch vụ chưa có thợ và thuộc những dịch vụ nhân viên đó có thể làm. Với phiếu nhiều dịch vụ, kiểm tra riêng các dịch vụ còn lại.</p><h2>3. Bắt đầu phục vụ khi sẵn sàng</h2><p>Sau khi chọn thợ, nhân viên cần chọn Bắt đầu khi thực sự bắt đầu làm dịch vụ cho khách. Kiểm tra các dịch vụ còn chưa có thợ, sau đó làm theo <a href=\"?tab=guides&amp;article=track-service-tickets\" target=\"_self\" rel=\"noopener noreferrer\">Theo dõi phiếu dịch vụ</a> để lưu phân công, bắt đầu và đánh dấu dịch vụ làm xong.</p><h2>Nếu không thấy khách để gán</h2><ul><li>Kiểm tra phiếu đang <strong>Đang chờ</strong> và có dịch vụ chưa được gán thợ.</li><li>Mở <a href=\"/dashboard/pos/settings/staff\" target=\"_blank\" rel=\"noopener noreferrer\">Nhân Viên</a> → <strong>Phân Công Dịch Vụ (Service Assignment)</strong>, kiểm tra nhân viên được phép làm dịch vụ đó.</li><li>Nếu đã có thợ, mở phiếu, chọn <strong>Đổi</strong> ở dịch vụ rồi lưu bằng <strong>Giao việc</strong>. Tiếp tục dùng phiếu hiện có của khách.</li></ul><p><strong>Hoàn tất khi:</strong> Mỗi dịch vụ đã giao hiển thị tên nhân viên phụ trách. Nhân viên lễ tân đã kiểm tra những dịch vụ còn chưa có thợ.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=check-in-customers-walk-ins\" target=\"_self\" rel=\"noopener noreferrer\">Tiếp nhận khách</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "phân",
+      "công",
+      "khách",
+      "bằng"
+    ],
+    "nextArticleId": "checkout-and-receipt",
+    "iconKey": "layout-dashboard"
+  },
+  {
+    "id": "checkout-and-receipt",
+    "slug": "checkout-and-receipt",
+    "category": "daily-operations",
+    "categoryTitle": "Vận hành hằng ngày",
+    "categoryOrder": 2,
+    "order": 5,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Hoàn tất tính tiền và giao hóa đơn",
+    "summary": "Kiểm tra đơn, nhận thanh toán và giao hóa đơn chính xác cho khách.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp thu ngân kiểm tra số tiền khách cần trả, xác nhận đã nhận tiền và giao hóa đơn để khách lưu lại.</p><h2>Trước khi bắt đầu</h2><p>Sử dụng tài khoản có quyền tính tiền. Xác nhận khách đã làm xong và mỗi dịch vụ được gán đúng nhân viên. Lịch hẹn dùng để giữ giờ; phiếu dịch vụ ghi nhận lượt phục vụ; khi hoàn tất thanh toán, đơn chuyển sang danh sách đã hoàn tất.</p><h2>1. Kiểm tra đơn</h2><p>Mở <a href=\"/dashboard/pos?tab=checkoutcustomer\" target=\"_blank\" rel=\"noopener noreferrer\">Thanh toán khách hàng</a> và chọn phiếu của khách. Kiểm tra khách hàng, dịch vụ, sản phẩm, nhân viên, giảm giá, thuế, tip và tổng tiền. Điều chỉnh chênh lệch trước khi thu tiền.</p><h2>2. Thu tiền hoặc kiểm tra tiền đã nhận</h2><p>Chọn <strong>Phương thức thanh toán</strong>:</p><ul><li><strong>Tiền mặt:</strong> Kiểm đếm và nhập số tiền khách đưa. Kiểm tra tiền thối lại; số tiền nhập phải đủ thanh toán tổng đơn.</li><li><strong>Thẻ hoặc ứng dụng chuyển tiền:</strong> Xác nhận giao dịch thành công trên máy thanh toán hoặc trực tiếp trong tài khoản của tiệm, rồi chọn đúng phương thức khách đã dùng để trả tiền.</li><li><strong>Gift Card hoặc Crypto:</strong> Sau khi chọn hóa đơn ở bước tiếp theo, bấm <strong>Thanh toán</strong> để mở VlinkPay. Làm theo hướng dẫn và chờ xác nhận.</li><li><strong>Chia thanh toán (Split Pay):</strong> Kiểm tra tổng các khoản bằng số tiền cần thu và từng khoản đã được nhận.</li></ul><h2>3. Chọn hóa đơn và hoàn tất</h2><ol><li>Chọn <strong>Gửi SMS</strong>, <strong>In</strong> hoặc <strong>Không hóa đơn</strong>. Gửi SMS cần số điện thoại của khách; xác nhận lại số với khách. In giấy cần máy in đã được thiết lập.</li><li>Với khoản tiền đã nhận, bấm <strong>Thanh toán (Pay)</strong> kèm số tiền hiển thị. Nếu có thông báo dịch vụ chưa có nhân viên hoặc chưa hoàn tất, quay lại kiểm tra tên thợ và xác nhận những dịch vụ khách đã làm xong trước khi tiếp tục.</li><li>Chờ màn hình hoàn tất hiển thị số tiền và trạng thái đã thanh toán. Kiểm tra đơn xuất hiện trong <a href=\"/dashboard/pos?tab=completed\" target=\"_blank\" rel=\"noopener noreferrer\">Dịch vụ đã hoàn thành</a>.</li></ol><h2>Nếu hóa đơn hoặc thanh toán chưa rõ</h2><ul><li><strong>Chưa có hóa đơn giấy:</strong> Chọn <strong>In hóa đơn</strong> hoặc <strong>In lại</strong> trên đơn đã hoàn tất. Kiểm tra <a href=\"/dashboard/pos/printer\" target=\"_blank\" rel=\"noopener noreferrer\">In hóa đơn</a> nếu cần. In lại sử dụng đơn đã thanh toán và không cần thu thêm tiền.</li><li><strong>Chưa nhận hóa đơn SMS:</strong> Kiểm tra số điện thoại và dùng thông tin đơn hiện có khi nhờ hỗ trợ kiểm tra việc gửi hóa đơn.</li><li><strong>Chưa có xác nhận thanh toán:</strong> Kiểm tra danh sách đơn hoàn tất và giao dịch tại đơn vị thanh toán trước khi thử lại. Nếu đã nhận tiền nhưng đơn chưa hiển thị đã thanh toán, nhờ chủ tiệm hoặc bộ phận hỗ trợ kiểm tra đơn cùng giao dịch nhận tiền.</li><li><strong>Đơn đã thanh toán bị sai:</strong> Cung cấp mã đơn, phương thức, số tiền và mã giao dịch cho chủ tiệm hoặc hỗ trợ. Chỉ thực hiện hoàn tiền theo cách đã được đơn vị thanh toán hoặc hỗ trợ xác nhận; sửa hoặc xóa phiếu không đồng nghĩa với việc đã hoàn tiền cho khách.</li></ul><p>Bài liên quan: <a href=\"?tab=guides&amp;article=set-up-checkout-payment-methods\" target=\"_self\" rel=\"noopener noreferrer\">Thiết lập thanh toán</a> · <a href=\"?tab=guides&amp;article=review-salon-performance-reports\" target=\"_self\" rel=\"noopener noreferrer\">Báo cáo hoạt động của tiệm</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "hoàn",
+      "tất",
+      "tính",
+      "tiền"
+    ],
+    "nextArticleId": "manage-customer-history",
+    "iconKey": "receipt-text"
+  },
+  {
+    "id": "manage-customer-history",
+    "slug": "manage-customer-history",
+    "category": "daily-operations",
+    "categoryTitle": "Vận hành hằng ngày",
+    "categoryOrder": 2,
+    "order": 6,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Quản lý thông tin và lịch sử khách hàng",
+    "summary": "Tìm thông tin liên hệ và xem những dịch vụ khách đã sử dụng trong các lần ghé tiệm trước.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp nhân viên nhận biết khách quay lại, kiểm tra thông tin liên hệ và chuẩn bị phục vụ dựa trên các dịch vụ khách đã sử dụng.</p><h2>1. Tìm đúng hồ sơ</h2><ol><li>Mở <a href=\"/dashboard/pos?tab=customer\" target=\"_blank\" rel=\"noopener noreferrer\">Lịch sử khách hàng</a>.</li><li>Nhập tên hoặc số điện thoại vào <strong>Tìm kiếm</strong>. Nếu có người trùng tên, xác nhận số điện thoại với khách.</li><li>Chọn <strong>Xem</strong> ở dòng phù hợp. Kiểm tra thông tin liên hệ, tổng số lần ghé và lần ghé gần nhất.</li><li>Xem <strong>Lịch sử phiếu &amp; lịch hẹn</strong> để tìm dịch vụ, ngày và nhân viên của những lần trước. Chuyển sang trang lịch sử tiếp theo để xem thêm các lần ghé.</li></ol><h2>2. Cập nhật thông tin đã xác nhận</h2><p>Nếu có quyền, chọn <strong>Sửa</strong> trong hồ sơ. Chỉ thay đổi thông tin khách đã xác nhận, chẳng hạn tên, số điện thoại hoặc email. Kiểm tra mã quốc gia của số điện thoại, chọn <strong>Lưu thay đổi</strong>, rồi mở lại hồ sơ để kiểm tra kết quả.</p><p>Nếu không có nút Sửa, nhờ chủ tiệm hoặc nhân viên được cấp quyền cập nhật hồ sơ hiện có để các lần khách ghé tiệm được lưu trong cùng một hồ sơ.</p><h2>Ví dụ: phục vụ khách quay lại</h2><p>Khách cho biết đã ghé tháng trước và muốn làm lại dịch vụ cũ. Tìm theo số điện thoại, chọn Xem và kiểm tra dịch vụ cùng nhân viên lần trước. Xác nhận lại mong muốn với khách trước khi sắp xếp lượt tiếp theo. Nếu khách đổi email, chọn Sửa → Lưu thay đổi và kiểm tra email mới.</p><h2>Nếu chưa tìm thấy thông tin</h2><ul><li><strong>Không có kết quả:</strong> Kiểm tra cách viết tên, số điện thoại, xóa nội dung tìm kiếm rồi thử lại.</li><li><strong>Hồ sơ tương tự hoặc trùng:</strong> So sánh thông tin liên hệ và lịch sử ghé. Nhờ chủ tiệm hoặc hỗ trợ xác định hồ sơ nên giữ lại. Chỉ gộp hoặc xóa khi đã được hướng dẫn cách thực hiện.</li><li><strong>Thiếu một lần ghé:</strong> Kiểm tra đúng hồ sơ và các trang lịch sử trước. Nếu cần đối chiếu thêm, gửi thông tin khách cùng lần ghé cho hỗ trợ và giữ nguyên thông tin lịch hẹn và đơn đã có.</li></ul><p><strong>Hoàn tất khi:</strong> Đã mở đúng hồ sơ, lưu được thông tin khách xác nhận và tìm được lần ghé cần thiết để hỗ trợ khách.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=manage-appointments\" target=\"_self\" rel=\"noopener noreferrer\">Quản lý lịch hẹn</a> · <a href=\"?tab=guides&amp;article=check-in-customers-walk-ins\" target=\"_self\" rel=\"noopener noreferrer\">Tiếp nhận khách</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "quản",
+      "lý",
+      "thông",
+      "tin"
+    ],
+    "nextArticleId": "review-salon-performance-reports",
+    "iconKey": "contact"
+  },
+  {
+    "id": "review-salon-performance-reports",
+    "slug": "review-salon-performance-reports",
+    "category": "daily-operations",
+    "categoryTitle": "Vận hành hằng ngày",
+    "categoryOrder": 2,
+    "order": 7,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Xem báo cáo hoạt động của tiệm",
+    "summary": "Xem số tiền đã thu, các đơn đã hoàn tất và phương thức khách thanh toán trong khoảng ngày muốn xem.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp chủ tiệm biết trong ngày đã thu bao nhiêu, khách trả bằng những cách nào và kiểm tra lại các đơn trước khi kết ca.</p><h2>1. Chọn khoảng thời gian muốn xem</h2><p>Mở <a href=\"/dashboard/pos/report/store-income\" target=\"_blank\" rel=\"noopener noreferrer\">Báo cáo thu nhập tiệm</a> bằng tài khoản có quyền xem báo cáo. Chọn <strong>Ngày</strong>, <strong>Tuần</strong>, <strong>Năm</strong> hoặc khoảng ngày. Khi kiểm tra một đơn cụ thể, nên bắt đầu với một ngày.</p><p>Đơn đã thanh toán được đưa vào báo cáo theo ngày, giờ hoàn tất đơn, tính theo múi giờ của tiệm. Ngày khách đặt lịch không quyết định ngày ghi nhận doanh thu; phiếu chưa hoàn tất thanh toán chưa được tính vào báo cáo này.</p><h2>2. Hiểu đúng các khoản tiền</h2><ul><li><strong>Tổng tiền thu:</strong> Tổng tiền đơn được ghi nhận sau giảm giá, gồm sản phẩm, thuế và tip. Dùng số này để kiểm tra tổng tiền trên các đơn. Để biết tiền thực nhận vào ngân hàng hoặc lợi nhuận, cần đối chiếu thêm sao kê và chi phí của tiệm.</li><li><strong>Thuế và tip:</strong> Đã được tính trong tổng tiền thu.</li><li><strong>Phương thức thanh toán:</strong> Số tiền ghi nhận theo từng phương thức. Nếu khách trả một phần bằng tiền mặt và phần còn lại bằng thẻ, cùng một đơn có thể được đếm trong cả hai phương thức.</li><li><strong>Phí vật tư và phí xử lý:</strong> Đối chiếu các khoản này cùng những chi phí kinh doanh khác khi tính lợi nhuận. Xác nhận phí xử lý bằng sao kê của đơn vị thanh toán.</li><li><strong>Hoàn trả:</strong> Dùng hồ sơ hoàn tiền của đơn vị thanh toán để đối chiếu. Chỉ số Hoàn trả hiện chưa phản ánh các khoản hoàn tiền.</li></ul><h2>3. So sánh với doanh thu dịch vụ</h2><p>Mở <a href=\"/dashboard/pos/report/service-income\" target=\"_blank\" rel=\"noopener noreferrer\">Báo cáo doanh thu dịch vụ</a> để xem theo dịch vụ. Doanh thu dịch vụ thuần là tiền dịch vụ sau khi trừ giảm giá cho từng dịch vụ và giảm giá cho toàn đơn. Sản phẩm, thuế và tip được theo dõi riêng. Để tính lợi nhuận, cần đối chiếu thêm chi phí của tiệm.</p><p><strong>Ví dụ:</strong> Dịch vụ $100 − giảm giá $10 + sản phẩm $20 + thuế $5.50 + tip $15 = <strong>tổng tiền thu $130.50</strong>. Doanh thu dịch vụ thuần là <strong>$90</strong>. Tổng tiền thu gồm cả sản phẩm, thuế và tip, còn doanh thu dịch vụ thuần chỉ tính phần dịch vụ sau giảm giá.</p><h2>4. Đối chiếu và lưu báo cáo</h2><ol><li>Mở <a href=\"/dashboard/pos?tab=completed\" target=\"_blank\" rel=\"noopener noreferrer\">Dịch vụ đã hoàn thành</a>, đối chiếu tổng tiền và phương thức của một đơn với báo cáo cùng ngày.</li><li>So sánh tiền mặt với tiền tại quầy, thanh toán điện tử với giao dịch tại đơn vị nhận tiền. Kiểm tra riêng phí, hoàn tiền và thời điểm chuyển tiền về ngân hàng.</li><li>Chọn <strong>In / PDF</strong> để tải báo cáo. Nếu gửi email, chọn <strong>Email</strong>, kiểm tra người nhận rồi chọn <strong>Gửi báo cáo</strong>.</li></ol><h2>Nếu số liệu chênh lệch</h2><p>Kiểm tra khoảng ngày đang xem, múi giờ của tiệm, đơn đã hoàn tất thanh toán hay chưa, cùng các khoản giảm giá và phương thức khách đã trả. Khi cần hỗ trợ đối chiếu, gửi khoảng ngày đang xem và mã đơn cho chủ tiệm hoặc bộ phận hỗ trợ. Giữ nguyên thông tin thanh toán để có thể đối chiếu.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=checkout-and-receipt\" target=\"_self\" rel=\"noopener noreferrer\">Tính tiền và hóa đơn</a> · <a href=\"?tab=guides&amp;article=track-staff-performance-earnings\" target=\"_self\" rel=\"noopener noreferrer\">Hiệu suất và thu nhập nhân viên</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "tiệm",
+      "hoạt động",
+      "thu nhập",
+      "báo cáo"
+    ],
+    "nextArticleId": "track-staff-performance-earnings",
+    "iconKey": "line-chart"
+  },
+  {
+    "id": "track-staff-performance-earnings",
+    "slug": "track-staff-performance-earnings",
+    "category": "daily-operations",
+    "categoryTitle": "Vận hành hằng ngày",
+    "categoryOrder": 2,
+    "order": 8,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Theo dõi hiệu suất và thu nhập nhân viên",
+    "summary": "Xem các dịch vụ đã làm, tiền tip và thu nhập của từng nhân viên trong khoảng thời gian muốn xem.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp chủ tiệm và nhân viên xem các dịch vụ đã làm, tiền hoa hồng, tip và những khoản trừ trước khi thống nhất số tiền cần trả.</p><h2>1. Mở báo cáo nhân viên</h2><p>Mở <a href=\"/dashboard/pos/report/technician\" target=\"_blank\" rel=\"noopener noreferrer\">Báo cáo thợ (Technician Report)</a> và chọn ngày, tuần hoặc tháng. Trong báo cáo này, thợ là nhân viên trực tiếp làm dịch vụ. Sử dụng tài khoản có quyền xem số liệu của nhân viên cần đối chiếu.</p><h2>2. Hiểu các cột chính</h2><ul><li><strong>Lượt và giờ:</strong> Hoạt động và thời gian được ghi nhận trong kỳ. Số giờ giúp xem thời gian làm việc đã được ghi nhận. Để biết tiệm đã trả bao nhiêu tiền lương, kiểm tra chứng từ chuyển khoản hoặc phiếu nhận tiền.</li><li><strong>Tiền dịch vụ (Service $):</strong> Tiền dịch vụ được ghi nhận cho nhân viên.</li><li><strong>% hoa hồng và hoa hồng:</strong> Tỷ lệ áp dụng và số hoa hồng được tính. Phí vật tư được trừ khỏi tiền dịch vụ làm cơ sở tính hoa hồng.</li><li><strong>Tip:</strong> Tiền tip được chia cho nhân viên.</li><li><strong>Giảm giá thợ chịu (Tech discount):</strong> Phần giảm giá do nhân viên chịu theo cách chia của tiệm.</li><li><strong>Thợ nhận (Tech takes):</strong> Tiền hoa hồng cộng tip được chia, trừ phần giảm giá nhân viên chịu. Nếu kết quả nhỏ hơn 0, báo cáo hiển thị 0. Đây là thu nhập được tính; kiểm tra chứng từ tiệm đã trả tiền, như giao dịch chuyển khoản hoặc phiếu nhận tiền mặt có ký nhận, để xác nhận số đã trả.</li><li><strong>Bảo đảm tuần (Weekly guarantee):</strong> Số tiền bảo đảm mỗi tuần đã thỏa thuận với nhân viên. Khoản này được hiển thị riêng, không cộng vào Thợ nhận. Kiểm tra thỏa thuận của tiệm khi tính số tiền cuối cùng cần trả.</li></ul><h2>Ví dụ: hoa hồng theo tỷ lệ cố định</h2><p>Tiền dịch vụ $100, phí vật tư $10 thì cơ sở tính hoa hồng là $90. Tỷ lệ 60% cho hoa hồng $54. Cộng tip được chia $15 và trừ giảm giá thợ chịu $5: <strong>Thợ nhận = $64</strong>.</p><p>Phí vật tư đã được tính trong cơ sở hoa hồng $90. Ví dụ này áp dụng cho hoa hồng theo tỷ lệ cố định. Để đối chiếu đầy đủ tiền lương, kết hợp báo cáo với cách tính lương cố định, lương theo giờ và mức bảo đảm đã thỏa thuận tại tiệm.</p><h2>3. Kiểm tra trước khi chi trả</h2><ol><li>Chọn <strong>Xem (View)</strong> ở dòng nhân viên để xem các dịch vụ và số tiền được tính trong báo cáo.</li><li>Đối chiếu nhân viên làm dịch vụ, phần tip và giảm giá với đơn đã hoàn tất.</li><li>Kiểm tra thỏa thuận tại <a href=\"/dashboard/pos/settings/staff\" target=\"_blank\" rel=\"noopener noreferrer\">Nhân Viên</a> → <strong>Role, Lương &amp; Tip</strong>. Nếu đã đổi cách tính thu nhập, số tiền của kỳ trước có thể được tính lại theo cài đặt hiện tại. Khi so sánh với báo cáo đã lưu, kiểm tra các thay đổi về lương, hoa hồng và tip.</li><li>Chọn <strong>Xuất CSV (Export CSV)</strong> để lưu bảng. Mở chi tiết nhân viên để <strong>In</strong>; chủ tiệm còn có thể chọn <strong>Gửi mail</strong>.</li></ol><h2>Đối chiếu thu nhập và chi trả</h2><p>Dùng báo cáo để kiểm tra số tiền nhân viên được tính hưởng. Đối chiếu thêm chứng từ chuyển khoản hoặc phiếu nhận tiền để biết tiệm đã trả bao nhiêu. Kiểm tra khoảng ngày, nhân viên làm từng dịch vụ, phí vật tư, tỷ lệ hoa hồng, tip và phần giảm giá nhân viên chịu. Nếu có chênh lệch, cùng chủ tiệm làm rõ để thống nhất số tiền cần chi trả.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=set-up-taxes-tips-fees\" target=\"_self\" rel=\"noopener noreferrer\">Thuế, tip và phụ phí</a> · <a href=\"?tab=guides&amp;article=review-salon-performance-reports\" target=\"_self\" rel=\"noopener noreferrer\">Báo cáo hoạt động của tiệm</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "nhân viên",
+      "hiệu suất",
+      "thu nhập",
+      "báo cáo"
+    ],
+    "nextArticleId": "set-up-customer-self-check-in",
+    "iconKey": "users-round"
+  },
+  {
+    "id": "set-up-customer-self-check-in",
+    "slug": "set-up-customer-self-check-in",
+    "category": "grow-your-salon",
+    "categoryTitle": "Mở rộng hoạt động",
+    "categoryOrder": 3,
+    "order": 1,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Thiết lập chức năng khách tự check-in",
+    "summary": "Chuẩn bị mã QR để khách dùng điện thoại tự xác nhận đã đến tiệm.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><ul><li>Giúp khách tự thông báo đã đến bằng cách quét mã QR trên điện thoại.</li><li>Giúp nhân viên tại quầy có thêm thời gian chào đón và phục vụ khách.</li></ul><h2>Chọn cách khách tự check-in</h2><p>Các bước dưới đây dành cho khách dùng điện thoại của mình quét mã QR check-in đặt tại tiệm. Nếu tiệm dùng máy tính bảng chung, làm theo <a href=\"?tab=guides&amp;article=set-up-devices-receipt-printing\" target=\"_self\" rel=\"noopener noreferrer\">Thiết bị và in hóa đơn</a> để ghép đôi. Mã QR ghép đôi chỉ dùng để kết nối máy tính bảng với tiệm; mã QR check-in dành cho khách quét bằng điện thoại. Nếu dùng cả hai cách, kiểm tra từng cách riêng.</p><h2>Trước khi bắt đầu</h2><p>Chuẩn bị điện thoại có camera và chọn vị trí sẽ đặt mã QR.</p><h2>1. Mở Tự check-in bằng QR</h2><p>Mở <a href=\"/dashboard/pos/public-checkin\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Tự check-in bằng QR</strong></a>.</p><h2>2. Chuẩn bị mã QR</h2><p>Kiểm tra thông tin tiệm, sau đó tải xuống hoặc in mã QR đang hiển thị.</p><h2>3. Kiểm tra trải nghiệm của khách</h2><p>Dùng điện thoại của mình quét mã, nhập tên và thông tin liên hệ của mình, rồi gửi yêu cầu check-in.</p><h2>4. Đặt mã QR tại tiệm</h2><p>Đặt mã ở vị trí khách mới đến có thể nhìn thấy và quét dễ dàng.</p><h2>Hoàn tất khi</h2><ul><li>Mã QR mở đúng trang check-in của tiệm.</li><li>Nhân viên tìm thấy tên vừa dùng để check-in trong danh sách khách tại quầy.</li></ul><h2>Kiểm tra nhanh</h2><ul><li>Nếu mã không mở được, kiểm tra kết nối điện thoại và chất lượng bản in.</li><li>Nếu không thấy tên vừa nhập, kiểm tra đã gửi check-in thành công hay chưa, rồi tải lại danh sách tại quầy.</li></ul></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "thiết",
+      "lập",
+      "chức",
+      "năng"
+    ],
+    "nextArticleId": "create-manage-promotions",
+    "iconKey": "scan-line"
+  },
+  {
+    "id": "create-manage-promotions",
+    "slug": "create-manage-promotions",
+    "category": "grow-your-salon",
+    "categoryTitle": "Mở rộng hoạt động",
+    "categoryOrder": 3,
+    "order": 2,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Tạo và quản lý chương trình khuyến mãi",
+    "summary": "Tạo ưu đãi rõ ràng, chọn thời gian áp dụng và kiểm tra trước khi kích hoạt.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Thu hút thêm khách vào những ngày hoặc khung giờ vắng bằng ưu đãi rõ ràng, dễ hiểu.</p><h2>1. Tạo ưu đãi</h2><ol><li>Mở <a href=\"/dashboard/pos/promotions\" target=\"_blank\" rel=\"noopener noreferrer\">Chương trình giảm giá</a> bằng tài khoản có quyền quản lý. Chọn <strong>Thêm chương trình</strong>, hoặc <strong>Dùng mẫu này</strong> để bắt đầu từ mẫu có sẵn.</li><li>Nhập <strong>Tên chương trình</strong> và mô tả rõ ràng. Chọn <strong>Phần trăm · %</strong> hoặc <strong>Số tiền · $</strong>, rồi nhập mức giảm.</li><li>Chọn ngày, giờ bắt đầu và kết thúc theo giờ địa phương của tiệm. Giờ kết thúc cần sau giờ bắt đầu trong cùng ngày.</li><li>Kiểm tra banner và nơi hiển thị. Chọn <strong>Lưu chương trình</strong>. Chương trình mới, kể cả chương trình tạo từ mẫu, giữ trạng thái tắt cho đến khi được bật ở bước tiếp theo.</li></ol><h2>2. Kiểm tra và bật</h2><p>Tìm chương trình đã lưu, chọn <strong>Xem trước</strong>, kiểm tra nội dung và lịch áp dụng. Dùng <strong>Chỉnh sửa</strong> để sửa lại. Khi nhân viên đã nắm mức giảm và thời gian áp dụng, chọn <strong>Bật chương trình</strong>. Chọn <strong>Tạm tắt</strong> khi không còn áp dụng.</p><h2>Ví dụ: giảm tiền dịch vụ ngày thường</h2><p>Tạo “Ưu đãi dịch vụ thứ Ba”: giảm 10% tiền dịch vụ, thứ Ba, 10 giờ sáng–2 giờ chiều. Với $100 tiền dịch vụ chưa có giảm giá khác, mức giảm là $10, còn $90 trước thuế và tip. Tiền sản phẩm là khoản riêng.</p><p><strong>Lưu ý:</strong> Ưu đãi tại quầy áp dụng trên tổng tiền dịch vụ. Mô tả rõ ưu đãi giảm trên tổng tiền dịch vụ và kiểm tra số tiền giảm trước khi thu tiền. Mô tả dùng để giải thích ưu đãi, không thiết lập điều kiện giảm giá cho riêng từng dịch vụ.</p><h2>3. Áp dụng cho lượt khách đủ điều kiện</h2><p>Mở đơn tại <a href=\"/dashboard/pos?tab=checkoutcustomer\" target=\"_blank\" rel=\"noopener noreferrer\">Thanh toán khách hàng</a>, chọn <strong>Giảm giá tất cả</strong>, tìm <strong>Chương trình lượt khách này đủ điều kiện</strong>. Bấm chọn ưu đãi để áp dụng, rồi kiểm tra mức giảm và tổng tiền trước khi thu tiền.</p><p>Ưu đãi được xét theo ngày và giờ khách check-in, dùng giờ địa phương của tiệm. Trong ví dụ trên, xác nhận khách check-in vào thứ Ba trong khung giờ ưu đãi. Mỗi đơn áp dụng một chương trình giảm giá tại một thời điểm; chọn chương trình khác sẽ thay chương trình đang áp dụng.</p><h2>Nếu không thấy ưu đãi hoặc số tiền chưa đúng</h2><p>Kiểm tra trạng thái bật, ngày, khung giờ và giờ check-in của lượt khách. Kiểm tra ưu đãi và các khoản giảm giá khác trên đơn trước khi thu tiền. Nếu muốn thử tính tiền trước khi phục vụ khách, hãy liên hệ bộ phận hỗ trợ để được hướng dẫn.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=test-complete-salon-workflow\" target=\"_self\" rel=\"noopener noreferrer\">Kiểm tra toàn bộ quy trình vận hành</a> · <a href=\"?tab=guides&amp;article=set-up-taxes-tips-fees\" target=\"_self\" rel=\"noopener noreferrer\">Thuế, tip và phụ phí</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "tạo",
+      "và",
+      "quản",
+      "lý"
+    ],
+    "nextArticleId": "review-customer-feedback",
+    "iconKey": "badge-percent"
+  },
+  {
+    "id": "review-customer-feedback",
+    "slug": "review-customer-feedback",
+    "category": "grow-your-salon",
+    "categoryTitle": "Mở rộng hoạt động",
+    "categoryOrder": 3,
+    "order": 3,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Theo dõi đánh giá và phản hồi của khách hàng",
+    "summary": "Xem khách hài lòng về điều gì và tiệm có thể cải thiện những gì qua điểm đánh giá và nhận xét.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><ul><li>Giúp tiệm hiểu những điều khách hàng yêu thích trong trải nghiệm phục vụ.</li><li>Cung cấp thông tin hữu ích để cải thiện dịch vụ và xây dựng uy tín của tiệm.</li></ul><h2>Trước khi bắt đầu</h2><p>Chọn thời gian cố định để chủ tiệm hoặc quản lý xem phản hồi.</p><h2>1. Mở Đánh giá</h2><p>Mở <a href=\"/dashboard/reviews\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Đánh giá</strong></a>.</p><h2>2. Lọc danh sách</h2><p>Dùng bộ lọc theo nguồn, số sao hoặc nhân viên để tập trung vào phản hồi cần xem.</p><h2>3. Đọc nhận xét</h2><p>Xem điểm đánh giá và nội dung nhận xét. Ghi lại những điều khách hài lòng và những việc tiệm có thể cải thiện.</p><h2>4. Trao đổi cách cải thiện</h2><p>Trao đổi với quản lý hoặc nhân viên phụ trách để thống nhất cách giải quyết. Chỉ chia sẻ thông tin khách cần thiết cho việc đó.</p><h2>Hoàn tất khi</h2><ul><li>Các phản hồi gần đây đã được xem.</li><li>Đã thống nhất ai sẽ theo dõi và giải quyết những phản hồi cần hỗ trợ thêm.</li></ul><h2>Kiểm tra nhanh</h2><ul><li>Nếu không thấy phản hồi, kiểm tra lại các bộ lọc đang chọn.</li><li>Xử lý thông tin nhạy cảm của khách theo quy định của tiệm.</li></ul></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "theo",
+      "dõi",
+      "đánh",
+      "giá"
+    ],
+    "nextArticleId": "set-up-oneqr",
+    "iconKey": "star"
+  },
+  {
+    "id": "set-up-oneqr",
+    "slug": "set-up-oneqr",
+    "category": "grow-your-salon",
+    "categoryTitle": "Mở rộng hoạt động",
+    "categoryOrder": 3,
+    "order": 4,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Thiết lập One QR cho tiệm",
+    "summary": "Tập hợp các tiện ích của tiệm trong một mã QR để khách dễ tìm và sử dụng.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp khách quét một mã tại quầy hoặc trên tài liệu in để tìm các dịch vụ và liên kết tiệm cung cấp.</p><h2>Trước khi bắt đầu</h2><p>Chọn những tiện ích muốn khách nhìn thấy sau khi quét mã và vị trí đặt mã tại tiệm.</p><h2>1. Mở One QR</h2><p>Mở <a href=\"/dashboard/touchpoints?tab=stations&section=one-qr\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>One QR</strong></a>.</p><h2>2. Chọn tiện ích cho khách</h2><p>Chỉ chọn những tiện ích tiệm đã sẵn sàng cung cấp, sau đó sắp xếp theo thứ tự dễ hiểu.</p><h2>3. Xem trước và lưu</h2><p>Kiểm tra giao diện khách sẽ thấy, xác nhận tên tiệm cùng các lựa chọn rồi lưu.</p><h2>4. Tải xuống và kiểm tra</h2><p>Tải hình mã QR, dùng điện thoại quét và thử từng lựa chọn đang hiển thị trước khi in.</p><h2>Hoàn tất khi</h2><ul><li>Mã QR mở đúng trang của tiệm.</li><li>Mỗi tiện ích đều mở được trang tương ứng khi khách chọn.</li></ul><h2>Kiểm tra nhanh</h2><ul><li>Nếu một tiện ích chưa hoạt động, tạm ẩn tiện ích đó cho đến khi thiết lập xong.</li><li>Nếu khó quét, in mã lớn hơn, rõ nét, màu đậm trên nền sáng.</li></ul></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "thiết",
+      "lập",
+      "oneqr",
+      "cho"
+    ],
+    "nextArticleId": "view-reports-analytics",
+    "iconKey": "qr-code"
+  },
+  {
+    "id": "view-reports-analytics",
+    "slug": "view-reports-analytics",
+    "category": "grow-your-salon",
+    "categoryTitle": "Mở rộng hoạt động",
+    "categoryOrder": 3,
+    "order": 5,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Dùng dữ liệu để phát triển tiệm",
+    "summary": "Xem tiền tip theo nhân viên và trạm QR để ghi nhận đóng góp và chọn vị trí đặt mã dễ thấy hơn.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp chủ tiệm xem tiền tip của từng nhân viên và từng mã QR, từ đó ghi nhận đóng góp của nhân viên và xem lại vị trí đặt mã.</p><h2>1. Mở số liệu tiền tip</h2><p>Mở <a href=\"/dashboard/analytics\" target=\"_blank\" rel=\"noopener noreferrer\">Phân tích</a>. Dùng trang này để xem tip, xếp hạng nhân viên theo tip và hiệu suất trạm QR. Doanh thu và thu nhập nhân viên được trình bày trong các báo cáo riêng. Muốn xem đơn bán hàng đã hoàn tất, mở <a href=\"?tab=guides&amp;article=review-salon-performance-reports\" target=\"_self\" rel=\"noopener noreferrer\">Báo cáo hoạt động của tiệm</a>.</p><p><strong>Biểu Đồ Doanh Thu Theo Ngày</strong> tự động hiển thị tip từng ngày trong bảy ngày gần nhất; trang này không có bộ chọn khoảng ngày. Trước khi so sánh các số tổng và bảng xếp hạng với biểu đồ, kiểm tra chúng có cùng khoảng ngày hay không. Nếu chưa thấy ngày hiển thị, hỏi hỗ trợ số liệu đó được tính cho khoảng thời gian nào.</p><h2>2. Xem các phần hữu ích</h2><ul><li><strong>Biểu Đồ Doanh Thu Theo Ngày:</strong> Trên máy tính, di chuyển con trỏ trên biểu đồ để xem giá trị của một ngày.</li><li><strong>Tip được trả thế nào:</strong> Xem các phương thức thanh toán có trong dữ liệu tip.</li><li><strong>Bảng Xếp Hạng Nhân Viên:</strong> Xem số tiền và lượt tip. Dùng các số liệu này để ghi nhận đóng góp, kết hợp phản hồi của khách và số giờ làm để có góc nhìn đầy đủ hơn.</li><li><strong>Hiệu suất trạm:</strong> So sánh những trạm đứng đầu đang hiển thị theo tiền tip. Trạm là một mã QR được lưu với tên riêng, chẳng hạn “Quầy lễ tân”. Số tiền tip không cho biết có bao nhiêu khách đã ghé tiệm hoặc quét mã.</li></ul><h2>Ví dụ: giúp khách dễ thấy mã QR tại quầy</h2><p>Nếu trạm quầy lễ tân có trong Hiệu suất trạm, ghi lại tổng tip đang hiển thị và ngày ghi nhận. Kiểm tra mã rõ, dễ quét và đặt ở nơi khách dễ thấy. Nhờ chủ tiệm đồng ý trước khi đổi vị trí; xem các trạm tại <a href=\"/dashboard/touchpoints?tab=stations&amp;section=tip\" target=\"_blank\" rel=\"noopener noreferrer\">One QR → Nhận Tip</a>.</p><p>Sau bảy ngày, ghi lại tổng của đúng trạm đó. Ví dụ, nếu tổng tiền tip tăng từ $40 lên $60 thì số tiền tăng thêm trong tuần là $20. So sánh từng khoảng bảy ngày với nhau. Ghi nhận thêm thay đổi về lượng khách hoặc nhân viên vì những yếu tố này cũng ảnh hưởng đến tiền tip.</p><h2>Nếu thông tin còn ít</h2><p>Kiểm tra đúng tiệm và đã có hoạt động nhận tip được ghi nhận. Danh sách chỉ hiển thị các trạm đứng đầu theo tiền tip. Nếu không thấy một trạm, mở cài đặt trạm để kiểm tra trạm đó có đang bật hay không. Làm mới sau khi có hoạt động mới và gửi thông tin liên quan cho hỗ trợ nếu cần đối chiếu thêm.</p><p><strong>Bước tiếp theo:</strong> Chọn một việc để thử, chẳng hạn đặt mã QR ở nơi dễ thấy hơn. Ghi lại tổng tip hôm nay và kiểm tra lại sau bảy ngày.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=set-up-oneqr\" target=\"_self\" rel=\"noopener noreferrer\">One QR</a> · <a href=\"?tab=guides&amp;article=track-staff-performance-earnings\" target=\"_self\" rel=\"noopener noreferrer\">Hiệu suất và thu nhập nhân viên</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "phân tích",
+      "phát triển",
+      "tiệm",
+      "dữ liệu"
+    ],
+    "nextArticleId": "set-up-ai-voice-messaging",
+    "iconKey": "bar-chart"
+  },
+  {
+    "id": "set-up-ai-voice-messaging",
+    "slug": "set-up-ai-voice-messaging",
+    "category": "grow-your-salon",
+    "categoryTitle": "Mở rộng hoạt động",
+    "categoryOrder": 3,
+    "order": 6,
+    "active": true,
+    "estimatedMinutes": 4,
+    "title": "Thiết lập AI Voice và tin nhắn chăm sóc khách hàng",
+    "summary": "Thiết lập AI trả lời cuộc gọi và chuẩn bị tin nhắn chăm sóc khách sau khi tiệm được kích hoạt dịch vụ.",
+    "htmlContent": "<section><h2>Lợi ích cho tiệm</h2><p>Giúp tiệm tiếp nhận cuộc gọi của khách và gửi tin nhắn giới thiệu ưu đãi, dịch vụ để khuyến khích khách quay lại.</p><h2>Trước khi bắt đầu</h2><p>Chủ tiệm cần thống nhất gói dịch vụ và ngân sách tin nhắn. Chuẩn bị thông tin tiệm, một điện thoại để gọi kiểm tra và danh sách khách đã đồng ý nhận tin.</p><h2>Phần 1: Chuẩn bị AI Voice</h2><ol><li>Mở <a href=\"/dashboard/ai-hub?tab=plans\" target=\"_blank\" rel=\"noopener noreferrer\">AI Hub → Gói dịch vụ (Plans)</a>. Kiểm tra có hiển thị <strong>Gói đang kích hoạt</strong> hay không. Nếu chỉ thấy <strong>Đã gửi yêu cầu dùng thử</strong>, tiệm mới gửi yêu cầu, chưa có xác nhận dịch vụ đã hoạt động. Chờ xác nhận kích hoạt dịch vụ và số điện thoại AI được cấp trước khi thiết lập chuyển tiếp cuộc gọi.</li><li>Nếu chưa có gói hoặc chưa dùng được dịch vụ thoại, <a href=\"/dashboard/ai-hub?tab=plans\" target=\"_blank\" rel=\"noopener noreferrer\">chọn gói dịch vụ</a> và làm theo hướng dẫn trên trang để đăng ký. Sau đó nhờ hỗ trợ xác nhận AI Voice đã hoạt động và cung cấp số điện thoại AI của tiệm. Chỉ thiết lập chuyển tiếp cuộc gọi sau khi số được cấp đã được xác nhận.</li><li>Mở <a href=\"/dashboard/ai-hub/setup-guide\" target=\"_blank\" rel=\"noopener noreferrer\">Hướng dẫn thiết lập AI Voice</a>. Hướng dẫn này giúp chuyển cuộc gọi từ số điện thoại của tiệm đến số AI. Chọn nhà mạng và cách AI trả lời ngay hoặc sau khi điện thoại tiệm đổ chuông. Thay <strong>[AI NUMBER]</strong> trong hướng dẫn bằng số điện thoại AI được cấp cho tiệm.</li><li>Dùng điện thoại khác gọi vào số tiệm. Kiểm tra AI trả lời vào thời điểm đã chọn, lời chào và thông tin tiệm chính xác.</li><li>Mở <a href=\"/dashboard/ai-hub?tab=calllog\" target=\"_blank\" rel=\"noopener noreferrer\">Nhật ký cuộc gọi (Call Log)</a> và tìm cuộc gọi vừa thực hiện. Nếu có yêu cầu đặt lịch, kiểm tra thông tin tại <a href=\"/dashboard/pos?tab=booking\" target=\"_blank\" rel=\"noopener noreferrer\">Đặt lịch</a> và so sánh tên khách, dịch vụ, ngày, giờ hẹn với yêu cầu trong cuộc gọi.</li></ol><p>Nếu cuộc gọi không đến AI, kiểm tra lại nhà mạng và cách chuyển tiếp. Nếu AI trả lời sai thông tin tiệm, nhờ hỗ trợ điều chỉnh trước khi giới thiệu số điện thoại cho khách.</p><h2>Phần 2: Chuẩn bị và gửi chiến dịch SMS</h2><ol><li>Mở <a href=\"/dashboard/ai-hub?tab=sms-campaigns\" target=\"_blank\" rel=\"noopener noreferrer\">Chiến dịch SMS</a>. Nếu chưa có tab này, <a href=\"/dashboard/ai-hub?tab=plans\" target=\"_blank\" rel=\"noopener noreferrer\">trở lại Gói dịch vụ</a> và nhờ hỗ trợ kiểm tra kích hoạt. Kiểm tra <strong>Tín dụng SMS</strong>, tức số dư dùng để gửi tin.</li><li>Chọn <strong>Tạo chiến dịch mới</strong>. Nhập tên chiến dịch, chọn nhóm khách và viết nội dung ngắn. Kiểm tra liên kết ưu đãi và khung xem trước có hình điện thoại trên màn hình.</li><li>Chọn <strong>Gửi ngay</strong> hoặc hẹn thời điểm sau. Kiểm tra số người nhận, độ dài tin, số dư SMS dự kiến cần dùng và thời gian gửi. Chỉ gửi đến khách đã đồng ý nhận tin và giữ phần hướng dẫn khách cách ngừng nhận tin.</li><li>Sau khi chủ tiệm đồng ý với nội dung, người nhận và thời gian gửi, chọn <strong>Gửi chiến dịch</strong>. Với chế độ Gửi ngay, thao tác này bắt đầu gửi ngay lập tức, vì vậy hãy hoàn tất kiểm tra trước khi chọn. Phần xem trước chỉ hiển thị nội dung trên màn hình.</li><li>Kiểm tra lịch sử chiến dịch, chọn <strong>Xem</strong> để xem kết quả từng người nhận. Hẹn giờ nghĩa là chiến dịch đang chờ thời điểm đã chọn. Xem trạng thái gửi của từng người nhận để biết tin nào đã được giao thành công. Kiểm tra tin nào gửi thất bại và lý do trước khi quyết định gửi lại.</li></ol><p>Khi mới làm quen, có thể soạn tin và xem trước mà chưa bấm Gửi chiến dịch. Sau khi gửi, xác nhận tin đã đến bằng kết quả từng người nhận và điện thoại của một người trong nhóm nhận.</p><p>Bài liên quan: <a href=\"?tab=guides&amp;article=set-up-online-booking\" target=\"_self\" rel=\"noopener noreferrer\">Đặt lịch trực tuyến</a> · <a href=\"?tab=guides&amp;article=manage-customer-history\" target=\"_self\" rel=\"noopener noreferrer\">Thông tin khách hàng</a></p></section>",
+    "updatedAt": "2026-10-02",
+    "keywords": [
+      "thiết",
+      "lập",
+      "ai",
+      "voice"
+    ],
+    "nextArticleId": null,
+    "iconKey": "phone-call"
   }
 ]
