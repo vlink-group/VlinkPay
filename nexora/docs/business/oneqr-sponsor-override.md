@@ -1,18 +1,20 @@
 ## OneQR Sponsor — Quan hệ hưởng, cấp Sponsor và chi trả override
 
-**Cập nhật lần cuối:** 24 tháng 9 năm 2026
+**Cập nhật lần cuối:** 5 tháng 10 năm 2026
 
 **Đối tượng đọc:** Sponsor, chủ doanh nghiệp (Business Owner), người dùng cá nhân, nhân viên/đối tác, người phụ trách sản phẩm, BA, quản trị viên vận hành, đội phát triển giao diện, đội phát triển máy chủ, QA, bộ phận hỗ trợ
 
 **Trạng thái:** Đang rà soát
 
-**Bản chia sẻ:** [Tài liệu trên GitHub](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/oneqr-sponsor-override.md)
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/oneqr-sponsor-override-code-review/nexora/docs/business/oneqr-sponsor-override.md)
 
 ### Tổng quan
 
-OneQR Sponsor nhằm khuyến khích người tham gia phát triển mạng lưới sử dụng OneQR thực tế bằng cách chia thu nhập override từ hoạt động đủ điều kiện của tài khoản B. Hệ thống cho phép cấu hình quyền hưởng theo người giới thiệu trực tiếp, người phía trên cây affiliate hoặc cả hai; xét B active và cấp Sponsor; tính, đối soát và chi trả thu nhập vào **ví VlinkPay liên kết SSO của đúng tài khoản Sponsor**. Admin thiết lập và điều chỉnh chính sách, gồm loại tiền nhận và tỷ lệ phân bổ cho mỗi loại; Sponsor thuộc mọi loại tài khoản theo dõi mạng lưới, điều kiện hưởng, khoản thu và lịch sử nhận tiền. Nexora ghi nhận, đối soát và điều phối chi trả; VlinkPay xác nhận kết quả ghi có vào ví. Người giới thiệu đã xác lập với B được giữ cố định, không có chức năng đổi Sponsor.
+OneQR Sponsor nhằm khuyến khích người tham gia phát triển mạng lưới sử dụng OneQR thực tế bằng cách chia thu nhập override từ hoạt động đủ điều kiện của tài khoản B. Theo yêu cầu đã chốt, hệ thống cần hỗ trợ cấu hình quyền hưởng theo người giới thiệu trực tiếp, người phía trên cây affiliate hoặc cả hai; xét B active và cấp Sponsor; tính, đối soát và chi trả thu nhập vào **ví VlinkPay liên kết SSO của đúng tài khoản Sponsor**. Admin thiết lập và điều chỉnh chính sách, gồm loại tiền nhận và tỷ lệ phân bổ cho mỗi loại; Sponsor thuộc mọi loại tài khoản theo dõi mạng lưới, điều kiện hưởng, khoản thu và lịch sử nhận tiền. Nexora chịu trách nhiệm ghi nhận, đối soát và điều phối chi trả; VlinkPay xác nhận kết quả ghi có vào ví. Người giới thiệu đã xác lập với B được giữ cố định, không có chức năng đổi Sponsor.
 
-**Phạm vi và mức độ chốt:** Đã ghi nhận các quyết định nghiệp vụ của người dùng; giá trị chính sách do Admin cấu hình, các phụ thuộc tích hợp cần xác nhận trước triển khai.
+**Phạm vi và mức độ chốt:** Đã ghi nhận các quyết định nghiệp vụ của người dùng; giá trị chính sách do Admin cấu hình. Các luồng, cấu hình, trạng thái và tiêu chí nghiệm thu bên dưới mô tả yêu cầu cần đáp ứng, không xác nhận đã triển khai đầy đủ.
+
+**Hiện trạng code đã đối chiếu:** Trên `staging`, Nexora đã có QR/link giới thiệu, truyền mã giới thiệu và nhánh cây khi đăng ký, tích hợp tài khoản VlinkPay/SSO và analytics OneQR. Có lớp gọi nội bộ lấy số liệu mạng lưới VlinkPay, nhưng chưa tìm thấy endpoint Nexora hoặc điểm gọi FE cho chức năng này. Trong hai codebase Nexora được rà soát, chưa tìm thấy chương trình Sponsor riêng để tham gia, xét B active/cấp, cấu hình quyền hưởng, ghi sổ override, hồi tố hoặc chi thưởng nhiều loại tiền. Chi tiết phạm vi và căn cứ đối chiếu nằm ở cuối tài liệu.
 
 **Nhu cầu chính:** Là Sponsor, tôi muốn biết tài khoản nào mang lại quyền hưởng cho mình, điều kiện và cách tính từng khoản override, rồi theo dõi tiền nhận qua ví VlinkPay SSO, để hiểu thu nhập và đối chiếu được mọi thay đổi.
 
@@ -73,6 +75,8 @@ OneQR Sponsor nhằm khuyến khích người tham gia phát triển mạng lư�
 
 ### Luồng nghiệp vụ đầu cuối
 
+Các luồng sau là thiết kế nghiệp vụ cần triển khai. Nền tảng chia sẻ QR/link và đăng ký giới thiệu hiện có chỉ hỗ trợ một phần luồng xác lập quan hệ; chưa thể dùng để xác nhận các luồng Sponsor đã vận hành đầu cuối.
+
 #### Luồng: Cấu hình và áp dụng chương trình Sponsor
 
 **Người thực hiện chính:** Admin.  
@@ -111,11 +115,14 @@ flowchart TD
 **Điểm bắt đầu:** Sponsor tham gia; B đăng ký qua link/QR hoặc xuất hiện trong cây affiliate.  
 **Kết quả:** Có quan hệ đúng nguồn để xét hưởng, chưa tự phát sinh override chỉ vì có quan hệ.
 
+**Điểm kế thừa từ code hiện tại:** Mã từ link được lưu theo phiên tab và có thể bị thay bởi link mới trước khi đăng ký. Form khóa sửa mã khi nhận trực tiếp từ URL; đăng ký gửi mã và nhánh hợp lệ sang VlinkPay qua Nexora. Khi không gửi mã, Nexora dùng mã giới thiệu mặc định trong cấu hình để tạo tài khoản VlinkPay. Vì vậy, không gửi mã không đồng nghĩa tài khoản không có người giới thiệu. Việc khóa quan hệ sau xác lập vẫn là yêu cầu nghiệp vụ cần xác nhận với hệ thống giữ quan hệ; lưu mã trên trình duyệt không chứng minh đã khóa Sponsor.
+
 **Nhu cầu người dùng:**
 
 - **Là** Sponsor thuộc bất kỳ loại tài khoản nào, **tôi muốn** biết điều kiện tham gia và điều kiện ví/hồ sơ còn thiếu, **để** hoàn thiện đúng yêu cầu trước khi nhận tiền.
 - **Là** người giới thiệu, **tôi muốn** chia sẻ link/QR và thấy B được ghi nhận đúng người mời, **để** kiểm tra căn cứ xét quyền hưởng.
 - **Là** Sponsor trên cây, **tôi muốn** biết B thuộc tầng nào và vì sao mình được hoặc chưa được xét hưởng, **để** hiểu phạm vi quyền lợi trên cây.
+- **Là** B, **tôi muốn** được báo khi mã giới thiệu không hợp lệ và hiểu người giới thiệu được xác lập khi nào, **để** đăng ký đúng nguồn mà không nhầm mã đang lưu trên trình duyệt với quan hệ đã được hệ thống xác nhận.
 
 | Bước | Người thực hiện | Hành động | Phản hồi hệ thống | Ghi chú |
 | :--- | :--- | :--- | :--- | :--- |
@@ -321,7 +328,7 @@ Vị trí menu cụ thể sẽ bám cấu trúc sản phẩm khi triển khai; t
 
 ### Vòng đời trạng thái
 
-Các trạng thái dưới đây là trạng thái nghiệp vụ cần thể hiện; tên kỹ thuật sẽ theo contract thực tế. Không dùng trạng thái “active” của giao diện hoặc tài khoản đăng nhập thay cho active trong chương trình Sponsor.
+Các trạng thái dưới đây là trạng thái nghiệp vụ cần thể hiện; chưa tìm thấy mô hình trạng thái Sponsor tương ứng trong code Nexora được rà soát. Tên kỹ thuật sẽ theo contract thực tế. Không dùng trạng thái “active” của giao diện hoặc tài khoản đăng nhập, tổng tài khoản active của mạng lưới VlinkPay hay tình trạng KYC của người giới thiệu thay cho active trong chương trình Sponsor.
 
 #### Chính sách chương trình
 
@@ -475,6 +482,8 @@ stateDiagram-v2
 
 #### Tiêu chí nghiệm thu
 
+Đây là các điều kiện nghiệm thu cho chức năng cần triển khai; lần rà soát code này không đánh dấu các tiêu chí là đã đạt hoặc thay cho kiểm thử trên môi trường chạy thật.
+
 | Mã | Tiêu chí nghiệp vụ |
 | :--- | :--- |
 | AC-01 | Personal, Business, Staff/Partner đều có thể tham gia theo quyền tài khoản; kết quả xác minh có sẵn được kế thừa đúng chủ thể. |
@@ -568,19 +577,64 @@ Các tài liệu nguồn có liên kết dưới đây được đính kèm tron
 - [Sponsor Level Flow — bản mẫu nguồn](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Sponsor-Level-Flow.html): nguyên tắc B hoạt động thật và quyền cấp; ngưỡng mẫu và bảng B gán sẵn không phải logic production.
 - [Monetization & Sponsor Terms](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Monetization-Sponsor-Terms.html): quyền hưởng, điều kiện và lịch sử thu nhập; không áp dụng tỷ lệ demo như mặc định.
 
-#### Hiện trạng và phụ thuộc tích hợp — tham chiếu nội bộ
+### Hiện trạng code và phụ thuộc tích hợp
 
-Đối chiếu mã giao diện trên nhánh `staging`, mã phiên bản `58c41d9352b604209d375ab8dfab7c24763b8def`, ngày 24 tháng 9 năm 2026: đã có QR/link affiliate (tệp `src/components/settings/AffiliateLinkPanel.tsx`, tham chiếu nội bộ), lưu mã và nhánh trái/phải (tệp `src/utils/affiliateReferral.ts`, tham chiếu nội bộ) và gửi thông tin giới thiệu khi đăng ký (tệp `src/auth/adapters/apiAuthAdapter.ts`, tham chiếu nội bộ). Tên tệp dùng để định vị mã nguồn nội bộ. Các phần nền đã đọc chưa chứng minh có màn hình quản lý B/cấp/override, API tính Sponsor hoặc chi trả nhiều loại tiền; cần xác nhận riêng khi tích hợp. Tài liệu này không xác nhận trạng thái triển khai trên staging hoặc toàn hệ sinh thái.
+#### Phạm vi đối chiếu ngày 5 tháng 10 năm 2026
+
+| Nguồn | Phiên bản và cách đối chiếu |
+| :--- | :--- |
+| Giao diện Nexora | Nhánh `staging` trên GitHub tại [phiên bản `27c5ebc`](https://github.com/vlink-group/vlink-nexora-fe/tree/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e). Đọc code local tại `8dc76c5`, sau đó kiểm tra [toàn bộ chênh lệch đến phiên bản GitHub](https://github.com/vlink-group/vlink-nexora-fe/compare/8dc76c5a53d8a867aa274db8f3094551accf0510...27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e): ba commit, tám file về Gift Card Center và SSO quản lý sản phẩm; các file giới thiệu được dẫn bên dưới không thay đổi. |
+| Máy chủ Nexora | Nhánh `staging` tại [phiên bản `a7a46d3`](https://github.com/vlink-group/vlink-nexora/tree/a7a46d314036f9d83c910aead411182480249bea); phiên bản local khớp phiên bản nhánh trên GitHub tại thời điểm rà soát. Đọc lớp đăng ký, tích hợp VlinkPay, OneQR, Ads Credit, controller và hợp đồng API đã sinh trong repository. |
+| Giới hạn kiểm chứng | Rà soát mã nguồn và hợp đồng API trong hai repository Nexora; không gọi API live, kiểm thử UI hoặc thực hiện giao dịch. Chưa kiểm chứng cách VlinkPay lưu/khóa quan hệ, cây đầy đủ hay khả năng chi Sponsor ở hệ thống ngoài Nexora. |
+
+**Kết luận trong phạm vi rà soát:** Có nền tảng giới thiệu và tích hợp VlinkPay để kế thừa. Chưa tìm thấy phần triển khai chương trình OneQR Sponsor Override trong giao diện, nghiệp vụ máy chủ, sổ dữ liệu hoặc hợp đồng API Nexora được đọc. Các quyết định nghiệp vụ trong tài liệu vẫn giữ nguyên; không lấy khoảng trống triển khai để đổi chính sách đã chốt.
+
+#### Thành phần đã có và giới hạn sử dụng
+
+| Thành phần nghiệp vụ | Code hiện có | Giới hạn đối với Sponsor Override | Căn cứ nội bộ |
+| :--- | :--- | :--- | :--- |
+| Chia sẻ QR/link giới thiệu | Lấy mã từ hồ sơ, tạo link/QR, sao chép và tải QR; bảng Affiliate cho chọn nhánh trái/phải. | Nhánh đặt tài khoản không phải cấp Sponsor, tầng hưởng hoặc cấu hình tỷ lệ override. Chưa có màn hình mạng lưới và thu nhập Sponsor. | [Bảng link Affiliate](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/settings/AffiliateLinkPanel.tsx), [QR giới thiệu trên tổng quan](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/dashboard/overview/ReferralGatewayPanel.tsx) |
+| Giữ nguồn trước đăng ký | Mã và nhánh hợp lệ được lưu theo phiên tab; mã mới trong URL thay mã đang lưu. Form nhận mã trực tiếp từ URL thì khóa sửa trường đó. | Đây là nguồn đầu vào trước khi tạo tài khoản, không phải xác nhận quan hệ Sponsor bất biến. Chưa có bản ghi chấp thuận điều khoản riêng của chương trình Sponsor. | [Lưu mã và nhánh](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/utils/affiliateReferral.ts), [Khởi tạo form](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/RegisterWizard.tsx), [Trường mã giới thiệu](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/register/steps/StepCredentials.tsx) |
+| Đăng ký có giới thiệu | FE gửi mã và nhánh hợp lệ; BE kiểm tra mã qua VlinkPay, tạo tài khoản SSO/VlinkPay và liên kết danh tính tài khoản. Không gửi mã thì dùng mã mặc định trong cấu hình. | Chỉ chứng minh tích hợp đăng ký. Hai loại đăng ký Personal/Business không chứng minh đã có chương trình cho mọi đối tượng Sponsor, kể cả Staff/Partner. | [Gửi đăng ký](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/auth/adapters/apiAuthAdapter.ts), [Xử lý đăng ký](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/Auth/Commands/Register/SignUpCommand.cs) |
+| Số liệu mạng lưới VlinkPay | Có lớp gọi nội bộ và xử lý truy vấn lấy mã/link/QR, tổng thành viên, tổng active và tổng ATM từ VlinkPay. | Chưa tìm thấy controller/endpoint Nexora hoặc điểm gọi FE tương ứng. Dữ liệu tổng hợp không chứa danh sách B, đường tuyến trên, tầng hay lịch sử quan hệ. Tổng active không chứng minh B đạt chính sách OneQR Sponsor. | [Truy vấn số liệu mạng lưới](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/VlinkPay/Queries/Dashboard/GetNetworkTreeQueryHandler.cs), [Dữ liệu trả về](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/VlinkPay/DTOs/VlinkPayNetworkTreeDto.cs) |
+| Theo dõi sử dụng OneQR | Lượt bấm module ghi sự kiện analytics theo doanh nghiệp, OneQR, module, nhóm người dùng và phiên truy cập. | Xử lý này không tính hoặc ghi sổ override. Chống lặp lượt bấm theo phiên và cửa sổ thời gian không thay cho chống ghi trùng khoản thưởng. | [Ghi lượt bấm OneQR](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/Public/OneQr/Commands/TrackOneQrModuleClick/TrackOneQrModuleClickCommand.cs) |
+| SSO và thanh toán ví | Có điều hướng SSO vào hệ sinh thái và thanh toán từ ví VlinkPay cho các chức năng hiện có, trong đó có mua Ads Credit. | Thanh toán mua Ads Credit và ghi tăng credit quảng cáo không phải ghi có thu nhập Sponsor. Chưa tìm thấy chi Sponsor, phân bổ nhiều loại tiền hoặc lịch sử kết quả từng phần. | [SSO hệ sinh thái](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/data/repositories/ecosystem.ts), [Mua Ads Credit bằng ví](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/AdsCredit/Commands/PurchaseAdsCreditWithWallet/PurchaseAdsCreditWithWalletCommand.cs), [Ghi nhận nạp Ads Credit](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/AdsCredit/Services/AdsCreditTopUpSettler.cs) |
+
+Các trường hồ sơ liên quan người giới thiệu hoặc KYC của Sponsor, nếu có, không phải cấp Sponsor hoặc quyền hưởng OneQR. Cấu hình module OneQR của Admin cũng không phải chính sách tài chính Sponsor. Cơ chế điều chỉnh incentive tại POS và vị trí quảng cáo được tài trợ thuộc nghiệp vụ khác, không chứng minh đã triển khai Sponsor Override.
+
+#### Khoảng trống so với yêu cầu đã chốt
+
+| Nhóm yêu cầu | Tiêu chí liên quan | Kết quả đối chiếu và phần cần hoàn thiện |
+| :--- | :--- | :--- |
+| Tham gia và xác lập quan hệ | AC-01, AC-02, AC-15, AC-17 | Đã có nguồn đầu vào khi đăng ký; chưa có chương trình tham gia Sponsor, contract quan hệ trực tiếp/tuyến trên và bằng chứng khóa quan hệ tại hệ thống nguồn. Cần kế thừa người giới thiệu đã có, không bổ sung chức năng đổi Sponsor. |
+| B active, cấp và phạm vi hưởng | AC-04, AC-05 | Chưa tìm thấy chính sách, tiến độ hoặc xử lý xét B active/cấp Sponsor theo sự kiện OneQR. Cần xác định dữ liệu và kỳ xét riêng, không dùng tổng active của mạng lưới VlinkPay. |
+| Cấu hình Admin và hiệu lực | AC-07, AC-09, AC-10, AC-14 | Chưa tìm thấy cấu hình Sponsor về quan hệ, trùng người hưởng, công thức, giới hạn, đối soát/dự phòng, tiền nhận, phiên bản, hồi tố và hành vi khi thiếu cấu hình. |
+| Tính, ghi sổ và điều chỉnh override | AC-03, AC-06, AC-08, AC-13 | Chưa tìm thấy sổ override hoặc xử lý sự kiện trả thưởng, chống trùng, chia nguồn chi, refund và nghĩa vụ thu hồi. Analytics và sổ Ads Credit hiện có không đáp ứng thay cho sổ thu nhập Sponsor. |
+| Chi và đối chiếu ví SSO | AC-10, AC-11, AC-12, AC-13 | Chưa tìm thấy contract ghi có Sponsor, phân bổ nhiều loại tiền, quy đổi/phí, tham chiếu từng phần và đối chiếu trước retry. Không suy khả năng chi thưởng từ chức năng thanh toán bằng ví. |
+| Giao diện và vận hành Sponsor | AC-15, AC-16 | Chưa tìm thấy bộ màn hình mạng lưới, cấp, chi tiết override, lịch sử chi và cấu hình Admin Sponsor. Chưa kiểm chứng responsive, EN/VI hoặc quyền dữ liệu cho các màn hình cần triển khai. |
+
+#### Tham chiếu kỹ thuật nội bộ
+
+Các tên kỹ thuật dưới đây chỉ để định vị tích hợp đã có; không phải đề xuất API Sponsor mới:
+
+| Điểm tích hợp | Hành vi đã đọc từ code/contract |
+| :--- | :--- |
+| Đăng ký Nexora (`POST /api/v1/authentication/signup`) | Nhận mã giới thiệu và nhánh cây; kiểm tra mã qua VlinkPay trong luồng đăng ký. Chưa tìm thấy API Nexora kiểm tra mã riêng trong hợp đồng được đọc. |
+| Lấy số liệu mạng lưới từ VlinkPay (`/commissions/trees/dashboard-network-tree`) | Là đường dẫn hệ thống ngoài được lớp tích hợp gọi, không phải endpoint Nexora đã công bố. Dữ liệu Nexora nhận hiện là tổng hợp, chưa đủ để xác định người hưởng từng B/tầng. |
+| Theo dõi OneQR (`POST /api/v1/oneqr/{businessSlug}/track`) | Ghi lượt bấm analytics và trả xác nhận không có nội dung; không trả hoặc tạo khoản Sponsor Override. |
+| Hợp đồng API Nexora đã sinh | [Bản tại phiên bản backend được rà soát](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Web/wwwroot/api/specification.json). Không tìm thấy endpoint riêng cho tham gia, active/cấp, chính sách, override hoặc chi Sponsor; đây là kiểm chứng contract trong repository, không xác nhận API đang chạy. |
+
+#### Phụ thuộc cần xác nhận khi thiết kế/tích hợp
 
 | Phụ thuộc | Cần xác nhận khi thiết kế/tích hợp |
 | :--- | :--- |
-| Affiliate | Nguồn xác nhận người giới thiệu, cây và lịch sử cây; cây nào được dùng; danh tính tài khoản/Business; thời điểm xác lập/khóa nguồn và cách xác định nguồn thắng trước khi khóa. Kế thừa quan hệ đã có của tài khoản hiện hữu, không cung cấp thao tác đổi Sponsor. Không suy toàn bộ cây chỉ từ tham số nhánh trái/phải của link. |
-| Chương trình Sponsor | Contract tham gia, mạng lưới, active/cấp, cấu hình và phiên bản; mô hình trạng thái, phạm vi và ưu tiên khi chính sách chồng nhau. |
-| Sự kiện và tiền | Nguồn sự kiện có phí hợp lệ, thời điểm xét quyền, tổng nguồn chi, chống trùng, điều chỉnh và lịch sử. Không lấy API tracking bấm menu làm API ghi tiền. |
-| VlinkPay SSO | Ví đúng chủ thể cho từng loại tài khoản, danh mục tiền có thể nhận, khả năng ghi có nhiều loại, tham chiếu, phản hồi, tra cứu và chống ghi có trùng. Không mặc định VlinkPay đã hỗ trợ mọi loại tiền Admin muốn thêm. |
+| Affiliate | Nguồn xác nhận người giới thiệu, cây và lịch sử cây; cây nào được dùng; danh tính tài khoản/Business; thời điểm xác lập/khóa nguồn và cách xác định nguồn thắng trước khi khóa, kể cả khi dùng mã mặc định. Kế thừa quan hệ đã có của tài khoản hiện hữu, không cung cấp thao tác đổi Sponsor. Không suy toàn bộ cây chỉ từ nhánh trái/phải của link hoặc số liệu tổng hợp. |
+| Chương trình Sponsor | Contract tham gia, mạng lưới chi tiết, active/cấp, cấu hình và phiên bản; mô hình trạng thái, phạm vi và ưu tiên khi chính sách chồng nhau. Cần nối dữ liệu nguồn tới màn hình/endpoint được phân quyền, không chỉ có lớp gọi nội bộ. |
+| Sự kiện và tiền | Nguồn sự kiện có phí hợp lệ, thời điểm xét quyền, tổng nguồn chi, chống trùng, điều chỉnh và lịch sử. Không lấy API tracking bấm menu hoặc kết quả nạp Ads Credit làm API ghi thu nhập Sponsor. |
+| VlinkPay SSO | Ví đúng chủ thể cho từng loại tài khoản, danh mục tiền có thể nhận, khả năng ghi có nhiều loại, tham chiếu, phản hồi, tra cứu và chống ghi có trùng. Không mặc định VlinkPay đã hỗ trợ mọi loại tiền Admin muốn thêm hoặc đã có API chi thưởng vì có API thanh toán. |
 | Quy đổi và phí | Nguồn tỷ giá, thời điểm chốt, hiệu lực báo giá, phí, độ chính xác từng loại, xử lý phần lẻ và căn cứ khi thu hồi sau chi. Đây là quy tắc tích hợp cần công bố, không được lấy ví dụ phân bổ làm tỷ giá thật. |
 | Dự phòng và thu hồi | Sổ dự phòng/nghĩa vụ theo chủ thể, nguồn bù trừ và cách định giá khi đã chi nhiều loại tiền; không suy đã có API trừ ví để thu hồi. |
 | Thiếu cấu hình | Cách khởi tạo lựa chọn Admin đầu tiên, chính sách thay thế, phạm vi bước được tiếp tục và cách xử lý sự kiện chờ sau khi bổ sung cấu hình. |
 | Quyền và vận hành | Chủ thể quản lý Business/Staff, phân quyền Admin/Support, lịch sử thay đổi, xử lý tranh chấp và phạm vi dữ liệu được xem. |
 
-Phạm vi công việc là tài liệu nghiệp vụ; không sửa FE/BE, không thay chính sách đang chạy, không phát sinh giao dịch và không xác nhận API live. Các con số vận hành sẽ do Admin thiết lập; những phụ thuộc trên cần được xác nhận khi triển khai, không được tự điền bằng giả định.
+Lần cập nhật này đối chiếu code để làm rõ phần đã có và khoảng trống triển khai; không sửa FE/BE, thay chính sách đang chạy hoặc xác nhận giao dịch. Các con số vận hành vẫn do Admin thiết lập theo quyết định nghiệp vụ đã chốt.
