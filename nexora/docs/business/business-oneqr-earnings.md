@@ -1,20 +1,34 @@
 ## Business OneQR — Kiếm tiền từ QR, đối soát và nhận tiền
 
-**Cập nhật lần cuối:** 24 tháng 9 năm 2026
+**Cập nhật lần cuối:** 5 tháng 10 năm 2026
 
 **Đối tượng đọc:** Chủ doanh nghiệp (Business Owner), quản trị viên vận hành, người phụ trách sản phẩm, BA, QA, bộ phận hỗ trợ, đội phát triển
 
 **Trạng thái:** Đang rà soát
 
-**Bản chia sẻ:** [Tài liệu trên GitHub](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/business-oneqr-earnings.md)
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/promotion-code-skill-audit/nexora/docs/business/business-oneqr-earnings.md)
+
+**Ticket:** [#1599](https://github.com/vlink-group/vlink-nexora/issues/1599) — Confirmed tại thời điểm rà soát; chưa bắt đầu xử lý.
 
 ### Tổng quan
 
 Business OneQR — Kiếm tiền từ QR, đối soát và nhận tiền giúp doanh nghiệp tạo và kiểm soát thu nhập từ hoạt động quảng cáo hoặc giao dịch đủ điều kiện được QR giới thiệu. Hệ thống ghi nhận thu nhập, đối soát, giữ dự phòng hoàn tiền/tranh chấp, khấu trừ nghĩa vụ thu hồi và chi phần đủ điều kiện vào ví VlinkPay liên kết SSO của Business. Admin vận hành cấu hình thời gian đối soát, chính sách dự phòng, loại tiền nhận và tỷ lệ từng loại; Business Owner bật/tắt kiếm tiền, theo dõi nguồn thu và đối chiếu tiền thực nhận.
 
-**Phạm vi và mức độ chốt:** Phạm vi và quyết định nghiệp vụ đã được ghi nhận; các thông số chưa chốt và phụ thuộc tích hợp được nêu tại cuối tài liệu.
+**Phạm vi và mức độ chốt:** Tài liệu giữ các quyết định nghiệp vụ đã ghi nhận. Các luồng kiếm tiền, trạng thái và tiêu chí nghiệm thu bên dưới là yêu cầu cần triển khai; không phải xác nhận đang có chức năng Earnings trong code. Các thông số chưa chốt và phụ thuộc tích hợp được nêu tại cuối tài liệu.
 
 **Nhu cầu chính:** Là Business Owner, tôi muốn bật kiếm tiền cho OneQR, theo dõi thu nhập và đối soát, rồi nhận tiền vào ví VlinkPay của tài khoản Business, để biết QR tạo ra thu nhập từ đâu và số tiền thực tế tôi nhận được.
+
+#### Hiện trạng đối chiếu mã nguồn
+
+Rà soát chỉ đọc ngày **5 tháng 10 năm 2026** trên `staging` của cả frontend và backend: frontend [`27c5ebc`](https://github.com/vlink-group/vlink-nexora-fe/commit/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e), backend [`a7a46d3`](https://github.com/vlink-group/vlink-nexora/commit/a7a46d314036f9d83c910aead411182480249bea). Hai đầu nhánh đã được xác minh trên GitHub; chưa kiểm thử bật kiếm tiền, đối soát hoặc payout trên môi trường triển khai.
+
+| Phần nghiệp vụ | Code hiện có | Giới hạn đối với Earnings |
+| :--- | :--- | :--- |
+| OneQR của doanh nghiệp | Có cấu hình, menu công khai, bấm module và báo cáo truy cập. | Sự kiện bấm menu là analytics; không phải hoạt động quảng cáo đã duyệt để tính tiền. Không coi cơ chế chống click trùng hiện có là chính sách tính phí quảng cáo. |
+| Promotion và POS | Có danh mục ưu đãi, banner, lịch tuần/giờ và kiểm tra điều kiện khi áp dụng vào lượt khách. | Chưa chứng minh có nguồn quảng cáo được khóa, performance fee hoặc Publisher Share cho QR Host. Giao dịch POS áp dụng ưu đãi chưa đủ để ghi thưởng OneQR. |
+| Ads Credit | Đã có nạp thẻ/ví, số dư quảng cáo, lịch sử và biên nhận; có nền giữ/ghi phí/hoàn credit. | Đây là số dư chi quảng cáo. Nạp credit hoặc 💰 thanh toán từ ví VlinkPay không phải 💰 chi thu nhập Earnings vào ví. |
+| KYB và liên kết VlinkPay | Có các điểm tích hợp xác minh doanh nghiệp và tài khoản/ví qua SSO. | Chưa xác minh được mapping KYB/thuế với quyền kiếm tiền, hoặc contract chuyển thu nhập OneQR vào đúng ví Business. |
+| Chương trình Earnings | Chưa tìm thấy luồng FE và endpoint tương ứng trong API contract BE đã đọc cho bật/tắt kiếm tiền, sổ thu nhập, dự phòng, cấu hình phân bổ và payout OneQR. | Các năng lực này là phần cần triển khai hoặc xác minh tích hợp. Không lấy payout tip, thu nhập nhân viên hoặc các khoản hoa hồng khác làm bằng chứng đã có Earnings OneQR. |
 
 #### Phạm vi áp dụng
 
@@ -438,7 +452,7 @@ stateDiagram-v2
 18. **💰 Đối chiếu phân bổ:** tổng giá trị USD phân bổ cho các loại phải khớp giá trị đủ chi. Số đơn vị thực nhận phụ thuộc tỷ giá và phí đã công khai; mọi chênh lệch làm tròn phải được giải thích và xử lý theo chính sách được duyệt. Không cộng trực tiếp số đơn vị khác loại hoặc dùng tỷ giá hiện tại để sửa lịch sử giá trị gốc.
 19. **💰 Chi trả từng phần:** mỗi phần tiền có tham chiếu và kết quả riêng. Khi một phần đã ghi có, chỉ số đó là đã nhận; giữ phần còn lại để xử lý, không đưa vào kỳ chi khác đồng thời. Thử lại không đổi phiên bản/tỷ lệ phân bổ, không gửi lại phần thành công và không coi timeout là đã thất bại. Thu hồi sau chi căn cứ phần thưởng gốc mất điều kiện hưởng, không tự tính công nợ theo biến động giá loại tiền đã nhận.
 
-#### Cách tính theo chính sách ngày 21/09
+#### Cách tính theo chính sách ngày 21 tháng 9 năm 2026
 
 Các giá trị sau lấy từ bản user chọn làm nguồn chuẩn cho story; lưu theo phiên bản chính sách/campaign, không hardcode vào FE.
 
@@ -536,6 +550,10 @@ Tỷ lệ **20%** và thời gian **30 ngày giữ thêm** dưới đây chỉ �
 
 ### Câu hỏi thường gặp
 
+**Code hiện tại đã có kiếm tiền và payout OneQR chưa?**
+
+Chưa tìm thấy đầy đủ luồng trong hai repository và API contract đã đối chiếu. Các bảng bước, trạng thái và công thức trong tài liệu là yêu cầu nghiệp vụ; tracking menu và thanh toán Ads Credit chưa chứng minh đã ghi nhận hoặc chi trả thu nhập OneQR.
+
 **Quét QR là có tiền ngay?**
 
 Không. Chỉ hoạt động đủ điều kiện của campaign và có nguồn hợp lệ mới được xét thưởng.
@@ -597,7 +615,17 @@ Các tài liệu nguồn có liên kết dưới đây được đính kèm tron
 
 #### Hiện trạng và phụ thuộc tích hợp — tham chiếu nội bộ
 
-Đối chiếu mã giao diện trên nhánh `staging`, mã phiên bản `58c41d9352b604209d375ab8dfab7c24763b8def`, ngày 24 tháng 9 năm 2026: đã có OneQR (tệp `src/data/repositories/merchantOneQr.ts`, tham chiếu nội bộ), tracking bấm menu (tệp `src/data/repositories/publicOneQr.ts`, tham chiếu nội bộ), KYB (tệp `src/components/settings/tabs/KybTab.tsx`, tham chiếu nội bộ) và khai báo mở Wallet qua hồ sơ SSO (tệp `src/data/repositories/profileSettings.ts`, tham chiếu nội bộ). Những phần này chưa chứng minh có tích hợp payout earnings OneQR vào VlinkPay. Không lấy payout Tips hoặc trường địa chỉ crypto của phương thức thanh toán làm bằng chứng cho cơ chế ghi có ví SSO.
+Các nguồn dưới đây được đọc tại hai revision `staging` đã xác minh ở phần hiện trạng. Code đã có các điểm tích hợp liên quan; chưa đủ căn cứ khẳng định có chương trình Earnings hoặc payout OneQR. Việc cập nhật tài liệu #1599 không thay đổi tài liệu của ticket đang In Progress/Testing.
+
+| Nguồn mã | Nội dung được xác minh |
+| :--- | :--- |
+| [OneQR doanh nghiệp](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/data/repositories/merchantOneQr.ts) | Đọc/ghi cấu hình và dữ liệu OneQR; không phải contract quản lý thu nhập. |
+| [OneQR công khai](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/data/repositories/publicOneQr.ts) | Lấy menu và gửi tracking bấm module; không xác nhận Publisher Share. |
+| [Ghi nhận bấm module](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/Public/OneQr/Commands/TrackOneQrModuleClick/TrackOneQrModuleClickCommand.cs) | Tracking truy cập và chống lặp trong analytics; không có bút toán thu nhập hoặc payout. |
+| [Xác minh doanh nghiệp](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/settings/tabs/KybTab.tsx) | Kế thừa trải nghiệm KYB; mapping với quyền kiếm tiền còn cần chốt. |
+| [Tài khoản và ví SSO](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/data/repositories/profileSettings.ts) | Định vị điểm mở ví; chưa chứng minh ghi có thu nhập OneQR. |
+| [Thanh toán Ads Credit bằng ví](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/AdsCredit/Commands/PurchaseAdsCreditWithWallet/PurchaseAdsCreditWithWalletCommand.cs) | Gọi thanh toán VlinkPay để mua credit; chiều tiền khác với payout Earnings. |
+| [API contract](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Web/wwwroot/api/specification.json) | Chưa thấy endpoint Earnings OneQR cho các chức năng trong phạm vi tài liệu. |
 
 Các điểm cần xác nhận trước tích hợp/phát hành, không tự đặt giá trị trong story:
 

@@ -1,18 +1,33 @@
 ## Promotion Studio & Ads Credit — Tổng quan kết nối
 
-**Cập nhật lần cuối:** 24 tháng 9 năm 2026
+**Cập nhật lần cuối:** 5 tháng 10 năm 2026
 
 **Đối tượng đọc:** Chủ doanh nghiệp (Business Owner), người phụ trách sản phẩm, BA, QA, bộ phận hỗ trợ
 
 **Trạng thái:** Đang rà soát
 
-**Bản chia sẻ:** [Tài liệu trên GitHub](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-studio-ads-credit-overview.md)
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/promotion-code-skill-audit/nexora/docs/business/promotion-studio-ads-credit-overview.md)
+
+**Ticket:** [#1778](https://github.com/vlink-group/vlink-nexora/issues/1778) — Confirmed tại thời điểm rà soát; chưa bắt đầu xử lý.
 
 ### Tổng quan
 
-Promotion Studio và Ads Credit giúp tiệm đưa ưu đãi đến khách và kiểm soát chi phí quảng bá bằng cách kết nối nội dung Promotion với nguồn tiền chạy quảng cáo. Promotion Studio cho phép tạo ưu đãi, chọn kênh chia sẻ và theo dõi hiệu quả; Ads Credit cung cấp số dư trả trước để thanh toán Paid Boost trên mạng Nexora. Owner hoặc người được phân quyền chuẩn bị nội dung; Owner xác nhận xuất bản, ngân sách, nạp và chọn credit, còn Admin duyệt nội dung thuộc phạm vi phụ trách.
+Promotion Studio và Ads Credit giúp tiệm đưa ưu đãi đến khách và kiểm soát chi phí quảng bá bằng cách kết nối nội dung Promotion với nguồn tiền chạy quảng cáo. Hành trình mục tiêu cho phép tạo ưu đãi, chọn kênh chia sẻ và theo dõi hiệu quả; Ads Credit cung cấp số dư trả trước để thanh toán Paid Boost trên mạng Nexora. Owner hoặc người được phân quyền chuẩn bị nội dung; Owner xác nhận xuất bản, ngân sách, nạp và chọn credit, còn Admin duyệt nội dung thuộc phạm vi phụ trách.
 
 **Phạm vi:** bản tổng quan hành trình dự kiến, có phần kênh chia sẻ theo bản PO ngày 24 tháng 9 năm 2026. Không phải xác nhận toàn bộ chức năng đã triển khai trên staging; chi tiết từng nghiệp vụ được liên kết cuối tài liệu.
+
+#### Hiện trạng đối chiếu mã nguồn
+
+Rà soát ngày **5 tháng 10 năm 2026**, chỉ đọc mã nguồn `staging` của cả frontend và backend. Đã xác minh đầu nhánh trên GitHub: frontend [`27c5ebc`](https://github.com/vlink-group/vlink-nexora-fe/commit/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e); backend [`a7a46d3`](https://github.com/vlink-group/vlink-nexora/commit/a7a46d314036f9d83c910aead411182480249bea). Không thử giao dịch, kiểm duyệt hoặc phân phối trên môi trường triển khai.
+
+| Phần nghiệp vụ | Đã có trong code tham chiếu | Điểm nối còn cần triển khai hoặc xác minh |
+| :--- | :--- | :--- |
+| Promotion tại POS | Danh sách, mẫu, tạo/sửa, nhân bản ở trạng thái tắt, nhiều banner, bật/tắt và xóa có điều kiện. Có lựa chọn OneQR và gửi Search Deals. | Cờ gửi Search Deals chưa chứng minh đã được duyệt hoặc phân phối. Contract quản lý Promotion chưa có campaign, ngân sách hoặc nguồn Ads Credit. |
+| Khách xem và dùng ưu đãi | Có banner booking và check-in. POS xét chương trình đang bật, thứ/giờ theo thời điểm check-in tại múi giờ tiệm; thời điểm kết thúc khung giờ không được tính. | Banner check-in hiện chỉ lọc chương trình đang bật; thấy banner chưa chứng minh đủ điều kiện giảm giá. Chưa xác minh giữ nguồn quảng cáo tới booking/POS. |
+| Ads Credit | Tab riêng trong Quản lý gói; nạp thẻ hoặc ví VlinkPay được hỗ trợ; mức nhanh/Custom, đồng ý điều khoản, tra cứu trạng thái, số dư, lịch sử và biên nhận. BE đã có cơ chế giữ, giải phóng, ghi phí và hoàn credit. | Chưa thấy campaign Paid Boost gọi các cơ chế này trong hai repository đã đọc. Có số dư/phần giữ/tổng chi không chứng minh đã có phân phối quảng cáo. |
+| Paid Boost và báo cáo | Chưa tìm thấy luồng campaign quảng cáo Promotion hoàn chỉnh trong FE hoặc API contract BE đã đọc. | Quyền quảng cáo, duyệt theo phiên bản, ngân sách, phân phối, tính phí theo mô hình, báo cáo và tự chạy lại sau nạp vẫn là yêu cầu tích hợp. SMS campaign là nghiệp vụ riêng. |
+
+**Ranh giới cập nhật:** Chỉ sửa tài liệu tổng quan của #1778. Tài liệu #1747 đang In Progress và #1749 đang Testing được giữ nguyên; mô tả hiện trạng ở bảng này lấy trực tiếp từ code, không dùng mô tả cũ trong tài liệu liên quan để kết luận chức năng chưa tồn tại.
 
 ### Khái niệm chính
 
@@ -42,7 +57,9 @@ Promotion Studio và Ads Credit giúp tiệm đưa ưu đãi đến khách và k
 
 **Người thực hiện chính:** Business Owner.  
 **Điểm bắt đầu:** Tiệm muốn giới thiệu một ưu đãi tới khách.  
-**Kết quả:** Promotion xuất hiện ở kênh hợp lệ; nếu có Paid Boost, chi phí được ghi đúng nguồn và kết quả được theo dõi.
+**Kết quả mục tiêu sau tích hợp:** Promotion xuất hiện ở kênh hợp lệ; nếu có Paid Boost, chi phí được ghi đúng nguồn và kết quả được theo dõi.
+
+**Mức độ triển khai:** Bảng bước và sơ đồ dưới đây mô tả hành trình mục tiêu. Bảng hiện trạng phía trên xác định những bước đã có trong code; các bước Paid Boost, giữ ngữ cảnh campaign, báo cáo và tự chạy lại chưa được xác minh triển khai.
 
 **Nhu cầu người dùng:**
 
@@ -57,7 +74,7 @@ Promotion Studio và Ads Credit giúp tiệm đưa ưu đãi đến khách và k
 | 1 | Owner / người được phân quyền | Tạo Promotion: tên, mức giảm, điều kiện, lịch và banner. | Lưu nội dung dùng chung cho các kênh. | Có thể bắt đầu từ mẫu hoặc gợi ý AI; Owner kiểm tra trước xuất bản. |
 | 2 | Owner | Chọn POS/OneQR của tiệm hoặc gửi Public. | Áp dụng nội bộ theo điều kiện; Public qua phê duyệt. | Không tự bật Paid Boost hoặc trừ credit. |
 | 3 | Owner | Nếu cần tiếp cận thêm khách, thiết lập Paid Boost. | Gắn campaign với Promotion, đối tượng/khu vực, vị trí, lịch và ngân sách. | Promotion Public và campaign cần được duyệt. |
-| 4 | Owner | Chọn Ads Credit; 💰 chủ động nạp bằng thẻ tại Quản lý gói nếu thiếu. | Xác nhận thanh toán, 💰 cấp credit và cập nhật số dư. | Có thể nạp trước; nếu nạp từ campaign thì giữ ngữ cảnh quay lại. |
+| 4 | Owner | Chọn Ads Credit; 💰 chủ động nạp bằng thẻ hoặc ví được hỗ trợ tại Quản lý gói nếu thiếu. | Xác nhận thanh toán, 💰 cấp credit và cập nhật số dư. | Có thể nạp trước; nếu nạp từ campaign thì giữ ngữ cảnh quay lại. |
 | 5 | Hệ thống | Kiểm tra điều kiện chạy. | Phân phối quảng cáo khi đủ phê duyệt, lịch, ngân sách, quyền và credit. | Nạp thành công không tự bật bản nháp hoặc bỏ hạn chế. |
 | 6 | Hệ thống | Xác minh hoạt động hoặc phân phối đủ điều kiện tính phí. | 💰 Ghi chi phí vào Ads Credit theo mô hình đã chọn. | CPC, CPL, CPA hoặc Sponsored Placement; không trừ cả ngân sách lúc tạo. |
 | 7 | Owner | Xem hiệu quả trong Studio, chi tiết campaign và lịch sử Ads Credit. | Phân biệt kết quả theo kênh, lượt dùng, doanh thu và chi phí có căn cứ. | Xem được hiệu quả Promotion cả khi không chạy Ads. |
@@ -77,7 +94,7 @@ flowchart TD
     H -- Có --> J[Thiết lập Paid Boost]
     J --> K[Chọn nguồn Ads Credit]
     K --> L{Đủ credit khả dụng?}
-    L -- Chưa --> M[💰 Chủ động nạp bằng thẻ]
+    L -- Chưa --> M[💰 Nạp thẻ hoặc ví]
     M --> N[💰 Cấp credit sau xác nhận]
     N --> L
     L -- Đủ --> O{Đủ điều kiện chạy?}
@@ -104,9 +121,29 @@ Các kênh mở rộng được mô tả chi tiết trong tài liệu Promotion;
 
 ### Vòng đời trạng thái
 
-Các sơ đồ sau là phần tóm tắt nghiệp vụ mục tiêu, không phải xác nhận trạng thái kỹ thuật đã tồn tại. Vòng đời chi tiết nằm trong tài liệu sở hữu từng chức năng.
+Vòng đời bật/tắt Promotion và giao dịch nạp dưới đây dựa trên code. Vòng duyệt Public và campaign là nghiệp vụ mục tiêu cần tích hợp, chưa phải trạng thái đã được xác minh triển khai.
 
-#### Quyền Public của Promotion
+#### Bật/tắt Promotion hiện có
+
+| Trạng thái hiện tại | Sự kiện chuyển trạng thái | Trạng thái mới | Ghi chú |
+| :--- | :--- | :--- | :--- |
+| Chưa tạo | Lưu mới hoặc nhân bản theo mặc định giao diện | Đang tắt | Lưu chưa phải phê duyệt Public. |
+| Đang tắt | Người có quyền bật chương trình | Đang bật | POS còn xét thứ/giờ theo check-in. |
+| Đang bật | Người có quyền tắt chương trình | Đang tắt | Giữ lịch sử giao dịch đã áp dụng. |
+| Đang bật / đang tắt | Xóa chương trình chưa được sử dụng | Đã xóa | BE chặn xóa khi đã được sử dụng. |
+
+```mermaid
+stateDiagram-v2
+    state "Đang tắt" as Disabled
+    state "Đang bật" as Enabled
+    [*] --> Disabled : Lưu theo mặc định giao diện
+    Disabled --> Enabled : Bật chương trình
+    Enabled --> Disabled : Tắt chương trình
+    Disabled --> [*] : Xóa chương trình chưa dùng
+    Enabled --> [*] : Xóa chương trình chưa dùng
+```
+
+#### Quyền Public của Promotion — mục tiêu
 
 | Trạng thái hiện tại | Sự kiện chuyển trạng thái | Trạng thái mới | Ghi chú |
 | :--- | :--- | :--- | :--- |
@@ -133,34 +170,36 @@ stateDiagram-v2
     Revoked --> Review : Gửi lại nếu được phép
 ```
 
-#### Nạp Ads Credit
+#### Nạp Ads Credit — trạng thái hiện có
+
+Đơn nạp trong API có ba trạng thái: **Đang xử lý** (`Pending`), **Hoàn tất** (`Completed`) và **Không thành công** (`Failed`). Chọn số tiền, nhập thẻ và chờ xác nhận là các bước trải nghiệm; API chưa tách chúng thành trạng thái đơn riêng.
 
 | Trạng thái hiện tại | Sự kiện chuyển trạng thái | Trạng thái mới | Ghi chú |
 | :--- | :--- | :--- | :--- |
-| Chờ thanh toán | Owner xác nhận | Đang thanh toán | 💰 Bắt đầu thanh toán thẻ. |
-| Đang thanh toán | 💰 Xác nhận đã thu tiền | Chờ cấp credit | Chưa báo số dư đã tăng. |
-| Đang thanh toán | Xác nhận thất bại hoặc hủy trước thu tiền | Không thành công | Không cấp credit. |
-| Đang thanh toán | Chưa rõ kết quả | Đang thanh toán | Tra cứu giao dịch cũ; không tạo lần thu mới chỉ vì phản hồi chậm. |
-| Chờ cấp credit | 💰 Xác nhận cấp credit | Hoàn tất | Có thể đánh giá khôi phục campaign. |
+| Chưa có đơn | Owner khởi tạo lần nạp hợp lệ và đồng ý điều khoản | Đang xử lý | Thẻ hoặc ví được hỗ trợ; chưa cộng số dư. |
+| Đang xử lý | Chưa xác định được kết quả thanh toán | Đang xử lý | Không coi timeout là chắc chắn thất bại; tra cứu đơn cũ. |
+| Đang xử lý | Hệ thống xác nhận thanh toán hợp lệ và 💰 cấp credit | Hoàn tất | Ghi tăng số dư một lần; biên nhận chỉ có cho đơn hoàn tất. |
+| Đang xử lý | Nhận kết quả không thành công | Không thành công | Không cấp credit. |
+| Không thành công | Nhận xác nhận thanh toán thành công đến muộn | Hoàn tất | Cơ chế ghi nhận BE cho phép xác nhận lại; phải tránh cộng trùng. |
+| Hoàn tất | Nhận lại cùng kết quả thanh toán | Hoàn tất | Không cộng thêm credit. |
 
 ```mermaid
 stateDiagram-v2
-    state "Chờ thanh toán" as Awaiting
-    state "Đang thanh toán" as Processing
-    state "Chờ cấp credit" as Posting
-    state "Không thành công" as Failed
+    state "Đang xử lý" as Processing
     state "Hoàn tất" as Completed
-    [*] --> Awaiting : Owner chọn số tiền
-    Awaiting --> Processing : 💰 Xác nhận thanh toán
+    state "Không thành công" as Failed
+    [*] --> Processing : Khởi tạo đơn nạp
     Processing --> Processing : Chưa rõ kết quả
-    Processing --> Posting : 💰 Xác nhận đã thu tiền
-    Processing --> Failed : Xác nhận thất bại hoặc hủy
-    Posting --> Completed : 💰 Xác nhận cấp credit
-    Failed --> [*] : Kết thúc lần nạp
-    Completed --> [*] : Lưu lịch sử nạp
+    Processing --> Completed : 💰 Xác nhận và cấp credit
+    Processing --> Failed : Xác nhận không thành công
+    Failed --> Completed : 💰 Xác nhận muộn và cấp credit
+    Completed --> Completed : Nhận lại cùng kết quả
+    Completed --> [*] : Lưu lịch sử đơn nạp
 ```
 
-#### Campaign ở giai đoạn phân phối
+**Điểm cần xác minh khi tích hợp:** Tra cứu trạng thái hiện đọc kết quả đã lưu; không tự xác minh lại thanh toán ví chỉ vì Owner tải lại. Việc khôi phục giao dịch chưa rõ kết quả cần được đối chiếu với bên thanh toán. Nạp hoàn tất hiện cập nhật dữ liệu Ads Credit ở FE; chưa thấy tín hiệu nối với Paid Boost để tự chạy lại.
+
+#### Campaign ở giai đoạn phân phối — mục tiêu
 
 | Trạng thái hiện tại | Sự kiện chuyển trạng thái | Trạng thái mới | Ghi chú |
 | :--- | :--- | :--- | :--- |
@@ -215,11 +254,15 @@ stateDiagram-v2
 **Có cần nạp Ads Credit để áp dụng ưu đãi tại POS hoặc OneQR của tiệm không?**  
 Không tính phí quảng cáo network cho hiển thị nội bộ; dịch vụ khác có chính sách riêng.
 
+**Nạp xong thì campaign đã tự chạy lại chưa?**
+
+Chưa có bằng chứng từ code đã đọc. FE tải lại dữ liệu Ads Credit sau kết quả nạp; tự chạy lại campaign là yêu cầu tích hợp riêng, còn phụ thuộc duyệt, lịch, ngân sách và quyền.
+
 **Có thể nạp trước khi tạo campaign không?**  
 Có. Owner có thể nạp trước hoặc nạp khi chuẩn bị campaign mà số dư chưa đủ.
 
 **Xem hiệu quả ở đâu?**  
-Trong Studio xem hiệu quả Promotion; trong campaign xem sâu chi phí và chuyển đổi; tại Ads Credit xem số dư, lịch sử và biên nhận.
+Theo thiết kế mục tiêu: Studio xem hiệu quả Promotion, campaign xem chi phí và chuyển đổi. Code hiện có Ads Credit để xem số dư, lịch sử và biên nhận; chưa thấy đầy đủ hai phần báo cáo quảng cáo trong phạm vi đối chiếu.
 
 ### Tính năng liên quan
 
@@ -228,4 +271,19 @@ Trong Studio xem hiệu quả Promotion; trong campaign xem sâu chi phí và ch
 | [Promotion Studio và quảng cáo](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-publishing-ads.md) | Mô tả chi tiết tạo ưu đãi, chọn kênh, chia sẻ, kiểm duyệt, phân phối và theo dõi hiệu quả của nội dung/campaign. |
 | [Ads Credit — nghiệp vụ chi tiết](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md) | Mô tả điều khoản, nạp thẻ, cấp credit, số dư và đối soát chi phí; là nguồn thanh toán cho campaign đủ điều kiện. |
 | [Ads Credit — phạm vi triển khai rút gọn](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit-ticket.md) | Tóm tắt luồng nạp và sử dụng credit cùng các điều kiện nghiệm thu, phục vụ thống nhất phạm vi thực hiện. |
-| [Business OneQR Earnings](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/business-oneqr-earnings.md) và [Sponsor Override](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/oneqr-sponsor-override.md) | Quản lý các phần thu nhập, đối soát và chi trả phát sinh từ sự kiện được xác nhận; không tạo một cơ chế chi trả riêng trong bản tổng quan này. |
+| [Business OneQR Earnings](https://github.com/vlink-group/VlinkPay/blob/docs/promotion-code-skill-audit/nexora/docs/business/business-oneqr-earnings.md) và [Sponsor Override](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/oneqr-sponsor-override.md) | Quản lý các phần thu nhập, đối soát và chi trả phát sinh từ sự kiện được xác nhận; không tạo một cơ chế chi trả riêng trong bản tổng quan này. |
+
+#### Căn cứ mã nguồn — tham chiếu nội bộ
+
+Các liên kết cố định theo hai revision đã xác minh ở trên. Đây là căn cứ đọc code, không phải bằng chứng API live hoặc giao dịch thanh toán đã được kiểm thử.
+
+| Nguồn | Nội dung được xác minh |
+| :--- | :--- |
+| [Contract Promotion](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/data/repositories/posPromotions.ts) | Danh sách/chi tiết, mẫu, tạo/sửa/xóa; nhiều banner, lịch tuần/giờ và lựa chọn hiển thị. |
+| [Điều kiện POS](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/Pos/Orders/Queries/GetEligiblePromotions/GetEligiblePromotionsQuery.cs) | Dùng giờ check-in tại múi giờ tiệm; xét trạng thái, thứ và khung giờ. |
+| [Banner check-in](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/checkin/parts/CheckInActivePromotionsSection.tsx) | Lọc chương trình đang bật; không thay kiểm tra điều kiện ở POS. |
+| [Tích hợp Ads Credit](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/data/repositories/adsCredit.ts) | Đã gọi API số dư, lựa chọn nạp, lịch sử, nạp thẻ/ví, trạng thái và biên nhận. |
+| [API Ads Credit](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Web/Controllers/Merchant/MerchantAdsCreditController.cs) | Các chức năng nạp/đọc đã có endpoint riêng; không phụ thuộc API subscription phải thêm loại Ads Credit. |
+| [Ghi nhận nạp](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/AdsCredit/Services/AdsCreditTopUpSettler.cs) | Xác nhận kết quả, cấp credit, khóa số dư và chống ghi nhận trùng; không gọi luồng tự chạy Paid Boost. |
+| [Giữ và sử dụng credit](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/AdsCredit/Services/AdsCreditTransactionService.cs) | Có nền giữ/giải phóng/ghi phí/hoàn credit; chưa thấy luồng campaign Promotion gọi nền này. |
+| [API contract](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Web/wwwroot/api/specification.json) | Đối chiếu API quảng cáo trong contract hiện có; SMS campaign không phải Paid Boost của Promotion. |
