@@ -1,12 +1,12 @@
 ## POS — Cấu hình Steps và Materials cho dịch vụ
 
-**Cập nhật lần cuối:** 24 tháng 9 năm 2026
+**Cập nhật lần cuối:** 5 tháng 10 năm 2026
 
 **Đối tượng đọc:** Quản lý sản phẩm, BA, QA, quản lý salon, bộ phận hỗ trợ và đội phát triển
 
 **Trạng thái:** Đang rà soát
 
-**Bản chia sẻ:** [Tài liệu trên GitHub](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/pos-service-steps-materials.md)
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/promotion-code-skill-audit/nexora/docs/business/pos-service-steps-materials.md)
 
 ---
 
@@ -24,6 +24,18 @@ Tài liệu mô tả yêu cầu mới cho phần hướng dẫn dịch vụ tron
 - Giữ hành vi khóa chỉnh sửa hướng dẫn đối với Custom service.
 
 **Ngoài phạm vi:** Màn hình hướng dẫn riêng cho nhân viên/khách hàng; quản lý tồn kho, định mức hoặc tự tính Supply Fee từ Materials; quy trình phê duyệt hướng dẫn riêng. Đồng bộ máy chủ/thiết bị khác và hợp đồng API chưa được xác định trong mô tả nguồn.
+
+#### Hiện trạng `staging` và phần cần triển khai
+
+Đọc code vừa fetch lúc 18:33 ngày 5 tháng 10 năm 2026: giao diện [phiên bản `27c5ebc`](https://github.com/vlink-group/vlink-nexora-fe/tree/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e), máy chủ [phiên bản `a7a46d3`](https://github.com/vlink-group/vlink-nexora/tree/a7a46d314036f9d83c910aead411182480249bea). Các luồng Steps/Materials bên dưới mô tả yêu cầu mới từ HTML, chưa xác nhận đã có trong ứng dụng.
+
+| Thành phần | Code hiện có | Yêu cầu nâng cấp / điểm cần chốt |
+| :--- | :--- | :--- |
+| Hướng dẫn dịch vụ | Một ô mô tả văn bản thường, giới hạn 1.000 ký tự trên cả giao diện và lệnh tạo/sửa máy chủ. | Danh sách Steps có tiêu đề, mô tả và ảnh riêng; Materials có định dạng dùng chung. Giới hạn 1.000 ký tự hiện tại không tự trở thành giới hạn của từng Step hoặc Materials. |
+| Ảnh | Một ảnh đại diện dịch vụ; chưa có dữ liệu ảnh theo bước trong phần gửi/lưu dịch vụ được đọc. | Giữ ảnh đại diện độc lập; bổ sung cách lưu, thay và xóa ảnh từng Step. |
+| Lưu dữ liệu | Tạo/sửa dịch vụ qua API máy chủ; chưa có trường danh sách bước hoặc nguyên vật liệu tách riêng. | Chốt contract cho cấu trúc mới và nội dung cũ. Bộ nhớ trình duyệt trong HTML chỉ là cách lưu của prototype. |
+| Quyền quản lý | Lệnh tạo/sửa đang tìm doanh nghiệp có chủ sở hữu là người dùng hiện tại. | “Người quản lý cấu hình dịch vụ” bên dưới là vai trò yêu cầu; cần chốt quyền Manager, không suy đã có quyền từ tên vai trò trên HTML. |
+| Dữ liệu cũ | API hiện nhận một mô tả chung; chưa thấy cơ chế chuyển nội dung cũ sang Steps/Materials. | Hành vi chuyển phần chữ vào bước đầu, giữ bản cũ và tránh tự phục hồi nội dung đã xóa là yêu cầu cần triển khai. |
 
 ---
 
@@ -396,7 +408,9 @@ Các mục dưới đây là những phần của cấu hình dịch vụ; chưa
 
 - **Yêu cầu nghiệp vụ:** Mô tả “POS — Cấu hình Steps và Materials cho dịch vụ” do người dùng cung cấp ngày 24 tháng 9 năm 2026.
 - **Tham chiếu giao diện:** Bản HTML ở liên kết trên; mở View / Edit của một dịch vụ để xem phần Steps và Materials.
-- **Hiện trạng ứng dụng:** Đối chiếu nhánh `staging` tại mã phiên bản `58c41d9352b604209d375ab8dfab7c24763b8def` ngày 24 tháng 9 năm 2026 cho thấy biểu mẫu và phần gửi dữ liệu lưu dịch vụ được kiểm tra chưa có Steps và Materials tách riêng. Tài liệu mô tả yêu cầu mới, không xác nhận khả năng hiện tại của backend.
+- **Giao diện hiện tại:** [Biểu mẫu dịch vụ](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/dashboard/views/services/ServicesPricingServiceEditor.tsx) và [phần gửi dữ liệu dịch vụ](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/data/repositories/posServices.ts): một mô tả văn bản thường và ảnh dịch vụ, chưa có Steps/Materials tách riêng.
+- **Máy chủ hiện tại:** [Tạo dịch vụ](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/Shared/Services/Commands/CreateService/CreateServiceCommand.cs) và [Sửa dịch vụ](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/Shared/Services/Commands/UpdateService/UpdateServiceCommand.cs): mô tả tối đa 1.000 ký tự, một ảnh dịch vụ, kiểm tra chủ doanh nghiệp; chưa có cấu trúc mới trong các lệnh này.
+- **Giới hạn kiểm chứng:** Rà soát mã nguồn/contract, không gọi API live, chụp ảnh từ camera hay kiểm thử lưu dữ liệu mới. Không sửa frontend, backend hoặc contract trong tác vụ tài liệu này.
 - **Phạm vi đã đối chiếu:** Đội nội bộ xem ghi nhận kiểm tra HTML (bằng chứng lưu nội bộ, không đính kèm bản chia sẻ). Bằng chứng kiểm tra không nằm trong bộ tài liệu chia sẻ; những tiêu chí chưa kiểm thử tiếp tục là yêu cầu nghiệm thu.
 
 ---

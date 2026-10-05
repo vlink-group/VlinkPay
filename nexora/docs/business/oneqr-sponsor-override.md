@@ -6,7 +6,7 @@
 
 **Trạng thái:** Đang rà soát
 
-**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/oneqr-sponsor-override-code-review/nexora/docs/business/oneqr-sponsor-override.md)
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/promotion-code-skill-audit/nexora/docs/business/oneqr-sponsor-override.md)
 
 ### Tổng quan
 
@@ -563,7 +563,7 @@ Không. Trạng thái và hành vi do Admin thiết lập. Tuy nhiên, một kho
 | :--- | :--- |
 | Affiliate — quan hệ giới thiệu | Cung cấp người giới thiệu và cây quan hệ làm căn cứ xét quyền hưởng. Kế thừa quan hệ đã xác lập, không mở chức năng đổi Sponsor. |
 | [Promotion và quảng cáo](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-publishing-ads.md) | Cung cấp sự kiện đủ điều kiện và các điều chỉnh liên quan. Quyền hưởng và số tiền Sponsor được xét theo chính sách chương trình. |
-| [Business OneQR Earnings](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/business-oneqr-earnings.md) | Quản lý thu nhập QR trực tiếp của doanh nghiệp. Có thể tham khảo cách đối soát, dự phòng và tích hợp ví, nhưng không tự áp dụng ngưỡng hoặc kỳ chi của Business cho Sponsor. |
+| [Business OneQR Earnings](https://github.com/vlink-group/VlinkPay/blob/docs/promotion-code-skill-audit/nexora/docs/business/business-oneqr-earnings.md) | Quản lý thu nhập QR trực tiếp của doanh nghiệp. Có thể tham khảo cách đối soát, dự phòng và tích hợp ví, nhưng không tự áp dụng ngưỡng hoặc kỳ chi của Business cho Sponsor. |
 | [Ads Credit](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md) | Là nguồn tiền của bên chạy quảng cáo. Tiền nạp chưa sử dụng không tự tạo khoản Sponsor Override. |
 | Ví VlinkPay liên kết SSO | Nhận tiền vào đúng tài khoản Sponsor, xác nhận kết quả từng loại tiền và hỗ trợ đối chiếu khi kết quả chuyển tiền chưa rõ. |
 
@@ -583,8 +583,8 @@ Các tài liệu nguồn có liên kết dưới đây được đính kèm tron
 
 | Nguồn | Phiên bản và cách đối chiếu |
 | :--- | :--- |
-| Giao diện Nexora | Nhánh `staging` trên GitHub tại [phiên bản `27c5ebc`](https://github.com/vlink-group/vlink-nexora-fe/tree/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e). Đọc code local tại `8dc76c5`, sau đó kiểm tra [toàn bộ chênh lệch đến phiên bản GitHub](https://github.com/vlink-group/vlink-nexora-fe/compare/8dc76c5a53d8a867aa274db8f3094551accf0510...27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e): ba commit, tám file về Gift Card Center và SSO quản lý sản phẩm; các file giới thiệu được dẫn bên dưới không thay đổi. |
-| Máy chủ Nexora | Nhánh `staging` tại [phiên bản `a7a46d3`](https://github.com/vlink-group/vlink-nexora/tree/a7a46d314036f9d83c910aead411182480249bea); phiên bản local khớp phiên bản nhánh trên GitHub tại thời điểm rà soát. Đọc lớp đăng ký, tích hợp VlinkPay, OneQR, Ads Credit, controller và hợp đồng API đã sinh trong repository. |
+| Giao diện Nexora | Nhánh `staging` vừa được fetch từ remote đã xác minh lúc 18:33 ngày 5 tháng 10 năm 2026 tại [phiên bản `27c5ebc`](https://github.com/vlink-group/vlink-nexora-fe/tree/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e). Đọc phiên bản này trong checkout chính; các điểm tích hợp giới thiệu bên dưới vẫn khớp kết quả rà soát. |
+| Máy chủ Nexora | Nhánh `staging` vừa được fetch lúc 18:33 ngày 5 tháng 10 năm 2026 tại [phiên bản `a7a46d3`](https://github.com/vlink-group/vlink-nexora/tree/a7a46d314036f9d83c910aead411182480249bea). Đọc lớp đăng ký, tích hợp VlinkPay, OneQR, Ads Credit, controller và hợp đồng API đã sinh trong repository. |
 | Giới hạn kiểm chứng | Rà soát mã nguồn và hợp đồng API trong hai repository Nexora; không gọi API live, kiểm thử UI hoặc thực hiện giao dịch. Chưa kiểm chứng cách VlinkPay lưu/khóa quan hệ, cây đầy đủ hay khả năng chi Sponsor ở hệ thống ngoài Nexora. |
 
 **Kết luận trong phạm vi rà soát:** Có nền tảng giới thiệu và tích hợp VlinkPay để kế thừa. Chưa tìm thấy phần triển khai chương trình OneQR Sponsor Override trong giao diện, nghiệp vụ máy chủ, sổ dữ liệu hoặc hợp đồng API Nexora được đọc. Các quyết định nghiệp vụ trong tài liệu vẫn giữ nguyên; không lấy khoảng trống triển khai để đổi chính sách đã chốt.
