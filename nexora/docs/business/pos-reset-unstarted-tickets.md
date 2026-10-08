@@ -5,6 +5,7 @@
 **Đối tượng:** Chủ tiệm và nhân sự được cấp quyền vận hành POS
 
 **Trạng thái:** Bản nháp
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/enhance/1101-pos-reset-ticket-summary/nexora/docs/business/pos-reset-unstarted-tickets.md)
 
 ### Tổng quan
 
