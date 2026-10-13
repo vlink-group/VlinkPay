@@ -1,107 +1,140 @@
-## OneQR Sponsor — Quan hệ hưởng, cấp Sponsor và chi trả override
+## OneQR Sponsor — Quan hệ hưởng, cấp Sponsor và chi trả Override
 
-**Cập nhật lần cuối:** 5 tháng 10 năm 2026
+**Cập nhật lần cuối:** 13 tháng 10 năm 2026
+**Đối tượng đọc:** Người phụ trách sản phẩm, BA, QA, quản trị viên vận hành, bộ phận hỗ trợ, đội phát triển giao diện và máy chủ
+**Trạng thái:** Đang rà soát (Review)
 
-**Đối tượng đọc:** Sponsor, chủ doanh nghiệp (Business Owner), người dùng cá nhân, nhân viên/đối tác, người phụ trách sản phẩm, BA, quản trị viên vận hành, đội phát triển giao diện, đội phát triển máy chủ, QA, bộ phận hỗ trợ
+---
 
-**Trạng thái:** Đang rà soát
+### Tóm tắt nhanh
 
-**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/promotion-code-skill-audit/nexora/docs/business/oneqr-sponsor-override.md)
+OneQR Sponsor trả cho Sponsor một phần thu nhập (Sponsor Override) khi tài khoản B mà họ giới thiệu hoặc nằm phía trên trên cây affiliate tạo hoạt động OneQR thực tế và đủ điều kiện.
+
+| Giai đoạn | Điều gì xảy ra | Tiền đã vào ví VlinkPay chưa? |
+| :--- | :--- | :--- |
+| 1. Xác lập quan hệ | B đăng ký qua link/QR của A hoặc nằm dưới A trên cây. | Chưa |
+| 2. Xét B active và cấp | Hệ thống xét B theo chính sách hoạt động, xét cấp Sponsor của A. | Chưa |
+| 3. Ghi override | B tạo sự kiện đủ điều kiện → hệ thống tính và ghi khoản chờ đối soát. | Chưa |
+| 4. Đối soát | Khoản được giữ, trích dự phòng hoặc chuyển thành khả dụng. | Chưa |
+| 5. Chi trả | Phần khả dụng được chia theo loại tiền và gửi yêu cầu ghi có. | **Chỉ khi VlinkPay xác nhận ghi có** |
+
+Bốn điều không được hiểu sai:
+
+1. **Có quan hệ, B active hay lên cấp đều không tự tạo tiền** — chỉ sự kiện đủ điều kiện mới tạo override (quy tắc C11).
+2. **Người giới thiệu đã xác lập với B không bao giờ đổi** — không có chức năng đổi Sponsor (quy tắc A4).
+3. Tiền luôn về ví VlinkPay liên kết SSO của chính Sponsor (quy tắc F26).
+4. Mọi con số (kỳ xét, ngưỡng, tỷ lệ, số cấp) do Admin cấu hình — không có mặc định 90 ngày hay 10%.
+
+> Tài liệu mô tả **yêu cầu cần triển khai**, chưa phải hành vi đang chạy. Nexora hiện mới có link/QR giới thiệu và đăng ký có mã giới thiệu (xem Phụ lục → Hiện trạng code).
+
+---
 
 ### Tổng quan
 
-OneQR Sponsor nhằm khuyến khích người tham gia phát triển mạng lưới sử dụng OneQR thực tế bằng cách chia thu nhập override từ hoạt động đủ điều kiện của tài khoản B. Theo yêu cầu đã chốt, hệ thống cần hỗ trợ cấu hình quyền hưởng theo người giới thiệu trực tiếp, người phía trên cây affiliate hoặc cả hai; xét B active và cấp Sponsor; tính, đối soát và chi trả thu nhập vào **ví VlinkPay liên kết SSO của đúng tài khoản Sponsor**. Admin thiết lập và điều chỉnh chính sách, gồm loại tiền nhận và tỷ lệ phân bổ cho mỗi loại; Sponsor thuộc mọi loại tài khoản theo dõi mạng lưới, điều kiện hưởng, khoản thu và lịch sử nhận tiền. Nexora chịu trách nhiệm ghi nhận, đối soát và điều phối chi trả; VlinkPay xác nhận kết quả ghi có vào ví. Người giới thiệu đã xác lập với B được giữ cố định, không có chức năng đổi Sponsor.
+OneQR Sponsor nhằm khuyến khích người tham gia phát triển mạng lưới dùng OneQR thực tế, bằng cách chia thu nhập override từ hoạt động đủ điều kiện của tài khoản B cho Sponsor. Hệ thống cho phép Admin cấu hình ai được hưởng (người giới thiệu trực tiếp, người phía trên cây hay cả hai), điều kiện B active, cấp Sponsor, công thức tính, đối soát, dự phòng, cũng như loại tiền nhận và tỷ lệ phân bổ. Sponsor thuộc mọi loại tài khoản theo dõi mạng lưới, cấp, từng khoản override và lịch sử nhận tiền. Nexora ghi nhận, đối soát và điều phối chi trả; VlinkPay xác nhận kết quả ghi có vào ví.
 
-**Phạm vi và mức độ chốt:** Đã ghi nhận các quyết định nghiệp vụ của người dùng; giá trị chính sách do Admin cấu hình. Các luồng, cấu hình, trạng thái và tiêu chí nghiệm thu bên dưới mô tả yêu cầu cần đáp ứng, không xác nhận đã triển khai đầy đủ.
+**Ngoài phạm vi:** đổi Sponsor (mọi màn hình yêu cầu, duyệt hay cấu hình cho phép đổi), nạp Ads Credit, Campaign Manager, Discovery, trang doanh nghiệp theo template, loyalty của khách, xây lại affiliate/KYC/KYB/ví VlinkPay, rút tiền về ngân hàng. Thu nhập QR trực tiếp của QR Host thuộc tài liệu Business OneQR Earnings.
 
-**Hiện trạng code đã đối chiếu:** Trên `staging`, Nexora đã có QR/link giới thiệu, truyền mã giới thiệu và nhánh cây khi đăng ký, tích hợp tài khoản VlinkPay/SSO và analytics OneQR. Có lớp gọi nội bộ lấy số liệu mạng lưới VlinkPay, nhưng chưa tìm thấy endpoint Nexora hoặc điểm gọi FE cho chức năng này. Trong hai codebase Nexora được rà soát, chưa tìm thấy chương trình Sponsor riêng để tham gia, xét B active/cấp, cấu hình quyền hưởng, ghi sổ override, hồi tố hoặc chi thưởng nhiều loại tiền. Chi tiết phạm vi và căn cứ đối chiếu nằm ở cuối tài liệu.
-
-**Nhu cầu chính:** Là Sponsor, tôi muốn biết tài khoản nào mang lại quyền hưởng cho mình, điều kiện và cách tính từng khoản override, rồi theo dõi tiền nhận qua ví VlinkPay SSO, để hiểu thu nhập và đối chiếu được mọi thay đổi.
-
-**Trong phạm vi:** tham gia Sponsor; sử dụng quan hệ giới thiệu/cây affiliate; cấu hình B active, cấp và quyền hưởng; xử lý trùng người hưởng; tính override; thay đổi chính sách và hồi tố; đối soát, dự phòng, điều chỉnh; phân bổ nhiều loại tiền và chi trả qua ví SSO; màn hình Sponsor và cấu hình Admin liên quan.
-
-**Ngoài phạm vi:** đổi Sponsor đã xác lập với B, bao gồm màn hình yêu cầu đổi, duyệt đổi và cấu hình cho phép đổi; nạp Ads Credit; xây Campaign Manager, Discovery hoặc bộ lọc ngành; xây trang doanh nghiệp theo template; loyalty của khách; xây lại hệ thống affiliate/KYC/KYB hoặc ví VlinkPay; rút từ VlinkPay về ngân hàng. Thu nhập trực tiếp của QR Host thuộc tài liệu Business OneQR Earnings; nhóm này chỉ bổ sung phần Sponsor và các điểm tích hợp cần thiết.
-
-#### Quyết định đã chốt
-
-| Nội dung | Quyết định áp dụng |
-| :--- | :--- |
-| Đối tượng tham gia | Tất cả loại tài khoản, bao gồm Personal, Business, Staff/Partner. Điều kiện hồ sơ, quyền hưởng và nhận tiền vẫn áp dụng theo chính sách tương ứng. |
-| Quan hệ được hưởng | Admin chọn người giới thiệu trực tiếp, người phía trên cây affiliate hoặc cả hai. Quyết định này thay giới hạn chỉ người trực tiếp giới thiệu B. |
-| Trùng người hưởng | Admin cấu hình cộng các khoản, ưu tiên một loại quan hệ hoặc lấy khoản cao hơn. |
-| B active | Admin cấu hình loại sự kiện, ngưỡng số lượng/doanh thu/phí, kỳ xét, active một lần hoặc duy trì định kỳ, điều kiện inactive và kích hoạt lại. Không mặc định 90 ngày. |
-| Cấp và phạm vi hưởng | Admin cấu hình điều kiện cấp, phạm vi/tầng hưởng, tỷ lệ, căn cứ tính và giới hạn. Không cố định số cấp, số tầng hoặc tỷ lệ theo demo. |
-| Hiệu lực và hồi tố | Admin cấu hình ngày hiệu lực, có/không hồi tố và phạm vi áp dụng. |
-| Xuống cấp/B inactive | Admin cấu hình tác động lên sự kiện mới và khoản đã phát sinh. |
-| Quan hệ Sponsor cố định | Người giới thiệu đã xác lập với B không thay đổi. Không có chức năng đổi Sponsor hoặc cấu hình Admin bật chức năng này. Cấu hình trực tiếp/trên cây/cả hai chỉ quyết định quyền hưởng trên quan hệ affiliate, không gán lại người giới thiệu. |
-| Khi cấu hình chưa đủ | **Admin quyết định hành vi và trạng thái chương trình.** Không đặt quy tắc cố định “chưa cấu hình thì chưa kích hoạt”. |
-| Đối soát và dự phòng | Admin cấu hình theo loại tài khoản/phạm vi áp dụng; không tự kế thừa các con số của Business OneQR Earnings. |
-| Nơi nhận tiền | Cố định là ví VlinkPay liên kết SSO của tài khoản Sponsor. Đây không còn là lựa chọn phương thức nhận tiền của Admin. |
-| Loại tiền và tỷ lệ nhận | Admin chọn một hoặc nhiều loại tiền VlinkPay hỗ trợ và tỷ lệ phân bổ; tổng tỷ lệ bằng 100% khoản giá trị được phân bổ để chi. |
-| Phân biệt hai tỷ lệ | Tỷ lệ tính Sponsor Override quyết định giá trị được hưởng. Tỷ lệ phân bổ tiền nhận quyết định chia giá trị được chi sang các loại tiền. |
-
-**Thứ tự áp dụng:** quyết định của user ở bảng trên → cấu hình Admin đã có hiệu lực theo đúng phạm vi → các nguyên tắc còn phù hợp từ bộ HTML. Dùng chính sách Ads/Referral ngày 21/09 làm bối cảnh sự kiện và chia tiền, không biến tỷ lệ đề xuất của HTML thành cấu hình mặc định. Các ví dụ trong tài liệu này chỉ giải thích cách hoạt động.
+---
 
 ### Khái niệm chính
 
-| Thuật ngữ | Ý nghĩa |
+#### Các bên trong quan hệ
+
+| Thuật ngữ | Định nghĩa |
 | :--- | :--- |
-| B / Tài khoản nguồn | Tài khoản có hoạt động OneQR được xét tạo quyền hưởng Sponsor. “ALL được làm Sponsor” không có nghĩa mọi loại tài khoản đã có đầy đủ chức năng QR Host; việc B tạo sự kiện vẫn phụ thuộc chức năng thực tế và chính sách. |
-| Sponsor / Người hưởng | Tài khoản A được xét hưởng từ B theo quan hệ trực tiếp, vị trí trên cây hoặc cả hai. |
-| Người giới thiệu trực tiếp | Người được hệ thống ghi nhận đã giới thiệu B; quan hệ này cố định sau khi xác lập, có thể khác người ngay phía trên B trong cây. |
-| Người phía trên cây | Người nằm trên B theo cây affiliate được chương trình sử dụng. Tầng 1 là nút cha trực tiếp trên cây đó; không mặc định đồng nghĩa người giới thiệu. |
-| B active | Trạng thái B đạt chính sách hoạt động của chương trình Sponsor; khác trạng thái đăng nhập hoặc tài khoản đang sử dụng được. |
-| Cấp Sponsor | Kết quả xét điều kiện của A, mở phạm vi/quyền hưởng theo chính sách. Khác tầng của A so với B trên cây. |
-| Sponsor Override | Phần thu nhập của Sponsor từ sự kiện đủ điều kiện; tách với Publisher Share của B và thu nhập trực tiếp của A. |
-| Căn cứ tính | Giá trị chính sách chọn để tính override, ví dụ phí sự kiện hợp lệ; không mặc định là toàn bộ hóa đơn hoặc Publisher Share của B. |
-| Kỳ xét | Khoảng thời gian dùng đánh giá hoạt động hoặc cấp. Admin cấu hình; không đồng nhất với thời gian chờ đối soát. |
-| Chính sách được lưu theo khoản | Bản ghi quan hệ, cấp, điều kiện, căn cứ tính, tỷ lệ và phiên bản đã dùng cho khoản thu; dùng để giải thích và tính điều chỉnh sau này. |
-| Hồi tố | Xét lại sự kiện thuộc khoảng thời gian trước ngày áp dụng theo phạm vi Admin cho phép; không phải tự sửa mất lịch sử cũ. |
-| Ví VlinkPay SSO | Ví được hệ thống xác nhận thuộc đúng tài khoản Sponsor đã liên kết. Đăng nhập SSO thành công chưa chứng minh ví hỗ trợ mọi loại tiền được cấu hình. |
-| Phân bổ tiền nhận | Chia giá trị đủ chi theo tỷ lệ từng loại tiền, sau đó xác định số đơn vị nhận bằng quy tắc quy đổi đã công bố. |
-| Hold / Dự phòng | Hold là giữ khoản cần kiểm tra; dự phòng là phần trích giữ theo chính sách. Cả hai chưa phải tiền được ghi có vào VlinkPay. |
+| B (Tài khoản nguồn) | Tài khoản có hoạt động OneQR được xét để tạo quyền hưởng cho Sponsor. |
+| Sponsor (Người hưởng, A) | Tài khoản được xét hưởng từ B theo quan hệ trực tiếp, vị trí trên cây, hoặc cả hai. |
+| Người giới thiệu trực tiếp | Người mà hệ thống affiliate ghi nhận đã giới thiệu B. Cố định sau khi xác lập. |
+| Người phía trên cây | Người nằm trên B trong cây affiliate được chương trình dùng. Tầng 1 là nút cha trực tiếp. |
+
+**Người giới thiệu trực tiếp và người phía trên cây có thể là hai người khác nhau.**
+
+| | Người giới thiệu trực tiếp | Người phía trên cây |
+| :--- | :--- | :--- |
+| Căn cứ | Ai đã mời B | B nằm ở đâu trên cây |
+| Số lượng | Đúng một người | Nhiều người, theo tầng |
+| Xét khi Admin chọn | Trực tiếp hoặc Cả hai | Trên cây hoặc Cả hai |
+
+#### Trạng thái và cấp
+
+| Thuật ngữ | Định nghĩa |
+| :--- | :--- |
+| B active | B đạt chính sách hoạt động của chương trình Sponsor. Khác trạng thái tài khoản đăng nhập được. |
+| Cấp Sponsor | Kết quả xét điều kiện của A, quyết định A được hưởng từ những tầng nào và tỷ lệ bao nhiêu. |
+| Tầng | Khoảng cách giữa A và B trên cây. Cấp là thuộc tính của A; tầng là vị trí tương đối giữa A và B. |
+| Kỳ xét | Khoảng thời gian dùng để đánh giá B active hoặc cấp. Khác thời gian chờ đối soát. |
+
+#### Tiền
+
+| Thuật ngữ | Định nghĩa |
+| :--- | :--- |
+| Sự kiện đủ điều kiện | Hoạt động OneQR của B có phí hợp lệ, được chính sách chọn làm cơ sở tạo override. |
+| Sponsor Override | Phần thu nhập của Sponsor từ một sự kiện đủ điều kiện. Tách riêng với Publisher Share của B và thu nhập QR trực tiếp của A. |
+| Căn cứ tính | Giá trị chính sách chọn để tính override, ví dụ phí sự kiện hợp lệ. |
+| Hold (Đang giữ) | Khoản bị giữ lại để kiểm tra. |
+| Dự phòng | Phần được trích giữ theo chính sách, có thời hạn và điều kiện giải phóng. |
+| Ví VlinkPay SSO | Ví được hệ thống xác nhận thuộc đúng tài khoản Sponsor đã liên kết SSO. |
+
+**Hai tỷ lệ khác nhau, không dùng thay cho nhau:**
+
+| | Tỷ lệ override | Tỷ lệ phân bổ tiền nhận |
+| :--- | :--- | :--- |
+| Quyết định | Sponsor được hưởng bao nhiêu | Phần được chi chia sang các loại tiền thế nào |
+| Áp dụng lúc | Khi tính khoản override | Sau đối soát, dự phòng và khấu trừ |
+| Ràng buộc | Theo quan hệ, cấp, tầng | Tổng các loại tiền bằng 100% |
+
+#### Chính sách
+
+| Thuật ngữ | Định nghĩa |
+| :--- | :--- |
+| Phiên bản chính sách | Một bộ cấu hình có phạm vi và ngày hiệu lực. |
+| Chính sách được lưu theo khoản | Quan hệ, tầng, cấp, căn cứ, tỷ lệ và phiên bản đã dùng để tính một khoản. Dùng để giải thích và điều chỉnh về sau. |
+| Hồi tố | Xét lại sự kiện trước ngày hiệu lực, trong phạm vi Admin cho phép. Hồi tố tạo khoản chênh lệch, không xoá lịch sử. |
+
+---
 
 ### Vai trò người dùng
 
 | Vai trò | Trách nhiệm |
 | :--- | :--- |
-| Sponsor | Xem chính sách, tham gia, hoàn thiện hồ sơ, chia sẻ link nếu là người giới thiệu, theo dõi mạng lưới/cấp/override và tiền nhận. |
-| B | Hoàn thiện các điều kiện phù hợp, sử dụng OneQR và tạo hoạt động thực tế; không tự đánh dấu mình active hoặc tự xác nhận tiền cho Sponsor. |
-| Chủ doanh nghiệp (Business Owner) | Đại diện Business tham gia và xem dữ liệu đúng quyền. Staff thuộc Business không tự được xem thu nhập Sponsor của Business; tư cách Sponsor riêng của Staff được xét trên tài khoản của họ. |
-| Admin được phân quyền | Thiết lập và phát hành chính sách; tra cứu quan hệ, xử lý hồi tố, ngoại lệ, đối soát và chi trả trong phạm vi quyền; không đổi Sponsor. |
-| Bộ phận hỗ trợ (Support) | Giải thích trạng thái và hỗ trợ tra cứu; không đổi Sponsor, không tự sửa tỷ lệ hoặc số tiền khi không có quyền. |
-| Nexora | Xác định người hưởng, ghi sổ, áp dụng phiên bản chính sách, đối soát và điều phối chi trả. |
-| VlinkPay | Xác nhận liên kết ví, loại tiền hỗ trợ và kết quả ghi có từng khoản chuyển. |
+| Sponsor | Tham gia, hoàn thiện hồ sơ, chia sẻ link/QR, theo dõi mạng lưới, cấp, override và tiền nhận. |
+| B | Dùng OneQR và tạo hoạt động thực tế. B không tự đánh dấu mình active. |
+| Chủ doanh nghiệp (Business Owner) | Đại diện Business tham gia và xem dữ liệu Sponsor của Business. |
+| Staff / Partner | Tham gia bằng tài khoản riêng của mình (quy tắc G33). |
+| Admin được phân quyền | Thiết lập, phát hành chính sách; xử lý hồi tố, ngoại lệ, đối soát và chi trả. |
+| Bộ phận hỗ trợ (Support) | Giải thích trạng thái và tra cứu cho Sponsor. |
+| Nexora | Xác định người hưởng, ghi sổ, đối soát và điều phối chi trả. |
+| VlinkPay | Xác nhận ví, loại tiền hỗ trợ và kết quả ghi có từng phần. |
+
+---
 
 ### Luồng nghiệp vụ đầu cuối
 
-Các luồng sau là thiết kế nghiệp vụ cần triển khai. Nền tảng chia sẻ QR/link và đăng ký giới thiệu hiện có chỉ hỗ trợ một phần luồng xác lập quan hệ; chưa thể dùng để xác nhận các luồng Sponsor đã vận hành đầu cuối.
+#### Luồng 1: Cấu hình và phát hành chính sách Sponsor
 
-#### Luồng: Cấu hình và áp dụng chương trình Sponsor
-
-**Người thực hiện chính:** Admin.  
-**Điểm bắt đầu:** Tạo chương trình hoặc thay đổi chính sách.  
-**Kết quả:** Chính sách đúng phạm vi và ngày hiệu lực, có cách xử lý cấu hình thiếu và lịch sử thay đổi.
+**Người thực hiện chính:** Admin
+**Điểm bắt đầu:** Admin tạo chương trình hoặc thay đổi chính sách.
+**Kết quả:** Một phiên bản chính sách có phạm vi, ngày hiệu lực và lịch sử thay đổi.
 
 **Nhu cầu người dùng:**
+- **Là** Admin, **tôi muốn** cấu hình quan hệ, điều kiện và cách tính thưởng, **để** vận hành chương trình theo từng giai đoạn.
+- **Là** Admin, **tôi muốn** thấy phần cấu hình còn thiếu và chọn cách chương trình vận hành khi đó, **để** không bị buộc phải tắt chương trình.
+- **Là** Admin, **tôi muốn** xem phạm vi ảnh hưởng trước khi phát hành, **để** kiểm soát khoản điều chỉnh.
 
-- **Là** Admin, **tôi muốn** cấu hình quan hệ, điều kiện và cách tính thưởng **để** vận hành chương trình theo từng giai đoạn.
-- **Là** Admin, **tôi muốn** xem các phần còn thiếu và chọn cách chương trình vận hành trong trường hợp đó **để** không bị buộc vào một trạng thái cố định.
-- **Là** Admin, **tôi muốn** xem phạm vi ảnh hưởng trước khi áp dụng hồi tố **để** kiểm soát khoản điều chỉnh.
-
-| Bước | Người thực hiện | Hành động | Phản hồi hệ thống | Ghi chú |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | Admin | Chọn phạm vi tài khoản, chương trình và quan hệ hưởng. | Tách người giới thiệu với người trên cây; hiển thị các tầng có thể cấu hình. | — |
-| 2 | Admin | Thiết lập active, cấp, công thức, giới hạn và xử lý trùng. | Kiểm tra dữ liệu mâu thuẫn, tỷ lệ và tổng nguồn tiền phân bổ. | — |
-| 3 | Admin | Thiết lập đối soát, dự phòng, nhận tiền, loại tiền và tỷ lệ. | Nơi nhận luôn là ví VlinkPay SSO; tổng tỷ lệ tiền nhận bằng 100%. | — |
-| 4 | Admin | Chọn hành vi khi thiếu cấu hình, ngày hiệu lực và hồi tố nếu có. | Chỉ rõ phần nào được tiếp tục, phần nào chờ xử lý và cấu hình thay thế được dùng nếu có. | — |
-| 5 | Admin | Xem trước tác động và xác nhận phát hành. | Lưu người thao tác, thay đổi, phiên bản, phạm vi và thời điểm hiệu lực. | — |
-| 6 | Hệ thống | Áp dụng khi đến thời điểm đã chọn. | Sự kiện được tính theo chính sách có thể xác định; khoản cũ chỉ xét lại nếu có phạm vi hồi tố. | — |
+| Bước | Ai | Hành động | Phản hồi hệ thống |
+| :--- | :--- | :--- | :--- |
+| 1 | Admin | Chọn phạm vi tài khoản và chế độ quan hệ hưởng. | Hệ thống hiển thị tách biệt người giới thiệu và các tầng trên cây có thể cấu hình. |
+| 2 | Admin | Thiết lập B active, cấp, công thức, giới hạn và xử lý trùng. | Hệ thống kiểm tra dữ liệu mâu thuẫn và tổng nguồn chi (quy tắc C13). |
+| 3 | Admin | Thiết lập đối soát, dự phòng, loại tiền và tỷ lệ nhận. | Hệ thống khoá nơi nhận là ví SSO và kiểm tra tổng tỷ lệ bằng 100% (F26, F28). |
+| 4 | Admin | Chọn hành vi khi thiếu cấu hình, ngày hiệu lực và hồi tố. | Hệ thống chỉ rõ bước nào tiếp tục, bước nào chờ (H35). |
+| 5 | Admin | Xem trước tác động và xác nhận phát hành. | Hệ thống lưu phiên bản cùng người thao tác, lý do và thời điểm (D17). |
+| 6 | Hệ thống | Áp dụng khi đến ngày hiệu lực. | Hệ thống tính sự kiện mới theo phiên bản mới; chỉ xét lại khoản cũ trong phạm vi hồi tố (D19). |
 
 ```mermaid
 flowchart TD
     A([Admin mở cấu hình]) --> B[Thiết lập chính sách]
-    B --> C{Có phần chưa đủ?}
+    B --> C{Còn phần thiếu?}
     C -- Có --> D[Chọn hành vi thay thế]
     C -- Không --> E[Xem phạm vi ảnh hưởng]
     D --> E
@@ -109,96 +142,91 @@ flowchart TD
     F --> G([Áp dụng đúng hiệu lực])
 ```
 
-#### Luồng: Tham gia và xác lập quan hệ được hưởng
+#### Luồng 2: Tham gia và xác lập quan hệ hưởng
 
-**Người thực hiện chính:** Sponsor, B và Admin theo quyền.  
-**Điểm bắt đầu:** Sponsor tham gia; B đăng ký qua link/QR hoặc xuất hiện trong cây affiliate.  
-**Kết quả:** Có quan hệ đúng nguồn để xét hưởng, chưa tự phát sinh override chỉ vì có quan hệ.
-
-**Điểm kế thừa từ code hiện tại:** Mã từ link được lưu theo phiên tab và có thể bị thay bởi link mới trước khi đăng ký. Form khóa sửa mã khi nhận trực tiếp từ URL; đăng ký gửi mã và nhánh hợp lệ sang VlinkPay qua Nexora. Khi không gửi mã, Nexora dùng mã giới thiệu mặc định trong cấu hình để tạo tài khoản VlinkPay. Vì vậy, không gửi mã không đồng nghĩa tài khoản không có người giới thiệu. Việc khóa quan hệ sau xác lập vẫn là yêu cầu nghiệp vụ cần xác nhận với hệ thống giữ quan hệ; lưu mã trên trình duyệt không chứng minh đã khóa Sponsor.
+**Người thực hiện chính:** Sponsor, B
+**Điểm bắt đầu:** Sponsor tham gia chương trình; B đăng ký qua link/QR hoặc xuất hiện trong cây affiliate.
+**Kết quả:** Có quan hệ đã xác nhận để xét hưởng. Chưa phát sinh override.
 
 **Nhu cầu người dùng:**
+- **Là** Sponsor, **tôi muốn** biết điều kiện tham gia và hồ sơ/ví còn thiếu, **để** hoàn thiện trước khi nhận tiền.
+- **Là** người giới thiệu, **tôi muốn** chia sẻ link/QR và thấy B được ghi nhận đúng người mời, **để** kiểm tra căn cứ hưởng.
+- **Là** Sponsor trên cây, **tôi muốn** biết B thuộc tầng nào và vì sao tôi được hay chưa được xét, **để** hiểu phạm vi quyền lợi.
+- **Là** B, **tôi muốn** được báo khi mã giới thiệu không hợp lệ, **để** đăng ký đúng nguồn.
 
-- **Là** Sponsor thuộc bất kỳ loại tài khoản nào, **tôi muốn** biết điều kiện tham gia và điều kiện ví/hồ sơ còn thiếu, **để** hoàn thiện đúng yêu cầu trước khi nhận tiền.
-- **Là** người giới thiệu, **tôi muốn** chia sẻ link/QR và thấy B được ghi nhận đúng người mời, **để** kiểm tra căn cứ xét quyền hưởng.
-- **Là** Sponsor trên cây, **tôi muốn** biết B thuộc tầng nào và vì sao mình được hoặc chưa được xét hưởng, **để** hiểu phạm vi quyền lợi trên cây.
-- **Là** B, **tôi muốn** được báo khi mã giới thiệu không hợp lệ và hiểu người giới thiệu được xác lập khi nào, **để** đăng ký đúng nguồn mà không nhầm mã đang lưu trên trình duyệt với quan hệ đã được hệ thống xác nhận.
-
-| Bước | Người thực hiện | Hành động | Phản hồi hệ thống | Ghi chú |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | Sponsor | Mở chương trình, xem chính sách và chấp thuận điều khoản. | Kế thừa thông tin xác minh và SSO có sẵn; ghi thời điểm và phiên bản chấp thuận. | — |
-| 2 | A / B | A chia sẻ link/QR; B đăng ký qua nguồn hợp lệ. | Ghi nhận người giới thiệu qua hệ thống hiện có, không suy từ tên nhập tự do hoặc lời nói. | — |
-| 3 | Hệ thống | Lấy quan hệ trực tiếp và đường dẫn phía trên cây của B. | Kiểm tra đúng cây/tài khoản, trạng thái quan hệ và hiệu lực. | — |
-| 4 | Hệ thống | Áp dụng chế độ Admin chọn. | Chỉ trực tiếp: xét người giới thiệu; chỉ cây: xét các tầng được mở; cả hai: lập cả hai nhóm ứng viên. | — |
-| 5 | Sponsor | Xem danh sách B và điều kiện đang thiếu. | Hiển thị loại quan hệ, tầng nếu có, ngày hiệu lực và trạng thái; không gọi “đã có thưởng” khi chưa có sự kiện đủ điều kiện. | — |
+| Bước | Ai | Hành động | Phản hồi hệ thống |
+| :--- | :--- | :--- | :--- |
+| 1 | Sponsor | Mở chương trình, đọc chính sách, chấp thuận điều khoản. | Hệ thống kế thừa xác minh và SSO có sẵn, ghi thời điểm và phiên bản điều khoản. |
+| 2 | Sponsor, B | Sponsor chia sẻ link/QR; B đăng ký qua nguồn đó. | Hệ thống affiliate ghi nhận người giới thiệu (A2). |
+| 3 | Hệ thống | Lấy người giới thiệu trực tiếp và đường dẫn phía trên cây của B. | Hệ thống kiểm tra đúng cây, đúng tài khoản và trạng thái quan hệ. |
+| 4 | Hệ thống | Áp dụng chế độ quan hệ hưởng Admin đã chọn. | Hệ thống lập danh sách Sponsor ứng viên (A3). |
+| 5 | Sponsor | Xem danh sách B và điều kiện còn thiếu. | Hệ thống hiển thị loại quan hệ, tầng, ngày hiệu lực và trạng thái của từng B. |
 
 ```mermaid
 flowchart TD
     A([Tham gia chương trình]) --> B[Kiểm tra hồ sơ]
     B --> C[Ghi nhận quan hệ]
-    C --> D{Chế độ được áp dụng?}
+    C --> D{Chế độ quan hệ hưởng?}
     D -- Trực tiếp --> E[Xét người giới thiệu]
     D -- Trên cây --> F[Xét các tầng mở]
-    D -- Cả hai --> G[Xét hai nhóm người]
+    D -- Cả hai --> G[Xét cả hai nhóm]
     E --> H([Hiển thị mạng lưới])
     F --> H
     G --> H
 ```
 
-#### Luồng: Xét B active và cấp Sponsor
+#### Luồng 3: Xét B active và cấp Sponsor
 
-**Người thực hiện chính:** Hệ thống; Sponsor theo dõi, Admin quản lý chính sách.  
-**Điểm bắt đầu:** Có hoạt động mới, đến kỳ xét hoặc chính sách/điều kiện thay đổi.  
-**Kết quả:** B và A có kết quả xét rõ ràng theo chính sách; biết phần đã đạt, còn thiếu và ngày xét.
+**Người thực hiện chính:** Hệ thống
+**Điểm bắt đầu:** Có hoạt động mới, đến kỳ xét, hoặc chính sách thay đổi.
+**Kết quả:** B và A có kết quả xét rõ ràng: đã đạt, còn thiếu gì, ngày xét tiếp.
 
 **Nhu cầu người dùng:**
+- **Là** Sponsor, **tôi muốn** biết B nào active, B nào chưa đạt và lý do, **để** theo dõi điều kiện tạo quyền hưởng.
+- **Là** Sponsor, **tôi muốn** xem cấp hiện tại và tiến độ từng tiêu chí, **để** biết còn thiếu gì cho cấp tiếp theo.
+- **Là** Admin, **tôi muốn** cấu hình cách duy trì active và lên/xuống cấp, **để** áp dụng quyền hưởng nhất quán.
 
-- **Là** Sponsor, **tôi muốn** biết B nào được tính active và B nào chưa đạt, cùng lý do cụ thể, **để** theo dõi điều kiện tạo quyền hưởng.
-- **Là** Sponsor, **tôi muốn** xem cấp hiện tại và tiến độ theo từng tiêu chí, **để** biết điều kiện còn thiếu cho cấp tiếp theo.
-- **Là** Admin, **tôi muốn** cấu hình cách duy trì active, lên/xuống cấp và tác động của trạng thái mới, **để** áp dụng quyền hưởng nhất quán theo chính sách.
-
-| Bước | Người thực hiện | Hành động | Phản hồi hệ thống | Ghi chú |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | Hệ thống | Thu thập hoạt động hợp lệ trong kỳ Admin chọn. | Loại hoạt động không đủ điều kiện; chỉ đăng ký/nạp credit không chứng minh giá trị hoạt động OneQR. | — |
-| 2 | Hệ thống | Xét từng tiêu chí active của B. | Hiển thị loại sự kiện, số lượng/giá trị đạt được, ngưỡng yêu cầu và kỳ xét. | — |
-| 3 | Hệ thống | Tổng hợp B theo quan hệ/phạm vi được cấu hình. | Không tự đếm cùng một B hai lần chỉ vì xuất hiện ở cả hai loại quan hệ; cách đếm phải rõ trong cấu hình. | — |
-| 4 | Hệ thống | Xét cấp và quyền hưởng của A. | Ghi cấp, thời điểm hiệu lực, phạm vi hưởng và lý do tăng/giảm/giữ cấp. | — |
-| 5 | Sponsor | Xem kết quả và tiến độ. | Phân biệt B active, cấp Sponsor và khoản override thực tế; không dùng các chỉ số này thay cho nhau. | — |
-| 6 | Hệ thống | B inactive hoặc A xuống cấp. | Áp dụng tác động cấu hình; nếu xét lại khoản cũ thì chuyển sang quy trình điều chỉnh. | — |
+| Bước | Ai | Hành động | Phản hồi hệ thống |
+| :--- | :--- | :--- | :--- |
+| 1 | Hệ thống | Thu thập hoạt động hợp lệ trong kỳ xét. | Hệ thống loại các hành động không phải hoạt động OneQR (B7). |
+| 2 | Hệ thống | Xét từng tiêu chí active của B. | Hệ thống ghi giá trị đạt được, ngưỡng yêu cầu và kỳ xét (B6). |
+| 3 | Hệ thống | Tổng hợp B theo quan hệ được cấu hình. | Hệ thống đếm mỗi B theo cách đếm trong cấu hình (B9). |
+| 4 | Hệ thống | Xét cấp của A. | Hệ thống ghi cấp, ngày hiệu lực, phạm vi hưởng và lý do tăng/giảm/giữ cấp (B8). |
+| 5 | Sponsor | Xem kết quả và tiến độ. | Hệ thống hiển thị riêng B active, cấp Sponsor và khoản override. |
+| 6 | Hệ thống | Xử lý khi B inactive hoặc A xuống cấp. | Hệ thống áp dụng tác động đã cấu hình; nếu cần xét lại khoản cũ thì chuyển sang Luồng 5. |
 
 ```mermaid
 flowchart TD
     A([Đến thời điểm xét]) --> B[Lọc hoạt động hợp lệ]
-    B --> C[Xét active của B]
+    B --> C[Xét B active]
     C --> D[Tổng hợp theo quan hệ]
-    D --> E[Xét cấp của Sponsor]
-    E --> F{Tác động khoản cũ?}
-    F -- Theo cấu hình --> G[Xét điều chỉnh liên quan]
-    F -- Không --> H([Công bố kết quả xét])
+    D --> E[Xét cấp Sponsor]
+    E --> F{Ảnh hưởng khoản cũ?}
+    F -- Có --> G[Chuyển sang điều chỉnh]
+    F -- Không --> H([Công bố kết quả])
     G --> H
 ```
 
-#### Luồng: Tính và theo dõi Sponsor Override
+#### Luồng 4: Tính và theo dõi Sponsor Override
 
-**Người thực hiện chính:** Hệ thống; Sponsor xem kết quả.  
-**Điểm bắt đầu:** Hoạt động của B được xác định là sự kiện có thể tạo override.  
-**Kết quả:** Ghi nhận đúng người, đúng quan hệ, đúng số tiền; truy được lý do hưởng hoặc không hưởng.
+**Người thực hiện chính:** Hệ thống
+**Điểm bắt đầu:** B tạo một sự kiện đủ điều kiện.
+**Kết quả:** Khoản override được ghi đúng người, đúng quan hệ, đúng số tiền và giải thích được.
 
 **Nhu cầu người dùng:**
+- **Là** Sponsor, **tôi muốn** biết mỗi khoản đến từ B nào, theo quan hệ nào, tính ra sao, **để** đối chiếu thu nhập.
+- **Là** Sponsor thuộc cả hai nhóm quan hệ, **tôi muốn** thấy quy tắc trùng đã áp dụng thế nào, **để** kiểm tra phần được cộng hoặc ưu tiên.
+- **Là** Sponsor, **tôi muốn** phân biệt khoản chờ, giữ, dự phòng, khả dụng và đã nhận, **để** không hiểu sai số dư.
 
-- **Là** Sponsor, **tôi muốn** biết mỗi khoản đến từ B nào, theo quan hệ nào và tính như thế nào, **để** đối chiếu thu nhập với hoạt động tạo quyền hưởng.
-- **Là** Sponsor đồng thời thuộc hai nhóm quan hệ, **tôi muốn** thấy hệ thống đã áp dụng quy tắc trùng ra sao, **để** kiểm tra đúng phần quyền lợi được cộng hoặc ưu tiên.
-- **Là** Sponsor, **tôi muốn** phân biệt khoản chờ, giữ, dự phòng, khả dụng và đã nhận **để** không hiểu sai số dư.
-
-| Bước | Người thực hiện | Hành động | Phản hồi hệ thống | Ghi chú |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | Hệ thống | Xác nhận sự kiện, nguồn B, phí/căn cứ thực tế và điều kiện campaign. | Scan/menu view hoặc số click analytics không tự được xem là sự kiện tạo tiền. | — |
-| 2 | Hệ thống | Xác định các Sponsor ứng viên và quyền hưởng tại thời điểm chính sách quy định. | Lưu quan hệ, tầng, active và cấp đã dùng; không chỉ đọc cây hiện tại khi xem lại lịch sử. | — |
-| 3 | Hệ thống | Tính khoản theo từng quan hệ/tầng và xử lý người bị trùng. | Cộng, ưu tiên hoặc lấy cao hơn theo cấu hình; lưu phần được chọn và lý do loại phần còn lại. | — |
-| 4 | Hệ thống | Kiểm tra giới hạn và nguồn chi. | Áp dụng trần/quy tắc phân bổ theo cấu hình; không tự giảm Publisher Share của B để bù cấu hình vượt nguồn. | — |
-| 5 | Hệ thống | 💰 Ghi khoản override chờ đối soát. | Có mã tham chiếu sự kiện, B, người nhận, căn cứ, tỷ lệ, phiên bản và giá trị. Chưa ghi có ví VlinkPay. | — |
-| 6 | Hệ thống / vận hành | Đối soát và xử lý ngoại lệ. | Hợp lệ: phân bổ dự phòng/khả dụng theo cấu hình; cần kiểm tra: hold; không hợp lệ: điều chỉnh có liên kết. | — |
-| 7 | Sponsor | Xem tổng quan và chi tiết. | Phân tách override với thu nhập QR trực tiếp; không lộ toàn bộ hóa đơn hoặc hồ sơ khách của B. | — |
+| Bước | Ai | Hành động | Phản hồi hệ thống |
+| :--- | :--- | :--- | :--- |
+| 1 | Hệ thống | Xác nhận sự kiện, B nguồn và căn cứ tính. | Hệ thống bỏ qua scan, xem menu, lượt bấm (B7). |
+| 2 | Hệ thống | Xác định Sponsor ứng viên tại thời điểm xét quyền. | Hệ thống lưu quan hệ, tầng, active, cấp và phiên bản đã dùng (C14). |
+| 3 | Hệ thống | Tính khoản theo từng quan hệ/tầng, xử lý người trùng. | Hệ thống lưu phần được chọn và lý do loại phần còn lại (A5). |
+| 4 | Hệ thống | Áp giới hạn và kiểm tra nguồn chi. | Hệ thống áp trần theo cấu hình (C13). |
+| 5 | Hệ thống | 💰 Ghi khoản override "Chờ đối soát". | Hệ thống gắn mã tham chiếu sự kiện, B, người nhận, căn cứ, tỷ lệ, phiên bản. Chưa ghi có ví. |
+| 6 | Hệ thống, vận hành | Đối soát. | Khoản hợp lệ được chia dự phòng/khả dụng; khoản cần kiểm tra bị giữ; khoản không hợp lệ được điều chỉnh (E22, E23). |
+| 7 | Sponsor | Xem tổng quan và chi tiết. | Hệ thống hiển thị override tách khỏi thu nhập QR trực tiếp (C16, G32). |
 
 ```mermaid
 flowchart TD
@@ -208,64 +236,62 @@ flowchart TD
     C -- Có --> E[Tính theo quan hệ]
     E --> F[Xử lý trùng và trần]
     F --> G[💰 Ghi override chờ]
-    G --> H[Đối soát khoản thu]
+    G --> H[Đối soát khoản]
     H --> I([Khả dụng hoặc ngoại lệ])
 ```
 
-#### Luồng: Thay đổi chính sách và hồi tố
+#### Luồng 5: Thay đổi chính sách và hồi tố
 
-**Người thực hiện chính:** Admin; Sponsor theo dõi kết quả.  
-**Điểm bắt đầu:** Lên/xuống cấp, B inactive hoặc phát hành chính sách có hồi tố.  
+**Người thực hiện chính:** Admin
+**Điểm bắt đầu:** A lên/xuống cấp, B inactive, hoặc Admin phát hành chính sách có hồi tố.
 **Kết quả:** Thay đổi có hiệu lực rõ ràng; phần lịch sử cần xét lại được điều chỉnh đúng chênh lệch.
 
 **Nhu cầu người dùng:**
+- **Là** Admin, **tôi muốn** xem phạm vi ảnh hưởng trước khi hồi tố, **để** đối soát được khoản điều chỉnh.
+- **Là** Sponsor, **tôi muốn** biết khoản cũ có bị xét lại không, **để** đối chiếu điều chỉnh.
+- **Là** Admin, **tôi muốn** chạy lại một đợt xét mà không tạo trùng khoản, **để** khôi phục xử lý an toàn.
 
-- **Là** Admin, **tôi muốn** xem phạm vi ảnh hưởng trước khi thay đổi chính sách hoặc áp dụng hồi tố, **để** đối soát được các khoản điều chỉnh.
-- **Là** Sponsor, **tôi muốn** biết khoản cũ có bị xét lại khi chính sách hoặc cấp thay đổi hay không, **để** đối chiếu điều chỉnh trong khi quan hệ người giới thiệu đã xác lập được giữ nguyên.
-- **Là** Admin, **tôi muốn** chạy lại một đợt xét mà không tạo trùng khoản cộng/trừ, **để** khôi phục xử lý mà giữ đúng quyền lợi đã ghi nhận.
-
-| Bước | Người thực hiện | Hành động | Phản hồi hệ thống | Ghi chú |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | Admin | Đề nghị thay đổi chính sách kèm lý do. | Kiểm tra phạm vi quyền; không có thao tác gán lại Sponsor hoặc sửa cây affiliate trong luồng này. | — |
-| 2 | Admin / hệ thống | Chọn ngày hiệu lực và tác động khoản cũ. | Tách áp dụng chính sách cho sự kiện mới khỏi hồi tố lịch sử; hiển thị phạm vi sự kiện/người nhận bị ảnh hưởng. | — |
-| 3 | Admin | Xem trước và xác nhận theo quyền. | Lưu chính sách trước và sau, người thao tác, lý do và thời điểm; giữ nguyên người giới thiệu đã xác lập. | — |
-| 4 | Hệ thống | Áp dụng cho sự kiện mới và xét lại phạm vi được cho phép. | Sự kiện ngoài phạm vi giữ kết quả cũ; không mặc định lên cấp được hồi tố hoặc xuống cấp bị thu hồi. | — |
-| 5 | Hệ thống | 💰 Ghi chênh lệch theo từng người nhận. | Liên kết sự kiện và khoản gốc nếu có; giữ lịch sử và chỉ ghi phần chênh lệch theo chính sách, không trả lại toàn bộ khoản đã tính. Hồi tố không sửa quan hệ người giới thiệu. | — |
-| 6 | Sponsor / vận hành | Xem điều chỉnh, đối soát hoặc xử lý khoản đã chi. | Khoản đã nhận được xử lý theo chính sách thu hồi; không tự coi việc điều chỉnh Nexora là đã trừ ví VlinkPay. | — |
+| Bước | Ai | Hành động | Phản hồi hệ thống |
+| :--- | :--- | :--- | :--- |
+| 1 | Admin | Đề nghị thay đổi chính sách, kèm lý do. | Hệ thống kiểm tra quyền của Admin. |
+| 2 | Admin | Chọn ngày hiệu lực và tác động lên khoản cũ. | Hệ thống tách sự kiện mới khỏi phần hồi tố và liệt kê sự kiện/người nhận bị ảnh hưởng (D19). |
+| 3 | Admin | Xem trước và xác nhận. | Hệ thống lưu chính sách trước/sau, người thao tác, lý do, thời điểm (D17). |
+| 4 | Hệ thống | Áp dụng cho sự kiện mới và phạm vi hồi tố. | Hệ thống giữ nguyên kết quả của sự kiện ngoài phạm vi (D18). |
+| 5 | Hệ thống | 💰 Ghi chênh lệch cho từng người nhận. | Hệ thống tạo khoản điều chỉnh liên kết khoản gốc (D20). |
+| 6 | Vận hành | Xử lý khoản đã chi. | Hệ thống ghi nghĩa vụ thu hồi theo chính sách (E24). |
 
 ```mermaid
 flowchart TD
     A([Có thay đổi chính sách]) --> B[Kiểm tra quyền và phạm vi]
     B --> C[Xem trước ảnh hưởng]
     C --> D[Xác nhận hiệu lực]
-    D --> E{Có xét lại lịch sử?}
+    D --> E{Có hồi tố?}
     E -- Không --> F([Áp dụng sự kiện mới])
     E -- Có --> G[Tính chênh lệch từng khoản]
     G --> H[💰 Ghi điều chỉnh liên kết]
     H --> I([Đối soát kết quả])
 ```
 
-#### Luồng: Chi trả qua ví VlinkPay SSO với nhiều loại tiền
+#### Luồng 6: Chi trả vào ví VlinkPay SSO bằng nhiều loại tiền
 
-**Người thực hiện chính:** Hệ thống; Sponsor theo dõi, Admin/vận hành xử lý ngoại lệ.  
-**Điểm bắt đầu:** Đến kỳ hoặc điều kiện chi trả được cấu hình.  
-**Kết quả:** Sponsor nhận đúng số đơn vị của từng loại tiền, hoặc thấy rõ phần đang chờ/thất bại/đã nhận.
+**Người thực hiện chính:** Hệ thống
+**Điểm bắt đầu:** Đến kỳ chi hoặc đạt điều kiện chi đã cấu hình.
+**Kết quả:** Sponsor nhận đúng số đơn vị từng loại tiền, hoặc thấy rõ phần đang chờ, thất bại hay đã nhận.
 
 **Nhu cầu người dùng:**
+- **Là** Sponsor, **tôi muốn** thấy số tiền đủ chi, loại tiền, tỷ lệ, quy đổi và số thực nhận, **để** đối chiếu từng phần.
+- **Là** Admin, **tôi muốn** cấu hình loại tiền và tỷ lệ nhận mà không đổi công thức override, **để** quản lý hình thức chi trả.
+- **Là** Sponsor, **tôi muốn** thấy kết quả từng phần khi chỉ một phần chuyển thành công, **để** theo dõi phần còn chờ.
 
-- **Là** Sponsor, **tôi muốn** biết số tiền đủ chi, loại tiền nhận, tỷ lệ phân bổ, quy đổi và khoản thực nhận trong ví, **để** đối chiếu đầy đủ từng phần chi trả.
-- **Là** Admin, **tôi muốn** cấu hình loại tiền và tỷ lệ nhận mà không thay đổi công thức tính override, **để** quản lý hình thức chi trả đúng giá trị được hưởng.
-- **Là** Sponsor, **tôi muốn** thấy kết quả từng phần khi mới chuyển tiền thành công một phần, **để** theo dõi số còn chờ mà không nhận trùng.
-
-| Bước | Người thực hiện | Hành động | Phản hồi hệ thống | Ghi chú |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | Hệ thống | Xét điều kiện chi, hold, dự phòng, nghĩa vụ khấu trừ và ngưỡng. | Tính phần đủ chi theo chính sách Sponsor, không tự lấy ngưỡng/kỳ chi của Business. | — |
-| 2 | Hệ thống | Xác nhận ví SSO thuộc Sponsor và khả năng nhận các loại tiền. | Không cho nhập tùy ý ví của người khác; nếu chưa đủ thì hiển thị phần cần bổ sung/xử lý. | — |
-| 3 | Hệ thống | Phân bổ giá trị đủ chi theo cấu hình tiền nhận. | Lưu phiên bản phân bổ, tỷ lệ từng loại, giá trị trước quy đổi, tỷ giá và phí nếu có. | — |
-| 4 | Hệ thống | Chốt số đơn vị mỗi loại tiền theo quy tắc quy đổi/làm tròn. | Tổng giá trị đối chiếu được; phần lẻ được xử lý rõ, không mất âm thầm. | — |
-| 5 | Hệ thống | 💰 Tạo yêu cầu ghi có từng phần vào VlinkPay. | Mỗi phần có tham chiếu riêng; đánh dấu đang chuyển, chưa báo đã nhận khi mới gửi yêu cầu. | — |
-| 6 | VlinkPay / hệ thống | Xác nhận kết quả từng phần. | Chỉ phần được xác nhận ghi có mới là đã nhận; kết quả không rõ phải đối chiếu trước khi thử lại. | — |
-| 7 | Sponsor | Xem lịch sử chi trả. | Hiển thị tổng đợt, từng loại tiền, số đơn vị, tỷ lệ, quy đổi/phí, thời điểm và trạng thái; đợt chỉ hoàn tất khi các phần đã được xử lý đầy đủ. | — |
+| Bước | Ai | Hành động | Phản hồi hệ thống |
+| :--- | :--- | :--- | :--- |
+| 1 | Hệ thống | Xét điều kiện chi, hold, dự phòng, khấu trừ và ngưỡng. | Hệ thống tính phần đủ chi theo chính sách Sponsor (E21). |
+| 2 | Hệ thống | Xác nhận ví SSO và loại tiền ví nhận được. | Hệ thống báo phần cần bổ sung nếu ví chưa đủ điều kiện (F26). |
+| 3 | Hệ thống | 💰 Phân bổ giá trị đủ chi theo tỷ lệ tiền nhận. | Hệ thống lưu phiên bản phân bổ và giá trị từng loại trước quy đổi (F27). |
+| 4 | Hệ thống | Chốt số đơn vị mỗi loại tiền. | Hệ thống lưu tỷ giá, phí, làm tròn và phần lẻ (F28). |
+| 5 | Hệ thống | 💰 Gửi yêu cầu ghi có từng phần sang VlinkPay. | Hệ thống đánh dấu mỗi phần "Đang chuyển" với tham chiếu riêng. |
+| 6 | VlinkPay | Trả kết quả từng phần. | Hệ thống chỉ đánh dấu "Đã nhận" cho phần VlinkPay xác nhận (F29, F30). |
+| 7 | Sponsor | Xem lịch sử chi trả. | Hệ thống hiển thị từng loại tiền, số đơn vị, tỷ lệ, quy đổi, phí, thời điểm và trạng thái. |
 
 ```mermaid
 flowchart TD
@@ -275,70 +301,69 @@ flowchart TD
     D --> E[Chốt quy đổi và phí]
     E --> F[💰 Gửi yêu cầu ghi có]
     F --> G{Kết quả từng phần?}
-    G -- Thành công --> H[💰 Xác nhận đã nhận]
-    G -- Thất bại rõ --> I[Xử lý phần thất bại]
+    G -- Thành công --> H[💰 Đánh dấu đã nhận]
+    G -- Thất bại --> I[Xử lý phần thất bại]
     G -- Chưa rõ --> J[Đối chiếu VlinkPay]
     J --> G
     I --> K([Cập nhật đợt chi])
     H --> K
 ```
 
+---
+
 ### Cấu hình và quản trị
 
-- **Là** Admin, **tôi muốn** cấu hình chính sách theo phạm vi và ngày hiệu lực **để** các nhóm tài khoản nhận đúng quyền lợi.
-- **Là** Admin, **tôi muốn** xem trước kết quả trên dữ liệu minh họa và phạm vi tác động trước khi thay đổi chính sách tiền, **để** kiểm tra thay đổi trước khi phát hành.
-- **Là** Sponsor, **tôi muốn** xem bản chính sách áp dụng cho mình, **để** giải thích quyền lợi đúng phạm vi và thời điểm phát sinh.
+- **Là** Admin, **tôi muốn** cấu hình chính sách theo phạm vi và ngày hiệu lực, **để** từng nhóm tài khoản nhận đúng quyền lợi.
+- **Là** Admin, **tôi muốn** xem trước kết quả trên dữ liệu minh hoạ, **để** kiểm tra trước khi phát hành.
+- **Là** Sponsor, **tôi muốn** xem chính sách đang áp dụng cho mình, **để** hiểu quyền lợi theo đúng thời điểm.
 
 #### Danh mục cấu hình
 
-| Nhóm cấu hình | Nội dung Admin thiết lập | Quy tắc diễn giải |
+| Nhóm cấu hình | Admin thiết lập | Quy tắc |
 | :--- | :--- | :--- |
-| Phạm vi và điều kiện tham gia | Chương trình, loại tài khoản, nhóm áp dụng, điều kiện xác minh/thuế và trạng thái tham gia. | Tất cả loại tài khoản được tham gia; cấu hình điều kiện không có nghĩa mọi tài khoản tự động đủ quyền nhận tiền. |
-| Quan hệ hưởng | Trực tiếp / trên cây / cả hai; cây được dùng; các tầng được xét. | Không đồng nhất người giới thiệu với người ở trên cây hoặc nhánh trái/phải. |
-| Trùng người hưởng | Cộng, ưu tiên một quan hệ hoặc lấy khoản cao hơn; thứ tự ưu tiên và xử lý bằng nhau. | Khi cộng, là hai quyền hưởng được chính sách cho phép; không nhầm với ghi trùng cùng quyền hưởng. |
-| B active | Loại sự kiện được tính; số sự kiện; ngưỡng doanh thu/phí và căn cứ của ngưỡng; kết hợp điều kiện tất cả/bất kỳ. | Không lấy số liệu mẫu gán sẵn trong prototype làm công thức. |
-| Kỳ active | Active một lần hoặc duy trì; kỳ lịch/khoảng thời gian gần nhất; lịch xét, múi giờ, điều kiện inactive/kích hoạt lại. | Không mặc định 90 ngày hoặc mặc định một sự kiện là đủ. |
-| Cấp Sponsor | Số/tên cấp, điều kiện B active trực tiếp/trên cây, số sự kiện/giá trị, kỳ xét, lên/xuống cấp, quyền từng cấp. | Cách đếm B và phạm vi tổng hợp phải rõ để tránh đếm trùng. |
-| Công thức override | Loại sự kiện, căn cứ tính, tỷ lệ từng quan hệ/cấp/tầng, nguồn chi và giới hạn theo sự kiện/kỳ/tài khoản. | Không mặc định 10%; không tự lấy toàn bộ hóa đơn, thuế, tip hoặc tiền nạp chưa tiêu làm căn cứ. |
-| Phân bổ nguồn chi | Tổng phần Sponsor, giới hạn nhiều tầng, xử lý phần không có người đủ điều kiện và thứ tự áp dụng trần. | Tổng phân bổ phải đối chiếu nguồn chi; không tự chuyển phần dư sang người khác. |
-| Thời điểm xét quyền | Thời điểm lưu quan hệ, cấp, active và phiên bản để xác định quyền của một sự kiện. | Sự kiện đến muộn phải dùng mốc được cấu hình, không mặc định thời điểm hệ thống nhận dữ liệu. |
-| Hiệu lực/hồi tố | Ngày hiệu lực, cho hồi tố hay không, khoảng thời gian, sự kiện và trạng thái khoản áp dụng. | Tách hồi tố lên cấp, xuống cấp, B inactive và sửa công thức; không thay người giới thiệu đã xác lập. |
-| Đối soát/chi trả | Thời gian chờ, hold, kỳ chi, ngưỡng, điều kiện hồ sơ, cách xử lý tiền chưa đủ ngưỡng. | Giá trị của nhóm 3 không tự trở thành mặc định cho Sponsor. |
-| Dự phòng/thu hồi | Có áp dụng dự phòng, tỷ lệ/thời hạn, thứ tự bù trừ, chuyển nghĩa vụ còn thiếu, điều kiện giải phóng. | Phân biệt hold với dự phòng; không thu hồi hai lần cùng một phần đã trả. |
-| Tiền nhận | Loại tiền VlinkPay hỗ trợ và tỷ lệ từng loại, phạm vi/ngày hiệu lực của phân bổ. | Tổng tỷ lệ 100%; nơi nhận cố định là ví SSO, không cấu hình chuyển ra ngân hàng hoặc ví nhập tự do. |
-| Cấu hình chưa đủ | Trạng thái chương trình và hành vi từng bước; có giữ chính sách trước đó, dùng chính sách thay thế hay chờ bổ sung. | Admin quyết định, không cố định chương trình phải tắt. Không dùng giá trị tiền tự suy đoán để bù trường còn thiếu. |
-
-**Cấu hình thiếu khác cấu hình sai.** Admin có thể cho chương trình tiếp tục theo một chính sách thay thế đã xác định, hoặc cho tiếp nhận quan hệ/hoạt động trong lúc một bước còn chờ. Điều đó không làm tỷ lệ sai tổng, loại tiền không được hỗ trợ hoặc công thức không xác định trở thành dữ liệu hợp lệ. Nếu không có căn cứ để xác định một khoản tiền, khoản đó cần trạng thái/lý do chưa thể tính hoặc chi; không tự coi bằng 0 hoặc đã thanh toán. Cách khởi tạo lựa chọn hành vi khi chính sách đầu tiên chưa tồn tại là chi tiết cần xác định trong thiết kế tích hợp, không tự áp đặt “toàn chương trình tắt”.
-
-**Quản lý phiên bản:** cấu hình cần phạm vi, hiệu lực và thứ tự ưu tiên rõ khi nhiều chính sách cùng phù hợp. Chỉnh chính sách không sửa lịch sử khoản đã ghi. Admin thấy bản trước/sau và tác động; việc xác lập quan hệ, thay đổi chính sách tiền, hồi tố và xác nhận tài khoản nhận có lịch sử người thao tác, thời điểm, lý do. Lịch sử này không mở quyền đổi người giới thiệu đã xác lập.
+| Tham gia | Loại tài khoản, nhóm áp dụng, điều kiện xác minh/thuế. | A1 |
+| Quan hệ hưởng | Trực tiếp / Trên cây / Cả hai; cây được dùng; các tầng được xét. | A3 |
+| Trùng người hưởng | Cộng, ưu tiên một quan hệ, hoặc lấy khoản cao hơn; xử lý khi bằng nhau. | A5 |
+| B active | Loại sự kiện, số lượng, ngưỡng doanh thu/phí, kết hợp tất cả/bất kỳ, kỳ xét, múi giờ, duy trì, kích hoạt lại. | B6 |
+| Cấp Sponsor | Số và tên cấp, điều kiện từng cấp, kỳ xét, lên/xuống cấp, tầng hưởng của từng cấp. | B8, B9 |
+| Công thức override | Loại sự kiện, căn cứ tính, tỷ lệ theo quan hệ/cấp/tầng. | C12 |
+| Nguồn chi và giới hạn | Tổng phần Sponsor, trần theo sự kiện/kỳ/tài khoản, thứ tự áp trần, phần không có người hưởng. | C13 |
+| Thời điểm xét quyền | Mốc dùng để xác định quan hệ, cấp, active và phiên bản cho một sự kiện. | C14 |
+| Hiệu lực và hồi tố | Ngày hiệu lực, có hồi tố không, khoảng thời gian, loại thay đổi được hồi tố. | D17–D19 |
+| Đối soát và chi trả | Thời gian chờ, hold, kỳ chi, ngưỡng, điều kiện hồ sơ, xử lý tiền chưa đủ ngưỡng. | E21 |
+| Dự phòng và thu hồi | Tỷ lệ, thời hạn, điều kiện giải phóng, thứ tự bù trừ, chuyển nghĩa vụ còn thiếu. | E22–E24 |
+| Tiền nhận | Loại tiền VlinkPay hỗ trợ, tỷ lệ từng loại, phạm vi và ngày hiệu lực. | F26–F28 |
+| Cấu hình chưa đủ | Trạng thái chương trình, hành vi từng bước, chính sách thay thế. | H35, H36 |
 
 #### Màn hình cần có
 
-| Người dùng | Màn hình/chức năng | Nội dung chính |
+| Người dùng | Màn hình | Nội dung chính |
 | :--- | :--- | :--- |
-| Sponsor | Tổng quan Sponsor | Trạng thái tham gia, cấp, B đủ điều kiện, override theo trạng thái, chính sách áp dụng và việc cần hoàn thiện. |
-| Sponsor | Mạng lưới của tôi | B, loại quan hệ, tầng, ngày hiệu lực, active/chưa đạt/inactive và lý do; không dùng số tài khoản đăng ký thay số B active. |
-| Sponsor | Cấp và quyền lợi | Tiến độ từng tiêu chí, kỳ xét, ngày xét tiếp, quyền/tầng hưởng và ảnh hưởng nếu thay đổi cấp. |
-| Sponsor | Chi tiết override | B nguồn, sự kiện, quan hệ/tầng, căn cứ/tỷ lệ, xử lý trùng, giới hạn, trạng thái và điều chỉnh liên quan. |
-| Sponsor | Lịch sử nhận tiền | Ví SSO xác nhận, giá trị đủ chi, từng loại tiền/tỷ lệ/số đơn vị, quy đổi/phí và kết quả từng phần. |
-| Admin | Chính sách Sponsor | Các nhóm cấu hình trên, kiểm tra tính hợp lệ, xem trước, ngày hiệu lực, phiên bản và phạm vi. |
-| Admin | Quan hệ và ngoại lệ | Tra cứu nguồn giới thiệu/cây, lý do chưa active, hold, hồi tố, đối soát và chi trả cần xử lý; không có yêu cầu hoặc duyệt đổi Sponsor. |
+| Sponsor | Tổng quan Sponsor | Trạng thái tham gia, cấp, số B active, override theo trạng thái, việc cần hoàn thiện. |
+| Sponsor | Mạng lưới của tôi | Từng B, loại quan hệ, tầng, ngày hiệu lực, trạng thái active và lý do. |
+| Sponsor | Cấp và quyền lợi | Tiến độ từng tiêu chí, kỳ xét, ngày xét tiếp, tầng được hưởng. |
+| Sponsor | Chi tiết override | B nguồn, sự kiện, quan hệ/tầng, căn cứ, tỷ lệ, xử lý trùng, trần, trạng thái, điều chỉnh. |
+| Sponsor | Lịch sử nhận tiền | Ví SSO, giá trị đủ chi, từng loại tiền, tỷ lệ, số đơn vị, quy đổi, phí, kết quả từng phần. |
+| Admin | Chính sách Sponsor | Các nhóm cấu hình, kiểm tra hợp lệ, xem trước, phiên bản, phạm vi. |
+| Admin | Quan hệ và ngoại lệ | Tra cứu nguồn giới thiệu/cây, lý do chưa active, hold, hồi tố, đối soát, chi trả. |
 
-Vị trí menu cụ thể sẽ bám cấu trúc sản phẩm khi triển khai; tên màn hình ở đây là tên nghiệp vụ đề xuất, không xác nhận route/API đã tồn tại.
+Tên màn hình là tên nghiệp vụ đề xuất. Vị trí menu sẽ theo cấu trúc sản phẩm khi triển khai.
+
+---
 
 ### Vòng đời trạng thái
 
-Các trạng thái dưới đây là trạng thái nghiệp vụ cần thể hiện; chưa tìm thấy mô hình trạng thái Sponsor tương ứng trong code Nexora được rà soát. Tên kỹ thuật sẽ theo contract thực tế. Không dùng trạng thái “active” của giao diện hoặc tài khoản đăng nhập, tổng tài khoản active của mạng lưới VlinkPay hay tình trạng KYC của người giới thiệu thay cho active trong chương trình Sponsor.
+Các trạng thái dưới đây là trạng thái nghiệp vụ cần có. Tên kỹ thuật sẽ theo contract khi triển khai.
 
-#### Chính sách chương trình
+#### Phiên bản chính sách
 
-| Trạng thái hiện tại | Sự kiện | Trạng thái tiếp theo | Ghi chú |
+| Trạng thái hiện tại | Sự kiện | Trạng thái mới | Ghi chú |
 | :--- | :--- | :--- | :--- |
-| Bản nháp | Admin xác nhận ngày áp dụng | Chờ hiệu lực | Có thể áp dụng ngay nếu ngày hiệu lực là hiện tại. |
-| Chờ hiệu lực | Đến ngày và đáp ứng hành vi cấu hình | Đang áp dụng | Phần chưa đủ xử lý theo lựa chọn Admin. |
-| Đang áp dụng | Admin tạm dừng | Tạm dừng | Tác động khoản cũ theo cấu hình. |
-| Tạm dừng | Admin tiếp tục | Đang áp dụng | Không tự cộng hồi tố nếu chưa được cấu hình. |
-| Đang áp dụng/Tạm dừng | Phiên bản thay thế có hiệu lực | Hết hiệu lực | Vẫn được tham chiếu bởi các khoản lịch sử. |
+| Bản nháp | Admin xác nhận ngày áp dụng | Chờ hiệu lực | Có thể hiệu lực ngay nếu chọn ngày hiện tại. |
+| Chờ hiệu lực | Đến ngày hiệu lực | Đang áp dụng | Phần chưa đủ xử lý theo H35. |
+| Đang áp dụng | Admin tạm dừng | Tạm dừng | Tác động lên khoản cũ theo cấu hình. |
+| Tạm dừng | Admin tiếp tục | Đang áp dụng | Không tự hồi tố cho thời gian tạm dừng. |
+| Đang áp dụng / Tạm dừng | Phiên bản thay thế có hiệu lực | Hết hiệu lực | Vẫn được các khoản lịch sử tham chiếu. |
 
 ```mermaid
 stateDiagram-v2
@@ -357,50 +382,49 @@ stateDiagram-v2
     Retired --> [*] : Lưu lịch sử
 ```
 
-#### Điều kiện hoạt động của B
+#### B active
 
-| Trạng thái hiện tại | Sự kiện | Trạng thái tiếp theo | Ghi chú |
+| Trạng thái hiện tại | Sự kiện | Trạng thái mới | Ghi chú |
 | :--- | :--- | :--- | :--- |
-| Chưa đạt | Đạt điều kiện Admin cấu hình | Đang đạt điều kiện (Active) | Lưu ngày và phiên bản xét. |
-| Đang đạt điều kiện (Active) | Không còn đạt yêu cầu duy trì | Không còn đạt (Inactive) | Chỉ áp dụng nếu chính sách yêu cầu duy trì. |
-| Không còn đạt (Inactive) | Đạt điều kiện kích hoạt lại | Đang đạt điều kiện (Active) | Không tự hồi tố quyền cũ. |
-| Bất kỳ trạng thái | Chưa đủ dữ liệu/chính sách để xét | Chờ xác định | Hiển thị lý do, không tự gán active. |
+| Chờ xác định | Đủ dữ liệu, đã đạt | Active | Lưu ngày và phiên bản xét. |
+| Chờ xác định | Đủ dữ liệu, chưa đạt | Chưa đạt | Hiển thị tiêu chí còn thiếu. |
+| Chưa đạt | Đạt chính sách | Active | — |
+| Active | Không đạt kỳ duy trì | Inactive | Chỉ khi chính sách yêu cầu duy trì. |
+| Inactive | Đạt lại điều kiện | Active | Không tự hồi tố quyền cũ. |
+| Bất kỳ | Thiếu dữ liệu hoặc chính sách | Chờ xác định | Hiển thị lý do; không tự gán active. |
 
 ```mermaid
 stateDiagram-v2
-    state "Chưa đạt" as NotQualified
-    state "Đang đạt điều kiện" as Active
-    state "Không còn đạt" as Inactive
     state "Chờ xác định" as Undetermined
+    state "Chưa đạt" as NotQualified
+    state "Active" as Active
+    state "Inactive" as Inactive
     [*] --> Undetermined : Bắt đầu xét
-    Undetermined --> NotQualified : Đủ dữ liệu nhưng chưa đạt
-    Undetermined --> Active : Đủ dữ liệu và đạt
+    Undetermined --> NotQualified : Đủ dữ liệu, chưa đạt
+    Undetermined --> Active : Đủ dữ liệu, đã đạt
     NotQualified --> Active : Đạt chính sách
     Active --> Inactive : Không đạt kỳ duy trì
     Inactive --> Active : Đạt lại điều kiện
-    Active --> Undetermined : Cần xác định lại
-    NotQualified --> Undetermined : Cần bổ sung căn cứ
-    Inactive --> Undetermined : Cần bổ sung căn cứ
     Undetermined --> Inactive : Xác nhận không còn đạt
+    Active --> Undetermined : Cần xác định lại
+    NotQualified --> Undetermined : Thiếu căn cứ
+    Inactive --> Undetermined : Thiếu căn cứ
 ```
 
-#### Khoản override và phân bổ sau đối soát
+#### Khoản override
 
-Khoản chưa thể xác định còn thiếu căn cứ và chưa phải tiền chắc chắn được hưởng. Một khoản có thể được chia thành dự phòng và khả dụng; đây là trạng thái theo từng phần, không phải hai lần ghi nhận cùng giá trị.
+Sau đối soát, một khoản có thể tách thành phần dự phòng và phần khả dụng. Đó là hai phần của cùng một khoản, không phải hai lần ghi nhận.
 
-| Trạng thái hiện tại | Sự kiện chuyển trạng thái | Trạng thái mới | Ghi chú |
+| Trạng thái hiện tại | Sự kiện | Trạng thái mới | Ghi chú |
 | :--- | :--- | :--- | :--- |
-| Chưa thể xác định | Xác định đủ căn cứ | Chờ đối soát | Đã có căn cứ tính override, chưa phải tiền đã nhận. |
-| Chờ đối soát | Cần kiểm tra | Đang giữ | Giữ khoản cần kiểm tra; khác dự phòng theo chính sách. |
-| Đang giữ | Hoàn tất kiểm tra | Chờ đối soát | Đã có căn cứ tính override, chưa phải tiền đã nhận. |
-| Chờ đối soát | Đối soát hợp lệ | Phân bổ sau đối soát | Một khoản có thể tách thành phần dự phòng và phần khả dụng. |
-| Phân bổ sau đối soát | 💰 Phần phải dự phòng | Dự phòng | Chỉ phần phải dự phòng, có thời hạn và điều kiện giải phóng. |
-| Phân bổ sau đối soát | Phần đủ khả dụng | Khả dụng | Chỉ phần đủ điều kiện xét chi sau giữ, dự phòng và khấu trừ. |
-| Dự phòng | 💰 Đủ điều kiện giải phóng | Khả dụng | Chỉ phần đủ điều kiện xét chi sau giữ, dự phòng và khấu trừ. |
-| Chờ đối soát | Xác nhận mất quyền hưởng | Có điều chỉnh liên kết | Ghi bút toán liên kết khoản gốc; không xóa lịch sử. |
-| Đang giữ | Kết luận không hợp lệ | Có điều chỉnh liên kết | Ghi bút toán liên kết khoản gốc; không xóa lịch sử. |
-| Dự phòng | Điều chỉnh phần liên quan | Có điều chỉnh liên kết | Ghi bút toán liên kết khoản gốc; không xóa lịch sử. |
-| Khả dụng | Điều chỉnh phần chưa chi | Có điều chỉnh liên kết | Ghi bút toán liên kết khoản gốc; không xóa lịch sử. |
+| Chưa thể xác định | Đủ căn cứ tính | Chờ đối soát | Chưa phải tiền chắc chắn được hưởng. |
+| Chờ đối soát | Cần kiểm tra | Đang giữ | Khác dự phòng (E22). |
+| Đang giữ | Hoàn tất kiểm tra | Chờ đối soát | — |
+| Chờ đối soát | Đối soát hợp lệ | Phân bổ sau đối soát | — |
+| Phân bổ sau đối soát | 💰 Trích phần dự phòng | Dự phòng | Có thời hạn và điều kiện giải phóng. |
+| Phân bổ sau đối soát | Phần còn lại | Khả dụng | Đủ điều kiện xét chi. |
+| Dự phòng | 💰 Đủ điều kiện giải phóng | Khả dụng | — |
+| Chờ đối soát / Đang giữ / Dự phòng / Khả dụng | Mất quyền hưởng hoặc kết luận không hợp lệ | Có điều chỉnh liên kết | Ghi bút toán liên kết khoản gốc; không xoá lịch sử. |
 
 ```mermaid
 stateDiagram-v2
@@ -412,229 +436,353 @@ stateDiagram-v2
     state "Khả dụng" as Available
     state "Có điều chỉnh liên kết" as Adjusted
     [*] --> Unresolved : Tiếp nhận sự kiện
-    Unresolved --> Pending : Xác định đủ căn cứ
+    Unresolved --> Pending : Đủ căn cứ tính
     Pending --> Held : Cần kiểm tra
     Held --> Pending : Hoàn tất kiểm tra
     Pending --> Allocation : Đối soát hợp lệ
-    Allocation --> Reserve : 💰 Phần phải dự phòng
-    Allocation --> Available : Phần đủ khả dụng
-    Reserve --> Available : 💰 Đủ điều kiện giải phóng
-    Pending --> Adjusted : Xác nhận mất quyền hưởng
-    Held --> Adjusted : Kết luận không hợp lệ
-    Reserve --> Adjusted : Điều chỉnh phần liên quan
+    Allocation --> Reserve : 💰 Trích dự phòng
+    Allocation --> Available : Phần còn lại
+    Reserve --> Available : 💰 Giải phóng dự phòng
+    Pending --> Adjusted : Mất quyền hưởng
+    Held --> Adjusted : Không hợp lệ
+    Reserve --> Adjusted : Điều chỉnh
     Available --> Adjusted : Điều chỉnh phần chưa chi
 ```
 
-#### Từng phần chuyển tiền theo loại tiền
+#### Từng phần chuyển tiền
 
-Phần khả dụng có thể chia thành nhiều loại tiền. Theo dõi trạng thái và giá trị từng phần; không gắn “đã nhận” cho toàn bộ đợt chi khi mới một phần thành công.
+Phần khả dụng được chia theo loại tiền. Mỗi phần có trạng thái riêng; một đợt chi chỉ hoàn tất khi mọi phần đã xử lý xong.
 
-| Trạng thái hiện tại | Sự kiện chuyển trạng thái | Trạng thái mới | Ghi chú |
+| Trạng thái hiện tại | Sự kiện | Trạng thái mới | Ghi chú |
 | :--- | :--- | :--- | :--- |
-| Phần tiền đủ chi | 💰 Gửi yêu cầu ghi có | Đang chuyển | Đã gửi yêu cầu ghi có; chưa xác nhận đã nhận. |
-| Đang chuyển | Ví xác nhận thành công | Đã nhận | Chỉ phần được VlinkPay xác nhận ghi có. |
-| Đang chuyển | Ví xác nhận thất bại | Thất bại | Xác nhận chưa ghi có; thử lại đúng phần và quyền. |
-| Đang chuyển | Kết quả chưa rõ | Cần đối chiếu | Chưa rõ kết quả; không gửi như một khoản mới. |
-| Cần đối chiếu | 💰 Đối chiếu đã ghi có | Đã nhận | Chỉ phần được VlinkPay xác nhận ghi có. |
-| Cần đối chiếu | Đối chiếu chưa ghi có | Thất bại | Xác nhận chưa ghi có; thử lại đúng phần và quyền. |
-| Thất bại | 💰 Thử lại đúng khoản | Đang chuyển | Đã gửi yêu cầu ghi có; chưa xác nhận đã nhận. |
-| Đã nhận | Phát sinh nghĩa vụ điều chỉnh | Điều chỉnh sau chi | Giữ lịch sử đã chi, liên kết nghĩa vụ thu hồi theo chính sách. |
+| Sẵn sàng chi | 💰 Gửi yêu cầu ghi có | Đang chuyển | Chưa phải đã nhận. |
+| Đang chuyển | VlinkPay xác nhận thành công | Đã nhận | — |
+| Đang chuyển | VlinkPay xác nhận thất bại | Thất bại | — |
+| Đang chuyển | Kết quả chưa rõ | Cần đối chiếu | Không gửi lại như khoản mới (F30). |
+| Cần đối chiếu | 💰 Đối chiếu thấy đã ghi có | Đã nhận | — |
+| Cần đối chiếu | Đối chiếu thấy chưa ghi có | Thất bại | — |
+| Thất bại | 💰 Thử lại đúng phần đó | Đang chuyển | — |
+| Đã nhận | Phát sinh nghĩa vụ điều chỉnh | Điều chỉnh sau chi | Giữ lịch sử đã chi (E24). |
 
 ```mermaid
 stateDiagram-v2
-    state "Phần tiền đủ chi" as Ready
+    state "Sẵn sàng chi" as Ready
     state "Đang chuyển" as Processing
     state "Cần đối chiếu" as Reconciling
     state "Thất bại" as Failed
     state "Đã nhận" as Paid
     state "Điều chỉnh sau chi" as Adjustment
-    [*] --> Ready : Chốt phần tiền nhận
+    [*] --> Ready : Chốt phần tiền
     Ready --> Processing : 💰 Gửi yêu cầu ghi có
-    Processing --> Paid : Ví xác nhận thành công
-    Processing --> Failed : Ví xác nhận thất bại
-    Processing --> Reconciling : Kết quả chưa rõ
-    Reconciling --> Paid : 💰 Đối chiếu đã ghi có
-    Reconciling --> Failed : Đối chiếu chưa ghi có
-    Failed --> Processing : 💰 Thử lại đúng khoản
-    Paid --> Adjustment : Phát sinh nghĩa vụ điều chỉnh
-    Adjustment --> [*] : Giữ lịch sử đã chi
-    Paid --> [*] : Hoàn tất phần chuyển
+    Processing --> Paid : Thành công
+    Processing --> Failed : Thất bại
+    Processing --> Reconciling : Chưa rõ
+    Reconciling --> Paid : 💰 Đã ghi có
+    Reconciling --> Failed : Chưa ghi có
+    Failed --> Processing : 💰 Thử lại
+    Paid --> Adjustment : Nghĩa vụ điều chỉnh
+    Adjustment --> [*]
+    Paid --> [*]
 ```
+
+---
 
 ### Quy tắc nghiệp vụ
 
-1. **Tách quan hệ, cấp và tiền.** Có B trong mạng lưới, B active hoặc đạt cấp không tự tạo tiền. Mỗi override phải có sự kiện và quyền hưởng theo chính sách.
-2. **Tất cả loại tài khoản có thể làm Sponsor.** Hồ sơ, consent, quyền truy cập và điều kiện nhận tiền áp dụng cho đúng tài khoản; không dùng ví Business để chi cho Staff chỉ vì Staff làm tại Business đó.
-3. **Nguồn quan hệ được xác nhận.** Dùng người giới thiệu và cây từ hệ thống affiliate; không suy người hưởng từ tên, email hoặc vị trí hiển thị trên FE. Chống quan hệ tự giới thiệu/vòng lặp và hoạt động giả theo chính sách nguồn.
-4. **B active do Admin định nghĩa.** Bộ HTML chỉ đặt nguyên tắc dùng OneQR thực tế và tạo hoạt động hợp lệ. Mốc 90 ngày trong chính sách nguồn nói về khách quay lại dùng dịch vụ, không phải thời hạn active của B.
-5. **Không lấy prototype làm bảng giá.** Số cấp, ngưỡng và tỷ lệ trong Sponsor Level Flow là minh họa. Quyền của các tầng sâu và phần nguồn chi phải được cấu hình rõ; không tự nhân một tỷ lệ cho mọi người phía trên cây.
-6. **Khác loại quan hệ không đồng nghĩa trả trùng.** Admin quyết định xử lý người nằm ở cả hai nhóm. Việc nhận lại cùng một thông báo sự kiện không được tạo thêm tiền dù chế độ đang là cộng hai quan hệ.
-7. **Thu nhập trực tiếp của A độc lập với cấp Sponsor.** Điều kiện cấp Sponsor không tự khóa thu nhập QR trực tiếp của A. Publisher Share của B và Sponsor Override phải được đối soát thành các phần riêng.
-8. **Cấu hình mới không viết lại lịch sử.** Lưu chính sách đã dùng cho khoản gốc. Hồi tố hoặc thay đổi active/cấp tạo khoản chênh lệch có liên kết theo lựa chọn Admin. Người giới thiệu đã xác lập với B được giữ cố định; thay chính sách, cấp hoặc trạng thái không gán lại Sponsor.
-9. **💰 Nơi nhận luôn là ví VlinkPay SSO.** Chỉ kết quả ghi có được VlinkPay xác nhận mới là đã nhận tiền. Admin cấu hình loại tiền và tỷ lệ, không thay nơi nhận bằng tài khoản/địa chỉ nhập tùy ý.
-10. **Hai bước tính tiền riêng.** Tính giá trị override theo căn cứ và tỷ lệ hưởng trước; sau đối soát, dự phòng và khấu trừ mới phân bổ phần được chi theo loại tiền. Thay tỷ lệ tiền nhận không tự thay tỷ lệ override.
-11. **Phân bổ theo giá trị, không cộng số đơn vị khác loại tiền.** Tổng tỷ lệ tiền nhận bằng 100%. Số đơn vị của mỗi loại phụ thuộc tỷ giá/độ chính xác/phí được hệ thống xác nhận; không tự hiểu một đơn vị tiền này bằng một đơn vị tiền khác.
-12. **Ví dụ minh họa:** phần đủ chi có giá trị 100 đơn vị tiền đối soát; cấu hình Loại A 70%, Loại B 30% tạo hai phần giá trị 70 và 30 trước quy đổi. Đây không có nghĩa nhận 70 đồng Loại A và 30 đồng Loại B. Nếu quy tắc quy đổi hoặc phí chưa xác định, không thể suy số đơn vị thực nhận.
-13. **Không tự đổi tiền thay thế.** Loại tiền không được ví hỗ trợ hoặc chuyển thất bại phải được xử lý minh bạch. Không tự dồn tỷ lệ sang loại khác hay chuyển lại phần đã thành công. Thay phân bổ cho phần chưa chi phải theo chính sách có dấu vết.
-14. **Hoàn/đảo theo phần quyền hưởng mất điều kiện.** Hoàn một phần không mặc định đảo toàn bộ override; tính theo chính sách và khoản gốc. Sau payout, lưu nghĩa vụ và bù trừ theo chính sách; không tuyên bố ví đã bị trừ nếu chưa có giao dịch ví xác nhận.
-15. **Bảo vệ phạm vi dữ liệu.** Sponsor chỉ xem thông tin B và sự kiện cần thiết để hiểu quyền lợi. Không mở hồ sơ khách, toàn bộ hóa đơn, giấy tờ xác minh hoặc số dư ví của B.
-16. **Không cố định hành vi thiếu cấu hình.** Áp dụng lựa chọn Admin; khi một phép tính/giao dịch thiếu dữ liệu bắt buộc, hiển thị lý do chưa xác định được kết quả, không tạo giá trị tài chính giả để giữ trạng thái chương trình.
+Đây là nơi duy nhất mỗi quy tắc được phát biểu đầy đủ. Các phần khác tham chiếu theo mã.
 
-#### Tiêu chí nghiệm thu
+#### A. Tham gia và quan hệ hưởng
 
-Đây là các điều kiện nghiệm thu cho chức năng cần triển khai; lần rà soát code này không đánh dấu các tiêu chí là đã đạt hoặc thay cho kiểm thử trên môi trường chạy thật.
+1. **A1 — Mọi loại tài khoản được tham gia:** Personal, Business, Staff/Partner đều được làm Sponsor. Hồ sơ, chấp thuận điều khoản và điều kiện nhận tiền được xét trên chính tài khoản đó. Tham gia chưa có nghĩa là đủ điều kiện nhận tiền.
+2. **A2 — Nguồn quan hệ:** Hệ thống chỉ dùng người giới thiệu và cây do hệ thống affiliate xác nhận. Tên, email, vị trí hiển thị hay mã lưu trên trình duyệt không được dùng làm căn cứ. Hệ thống chặn tự giới thiệu và quan hệ vòng lặp theo chính sách nguồn.
+3. **A3 — Chế độ quan hệ hưởng:** Admin chọn Trực tiếp, Trên cây hoặc Cả hai, và chọn các tầng được xét. Ở chế độ Trực tiếp, nếu B không có người giới thiệu thì hệ thống không chọn người thay thế.
+4. **A4 — Sponsor cố định:** Người giới thiệu đã xác lập với B được giữ vĩnh viễn. Hệ thống không có chức năng yêu cầu, duyệt hay cấu hình đổi Sponsor. B mở link/QR khác, đăng ký lại, inactive rồi active lại, hay Admin đổi chính sách, cấp, hồi tố — đều giữ nguyên người giới thiệu. Chế độ A3 chỉ quyết định quyền hưởng.
+5. **A5 — Trùng người hưởng:** Khi một người vừa là người giới thiệu vừa nằm trên cây, Admin chọn một trong ba cách: cộng hai khoản, ưu tiên một loại quan hệ, hoặc lấy khoản cao hơn. Hệ thống lưu phần được chọn và lý do loại phần còn lại.
 
-| Mã | Tiêu chí nghiệp vụ |
+#### B. B active và cấp Sponsor
+
+6. **B6 — B active do Admin định nghĩa:** Admin cấu hình loại sự kiện, số lượng, ngưỡng doanh thu/phí, kỳ xét, active một lần hay duy trì định kỳ, điều kiện inactive và kích hoạt lại. Không có giá trị mặc định nào. Mốc 90 ngày trong chính sách nguồn nói về khách quay lại, không phải thời hạn active của B.
+7. **B7 — Chỉ hoạt động OneQR thực tế mới được tính:** Đăng ký tài khoản, nạp Ads Credit, lượt scan, xem menu hay lượt bấm analytics không chứng minh B hoạt động. Trạng thái đăng nhập, tổng "active" của mạng lưới VlinkPay hay KYC cũng không thay thế B active.
+8. **B8 — Cấp Sponsor do Admin cấu hình:** Admin đặt số cấp, điều kiện từng cấp, kỳ xét, lên/xuống cấp và tầng được hưởng của từng cấp. Số cấp, ngưỡng và tỷ lệ trong prototype Sponsor Level Flow chỉ là minh hoạ.
+9. **B9 — Đếm B không trùng:** Một B thuộc cả hai loại quan hệ của cùng một A chỉ được đếm theo cách cấu hình nêu rõ.
+10. **B10 — Thu nhập trực tiếp tách khỏi cấp:** Cấp Sponsor không ảnh hưởng thu nhập QR trực tiếp của A.
+
+#### C. Tính override
+
+11. **C11 — Chỉ sự kiện tạo tiền:** Mỗi khoản override cần một sự kiện đủ điều kiện và một quyền hưởng hợp lệ tại thời điểm xét. Có quan hệ, B active hay đạt cấp đều không tự tạo tiền.
+12. **C12 — Căn cứ và tỷ lệ do Admin cấu hình:** Admin đặt căn cứ tính và tỷ lệ theo quan hệ, cấp, tầng. Căn cứ tính không bao gồm toàn bộ hoá đơn, thuế, tip, tiền nạp chưa tiêu hay Publisher Share của B, trừ khi chính sách ghi rõ. Hệ thống không tự áp một tỷ lệ cho mọi tầng.
+13. **C13 — Nguồn chi và giới hạn:** Admin cấu hình tổng phần Sponsor, trần theo sự kiện/kỳ/tài khoản và thứ tự áp trần. Khi tổng các tầng vượt nguồn chi, hệ thống báo cấu hình không hợp lệ hoặc áp trần đã định. Hệ thống không giảm Publisher Share của B để bù và không chuyển phần dư sang người khác.
+14. **C14 — Thời điểm xét quyền:** Hệ thống xác định quan hệ, tầng, active, cấp và phiên bản theo mốc Admin cấu hình, rồi lưu cùng khoản. Sự kiện đến muộn vẫn dùng mốc này.
+15. **C15 — Chống ghi trùng:** Cùng một sự kiện gửi lại nhiều lần chỉ tạo một khoản cho mỗi quyền hưởng, kể cả khi chế độ A5 là cộng.
+16. **C16 — Tách các loại thu nhập:** Override, Publisher Share của B và thu nhập QR trực tiếp của A được ghi, đối soát và hiển thị thành các phần riêng.
+
+#### D. Chính sách, hiệu lực và hồi tố
+
+17. **D17 — Phiên bản có dấu vết:** Mỗi chính sách có phạm vi, ngày hiệu lực và thứ tự ưu tiên khi chồng nhau. Hệ thống lưu bản trước/sau, người thao tác, lý do và thời điểm.
+18. **D18 — Không viết lại lịch sử:** Sửa chính sách không sửa khoản đã ghi.
+19. **D19 — Hồi tố chỉ khi Admin cho phép:** Admin chọn khoảng thời gian, loại sự kiện và trạng thái khoản được hồi tố. Lên cấp, xuống cấp, B inactive và sửa công thức được cấu hình riêng. Mặc định, lên cấp không hồi tố và xuống cấp không thu hồi.
+20. **D20 — Điều chỉnh là chênh lệch:** Hệ thống chỉ ghi phần chênh lệch, liên kết với khoản gốc. Chạy lại một đợt xét không tạo khoản trùng.
+
+#### E. Đối soát, dự phòng và điều chỉnh
+
+21. **E21 — Thông số riêng của Sponsor:** Thời gian chờ, hold, kỳ chi, ngưỡng chi và điều kiện hồ sơ được cấu hình riêng. Hệ thống không kế thừa các giá trị của Business OneQR Earnings.
+22. **E22 — Hold khác dự phòng:** Hold giữ khoản cần kiểm tra. Dự phòng trích giữ một phần theo chính sách. Cả hai đều chưa phải tiền trong ví.
+23. **E23 — Hoàn/đảo theo phần mất quyền:** Refund một phần chỉ điều chỉnh phần override tương ứng. Hệ thống không vừa giảm khoản chưa chi vừa thu hồi lại cùng phần đó.
+24. **E24 — Thu hồi sau chi:** Hệ thống ghi nghĩa vụ thu hồi liên kết đợt chi gốc và bù trừ theo chính sách. Hệ thống chỉ coi ví đã bị trừ khi có giao dịch ví được xác nhận.
+25. **E25 — Sponsor bị đình chỉ hoặc thiếu hồ sơ:** Hệ thống xử lý quyền mới và khoản đang chờ theo cấu hình. Hệ thống không chuyển phần tiền đó cho Sponsor khác.
+
+#### F. Chi trả
+
+26. **F26 — 💰 Nơi nhận cố định:** Tiền chỉ chi vào ví VlinkPay liên kết SSO của chính tài khoản Sponsor. Admin không cấu hình được tài khoản ngân hàng hay ví nhập tay. Đăng nhập SSO thành công chưa chứng minh ví nhận được mọi loại tiền.
+27. **F27 — Hai bước tính tách biệt:** Bước 1 dùng tỷ lệ override để tính giá trị hưởng. Bước 2, sau đối soát, dự phòng và khấu trừ, dùng tỷ lệ phân bổ tiền nhận để chia sang các loại tiền. Đổi tỷ lệ này không đổi tỷ lệ kia.
+28. **F28 — Phân bổ theo giá trị:** Tổng tỷ lệ tiền nhận bằng 100%. Số đơn vị mỗi loại tính theo tỷ giá, độ chính xác, phí và làm tròn đã xác nhận. Hệ thống lưu các giá trị này và xử lý phần lẻ minh bạch.
+29. **F29 — 💰 Chỉ "Đã nhận" khi VlinkPay xác nhận:** Mỗi phần chuyển có tham chiếu riêng. Hệ thống chỉ đánh dấu phần nào VlinkPay đã xác nhận ghi có.
+30. **F30 — Đối chiếu trước khi thử lại:** Kết quả chưa rõ phải được đối chiếu với VlinkPay trước. Hệ thống chỉ thử lại phần đã xác nhận thất bại.
+31. **F31 — Không tự đổi loại tiền:** Khi một loại tiền không được ví hỗ trợ hoặc chuyển thất bại, hệ thống không dồn tỷ lệ sang loại khác. Mọi thay đổi phân bổ cho phần chưa chi phải theo chính sách và có dấu vết.
+
+#### G. Dữ liệu và quyền
+
+32. **G32 — Sponsor chỉ thấy dữ liệu cần thiết:** Sponsor xem thông tin B và sự kiện đủ để hiểu quyền lợi. Sponsor không xem hồ sơ khách, hoá đơn đầy đủ, giấy tờ xác minh hay số dư ví của B.
+33. **G33 — Phân quyền theo tài khoản:** Staff không xem thu nhập Sponsor của Business; tư cách Sponsor của Staff xét trên tài khoản riêng. Ví Business không dùng để chi cho Staff. Support không đổi Sponsor và không sửa tỷ lệ, số tiền khi không có quyền.
+34. **G34 — Lịch sử thao tác:** Hệ thống lưu lịch sử xác lập quan hệ, thay đổi chính sách tiền, hồi tố và xác nhận tài khoản nhận.
+
+#### H. Cấu hình thiếu hoặc sai
+
+35. **H35 — Admin quyết định hành vi khi thiếu cấu hình:** Admin chọn giữ chính sách trước, dùng chính sách thay thế, hoặc tiếp tục ghi nhận quan hệ/hoạt động trong khi một bước chờ bổ sung. Chương trình không bắt buộc phải tắt.
+36. **H36 — Thiếu khác sai:** Tổng tỷ lệ sai, loại tiền không được hỗ trợ hay công thức không xác định vẫn là cấu hình không hợp lệ. Khoản không đủ căn cứ ở trạng thái "Chưa thể xác định" kèm lý do. Hệ thống không coi khoản đó bằng 0, không coi là đã trả, và không tự điền giá trị.
+
+> 💡 **Quan trọng:** A4, C11, F26 và F29 ảnh hưởng trực tiếp đến tiền và quyền hưởng.
+
+---
+
+### Ví dụ
+
+**Chỉ để minh hoạ — không phải giá trị cấu hình.**
+
+| Tình huống | Kết quả |
 | :--- | :--- |
-| AC-01 | Personal, Business, Staff/Partner đều có thể tham gia theo quyền tài khoản; kết quả xác minh có sẵn được kế thừa đúng chủ thể. |
-| AC-02 | Ba chế độ quan hệ cho kết quả đúng khi người giới thiệu khác người phía trên cây; cấp Sponsor và tầng cây không bị đồng nhất. |
-| AC-03 | Trường hợp cùng người thuộc cả hai nhóm tuân thủ chính xác lựa chọn cộng/ưu tiên/lấy cao hơn; thông báo sự kiện lặp không tạo thêm khoản. |
-| AC-04 | B active được tính từ cấu hình sự kiện, ngưỡng và kỳ xét; có lý do chưa đạt/inactive/kích hoạt lại; không mặc định 90 ngày. |
-| AC-05 | Cấp, tiến độ và quyền từng tầng phản ánh chính sách có hiệu lực; cách đếm B không bị trùng ngoài cấu hình. |
-| AC-06 | Mỗi override truy được B, sự kiện, quan hệ/tầng, cấp, căn cứ, tỷ lệ, giới hạn và phiên bản; không tạo tiền chỉ từ đăng ký/nạp credit. |
-| AC-07 | Thay đổi chính sách, cấp và active tuân theo ngày hiệu lực/phạm vi hồi tố; khoản điều chỉnh liên kết khoản gốc và không ghi trùng; người giới thiệu đã xác lập không thay đổi. |
-| AC-08 | Tiền Sponsor tách với thu nhập trực tiếp của A và Publisher Share của B; tổng phân bổ khớp nguồn chi theo chính sách. |
-| AC-09 | Thời gian đối soát, kỳ chi, ngưỡng, dự phòng và khấu trừ theo cấu hình Sponsor, không tự lấy giá trị từ nhóm Business. |
-| AC-10 | Nơi nhận luôn là ví VlinkPay SSO đúng tài khoản; loại tiền/tỷ lệ do Admin cấu hình, tổng 100%; tỷ lệ nhận không bị dùng làm tỷ lệ override. |
-| AC-11 | Hiển thị giá trị phân bổ và số đơn vị thực nhận từng loại cùng quy đổi/phí/làm tròn; dữ liệu đối chiếu được với giao dịch ví. |
-| AC-12 | Chi nhiều loại tiền có kết quả từng phần; timeout được đối chiếu, retry không chuyển lại phần đã thành công; chỉ xác nhận đã nhận khi VlinkPay ghi có. |
-| AC-13 | Refund toàn phần/một phần và thu hồi sau chi tạo điều chỉnh đúng phạm vi, không vừa giảm khoản chưa chi vừa thu hồi trùng phần đó. |
-| AC-14 | Admin chọn được hành vi khi cấu hình chưa đủ; không cố định chưa cấu hình là chưa kích hoạt; bước chưa tính/chi được có lý do rõ. |
-| AC-15 | Việc xác lập quan hệ, thay đổi chính sách và thao tác hồi tố có lịch sử; Sponsor chỉ xem dữ liệu đúng quyền. |
-| AC-16 | Các màn hình dùng được trên điện thoại và desktop; hỗ trợ EN/VI, ngày giờ/tiền/trạng thái rõ ràng. Tiếng Việt viết đầy đủ “tháng”; không lộ mã kỹ thuật hoặc mô tả demo như kết quả thật. |
-| AC-17 | Không có chức năng hoặc cấu hình cho phép đổi Sponsor. B mở link/QR của người khác hoặc inactive rồi active lại không thay người giới thiệu đã xác lập; cấu hình trực tiếp/trên cây/cả hai vẫn chỉ quyết định quyền hưởng. |
+| B đăng ký qua link của A nhưng chưa có sự kiện đủ điều kiện. | A có quan hệ, override = $0 (C11). |
+| Căn cứ $100; tỷ lệ trực tiếp 10%, tầng 1 trên cây 5%; A ở cả hai nhóm; chế độ **cộng**. | A nhận $10 + $5 = $15. |
+| Như trên, chế độ **ưu tiên trực tiếp**. | A nhận $10. |
+| Như trên, chế độ **lấy cao hơn**. | A nhận $10. |
+| Người giới thiệu là C, cha trên cây là D; chế độ **Trực tiếp**. | Chỉ C được xét; D không được xét. |
+| Phần đủ chi $100; phân bổ Loại X 70%, Loại Y 30%. | Hai phần giá trị $70 và $30 trước quy đổi. Số đơn vị thực nhận phụ thuộc tỷ giá và phí (F28), không phải 70 đơn vị X và 30 đơn vị Y. |
+| Phần X ghi có thành công, phần Y timeout. | X = Đã nhận. Y = Cần đối chiếu; chỉ Y được xử lý tiếp (F30). |
+| Sự kiện $100 bị refund $40, override chưa chi. | Chỉ phần override tương ứng $40 được điều chỉnh (E23). |
 
-### Tình huống ngoại lệ và cách xử lý
+---
 
-| Tình huống | Xử lý nghiệp vụ | Bên xử lý |
+### Tiêu chí nghiệm thu
+
+Đây là điều kiện nghiệm thu cho chức năng cần triển khai. Chưa tiêu chí nào được kiểm chứng trên môi trường thật.
+
+#### Tham gia và quan hệ
+
+- [ ] Personal, Business, Staff/Partner đều tham gia được theo quyền tài khoản (A1).
+- [ ] Kết quả xác minh có sẵn được kế thừa đúng tài khoản (A1).
+- [ ] Khi người giới thiệu khác cha trên cây, ba chế độ quan hệ cho đúng danh sách ứng viên (A3).
+- [ ] Cấp Sponsor và tầng trên cây hiển thị thành hai thông tin riêng (B8).
+- [ ] Không có màn hình, API hay cấu hình nào cho phép đổi Sponsor (A4).
+- [ ] **Given** B đã có người giới thiệu là C, **when** B mở link/QR của A rồi đăng ký hoặc đăng nhập lại, **then** người giới thiệu vẫn là C (A4).
+- [ ] **Given** B inactive, **when** B active lại, **then** người giới thiệu không đổi và không tạo lượt giới thiệu mới (A4).
+
+#### B active và cấp
+
+- [ ] B active được tính theo loại sự kiện, ngưỡng và kỳ xét đã cấu hình (B6).
+- [ ] Mỗi B chưa đạt hoặc inactive có lý do cụ thể (B6).
+- [ ] Hệ thống không áp dụng mốc 90 ngày khi Admin không cấu hình (B6).
+- [ ] Đăng ký, nạp credit, scan hay lượt bấm không làm B active (B7).
+- [ ] Cấp, tiến độ và tầng hưởng phản ánh chính sách đang hiệu lực (B8).
+- [ ] Một B không bị đếm hai lần ngoài cấu hình (B9).
+
+#### Tính và ghi override
+
+- [ ] Mỗi khoản truy được B, sự kiện, quan hệ, tầng, cấp, căn cứ, tỷ lệ, trần và phiên bản (C14).
+- [ ] Không có khoản nào được tạo chỉ từ đăng ký hoặc nạp credit (C11).
+- [ ] Ba chế độ xử lý trùng cho đúng kết quả như bảng Ví dụ (A5).
+- [ ] **Given** cùng một sự kiện được gửi hai lần, **when** hệ thống xử lý, **then** chỉ có một khoản cho mỗi quyền hưởng (C15).
+- [ ] Override hiển thị tách khỏi Publisher Share của B và thu nhập trực tiếp của A (C16).
+- [ ] Tổng phân bổ cho các tầng khớp nguồn chi đã cấu hình (C13).
+
+#### Chính sách và hồi tố
+
+- [ ] Thay đổi chính sách chỉ áp dụng từ ngày hiệu lực (D17).
+- [ ] Hồi tố chỉ chạm sự kiện trong phạm vi Admin chọn (D19).
+- [ ] Khoản điều chỉnh liên kết khoản gốc (D20).
+- [ ] Chạy lại một đợt xét không tạo khoản trùng (D20).
+- [ ] Mọi thay đổi chính sách và hồi tố có lịch sử người thao tác, lý do, thời điểm (D17, G34).
+
+#### Đối soát, dự phòng và điều chỉnh
+
+- [ ] Thời gian chờ, kỳ chi, ngưỡng, dự phòng lấy từ cấu hình Sponsor, không lấy từ Business OneQR Earnings (E21).
+- [ ] Refund toàn phần và một phần tạo điều chỉnh đúng phạm vi (E23).
+- [ ] Một phần đã giảm trước khi chi không bị thu hồi thêm sau khi chi (E23).
+- [ ] Thu hồi sau chi được ghi là nghĩa vụ, chưa hiển thị "đã trừ ví" khi chưa có giao dịch ví xác nhận (E24).
+
+#### Chi trả
+
+- [ ] Nơi nhận luôn là ví VlinkPay SSO của đúng tài khoản Sponsor (F26).
+- [ ] Admin không lưu được cấu hình tiền nhận có tổng tỷ lệ khác 100% (F28).
+- [ ] Đổi tỷ lệ tiền nhận không làm đổi số tiền override (F27).
+- [ ] Mỗi loại tiền hiển thị giá trị phân bổ, số đơn vị, tỷ giá, phí và làm tròn (F28).
+- [ ] Số liệu chi trả đối chiếu khớp với giao dịch ví (F28).
+- [ ] Chỉ phần được VlinkPay xác nhận mới hiển thị "Đã nhận" (F29).
+- [ ] **Given** một phần timeout, **when** hệ thống xử lý lại, **then** hệ thống đối chiếu trước và không chuyển lại phần đã thành công (F30).
+
+#### Cấu hình thiếu
+
+- [ ] Admin chọn được hành vi khi cấu hình chưa đủ (H35).
+- [ ] Chương trình không tự tắt chỉ vì thiếu cấu hình (H35).
+- [ ] Khoản chưa tính hoặc chưa chi được có lý do rõ (H36).
+
+#### Quyền và giao diện
+
+- [ ] Sponsor chỉ thấy dữ liệu B và sự kiện theo G32.
+- [ ] Staff không thấy thu nhập Sponsor của Business (G33).
+- [ ] Các màn hình dùng được trên điện thoại và desktop.
+- [ ] Mọi chuỗi giao diện có cả EN và VI.
+- [ ] Ngày giờ, tiền và trạng thái hiển thị đúng định dạng; tiếng Việt viết đầy đủ "tháng".
+- [ ] Giao diện không hiển thị mã kỹ thuật hoặc dữ liệu demo như kết quả thật.
+
+---
+
+### Tình huống ngoại lệ
+
+| Tình huống | Cách xử lý | Bên xử lý |
 | :--- | :--- | :--- |
-| Người giới thiệu khác người cha trên cây | Xét đúng chế độ; hiển thị hai loại quan hệ riêng. | Hệ thống |
-| A vừa là người giới thiệu vừa ở trên cây | Áp dụng cộng/ưu tiên/lấy cao hơn; lưu căn cứ và phần được chọn. | Hệ thống |
-| Không có người giới thiệu nhưng có tuyến trên | Chế độ cây/cả hai xét tuyến trên; chế độ trực tiếp không tự chọn người thay thế. | Hệ thống |
-| B đã có Sponsor rồi mở link/QR của A khác | Giữ Sponsor đã xác lập; không ghi đè khi đăng nhập, quét QR hoặc thực hiện lại bước đăng ký. | Hệ thống |
-| B inactive rồi active lại | Giữ người giới thiệu đã xác lập; xét lại quyền hưởng theo cấu hình, không tạo lượt giới thiệu mới. | Hệ thống |
-| Sponsor bị đình chỉ hoặc hồ sơ nhận tiền thiếu | Xét quyền mới và các khoản đang chờ theo cấu hình; hiển thị lý do; không tự gán phần tiền cho Sponsor khác. | Vận hành |
-| Dữ liệu cây/hoạt động chưa đồng bộ | Phân biệt chưa biết với không đủ điều kiện; chờ đối chiếu hoặc dùng chính sách thay thế đã xác định. | Hệ thống / vận hành |
-| B chỉ đăng ký, nạp credit hoặc có traffic giả | Không dùng các hành động này thay hoạt động OneQR hợp lệ để tạo thưởng. | Hệ thống / vận hành |
-| Sự kiện đến muộn hoặc được xác nhận lại | Dùng mốc xét quyền theo chính sách; kiểm tra khoản cũ trước khi cộng/điều chỉnh. | Hệ thống |
-| Refund làm B không còn đạt ngưỡng active | Xét lại active theo cấu hình; tách điều chỉnh sự kiện hoàn với tác động trạng thái lên khoản khác. | Hệ thống |
-| A xuống cấp/B inactive trong lúc tiền chờ | Tác động theo cấu hình đã có hiệu lực; không mặc định xóa khoản đã ghi. | Hệ thống |
-| Nhiều tầng làm tổng vượt nguồn chi | Báo cấu hình/phép phân bổ chưa hợp lệ hoặc áp dụng trần đã xác định; không âm thầm giảm phần của B. | Admin |
-| Tỷ lệ tiền nhận không đủ 100% hoặc vượt 100% | Báo cấu hình phân bổ không hợp lệ; chương trình tổng thể xử lý theo hành vi thiếu/sai cấu hình được thiết kế. | Admin |
-| Không có ví SSO đúng chủ thể hoặc ví thiếu loại tiền | Hiển thị lý do chưa thể chi phần liên quan; hoàn thiện liên kết/cấu hình hợp lệ. | Sponsor / VlinkPay / Admin |
-| Tỷ giá thay đổi trước khi chuyển | Xử lý theo thời điểm chốt và hiệu lực báo giá; lưu tỷ giá thực áp dụng, không chỉ hiển thị tỷ giá hiện tại. | Nexora / VlinkPay |
-| Một loại tiền thành công, loại khác thất bại | Ghi nhận đợt thành công một phần; chỉ xử lý lại phần chưa ghi có. | Vận hành |
-| Gửi tiền timeout hoặc phản hồi đến lặp | Tra cứu theo tham chiếu; không tạo yêu cầu mới có thể ghi có trùng. | Nexora / VlinkPay |
-| Refund sau khi đã nhận nhiều loại tiền | Liên kết nghĩa vụ với đợt/giá trị đã trả; quy tắc định giá và bù trừ phải xác định, không tự đảo theo tỷ giá mới. | Vận hành |
-| Không có chính sách phù hợp hoặc thiếu trường | Áp dụng hành vi Admin đã chọn; hiển thị bước đang chờ và lý do, không tự mặc định 0%, 90 ngày hoặc tắt chương trình. | Admin / hệ thống |
+| Người giới thiệu khác cha trên cây | Xét theo chế độ A3; hiển thị hai loại quan hệ riêng. | Hệ thống |
+| A vừa giới thiệu B vừa nằm trên cây | Áp dụng A5; lưu phần được chọn. | Hệ thống |
+| B không có người giới thiệu nhưng có tuyến trên | Chế độ Trên cây/Cả hai xét tuyến trên; chế độ Trực tiếp không chọn người thay (A3). | Hệ thống |
+| B đã có Sponsor rồi mở link/QR của người khác | Giữ Sponsor đã xác lập (A4). | Hệ thống |
+| B inactive rồi active lại | Giữ người giới thiệu; xét lại quyền hưởng theo cấu hình (A4, B6). | Hệ thống |
+| Sponsor bị đình chỉ hoặc thiếu hồ sơ nhận tiền | Xử lý theo E25; hiển thị lý do. | Vận hành |
+| Dữ liệu cây hoặc hoạt động chưa đồng bộ | Đặt "Chờ xác định", không đặt "Chưa đạt" (H36). | Hệ thống, vận hành |
+| B chỉ đăng ký, nạp credit hoặc có traffic giả | Không tạo override (B7). | Hệ thống, vận hành |
+| Sự kiện đến muộn hoặc được xác nhận lại | Dùng mốc xét quyền C14; kiểm tra khoản cũ trước khi ghi (C15). | Hệ thống |
+| Refund làm B không còn đạt ngưỡng active | Xét lại active; tách điều chỉnh sự kiện bị hoàn với tác động lên khoản khác (E23). | Hệ thống |
+| A xuống cấp hoặc B inactive khi tiền đang chờ | Áp dụng tác động đã cấu hình; không mặc định xoá khoản đã ghi (D19). | Hệ thống |
+| Tổng các tầng vượt nguồn chi | Báo cấu hình không hợp lệ hoặc áp trần (C13). | Admin |
+| Tổng tỷ lệ tiền nhận khác 100% | Báo cấu hình không hợp lệ (F28, H36). | Admin |
+| Không có ví SSO đúng chủ thể, hoặc ví thiếu loại tiền | Hiển thị lý do chưa chi phần liên quan (F26, F31). | Sponsor, VlinkPay, Admin |
+| Tỷ giá thay đổi trước khi chuyển | Dùng tỷ giá tại thời điểm chốt và lưu lại (F28). | Nexora, VlinkPay |
+| Một loại tiền thành công, loại khác thất bại | Đợt chi ở trạng thái thành công một phần; chỉ xử lý lại phần thất bại (F30). | Vận hành |
+| Chuyển tiền timeout hoặc phản hồi đến lặp | Tra cứu theo tham chiếu, không tạo yêu cầu mới (F30). | Nexora, VlinkPay |
+| Refund sau khi đã chi nhiều loại tiền | Ghi nghĩa vụ liên kết đợt chi gốc (E24); quy tắc định giá xem Quyết định còn mở. | Vận hành |
+| Không có chính sách phù hợp hoặc thiếu trường | Áp dụng H35, H36. | Admin, hệ thống |
+
+---
 
 ### Câu hỏi thường gặp
 
-**B đăng ký qua link của tôi thì tôi có tiền ngay không?**  
-Không. Quan hệ chỉ là căn cứ xét hưởng. Cần B và sự kiện đạt điều kiện, đồng thời Sponsor có quyền hưởng theo chính sách áp dụng.
+**H: B đăng ký qua link của tôi thì tôi có tiền ngay không?**
+Đ: Không. Quan hệ chỉ là căn cứ xét hưởng. Tiền chỉ phát sinh khi B tạo sự kiện đủ điều kiện (C11).
 
-**Tôi có phải trực tiếp giới thiệu B mới được hưởng không?**  
-Tùy chế độ Admin chọn: trực tiếp, người phía trên cây hoặc cả hai. Trên cây cần nằm trong các tầng được cấu hình.
+**H: Tôi có phải trực tiếp giới thiệu B mới được hưởng không?**
+Đ: Tuỳ chế độ Admin chọn: Trực tiếp, Trên cây hoặc Cả hai (A3).
 
-**B active có nghĩa là phải có thu nhập trong 90 ngày không?**  
-Không có mặc định đó. Admin cấu hình loại hoạt động, ngưỡng và thời gian xét, kể cả active một lần hoặc duy trì định kỳ.
+**H: B active có nghĩa là có thu nhập trong 90 ngày không?**
+Đ: Không. Admin cấu hình loại hoạt động, ngưỡng và kỳ xét (B6).
 
-**Tôi vừa giới thiệu B vừa ở trên cây thì được hai khoản không?**  
-Theo cấu hình xử lý trùng: cộng cả hai, ưu tiên một loại hoặc lấy cao hơn. Chi tiết khoản thu phải giải thích kết quả đã áp dụng.
+**H: Tôi vừa giới thiệu B vừa ở trên cây thì được hai khoản không?**
+Đ: Tuỳ cấu hình: cộng, ưu tiên một loại, hoặc lấy khoản cao hơn (A5).
 
-**Lên cấp có được tính lại tiền cũ không?**  
-Chỉ khi cấu hình hồi tố cho phép và sự kiện nằm trong phạm vi. Xuống cấp hoặc B inactive cũng theo chính sách riêng, không tự tác động mọi khoản cũ và không thay người giới thiệu đã xác lập.
+**H: Lên cấp có được tính lại tiền cũ không?**
+Đ: Chỉ khi Admin cho phép hồi tố và sự kiện nằm trong phạm vi (D19).
 
-**Có thể đổi Sponsor sau khi đã xác lập với B không?**  
-Không. Không có chức năng yêu cầu, duyệt hoặc cấu hình cho phép đổi Sponsor. Admin vẫn cấu hình người được hưởng theo quan hệ trực tiếp/trên cây/cả hai, cấp và chính sách tiền; các lựa chọn này không sửa người giới thiệu đã ghi nhận.
+**H: Có đổi được Sponsor của B không?**
+Đ: Không. Người giới thiệu đã xác lập là cố định (A4).
 
-**Tôi nhận tiền ở đâu và bằng loại tiền nào?**  
-Trong ví VlinkPay liên kết SSO của tài khoản Sponsor. Loại tiền và tỷ lệ phân bổ từng loại do Admin cấu hình; Sponsor xem được chính sách và kết quả thực nhận.
+**H: Tôi nhận tiền ở đâu, bằng loại tiền nào?**
+Đ: Vào ví VlinkPay liên kết SSO của bạn (F26). Loại tiền và tỷ lệ do Admin cấu hình (F28).
 
-**Tỷ lệ phân bổ tiền nhận có phải tỷ lệ hoa hồng không?**  
-Không. Tỷ lệ override dùng tính thu nhập; tỷ lệ tiền nhận dùng chia phần đủ chi sang các loại tiền sau đối soát và khấu trừ.
+**H: Tỷ lệ phân bổ tiền nhận có phải tỷ lệ hoa hồng không?**
+Đ: Không. Hai tỷ lệ dùng cho hai bước khác nhau (F27).
 
-**Admin chưa cấu hình đủ thì chương trình có luôn bị tắt không?**  
-Không. Trạng thái và hành vi do Admin thiết lập. Tuy nhiên, một khoản chưa đủ căn cứ tính hoặc chi phải hiển thị rõ đang chờ gì, không tự đoán số tiền.
+**H: Admin chưa cấu hình đủ thì chương trình có bị tắt không?**
+Đ: Không nhất thiết. Admin chọn hành vi; khoản thiếu căn cứ sẽ hiển thị đang chờ gì (H35, H36).
+
+---
 
 ### Tính năng liên quan
 
-| Tính năng | Mối liên hệ với tài liệu này |
+| Tính năng | Liên hệ |
 | :--- | :--- |
-| Affiliate — quan hệ giới thiệu | Cung cấp người giới thiệu và cây quan hệ làm căn cứ xét quyền hưởng. Kế thừa quan hệ đã xác lập, không mở chức năng đổi Sponsor. |
-| [Promotion và quảng cáo](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-publishing-ads.md) | Cung cấp sự kiện đủ điều kiện và các điều chỉnh liên quan. Quyền hưởng và số tiền Sponsor được xét theo chính sách chương trình. |
-| [Business OneQR Earnings](https://github.com/vlink-group/VlinkPay/blob/docs/promotion-code-skill-audit/nexora/docs/business/business-oneqr-earnings.md) | Quản lý thu nhập QR trực tiếp của doanh nghiệp. Có thể tham khảo cách đối soát, dự phòng và tích hợp ví, nhưng không tự áp dụng ngưỡng hoặc kỳ chi của Business cho Sponsor. |
-| [Ads Credit](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md) | Là nguồn tiền của bên chạy quảng cáo. Tiền nạp chưa sử dụng không tự tạo khoản Sponsor Override. |
-| Ví VlinkPay liên kết SSO | Nhận tiền vào đúng tài khoản Sponsor, xác nhận kết quả từng loại tiền và hỗ trợ đối chiếu khi kết quả chuyển tiền chưa rõ. |
+| Affiliate — quan hệ giới thiệu | Cung cấp người giới thiệu và cây làm căn cứ xét hưởng. |
+| [Promotion và quảng cáo](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-publishing-ads.md) | Cung cấp sự kiện đủ điều kiện và điều chỉnh liên quan. |
+| [Business OneQR Earnings](https://github.com/vlink-group/VlinkPay/blob/docs/promotion-code-skill-audit/nexora/docs/business/business-oneqr-earnings.md) | Thu nhập QR trực tiếp của doanh nghiệp. Có thể tham khảo cách đối soát, nhưng không kế thừa thông số (E21). |
+| [Ads Credit](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md) | Nguồn tiền của bên chạy quảng cáo. Tiền nạp chưa dùng không tạo override (B7). |
+| Ví VlinkPay liên kết SSO | Nhận tiền và xác nhận kết quả ghi có từng loại tiền. |
 
-#### Tài liệu nguồn đi kèm
+---
 
-Các file HTML nguồn có nhắc đến `NEXORA-Promotion-Owner-Guide.html`, `NEXORA-Salon-Research-and-Template-Brief.md` hoặc `OneQR-2.2-Prototype.html`, nhưng các file này chưa có trong bộ nguồn được cung cấp. Không coi các liên kết đó là tài liệu đã xuất bản.
+### Phụ lục
 
-Các tài liệu nguồn có liên kết dưới đây được đính kèm trong thư mục references để đối chiếu. Đây là các bản mẫu, không phải bằng chứng chức năng đã triển khai. Nội dung nghiệp vụ và các quyết định áp dụng được trình bày trong tài liệu này; những nguồn chưa tìm thấy được ghi rõ riêng.
+#### Quyết định còn mở
 
-- [Ads/Referral Revenue Policy — 21/09](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Ads-Referral-Revenue-Policy.html): bối cảnh sự kiện hợp lệ, các phần tiền và refund/reversal; quyết định Admin cấu hình của user thay các tỷ lệ/quan hệ minh họa cố định.
-- [Sponsor Level Flow — bản mẫu nguồn](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Sponsor-Level-Flow.html): nguyên tắc B hoạt động thật và quyền cấp; ngưỡng mẫu và bảng B gán sẵn không phải logic production.
-- [Monetization & Sponsor Terms](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Monetization-Sponsor-Terms.html): quyền hưởng, điều kiện và lịch sử thu nhập; không áp dụng tỷ lệ demo như mặc định.
+Mọi con số vận hành (kỳ xét, ngưỡng, tỷ lệ, số cấp, dự phòng) do Admin cấu hình và không thuộc danh sách này. Các mục dưới đây là thiết kế/tích hợp chưa được chốt.
 
-### Hiện trạng code và phụ thuộc tích hợp
-
-#### Phạm vi đối chiếu ngày 5 tháng 10 năm 2026
-
-| Nguồn | Phiên bản và cách đối chiếu |
-| :--- | :--- |
-| Giao diện Nexora | Nhánh `staging` vừa được fetch từ remote đã xác minh lúc 18:33 ngày 5 tháng 10 năm 2026 tại [phiên bản `27c5ebc`](https://github.com/vlink-group/vlink-nexora-fe/tree/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e). Đọc phiên bản này trong checkout chính; các điểm tích hợp giới thiệu bên dưới vẫn khớp kết quả rà soát. |
-| Máy chủ Nexora | Nhánh `staging` vừa được fetch lúc 18:33 ngày 5 tháng 10 năm 2026 tại [phiên bản `a7a46d3`](https://github.com/vlink-group/vlink-nexora/tree/a7a46d314036f9d83c910aead411182480249bea). Đọc lớp đăng ký, tích hợp VlinkPay, OneQR, Ads Credit, controller và hợp đồng API đã sinh trong repository. |
-| Giới hạn kiểm chứng | Rà soát mã nguồn và hợp đồng API trong hai repository Nexora; không gọi API live, kiểm thử UI hoặc thực hiện giao dịch. Chưa kiểm chứng cách VlinkPay lưu/khóa quan hệ, cây đầy đủ hay khả năng chi Sponsor ở hệ thống ngoài Nexora. |
-
-**Kết luận trong phạm vi rà soát:** Có nền tảng giới thiệu và tích hợp VlinkPay để kế thừa. Chưa tìm thấy phần triển khai chương trình OneQR Sponsor Override trong giao diện, nghiệp vụ máy chủ, sổ dữ liệu hoặc hợp đồng API Nexora được đọc. Các quyết định nghiệp vụ trong tài liệu vẫn giữ nguyên; không lấy khoảng trống triển khai để đổi chính sách đã chốt.
-
-#### Thành phần đã có và giới hạn sử dụng
-
-| Thành phần nghiệp vụ | Code hiện có | Giới hạn đối với Sponsor Override | Căn cứ nội bộ |
-| :--- | :--- | :--- | :--- |
-| Chia sẻ QR/link giới thiệu | Lấy mã từ hồ sơ, tạo link/QR, sao chép và tải QR; bảng Affiliate cho chọn nhánh trái/phải. | Nhánh đặt tài khoản không phải cấp Sponsor, tầng hưởng hoặc cấu hình tỷ lệ override. Chưa có màn hình mạng lưới và thu nhập Sponsor. | [Bảng link Affiliate](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/settings/AffiliateLinkPanel.tsx), [QR giới thiệu trên tổng quan](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/dashboard/overview/ReferralGatewayPanel.tsx) |
-| Giữ nguồn trước đăng ký | Mã và nhánh hợp lệ được lưu theo phiên tab; mã mới trong URL thay mã đang lưu. Form nhận mã trực tiếp từ URL thì khóa sửa trường đó. | Đây là nguồn đầu vào trước khi tạo tài khoản, không phải xác nhận quan hệ Sponsor bất biến. Chưa có bản ghi chấp thuận điều khoản riêng của chương trình Sponsor. | [Lưu mã và nhánh](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/utils/affiliateReferral.ts), [Khởi tạo form](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/RegisterWizard.tsx), [Trường mã giới thiệu](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/register/steps/StepCredentials.tsx) |
-| Đăng ký có giới thiệu | FE gửi mã và nhánh hợp lệ; BE kiểm tra mã qua VlinkPay, tạo tài khoản SSO/VlinkPay và liên kết danh tính tài khoản. Không gửi mã thì dùng mã mặc định trong cấu hình. | Chỉ chứng minh tích hợp đăng ký. Hai loại đăng ký Personal/Business không chứng minh đã có chương trình cho mọi đối tượng Sponsor, kể cả Staff/Partner. | [Gửi đăng ký](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/auth/adapters/apiAuthAdapter.ts), [Xử lý đăng ký](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/Auth/Commands/Register/SignUpCommand.cs) |
-| Số liệu mạng lưới VlinkPay | Có lớp gọi nội bộ và xử lý truy vấn lấy mã/link/QR, tổng thành viên, tổng active và tổng ATM từ VlinkPay. | Chưa tìm thấy controller/endpoint Nexora hoặc điểm gọi FE tương ứng. Dữ liệu tổng hợp không chứa danh sách B, đường tuyến trên, tầng hay lịch sử quan hệ. Tổng active không chứng minh B đạt chính sách OneQR Sponsor. | [Truy vấn số liệu mạng lưới](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/VlinkPay/Queries/Dashboard/GetNetworkTreeQueryHandler.cs), [Dữ liệu trả về](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/VlinkPay/DTOs/VlinkPayNetworkTreeDto.cs) |
-| Theo dõi sử dụng OneQR | Lượt bấm module ghi sự kiện analytics theo doanh nghiệp, OneQR, module, nhóm người dùng và phiên truy cập. | Xử lý này không tính hoặc ghi sổ override. Chống lặp lượt bấm theo phiên và cửa sổ thời gian không thay cho chống ghi trùng khoản thưởng. | [Ghi lượt bấm OneQR](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/Public/OneQr/Commands/TrackOneQrModuleClick/TrackOneQrModuleClickCommand.cs) |
-| SSO và thanh toán ví | Có điều hướng SSO vào hệ sinh thái và thanh toán từ ví VlinkPay cho các chức năng hiện có, trong đó có mua Ads Credit. | Thanh toán mua Ads Credit và ghi tăng credit quảng cáo không phải ghi có thu nhập Sponsor. Chưa tìm thấy chi Sponsor, phân bổ nhiều loại tiền hoặc lịch sử kết quả từng phần. | [SSO hệ sinh thái](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/data/repositories/ecosystem.ts), [Mua Ads Credit bằng ví](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/AdsCredit/Commands/PurchaseAdsCreditWithWallet/PurchaseAdsCreditWithWalletCommand.cs), [Ghi nhận nạp Ads Credit](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/AdsCredit/Services/AdsCreditTopUpSettler.cs) |
-
-Các trường hồ sơ liên quan người giới thiệu hoặc KYC của Sponsor, nếu có, không phải cấp Sponsor hoặc quyền hưởng OneQR. Cấu hình module OneQR của Admin cũng không phải chính sách tài chính Sponsor. Cơ chế điều chỉnh incentive tại POS và vị trí quảng cáo được tài trợ thuộc nghiệp vụ khác, không chứng minh đã triển khai Sponsor Override.
-
-#### Khoảng trống so với yêu cầu đã chốt
-
-| Nhóm yêu cầu | Tiêu chí liên quan | Kết quả đối chiếu và phần cần hoàn thiện |
+| Hạng mục | Cần quyết định | Phụ trách |
 | :--- | :--- | :--- |
-| Tham gia và xác lập quan hệ | AC-01, AC-02, AC-15, AC-17 | Đã có nguồn đầu vào khi đăng ký; chưa có chương trình tham gia Sponsor, contract quan hệ trực tiếp/tuyến trên và bằng chứng khóa quan hệ tại hệ thống nguồn. Cần kế thừa người giới thiệu đã có, không bổ sung chức năng đổi Sponsor. |
-| B active, cấp và phạm vi hưởng | AC-04, AC-05 | Chưa tìm thấy chính sách, tiến độ hoặc xử lý xét B active/cấp Sponsor theo sự kiện OneQR. Cần xác định dữ liệu và kỳ xét riêng, không dùng tổng active của mạng lưới VlinkPay. |
-| Cấu hình Admin và hiệu lực | AC-07, AC-09, AC-10, AC-14 | Chưa tìm thấy cấu hình Sponsor về quan hệ, trùng người hưởng, công thức, giới hạn, đối soát/dự phòng, tiền nhận, phiên bản, hồi tố và hành vi khi thiếu cấu hình. |
-| Tính, ghi sổ và điều chỉnh override | AC-03, AC-06, AC-08, AC-13 | Chưa tìm thấy sổ override hoặc xử lý sự kiện trả thưởng, chống trùng, chia nguồn chi, refund và nghĩa vụ thu hồi. Analytics và sổ Ads Credit hiện có không đáp ứng thay cho sổ thu nhập Sponsor. |
-| Chi và đối chiếu ví SSO | AC-10, AC-11, AC-12, AC-13 | Chưa tìm thấy contract ghi có Sponsor, phân bổ nhiều loại tiền, quy đổi/phí, tham chiếu từng phần và đối chiếu trước retry. Không suy khả năng chi thưởng từ chức năng thanh toán bằng ví. |
-| Giao diện và vận hành Sponsor | AC-15, AC-16 | Chưa tìm thấy bộ màn hình mạng lưới, cấp, chi tiết override, lịch sử chi và cấu hình Admin Sponsor. Chưa kiểm chứng responsive, EN/VI hoặc quyền dữ liệu cho các màn hình cần triển khai. |
+| Nguồn quan hệ affiliate | Hệ thống nào giữ và khoá người giới thiệu; thời điểm khoá; cây nào được dùng; xử lý tài khoản đăng ký bằng mã mặc định. | TL, Tích hợp VlinkPay |
+| Cấu hình ban đầu | Hành vi khi chính sách đầu tiên chưa tồn tại; sự kiện chờ được xử lý thế nào sau khi bổ sung cấu hình (H35). | PO |
+| Nguồn sự kiện | Sự kiện nào có phí hợp lệ; nguồn dữ liệu sự kiện cho override. | PO, TL |
+| Ví và loại tiền | Ví đúng chủ thể cho từng loại tài khoản; danh mục tiền VlinkPay nhận được; API ghi có nhiều loại tiền và tra cứu kết quả. | Tích hợp VlinkPay |
+| Quy đổi và phí | Nguồn tỷ giá, thời điểm chốt, phí, độ chính xác, xử lý phần lẻ. | PO, Tích hợp VlinkPay |
+| Thu hồi sau chi | Cách định giá và bù trừ khi đã chi nhiều loại tiền; có API trừ ví hay không. | PO, Tích hợp VlinkPay |
+| Quyền vận hành | Phân quyền Admin/Support, quy trình xử lý tranh chấp. | PO |
 
-#### Tham chiếu kỹ thuật nội bộ
+#### Nguồn và thứ tự ưu tiên
 
-Các tên kỹ thuật dưới đây chỉ để định vị tích hợp đã có; không phải đề xuất API Sponsor mới:
+Khi các nguồn mâu thuẫn, áp dụng theo thứ tự: quyết định nghiệp vụ đã chốt trong tài liệu này → cấu hình Admin đang hiệu lực → nguyên tắc còn phù hợp trong bộ HTML nguồn. Tỷ lệ và ngưỡng trong HTML không trở thành giá trị mặc định.
 
-| Điểm tích hợp | Hành vi đã đọc từ code/contract |
+| Nguồn | Dùng để làm gì |
 | :--- | :--- |
-| Đăng ký Nexora (`POST /api/v1/authentication/signup`) | Nhận mã giới thiệu và nhánh cây; kiểm tra mã qua VlinkPay trong luồng đăng ký. Chưa tìm thấy API Nexora kiểm tra mã riêng trong hợp đồng được đọc. |
-| Lấy số liệu mạng lưới từ VlinkPay (`/commissions/trees/dashboard-network-tree`) | Là đường dẫn hệ thống ngoài được lớp tích hợp gọi, không phải endpoint Nexora đã công bố. Dữ liệu Nexora nhận hiện là tổng hợp, chưa đủ để xác định người hưởng từng B/tầng. |
-| Theo dõi OneQR (`POST /api/v1/oneqr/{businessSlug}/track`) | Ghi lượt bấm analytics và trả xác nhận không có nội dung; không trả hoặc tạo khoản Sponsor Override. |
-| Hợp đồng API Nexora đã sinh | [Bản tại phiên bản backend được rà soát](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Web/wwwroot/api/specification.json). Không tìm thấy endpoint riêng cho tham gia, active/cấp, chính sách, override hoặc chi Sponsor; đây là kiểm chứng contract trong repository, không xác nhận API đang chạy. |
+| [Ads/Referral Revenue Policy — 21/09](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Ads-Referral-Revenue-Policy.html) | Bối cảnh sự kiện hợp lệ, các phần tiền, refund/reversal. Tỷ lệ và quan hệ cố định trong đó đã được thay bằng cấu hình Admin. |
+| [Sponsor Level Flow](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Sponsor-Level-Flow.html) | Nguyên tắc B hoạt động thật và quyền theo cấp. Ngưỡng mẫu và bảng B gán sẵn không phải logic production. |
+| [Monetization & Sponsor Terms](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Monetization-Sponsor-Terms.html) | Quyền hưởng, điều kiện, lịch sử thu nhập. Tỷ lệ demo không phải mặc định. |
+| `NEXORA-Promotion-Owner-Guide.html`, `NEXORA-Salon-Research-and-Template-Brief.md`, `OneQR-2.2-Prototype.html` | Được nhắc trong HTML nguồn nhưng chưa có trong bộ tài liệu; không coi là đã xuất bản. |
 
-#### Phụ thuộc cần xác nhận khi thiết kế/tích hợp
+#### Hiện trạng code (đối chiếu ngày 5/10/2026)
 
-| Phụ thuộc | Cần xác nhận khi thiết kế/tích hợp |
+**Kết luận:** Nexora đã có nền tảng giới thiệu và tích hợp VlinkPay để kế thừa. Chưa có phần nào của chương trình Sponsor Override trong giao diện, máy chủ, dữ liệu hay hợp đồng API.
+
+| Nguồn | Phiên bản |
 | :--- | :--- |
-| Affiliate | Nguồn xác nhận người giới thiệu, cây và lịch sử cây; cây nào được dùng; danh tính tài khoản/Business; thời điểm xác lập/khóa nguồn và cách xác định nguồn thắng trước khi khóa, kể cả khi dùng mã mặc định. Kế thừa quan hệ đã có của tài khoản hiện hữu, không cung cấp thao tác đổi Sponsor. Không suy toàn bộ cây chỉ từ nhánh trái/phải của link hoặc số liệu tổng hợp. |
-| Chương trình Sponsor | Contract tham gia, mạng lưới chi tiết, active/cấp, cấu hình và phiên bản; mô hình trạng thái, phạm vi và ưu tiên khi chính sách chồng nhau. Cần nối dữ liệu nguồn tới màn hình/endpoint được phân quyền, không chỉ có lớp gọi nội bộ. |
-| Sự kiện và tiền | Nguồn sự kiện có phí hợp lệ, thời điểm xét quyền, tổng nguồn chi, chống trùng, điều chỉnh và lịch sử. Không lấy API tracking bấm menu hoặc kết quả nạp Ads Credit làm API ghi thu nhập Sponsor. |
-| VlinkPay SSO | Ví đúng chủ thể cho từng loại tài khoản, danh mục tiền có thể nhận, khả năng ghi có nhiều loại, tham chiếu, phản hồi, tra cứu và chống ghi có trùng. Không mặc định VlinkPay đã hỗ trợ mọi loại tiền Admin muốn thêm hoặc đã có API chi thưởng vì có API thanh toán. |
-| Quy đổi và phí | Nguồn tỷ giá, thời điểm chốt, hiệu lực báo giá, phí, độ chính xác từng loại, xử lý phần lẻ và căn cứ khi thu hồi sau chi. Đây là quy tắc tích hợp cần công bố, không được lấy ví dụ phân bổ làm tỷ giá thật. |
-| Dự phòng và thu hồi | Sổ dự phòng/nghĩa vụ theo chủ thể, nguồn bù trừ và cách định giá khi đã chi nhiều loại tiền; không suy đã có API trừ ví để thu hồi. |
-| Thiếu cấu hình | Cách khởi tạo lựa chọn Admin đầu tiên, chính sách thay thế, phạm vi bước được tiếp tục và cách xử lý sự kiện chờ sau khi bổ sung cấu hình. |
-| Quyền và vận hành | Chủ thể quản lý Business/Staff, phân quyền Admin/Support, lịch sử thay đổi, xử lý tranh chấp và phạm vi dữ liệu được xem. |
+| Giao diện Nexora | `staging` tại [`27c5ebc`](https://github.com/vlink-group/vlink-nexora-fe/tree/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e) |
+| Máy chủ Nexora | `staging` tại [`a7a46d3`](https://github.com/vlink-group/vlink-nexora/tree/a7a46d314036f9d83c910aead411182480249bea) |
+| Giới hạn | Chỉ đọc mã nguồn và hợp đồng API. Không gọi API live, không kiểm thử UI, không giao dịch. Chưa kiểm chứng cách VlinkPay lưu/khoá quan hệ. |
 
-Lần cập nhật này đối chiếu code để làm rõ phần đã có và khoảng trống triển khai; không sửa FE/BE, thay chính sách đang chạy hoặc xác nhận giao dịch. Các con số vận hành vẫn do Admin thiết lập theo quyết định nghiệp vụ đã chốt.
+**Thành phần đã có — chứng minh gì và không chứng minh gì:**
+
+| Thành phần | Đã có | Chưa chứng minh | Căn cứ |
+| :--- | :--- | :--- | :--- |
+| Link/QR giới thiệu | Tạo, sao chép, tải QR; chọn nhánh trái/phải. | Nhánh trái/phải không phải cấp hay tầng hưởng. Chưa có màn hình mạng lưới Sponsor. | [AffiliateLinkPanel.tsx](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/settings/AffiliateLinkPanel.tsx), [ReferralGatewayPanel.tsx](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/dashboard/overview/ReferralGatewayPanel.tsx) |
+| Giữ mã trước đăng ký | Mã và nhánh lưu theo phiên tab; mã mới trong URL thay mã cũ; form khoá trường khi mã đến từ URL. | Đây là đầu vào trước đăng ký, không phải quan hệ đã khoá (A4). | [affiliateReferral.ts](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/utils/affiliateReferral.ts), [RegisterWizard.tsx](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/RegisterWizard.tsx), [StepCredentials.tsx](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/register/steps/StepCredentials.tsx) |
+| Đăng ký có giới thiệu | Gửi mã và nhánh; BE kiểm tra mã qua VlinkPay, tạo tài khoản SSO. Không gửi mã → dùng mã mặc định trong cấu hình. | Không gửi mã không có nghĩa là không có người giới thiệu. Chưa có luồng cho Staff/Partner. | [apiAuthAdapter.ts](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/auth/adapters/apiAuthAdapter.ts), [SignUpCommand.cs](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/Auth/Commands/Register/SignUpCommand.cs) |
+| Số liệu mạng lưới VlinkPay | Lớp gọi nội bộ lấy mã/link/QR, tổng thành viên, tổng active, tổng ATM. | Chưa có endpoint Nexora hay FE gọi. Chỉ là số tổng, không có danh sách B, tầng hay lịch sử. Tổng active ≠ B active (B7). | [GetNetworkTreeQueryHandler.cs](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/VlinkPay/Queries/Dashboard/GetNetworkTreeQueryHandler.cs), [VlinkPayNetworkTreeDto.cs](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/VlinkPay/DTOs/VlinkPayNetworkTreeDto.cs) |
+| Analytics OneQR | Ghi lượt bấm module theo doanh nghiệp, module, phiên. | Không tính hay ghi override. Chống lặp lượt bấm không thay chống ghi trùng khoản thưởng (C15). | [TrackOneQrModuleClickCommand.cs](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/Public/OneQr/Commands/TrackOneQrModuleClick/TrackOneQrModuleClickCommand.cs) |
+| SSO và thanh toán ví | Điều hướng SSO; thanh toán bằng ví VlinkPay, trong đó có mua Ads Credit. | Thanh toán từ ví không phải ghi có thu nhập vào ví. Chưa có chi Sponsor hay phân bổ nhiều loại tiền. | [ecosystem.ts](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/data/repositories/ecosystem.ts), [PurchaseAdsCreditWithWalletCommand.cs](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/AdsCredit/Commands/PurchaseAdsCreditWithWallet/PurchaseAdsCreditWithWalletCommand.cs), [AdsCreditTopUpSettler.cs](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/AdsCredit/Services/AdsCreditTopUpSettler.cs) |
+
+Trường người giới thiệu/KYC trong hồ sơ, cấu hình module OneQR của Admin, incentive POS và vị trí quảng cáo được tài trợ đều thuộc nghiệp vụ khác, không phải Sponsor Override.
+
+**Khoảng trống so với yêu cầu:**
+
+| Nhóm nghiệm thu | Phần còn thiếu |
+| :--- | :--- |
+| Tham gia và quan hệ | Chương trình tham gia Sponsor; contract quan hệ trực tiếp/tuyến trên; bằng chứng khoá quan hệ tại hệ thống nguồn. |
+| B active và cấp | Toàn bộ chính sách, tiến độ và xử lý xét active/cấp theo sự kiện OneQR. |
+| Chính sách và hồi tố | Toàn bộ cấu hình Sponsor, phiên bản, hồi tố, hành vi thiếu cấu hình. |
+| Tính và ghi override; Đối soát | Sổ override, chống trùng, chia nguồn chi, refund, nghĩa vụ thu hồi. |
+| Chi trả | Contract ghi có Sponsor, phân bổ nhiều loại tiền, quy đổi/phí, tham chiếu từng phần, đối chiếu trước khi thử lại. |
+| Quyền và giao diện | Toàn bộ màn hình Sponsor và Admin; chưa kiểm chứng responsive, EN/VI, phân quyền. |
+
+#### Tham chiếu kỹ thuật
+
+Các điểm tích hợp hiện có, chỉ để định vị — không phải đề xuất API Sponsor:
+
+| Điểm tích hợp | Hành vi đã đọc |
+| :--- | :--- |
+| `POST /api/v1/authentication/signup` | Nhận mã giới thiệu và nhánh; kiểm tra mã qua VlinkPay. Chưa có API Nexora kiểm tra mã riêng. |
+| VlinkPay `/commissions/trees/dashboard-network-tree` | Đường dẫn hệ thống ngoài do lớp tích hợp gọi; trả số tổng, không đủ xác định người hưởng theo từng B/tầng. |
+| `POST /api/v1/oneqr/{businessSlug}/track` | Ghi lượt bấm analytics; không tạo override. |
+| [Hợp đồng API Nexora](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Web/wwwroot/api/specification.json) | Không có endpoint cho tham gia, active/cấp, chính sách, override hay chi Sponsor. Đây là kiểm chứng contract trong repository, không xác nhận API đang chạy. |
