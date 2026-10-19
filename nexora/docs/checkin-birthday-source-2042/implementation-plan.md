@@ -46,14 +46,14 @@ Kế hoạch này triển khai yêu cầu đã chốt của ticket #2042 theo t�
 
 | Vai trò | Công việc |
 | :--- | :--- |
-| Người dùng | Chọn base branch khi bắt đầu sửa ứng dụng; xác nhận lựa chọn âm thanh/hiệu ứng nếu muốn thay đề xuất. |
+| Người dùng | Chọn base branch khi bắt đầu sửa ứng dụng; review bản chạy theo hướng nhạc và hiệu ứng đã chốt. |
 | AI triển khai | Sửa code đúng nhánh, tự kiểm tra từng phần và lưu evidence đúng nơi. |
 | Người có quyền triển khai | Review/merge/deploy qua quy trình dự án khi được yêu cầu. |
 | Người kiểm thử | Chạy ma trận local/staging và ghi rõ giới hạn thiết bị thực tế. |
 
 ### Ràng buộc chung — Global Constraints
 
-- Phạm vi nghiệp vụ áp dụng theo business A1–D20; phương án OD1–OD2 vẫn là đề xuất thiết kế.
+- Phạm vi nghiệp vụ áp dụng theo business A1–D20; nhạc ngắn, nhẹ nhàng, đơn giản và hiệu ứng vừa phải, dễ thương đã chốt tại QD1–QD2.
 - Chỉ làm trong primary checkout; không tạo hoặc sử dụng worktree.
 - Trước khi sửa code, hỏi base branch cho backend và frontend; chờ câu trả lời rõ ràng. Tác vụ lập tài liệu hiện tại không cần hỏi nhánh.
 - Tên task branch: `enhance/2042-checkin-birthday-source`; dùng cùng tên tại hai repository nếu phù hợp.
@@ -128,7 +128,7 @@ flowchart TD
 - [ ] Chuyển base đã được chọn, ghi lại SHA, tạo task branch và xác minh nhánh hiện tại trước khi sửa file.
 - [ ] Đối chiếu lại các file trong technical với base thực tế. Nếu khác `staging` đã khảo sát, ghi rõ chênh lệch ảnh hưởng.
 - [ ] Xác định API/DB local cho migration và test. Mặc định frontend local dùng staging API; để kiểm chứng backend mới trước deploy cần người dùng chỉ định API local hoặc endpoint môi trường dành riêng có thể truy cập.
-- [ ] Xác nhận phương án OD1–OD2 đang dùng trong implementation; nếu đổi bản nhạc/thời lượng, cập nhật tài liệu trước phần audio.
+- [ ] Đọc định hướng QD1–QD2 và mặc định âm thanh/hiệu ứng trong technical; triển khai theo đó, tinh chỉnh khi nghe và xem thực tế.
 
 **Kết quả đạt:** Có task branch sạch về phạm vi, phiên bản base và môi trường đủ để kiểm chứng. Nếu thiếu API/DB local, tiếp tục phần không phụ thuộc và ghi rõ Task 6 chưa thể đánh dấu hoàn tất.
 
@@ -265,16 +265,18 @@ Trong test, fixture `profileWithBirthday` phải resolved, `customerExists=true`
 - [ ] Viết assertion: Tắt nhạc rồi refetch vẫn tắt; reset trong lúc resume pending không phát; đổi số/hủy/unmount dừng mọi node.
 - [ ] Viết assertion: khách mới và hồ sơ cũ thiếu birthday nhập sinh nhật hôm nay, POST thành công rồi refetch thành `isBirthdayToday=true` vẫn không phát lời chúc trong cùng phiên. Sau reset và nhận diện lại mới xét phiên mới.
 - [ ] Viết assertion: prepare của thao tác xác nhận đầu tiên còn pending khi profile về; vẫn chỉ phát một lần khi resume hợp lệ. Effect nhận recognitionKey mới không được reset nhầm pending prepare của chính phiên đó.
+- [ ] Viết assertion: audio tự kết thúc theo thời lượng cấu hình, không loop; chuyển động trang trí chạy một lượt rồi dừng và tắt hoàn toàn trong reduced motion.
 - [ ] Chạy test và xác nhận thất bại đúng vì chưa có controller/hook.
-- [ ] Tạo controller Web Audio theo OD1; handle unsupported context, resume rejection và generation pending; không loop hoặc tải dịch vụ ngoài.
+- [ ] Tạo controller Web Audio theo QD1; handle unsupported context, resume rejection và generation pending; không loop hoặc tải dịch vụ ngoài.
 - [ ] Trong xác nhận số, tạo khóa mới và dọn phiên cũ trước; gọi `onBeforePhoneLookup(nextKey)` để reset controller idempotent và prepare trong gesture; sau đó mới set khóa query. Không để lỗi prepare chặn form.
 - [ ] Tạo hook phát theo snapshot eligibility vừa được chốt, không đợi `areLookupsSettled` toàn bộ query; suppress sau “check in another guest”.
 - [ ] Gắn host một lần ngoài mọi nhánh phase của Surface; tránh remount vì đổi giữa lịch hẹn, form và cảm ơn.
 - [ ] Thêm nút bật/tắt có nhãn truy cập; xử lý layout nhỏ, safe area và reduced motion.
 - [ ] Dừng nhạc khi document hidden; quay lại không tự resume. Reset gắn với đổi số, đổi tiệm, người khác, hủy, Done, auto-return và unmount.
 - [ ] Chạy test tới khi đạt, sau đó kiểm tra âm thanh thực trong trình duyệt không có cờ nới autoplay.
+- [ ] Nghe và xem trên bản chạy: nhạc ngắn, nhẹ, giai điệu đơn giản; hình bánh sinh nhật và vài điểm lấp lánh dễ thương, chuyển động vừa phải. Tinh chỉnh các mặc định technical nếu cần để đạt AC26–AC27.
 
-**Kết quả đạt:** Điều kiện AC14–AC25 có kiểm chứng; Review Focus 2 và 5 được chạy cả pending result và cleanup thực.
+**Kết quả đạt:** Điều kiện AC14–AC27 có kiểm chứng; Review Focus 2 và 5 được chạy cả pending result và cleanup thực.
 
 #### Task 6: Kiểm chứng tích hợp local
 
@@ -369,7 +371,7 @@ Kế hoạch thực hiện toàn bộ A1–D20 trong business và T1–T12 trong
 | Phần việc | Khoảng giờ AI dự kiến | Giả định |
 | :--- | :--- | :--- |
 | Backend, schema, lookup và sáu đường ghi | 4–6 | Có DB/API phát triển và không phát sinh thay đổi base lớn. |
-| Frontend form, dữ liệu, nhạc và cleanup | 4–5 | Dùng OD1–OD2, tái sử dụng component hiện có. |
+| Frontend form, dữ liệu, nhạc và cleanup | 4–5 | Theo QD1–QD2, tái sử dụng component hiện có. |
 | Test local và sửa lỗi | 3–4 | Có thể chạy cả code backend mới và frontend. |
 | Test staging sau deploy | 2–3 | Có tài khoản và thiết bị cần thiết. |
 | Review cuối và điều chỉnh | 1–2 | Không có yêu cầu mở rộng báo cáo/chỉnh sửa hồ sơ. |
@@ -395,6 +397,7 @@ Kế hoạch thực hiện toàn bộ A1–D20 trong business và T1–T12 trong
 | Dọn phiên | Đổi số/tiệm; người khác cùng số; Cancel; Done; auto-return; unmount; tab nền | AC20/AC25 | Local + staging |
 | Quyền | Merchant sai tiệm; device sai/thu hồi token; public slug không hợp lệ | T9 | Local + staging |
 | Bố cục | Bốn bề mặt × hai layout; phone/tablet; EN/VI; reduced motion | AC21/AC23 | Local + staging |
+| Phong cách chúc mừng | Nghe đoạn nhạc và xem hiệu ứng nhỏ trên thiết bị thực | AC26/AC27, TC19/TC20 | Local + staging |
 | Hồi quy | Dịch vụ, thợ, lịch hẹn, lượt đến, SMS, số thứ tự và direct checkout dùng chung scaffold | T11 | Local + staging |
 
 Mỗi ca theo bề mặt dùng API thực của bề mặt đó; public kiosk và public phone có thể dùng chung endpoint nhưng vẫn cần kiểm tra vòng đời khác nhau. Không cần nhân mọi trường hợp lỗi thành toàn bộ tích Descartes; ưu tiên đầy đủ đường API và mọi nhánh vòng đời âm thanh.
@@ -417,7 +420,7 @@ Mỗi ca theo bề mặt dùng API thực của bề mặt đó; public kiosk v�
 | Backend mới chưa có ở staging | Hoàn tất phần local có môi trường hợp lệ; Task 7 chờ bản deploy. | Người có quyền deploy |
 | Không có API/DB local được chỉ định | Không tự đổi API local khỏi quy tắc; báo giới hạn tích hợp tại Task 6. | Người dùng/AI |
 | Chưa có Safari thiết bị thật | Hoàn tất kiểm tra có thể làm; đánh dấu âm thanh Safari thực chưa xác minh. | Người kiểm thử |
-| Bản nhạc/hiệu ứng thay đổi | Cập nhật OD1–OD2 và ước tính Task 5 trước khi làm phần thay đổi. | Đội sản phẩm |
+| Người dùng đổi định hướng nhạc/hiệu ứng | Cập nhật QD1–QD2 và xem lại Task 5 nếu phạm vi thay đổi. | Đội sản phẩm |
 
 ### Câu hỏi thường gặp
 
@@ -429,7 +432,7 @@ Mỗi ca theo bề mặt dùng API thực của bề mặt đó; public kiosk v�
 
 ### Tính năng liên quan
 
-- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): quy tắc và tiêu chí AC01–AC25 để nghiệm thu.
+- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): quy tắc và tiêu chí AC01–AC27 để nghiệm thu.
 - [Thiết kế kỹ thuật](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/technical.md): hợp đồng, file map và interface của các task.
 - [Review số điện thoại/lịch hẹn](https://github.com/vlink-group/VlinkPay/blob/c28eb5766e31a33d897d4b8b6877e400775d7e7b/nexora/docs/business/pos-checkin-phone-review-appointment.md): phần hồi quy cần giữ trong Task 4 và Task 6–7.
 

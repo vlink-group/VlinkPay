@@ -426,7 +426,10 @@ Chọn tháng/ngày bằng hai select, không dùng input date có năm. Ngày t
 
 #### Âm thanh và lời chúc
 
-Phương án làm cơ sở ước tính là OD1–OD2 của business: nhạc không lời tổng hợp bằng Web Audio và card nhỏ. Đây là lựa chọn đề xuất, không phải một bản âm thanh đã được duyệt.
+Định hướng nhạc và hiệu ứng đã được người dùng chốt tại QD1–QD2 của business. Các thông số dưới đây là mặc định kỹ thuật do người soạn chọn để triển khai hướng đó; chưa có bản chạy để nghe hoặc xem thực tế.
+
+- Nhạc: một trích đoạn Happy Birthday không lời khoảng 6 giây, giai điệu một bè đơn giản với tiếng ngân mềm. Dùng Web Audio, mặc định gain 0.08; tăng âm nhẹ trong 150 ms đầu và giảm âm trong 300 ms cuối để tránh tiếng bật đột ngột. Không tự tăng âm lượng thiết bị; thời lượng và gain có thể tinh chỉnh khi nghe thử.
+- Hiệu ứng: một hình bánh sinh nhật nhỏ và tối đa 3 điểm lấp lánh cạnh lời chúc. Chuyển động nhẹ một lượt khoảng 2 giây rồi đứng yên; dùng màu dịu theo bộ màu hiện có. Người triển khai không thêm hiệu ứng phủ màn hình hoặc chuyển động liên tục.
 
 - `CheckInSurface` sở hữu controller và host lời chúc cùng vòng đời; controller không nằm trong layout hoặc `ThankYouScreen`.
 - Trong callback xác nhận số, thứ tự đồng bộ là: tạo `nextRecognitionKey` → dọn nháp và phiên cũ → gọi `onBeforePhoneLookup(nextRecognitionKey)` → kích hoạt query của khóa mới. Callback audio gọi `resetForRecognition(nextRecognitionKey)` rồi `prepareFromUserGesture()` ngay trong thao tác người dùng, không await trong luồng chuyển màn. Reset cùng khóa phải idempotent; effect nhận khóa mới không tăng generation lần nữa. Lỗi được ghi nhận trạng thái `blocked`, không tạo unhandled rejection.
@@ -461,6 +464,8 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 - [ ] TC16: Khách mới hoặc hồ sơ vừa bổ sung sinh nhật hôm nay không bị chúc mừng sau khi POST làm refetch profile, theo C11/T6.
 - [ ] TC17: Cache của phiên trước, kể cả qua nửa đêm hoặc trước khi hồ sơ được tạo từ thiết bị khác, không được chốt eligibility/điều kiện hiển thị cho phiên mới, theo T12.
 - [ ] TC18: Public trả lại lượt đã có từ client cũ vẫn ghi phần thiếu bằng transaction mà không tăng lượt, theo T10.
+- [ ] TC19: Đoạn nhạc kết thúc đúng thời lượng cấu hình và không phát lặp tự động; kiểm tra nghe thực tế theo AC26.
+- [ ] TC20: Hiệu ứng kết thúc chuyển động theo cấu hình, giữ trang trí tĩnh và đáp ứng AC27 cùng reduced motion.
 
 ### Trường hợp ngoại lệ và cách xử lý
 
@@ -489,7 +494,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 
 ### Tính năng liên quan
 
-- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): nguồn quy tắc A1–D20 và quyết định còn mở OD1–OD2.
+- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): nguồn quy tắc A1–D20 và định hướng đã chốt QD1–QD2.
 - [Kế hoạch triển khai](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/implementation-plan.md): thứ tự thay đổi, kiểm chứng và phát hành.
 - [Check-in dùng chung](https://github.com/vlink-group/VlinkPay/blob/c28eb5766e31a33d897d4b8b6877e400775d7e7b/nexora/docs/business/references/POS-CheckIn-Single-Page-Spec.md): nền tảng lịch sử của session và layout; code hiện tại vẫn là nguồn xác nhận cấu trúc.
 
@@ -497,7 +502,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 
 #### Các quyết định còn mở
 
-Danh sách duy nhất nằm tại business → Các quyết định còn mở. Tài liệu này dùng phương án đề xuất OD1–OD2; không phát sinh quyết định nghiệp vụ riêng.
+Danh sách duy nhất nằm tại business → Các quyết định còn mở. Phong cách nhạc và hiệu ứng đã chốt tại QD1–QD2; tài liệu này quy định các mặc định kỹ thuật để triển khai.
 
 #### Nguồn mã và hợp đồng đã kiểm tra
 

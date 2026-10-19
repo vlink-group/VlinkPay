@@ -19,7 +19,7 @@
 
 ### Tổng quan
 
-Tính năng này giúp tiệm bổ sung sinh nhật và kênh khách biết đến tiệm mà không hỏi lại thông tin đã có. Khách tự nhập trên điện thoại hoặc kiosk; lễ tân có thể nhập giúp trên POS. Khi nhận diện đúng dịp sinh nhật của khách đã có hồ sơ, hệ thống mở đoạn nhạc Happy Birthday và có thể hiện lời chúc nhỏ ở góc màn hình.
+Tính năng này giúp tiệm bổ sung sinh nhật và kênh khách biết đến tiệm mà không hỏi lại thông tin đã có. Khách tự nhập trên điện thoại hoặc kiosk; lễ tân có thể nhập giúp trên POS. Khi nhận diện đúng dịp sinh nhật của khách đã có hồ sơ, hệ thống mở đoạn nhạc Happy Birthday và hiện lời chúc cùng hiệu ứng nhỏ ở góc màn hình.
 
 Người dùng đã chốt hai điểm khi lập tài liệu: chúc mừng ngay sau khi nhận diện khách, và khách cũ được hiểu là đã có hồ sơ tại tiệm. Khách không cần từng hoàn tất dịch vụ để đáp ứng điều kiện này.
 
@@ -215,9 +215,9 @@ stateDiagram-v2
 11. **C11 — Điều kiện:** Hệ thống chỉ chúc mừng khi nhận diện khách cũ và ngày/tháng sinh nhật đã lưu khớp ngày hiện tại tại tiệm. Ngày/tháng vừa nhập trong phiên không tự làm phát sinh lời chúc của phiên đó.
 12. **C12 — Ngày tại tiệm:** Hệ thống lấy ngày theo múi giờ của tiệm và quy tắc dự phòng hiện có. Ngày trên điện thoại hoặc máy chủ không tự thay thế ngày tại tiệm.
 13. **C13 — Sinh nhật 29/02:** Hệ thống chúc mừng vào đúng 29/02; ticket này không tự chuyển sang 28/02 hoặc 01/03 trong năm không nhuận.
-14. **C14 — Bắt đầu và điều khiển:** Hệ thống bắt đầu phần chúc mừng ngay khi nhận diện đủ điều kiện, thử mở nhạc Happy Birthday và cung cấp nút Bật nhạc/Tắt nhạc. Nếu trình duyệt chặn, người thao tác có thể chủ động bật; check-in vẫn tiếp tục.
+14. **C14 — Bắt đầu và điều khiển:** Hệ thống bắt đầu phần chúc mừng ngay khi nhận diện đủ điều kiện và thử mở một đoạn Happy Birthday ngắn. Nhạc không lời, giai điệu đơn giản và âm thanh nhẹ nhàng. Hệ thống có nút Bật nhạc/Tắt nhạc; nếu trình duyệt chặn, người thao tác có thể chủ động bật và tiếp tục check-in.
 15. **C15 — Không lặp ngoài ý muốn:** Hệ thống chỉ tự khởi động lời chúc một lần cho cùng hồ sơ trong một phiên. Tra cứu lại, chuyển bước hoặc thử gửi lại không tự bật nhạc sau khi người thao tác đã tắt. Người thao tác được chủ động bật lại.
-16. **C16 — Không cản thao tác:** Phần chúc mừng nằm gọn ở góc; hiệu ứng là phần bổ sung tùy chọn. Hệ thống giữ các trường nhập, nút check-in và số thứ tự dễ nhìn, dễ bấm. Hệ thống không giữ khách ở màn hình để chờ nhạc kết thúc.
+16. **C16 — Hiệu ứng vừa phải:** Hệ thống hiện lời chúc dễ thương cùng hình sinh nhật nhỏ và vài điểm trang trí ở một góc màn hình. Chuyển động nhẹ, vừa phải; các trường nhập, nút check-in và số thứ tự vẫn dễ nhìn, dễ bấm. Hệ thống không giữ khách ở màn hình để chờ nhạc hoặc hiệu ứng kết thúc.
 17. **C17 — Dọn phiên:** Hệ thống dừng nhạc và dọn lời chúc khi đổi số đã xác nhận, đổi tiệm, chọn check-in người khác, hủy, kết thúc, tự quay về hoặc rời màn. Khi trang chuyển nền, hệ thống dừng nhạc và không tự phát lại khi quay lại.
 
 #### D. Trải nghiệm và phạm vi dữ liệu
@@ -270,6 +270,8 @@ stateDiagram-v2
 - [ ] AC23: Khi dùng chế độ giảm chuyển động, lời chúc vẫn dùng được theo D19.
 - [ ] AC24: Khi khách chưa từng hoàn tất dịch vụ nhưng đã có hồ sơ, hệ thống vẫn xét sinh nhật theo A1.
 - [ ] AC25: Khi chuyển trang xuống nền rồi mở lại, âm thanh xử lý theo C17.
+- [ ] AC26: Khi nghe đoạn nhạc, người kiểm thử xác nhận nhạc ngắn, nhẹ nhàng và đơn giản theo C14.
+- [ ] AC27: Khi xem phần chúc mừng, người kiểm thử xác nhận hiệu ứng dễ thương và vừa phải theo C16.
 
 ### Trường hợp ngoại lệ và cách xử lý
 
@@ -308,12 +310,14 @@ stateDiagram-v2
 
 #### Các quyết định còn mở
 
-| Mã | Nội dung cần quyết định | Đề xuất để triển khai | Người phụ trách |
-| :--- | :--- | :--- | :--- |
-| OD1 | Bản nhạc và thời lượng chính thức | Dùng đoạn Happy Birthday không lời, tổng hợp bằng trình duyệt, tối đa 12 giây. Đây là lựa chọn thiết kế của người soạn, chưa phải yêu cầu đã được người dùng duyệt. | Đội sản phẩm |
-| OD2 | Có dùng hiệu ứng động hay chỉ lời chúc | Lời chúc nhỏ và trang trí nhẹ ở góc; bỏ chuyển động khi người dùng yêu cầu. | Đội sản phẩm/UI |
+Không còn quyết định nghiệp vụ mở về phong cách nhạc và hiệu ứng. Thông số mặc định khi triển khai nằm trong technical; đội phát triển tinh chỉnh bằng cách nghe và xem thực tế.
 
-Các điểm còn mở không thay đổi hai quyết định đã chốt về thời điểm chúc mừng và định nghĩa khách cũ. Thiết kế kỹ thuật dùng phương án đề xuất tại OD1–OD2 để đủ chi tiết cho việc ước tính.
+#### Định hướng đã chốt
+
+| Mã | Nội dung | Người chốt |
+| :--- | :--- | :--- |
+| QD1 | Đoạn nhạc ngắn gọn, nhẹ nhàng và đơn giản; áp dụng C14. | Người dùng, ngày 19/10/2026 |
+| QD2 | Hiệu ứng vừa phải, dễ thương; áp dụng C16. | Người dùng, ngày 19/10/2026 |
 
 #### Tài liệu và mã nguồn đối chiếu
 
