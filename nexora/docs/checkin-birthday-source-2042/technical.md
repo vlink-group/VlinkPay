@@ -218,6 +218,10 @@ Quy tắc nghiệp vụ đầy đủ nằm ở tài liệu business. Phần này
 11. **T11 — Giữ side effect:** Helper không tự tăng lượt, cấp số thứ tự, gửi SMS hoặc liên kết tài khoản tích điểm. Các hành vi này tiếp tục do handler/scaffold hiện có thực hiện.
 12. **T12 — Nháp và cache:** Query key của profile chứa phạm vi tiệm/thiết bị, số chuẩn hóa và `recognitionKey` mới. Mỗi lần nhận diện thực sự cần response mạng thuộc khóa đó; không dùng placeholder hoặc success trong cache của khóa trước để chốt snapshot. Sau thành công, invalidate/remove profile query liên quan; snapshot của phiên hiện tại vẫn giữ theo T6. Query catalog/lịch hẹn giữ cơ chế hiện có, không cần thêm epoch.
 
+#### D. Bố cục và trường chọn
+
+13. **T13 — Bố cục gọn (D21–D22):** Frontend dùng cùng component trường bổ sung và thông số select trên các bề mặt. Thiết kế cụ thể nằm ở phần “Bố cục thông tin khách và trường chọn” bên dưới.
+
 ### Ví dụ hợp đồng
 
 Các API và trường dưới đây là hợp đồng đề xuất mới, không phải khẳng định đã có trên staging. Toàn bộ ví dụ dùng tên khách viết hoa và số điện thoại theo chuẩn Mỹ.
@@ -265,9 +269,9 @@ Client có thể bỏ `customerDetails` hoặc gửi null. Trong object, cặp s
 | `Customer.AcquisitionSource` | `CustomerAcquisitionSource?` mới | Enum nullable; không có giá trị mặc định giả định. |
 | `Customer.Source` | `CustomerSource` hiện có | Giữ ý nghĩa và giá trị hiện tại. |
 
-Enum mới cố định mã: `Facebook=0`, `Instagram=1`, `Google=2`, `Referral=3`, `WalkBy=4`, `Other=5`. JSON dùng chuỗi theo `JsonStringEnumConverter` hiện có. Validator phải từ chối giá trị ngoài tập hợp kể cả giá trị số không hợp lệ được converter chấp nhận.
+Enum mới cố định mã: `Facebook=0`, `Instagram=1`, `Google=2`, `Referral=3`, `Other=4`. JSON dùng chuỗi theo `JsonStringEnumConverter` hiện có. Validator phải từ chối giá trị ngoài tập hợp kể cả giá trị số không hợp lệ được converter chấp nhận.
 
-Migration bổ sung ba cột nullable và check constraint: hoặc cả ngày/tháng null, hoặc cả hai non-null và tạo thành ngày hợp lệ khi kiểm tra trên năm nhuận 2000. Năm 2000 chỉ phục vụ validation/constraint, không được ghi thành năm sinh. Constraint nguồn chỉ cho phép null hoặc sáu mã enum. Không backfill dữ liệu và không thêm index cho nhu cầu lọc/báo cáo chưa có trong phạm vi.
+Migration bổ sung ba cột nullable và check constraint: hoặc cả ngày/tháng null, hoặc cả hai non-null và tạo thành ngày hợp lệ khi kiểm tra trên năm nhuận 2000. Năm 2000 chỉ phục vụ validation/constraint, không được ghi thành năm sinh. Constraint nguồn chỉ cho phép null hoặc năm mã enum từ 0 đến 4. Không backfill dữ liệu và không thêm index cho nhu cầu lọc/báo cáo chưa có trong phạm vi.
 
 #### Danh sách endpoint
 
@@ -296,7 +300,7 @@ Response thành công của các lệnh check-in giữ nguyên. Thông tin sinh 
 | Chỉ có ngày hoặc tháng | HTTP 400, mã mới `POS_CHECKIN_BIRTHDAY_INCOMPLETE`. |
 | 31/04, tháng 0/13 hoặc ngày không hợp lệ | HTTP 400, mã mới `POS_CHECKIN_BIRTHDAY_INVALID`. |
 | 29/02 | Hợp lệ. |
-| Nguồn ngoài sáu lựa chọn | HTTP 400, mã mới `POS_CHECKIN_ACQUISITION_SOURCE_INVALID`. |
+| Nguồn ngoài năm lựa chọn | HTTP 400, mã mới `POS_CHECKIN_ACQUISITION_SOURCE_INVALID`. |
 | Profile bị bổ sung trên thiết bị khác | POST thành công; helper giữ giá trị đã ghi trước. |
 | Body booking null theo client cũ | Check-in theo nội dung đã đặt, không thêm dữ liệu hồ sơ. |
 
@@ -309,7 +313,7 @@ Các path trong bảng này tính từ `backend/src/` của repository backend.
 | Path | Trạng thái | Trách nhiệm |
 | :--- | :--- | :--- |
 | `Domain/Entities/Customer.cs` | Sửa | Thêm ba thuộc tính nullable. |
-| `Domain/Enums/CustomerAcquisitionSource.cs` | Mới | Sáu nguồn ổn định. |
+| `Domain/Enums/CustomerAcquisitionSource.cs` | Mới | Năm nguồn ổn định. |
 | `Domain/Constants/DomainErrorCode.cs` | Sửa | Ba mã validation mới. |
 | `Application/Features/Pos/CheckIn/Common/CustomerCheckInDetailsInput.cs` | Mới | Input và validator dùng chung. |
 | `Application/Features/Pos/CheckIn/Common/CheckInCustomerProfileReader.cs` | Mới | Resolve hồ sơ, sinh nhật hiệu lực, ngày tại tiệm và DTO tối thiểu. |
@@ -424,6 +428,27 @@ Chọn tháng/ngày bằng hai select, không dùng input date có năm. Ngày t
 
 `checkInBooking()` dùng cùng validator nháp và cùng hàm dựng `customerDetails` với `submit()`. Đường quầy không còn chỉ gọi `useCheckInBookingFromList(payload.bookingId)` khi có phần bổ sung; repository phải nhận body tùy chọn ngay cả khi không có `items`. Body thiếu `items` vẫn giữ dịch vụ đã đặt, không gửi mảng rỗng thay cho “giữ nguyên”.
 
+#### Bố cục thông tin khách và trường chọn
+
+Frontend triển khai D21 bằng lưới hai cột trong khối thông tin khách của giao diện một trang:
+
+| Hàng | Cột trái | Cột phải |
+| :--- | :--- | :--- |
+| 1 | Phone | Name |
+| 2 | Birthday: hai select MM rồi DD trong cùng ô | Found us via |
+| 3 | Xác nhận SMS chiếm chiều rộng của khối | |
+
+Các tên trong bảng là nhãn tiếng Anh; bản tiếng Việt dùng nhãn dịch tương ứng. Wizard giữ bước xác nhận Phone hiện có; bước thông tin khách đặt hàng sinh nhật/nguồn dưới Name rồi đến SMS. Danh sách lịch hẹn dùng cùng hàng trường bổ sung trước các nút check-in nhanh.
+
+Khi chỉ thiếu một trường bổ sung, frontend chỉ render trường đó theo A3. Khi đủ cả hai thông tin, frontend bỏ cả hàng bổ sung. Component phải giữ nhãn và giá trị dễ đọc trên điện thoại, tablet và desktop.
+
+Hai cột không bắt buộc bằng nhau. Trên điện thoại, frontend có thể dành thêm chiều rộng cho ô Birthday để hai select cùng hiển thị đủ giá trị và khoảng cách mũi tên, kể cả khi chọn Tháng 12.
+
+- Bản tiếng Anh dùng placeholder `MM` và `DD`; bản tiếng Việt dùng `Tháng` và `Ngày`. Danh sách tháng tiếng Việt hiển thị `Tháng 1` đến `Tháng 12`, không rút gọn chữ tháng.
+- Mỗi select có một chevron kích thước 16px, căn giữa theo chiều dọc và cách mép phải 12px. Nội dung được chừa ít nhất 36px bên phải.
+- Với native select, frontend đặt trong wrapper relative và dùng `appearance-none pr-9` để ẩn mũi tên mặc định. Chevron dùng `pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2` để không chặn thao tác.
+- Frontend ưu tiên component select dùng chung hiện có. Custom dropdown giữ cùng khoảng cách; nhãn, bàn phím, focus và disabled vẫn hoạt động đầy đủ.
+
 #### Âm thanh và lời chúc
 
 Định hướng nhạc và hiệu ứng đã được người dùng chốt tại QD1–QD2 của business. Các thông số dưới đây là mặc định kỹ thuật do người soạn chọn để triển khai hướng đó; chưa có bản chạy để nghe hoặc xem thực tế.
@@ -466,6 +491,9 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 - [ ] TC18: Public trả lại lượt đã có từ client cũ vẫn ghi phần thiếu bằng transaction mà không tăng lượt, theo T10.
 - [ ] TC19: Đoạn nhạc kết thúc đúng thời lượng cấu hình và không phát lặp tự động; kiểm tra nghe thực tế theo AC26.
 - [ ] TC20: Hiệu ứng kết thúc chuyển động theo cấu hình, giữ trang trí tĩnh và đáp ứng AC27 cùng reduced motion.
+- [ ] TC21: Khối thông tin khách đúng bố cục hai cột và thứ tự SMS theo T13, đáp ứng AC28.
+- [ ] TC22: Danh sách tháng tiếng Việt dùng đủ chữ Tháng và đọc được cả Tháng 10–Tháng 12, đáp ứng AC29.
+- [ ] TC23: Mỗi select có một chevron 16px, cách mép phải 12px và phần chữ có padding phải ít nhất 36px, đáp ứng AC30.
 
 ### Trường hợp ngoại lệ và cách xử lý
 
@@ -494,7 +522,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 
 ### Tính năng liên quan
 
-- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): nguồn quy tắc A1–D20 và định hướng đã chốt QD1–QD2.
+- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): nguồn quy tắc A1–D22 và định hướng đã chốt QD1–QD3.
 - [Kế hoạch triển khai](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/implementation-plan.md): thứ tự thay đổi, kiểm chứng và phát hành.
 - [Check-in dùng chung](https://github.com/vlink-group/VlinkPay/blob/c28eb5766e31a33d897d4b8b6877e400775d7e7b/nexora/docs/business/references/POS-CheckIn-Single-Page-Spec.md): nền tảng lịch sử của session và layout; code hiện tại vẫn là nguồn xác nhận cấu trúc.
 

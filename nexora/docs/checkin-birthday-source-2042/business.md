@@ -146,7 +146,7 @@ flowchart TD
 
 ### Cấu hình và quản trị hệ thống
 
-Ticket không thêm màn cấu hình cho tiệm. Danh sách nguồn dùng chung gồm Facebook, Instagram, Google, bạn bè/người thân giới thiệu, đi ngang tiệm và Khác.
+Ticket không thêm màn cấu hình cho tiệm. Các màn check-in dùng chung danh sách nguồn tại B6.
 
 - Là chủ tiệm, tôi muốn các màn check-in dùng cùng danh sách nguồn để dữ liệu thống nhất.
 - Là người thao tác, tôi muốn nút âm thanh chỉ tác động phiên đang dùng để tránh làm thay đổi thiết bị khác.
@@ -204,7 +204,7 @@ stateDiagram-v2
 #### B. Nhập và lưu dữ liệu
 
 5. **B5 — Sinh nhật tùy chọn:** Khách có thể bỏ trống cả ngày và tháng. Nếu nhập, khách phải chọn đủ cặp ngày/tháng hợp lệ; hệ thống chấp nhận 29/02 và không yêu cầu năm.
-6. **B6 — Nguồn tùy chọn:** Khách có thể bỏ trống hoặc chọn một trong sáu nguồn đã nêu. Khác là một lựa chọn có sẵn, không kèm ô mô tả tự do trong ticket này.
+6. **B6 — Nguồn tùy chọn:** Khách có thể bỏ trống hoặc chọn Facebook, Instagram, Google, Referral (bạn bè/người thân giới thiệu) hoặc Other (Khác). Other là lựa chọn có sẵn, không kèm ô mô tả tự do trong ticket này.
 7. **B7 — Thời điểm kiểm tra:** Hệ thống chỉ chặn phần gửi khi khách đã nhập giá trị không hợp lệ; việc bỏ trống hai thông tin không làm thay đổi điều kiện check-in hiện có.
 8. **B8 — Ghi nhận cùng lượt đến:** Hệ thống chỉ lưu thông tin bổ sung khi check-in thành công. Hủy phiên hoặc check-in thất bại không tạo cập nhật riêng cho hai thông tin này.
 9. **B9 — Bảo toàn dữ liệu:** Hệ thống chỉ điền trường đang thiếu tại thời điểm ghi. Dữ liệu đã có, kể cả dữ liệu được cập nhật trên thiết bị khác sau lúc tra cứu, không bị thay thế hay xóa bởi check-in.
@@ -225,6 +225,8 @@ stateDiagram-v2
 18. **D18 — Dữ liệu tối thiểu:** Màn tự check-in chỉ cần biết trường nào còn thiếu và có sinh nhật hôm nay hay không. Hệ thống không cần gửi lại ngày sinh đầy đủ hoặc nguồn đã lưu cho màn công khai.
 19. **D19 — Thiết bị và ngôn ngữ:** Hệ thống hỗ trợ mobile, tablet, bàn phím và hai ngôn ngữ hiện có. Khi người dùng giảm chuyển động, lời chúc vẫn đọc được mà không cần hiệu ứng động.
 20. **D20 — Số dùng chung:** Tính năng tiếp tục dùng hồ sơ khớp với số điện thoại của tiệm. Chọn check-in người khác dừng chúc mừng cho người đã nhận diện; ticket này không tạo cơ chế phân biệt nhiều người trong cùng một hồ sơ số điện thoại.
+21. **D21 — Bố cục thông tin khách:** Hệ thống xếp Phone và Name thành hai cột ở hàng đầu của giao diện một trang. Hàng tiếp theo đặt Birthday (MM rồi DD) và Found us via cạnh nhau; xác nhận SMS nằm dưới. Hệ thống chỉ hiện các trường bổ sung còn thiếu theo A2–A4. Giao diện từng bước giữ bước xác nhận số hiện có và đặt cùng hàng sinh nhật/nguồn dưới Name tại bước thông tin khách.
+22. **D22 — Trường chọn dễ đọc:** Hệ thống chừa khoảng cách giữa nội dung đã chọn và mũi tên bên phải để hai phần không chồng nhau. Nhãn tháng tiếng Việt viết đầy đủ từ Tháng 1 đến Tháng 12. Các trường chọn vẫn dùng được bằng bàn phím, có nhãn rõ ràng và thể hiện trạng thái đang chọn hoặc đang bị khóa.
 
 ### Ví dụ
 
@@ -273,6 +275,12 @@ stateDiagram-v2
 - [ ] AC26: Khi nghe đoạn nhạc, người kiểm thử xác nhận nhạc ngắn, nhẹ nhàng và đơn giản theo C14.
 - [ ] AC27: Khi xem phần chúc mừng, người kiểm thử xác nhận hiệu ứng dễ thương và vừa phải theo C16.
 
+#### Bố cục thông tin khách
+
+- [ ] AC28: Khi hiển thị khối thông tin khách, các hàng và cột đúng theo D21.
+- [ ] AC29: Khi mở danh sách tháng bằng tiếng Việt, tất cả tháng được viết đầy đủ theo D22.
+- [ ] AC30: Khi dùng các trường chọn trên điện thoại hoặc desktop, nội dung và mũi tên không chồng nhau theo D22.
+
 ### Trường hợp ngoại lệ và cách xử lý
 
 | Tình huống | Cách xử lý | Người xử lý |
@@ -318,6 +326,7 @@ Không còn quyết định nghiệp vụ mở về phong cách nhạc và hiệ
 | :--- | :--- | :--- |
 | QD1 | Đoạn nhạc ngắn gọn, nhẹ nhàng và đơn giản; áp dụng C14. | Người dùng, ngày 19/10/2026 |
 | QD2 | Hiệu ứng vừa phải, dễ thương; áp dụng C16. | Người dùng, ngày 19/10/2026 |
+| QD3 | Danh sách nguồn theo B6 và bố cục thông tin khách gọn theo D21–D22. | Người dùng, ngày 19/10/2026 |
 
 #### Tài liệu và mã nguồn đối chiếu
 
