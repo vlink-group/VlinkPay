@@ -225,8 +225,8 @@ stateDiagram-v2
 18. **D18 — Dữ liệu tối thiểu:** Màn tự check-in chỉ cần biết trường nào còn thiếu và có sinh nhật hôm nay hay không. Hệ thống không cần gửi lại ngày sinh đầy đủ hoặc nguồn đã lưu cho màn công khai.
 19. **D19 — Thiết bị và ngôn ngữ:** Hệ thống hỗ trợ mobile, tablet, bàn phím và hai ngôn ngữ hiện có. Khi người dùng giảm chuyển động, lời chúc vẫn đọc được mà không cần hiệu ứng động.
 20. **D20 — Số dùng chung:** Tính năng tiếp tục dùng hồ sơ khớp với số điện thoại của tiệm. Chọn check-in người khác dừng chúc mừng cho người đã nhận diện; ticket này không tạo cơ chế phân biệt nhiều người trong cùng một hồ sơ số điện thoại.
-21. **D21 — Bố cục thông tin khách:** Hệ thống xếp Phone và Name thành hai cột ở hàng đầu của giao diện một trang. Hàng tiếp theo đặt Birthday (MM rồi DD) và Found us via cạnh nhau; xác nhận SMS nằm dưới. Hệ thống chỉ hiện các trường bổ sung còn thiếu theo A2–A4. Giao diện từng bước giữ bước xác nhận số hiện có và đặt cùng hàng sinh nhật/nguồn dưới Name tại bước thông tin khách.
-22. **D22 — Trường chọn dễ đọc:** Hệ thống chừa khoảng cách giữa nội dung đã chọn và mũi tên bên phải để hai phần không chồng nhau. Nhãn tháng tiếng Việt viết đầy đủ từ Tháng 1 đến Tháng 12. Các trường chọn vẫn dùng được bằng bàn phím, có nhãn rõ ràng và thể hiện trạng thái đang chọn hoặc đang bị khóa.
+21. **D21 — Bố cục thông tin khách:** Hệ thống xếp Phone và Name thành hai cột ở hàng đầu của giao diện một trang. Hàng tiếp theo chia đều 50/50 cho Birthday và Found us via; bên trong Birthday, hai ô MM/DD cũng chia đều 50/50, xác nhận SMS nằm dưới hàng này. Hệ thống chỉ hiện các trường bổ sung còn thiếu theo A2–A4. Giao diện từng bước giữ bước xác nhận số hiện có và đặt cùng hàng sinh nhật/nguồn dưới Name tại bước thông tin khách.
+22. **D22 — Trường chọn dễ đọc:** Hệ thống chừa khoảng cách giữa nội dung đã chọn và mũi tên bên phải để hai phần không chồng nhau. Riêng Birthday dùng placeholder MM/DD và tên tháng viết tắt kiểu Mỹ trong cả bản tiếng Anh lẫn tiếng Việt: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec. Các trường chọn vẫn dùng được bằng bàn phím, có nhãn rõ ràng và thể hiện trạng thái đang chọn hoặc đang bị khóa.
 
 ### Ví dụ
 
@@ -277,8 +277,8 @@ stateDiagram-v2
 
 #### Bố cục thông tin khách
 
-- [ ] AC28: Khi hiển thị khối thông tin khách, các hàng và cột đúng theo D21.
-- [ ] AC29: Khi mở danh sách tháng bằng tiếng Việt, tất cả tháng được viết đầy đủ theo D22.
+- [ ] AC28: Khi hiển thị khối thông tin khách, các hàng và cột đúng theo D21; cả cặp Birthday/Found us via và cặp MM/DD có chiều rộng chia đều 50/50.
+- [ ] AC29: Khi dùng Birthday bằng tiếng Anh hoặc tiếng Việt, placeholder và tên tháng đúng theo D22.
 - [ ] AC30: Khi dùng các trường chọn trên điện thoại hoặc desktop, nội dung và mũi tên không chồng nhau theo D22.
 
 ### Trường hợp ngoại lệ và cách xử lý

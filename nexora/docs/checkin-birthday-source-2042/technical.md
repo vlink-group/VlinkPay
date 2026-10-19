@@ -430,21 +430,21 @@ Chọn tháng/ngày bằng hai select, không dùng input date có năm. Ngày t
 
 #### Bố cục thông tin khách và trường chọn
 
-Frontend triển khai D21 bằng lưới hai cột trong khối thông tin khách của giao diện một trang:
+Frontend triển khai D21 bằng lưới hai cột trong khối thông tin khách của giao diện một trang. Hàng Birthday/Found us via chia đều chiều rộng theo tỷ lệ 50/50:
 
 | Hàng | Cột trái | Cột phải |
 | :--- | :--- | :--- |
 | 1 | Phone | Name |
-| 2 | Birthday: hai select MM rồi DD trong cùng ô | Found us via |
+| 2 | Birthday: hai select MM rồi DD bằng nhau, tỷ lệ 50/50 | Found us via |
 | 3 | Xác nhận SMS chiếm chiều rộng của khối | |
 
 Các tên trong bảng là nhãn tiếng Anh; bản tiếng Việt dùng nhãn dịch tương ứng. Wizard giữ bước xác nhận Phone hiện có; bước thông tin khách đặt hàng sinh nhật/nguồn dưới Name rồi đến SMS. Danh sách lịch hẹn dùng cùng hàng trường bổ sung trước các nút check-in nhanh.
 
 Khi chỉ thiếu một trường bổ sung, frontend chỉ render trường đó theo A3. Khi đủ cả hai thông tin, frontend bỏ cả hàng bổ sung. Component phải giữ nhãn và giá trị dễ đọc trên điện thoại, tablet và desktop.
 
-Hai cột không bắt buộc bằng nhau. Trên điện thoại, frontend có thể dành thêm chiều rộng cho ô Birthday để hai select cùng hiển thị đủ giá trị và khoảng cách mũi tên, kể cả khi chọn Tháng 12.
+Bên trong Birthday, hai select tháng/ngày có chiều rộng bằng nhau: mỗi ô chiếm 50% phần chiều rộng còn lại sau khoảng cách giữa hai ô. Frontend dùng `grid-template-columns: repeat(2, minmax(0, 1fr))` cho cả hàng Birthday/Found us via bên ngoài và cặp MM/DD bên trong. Cả hai cặp đều giữ tỷ lệ 50/50.
 
-- Bản tiếng Anh dùng placeholder `MM` và `DD`; bản tiếng Việt dùng `Tháng` và `Ngày`. Danh sách tháng tiếng Việt hiển thị `Tháng 1` đến `Tháng 12`, không rút gọn chữ tháng.
+- Cả tiếng Anh và tiếng Việt dùng placeholder `MM` và `DD`. Danh sách tháng và giá trị đang chọn dùng cùng bộ tên tháng viết tắt kiểu Mỹ tại D22; mapping tháng 1–12 cố định, không đổi theo locale.
 - Mỗi select có một chevron kích thước 16px, căn giữa theo chiều dọc và cách mép phải 12px. Nội dung được chừa ít nhất 36px bên phải.
 - Với native select, frontend đặt trong wrapper relative và dùng `appearance-none pr-9` để ẩn mũi tên mặc định. Chevron dùng `pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2` để không chặn thao tác.
 - Frontend ưu tiên component select dùng chung hiện có. Custom dropdown giữ cùng khoảng cách; nhãn, bàn phím, focus và disabled vẫn hoạt động đầy đủ.
@@ -491,8 +491,8 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 - [ ] TC18: Public trả lại lượt đã có từ client cũ vẫn ghi phần thiếu bằng transaction mà không tăng lượt, theo T10.
 - [ ] TC19: Đoạn nhạc kết thúc đúng thời lượng cấu hình và không phát lặp tự động; kiểm tra nghe thực tế theo AC26.
 - [ ] TC20: Hiệu ứng kết thúc chuyển động theo cấu hình, giữ trang trí tĩnh và đáp ứng AC27 cùng reduced motion.
-- [ ] TC21: Khối thông tin khách đúng bố cục hai cột và thứ tự SMS theo T13, đáp ứng AC28.
-- [ ] TC22: Danh sách tháng tiếng Việt dùng đủ chữ Tháng và đọc được cả Tháng 10–Tháng 12, đáp ứng AC29.
+- [ ] TC21: Khối thông tin khách đúng bố cục và thứ tự SMS theo T13; cả cặp Birthday/Found us via bên ngoài và cặp MM/DD bên trong đều bằng nhau theo tỷ lệ 50/50, đáp ứng AC28.
+- [ ] TC22: Birthday dùng placeholder MM/DD và cùng bộ tên tháng Jan–Dec trong cả EN/VI, đáp ứng AC29.
 - [ ] TC23: Mỗi select có một chevron 16px, cách mép phải 12px và phần chữ có padding phải ít nhất 36px, đáp ứng AC30.
 
 ### Trường hợp ngoại lệ và cách xử lý

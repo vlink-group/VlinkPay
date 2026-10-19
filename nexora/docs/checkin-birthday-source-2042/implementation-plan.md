@@ -229,8 +229,8 @@ dotnet build Nexora.sln
 - [ ] Thêm profile và nháp vào session, cùng generation nhận diện. Snapshot `birthdayEligibleAtRecognition` lấy từ lookup thành công đầu tiên, kể cả false/null-customer; refetch sau POST không đổi snapshot. Kết quả A về muộn sau khi đổi B không được áp dụng.
 - [ ] Seed cache A có birthday=true hoặc customer=null, rồi thử A→B→A và hủy/nhận diện lại A: chỉ response mạng của epoch mới được resolved. Ca qua ngày và hồ sơ được tạo từ máy khác phải cập nhật điều kiện đúng.
 - [ ] Thêm component trường tùy chọn ở một trang, bước tên của wizard và một khối chung trong danh sách lịch hẹn, gồm cả chế độ embedded.
-- [ ] Áp dụng bố cục T13: Phone/Name hai cột, hàng Birthday MM/DD và Found us via ngay dưới, SMS bên dưới. Wizard giữ bước xác nhận Phone và dùng cùng hàng bổ sung dưới Name; chỉ render trường còn thiếu.
-- [ ] Hiển thị danh sách tháng tiếng Việt từ Tháng 1 đến Tháng 12. Dùng một chevron 16px cách mép phải 12px, padding phải ít nhất 36px; native select dùng custom chevron theo T13.
+- [ ] Áp dụng bố cục T13: Phone/Name hai cột, hàng Birthday MM/DD và Found us via ngay dưới, SMS bên dưới. Cặp Birthday/Found us via bên ngoài và cặp MM/DD bên trong đều chia đều 50/50. Wizard giữ bước xác nhận Phone và dùng cùng hàng bổ sung dưới Name; chỉ render trường còn thiếu.
+- [ ] Dùng placeholder MM/DD và tên tháng viết tắt Jan–Dec theo D22 cho cả EN/VI. Dùng một chevron 16px cách mép phải 12px, padding phải ít nhất 36px; native select dùng custom chevron theo T13.
 - [ ] Nối cùng builder/validator vào `submit()` và `checkInBooking()`. Với quầy check-in nhanh, gửi body có `customerDetails` và không tự thêm `items=[]`.
 - [ ] Thêm EN/VI, trạng thái disabled, nhãn tùy chọn, lỗi dễ hiểu và query invalidation sau thành công.
 - [ ] Chạy lại test hợp đồng tới khi đạt; kiểm tra repository tests/hook callers hiện có khi đổi method.
@@ -292,7 +292,7 @@ Trong test, fixture `profileWithBirthday` phải resolved, `customerExists=true`
 - [ ] Mở giao diện local với API đã chỉ định. Nếu dùng staging API chưa có backend mới thì chỉ ghi nhận kiểm chứng bố cục/mocks, không đánh dấu kiểm chứng tích hợp đã đạt.
 - [ ] Chạy ma trận trong Tiêu chí chấp nhận; ghi request/response, dữ liệu trước/sau và lỗi console/network cần thiết.
 - [ ] Chạy 375×667 và 390×844; tablet 768×1024 và 1024×768. Kiểm tra nút check-in, trường và card sinh nhật không che nhau.
-- [ ] Kiểm tra bố cục hai cột theo T13 trên phone và desktop, gồm lúc thiếu cả hai trường, chỉ thiếu một trường và đủ thông tin. Mở từng select để kiểm tra chữ Tháng đầy đủ, chevron 16px/right 12px/padding phải ít nhất 36px và một mũi tên hiển thị.
+- [ ] Kiểm tra bố cục hai cột theo T13 trên phone và desktop, gồm lúc thiếu cả hai trường, chỉ thiếu một trường và đủ thông tin. Kiểm tra cặp Birthday/Found us via bên ngoài và cặp MM/DD bên trong đều chia đều 50/50. Mở từng select để kiểm tra tên tháng Jan–Dec trong cả EN/VI, chevron 16px/right 12px/padding phải ít nhất 36px và một mũi tên hiển thị.
 - [ ] Kiểm chứng trên trình duyệt desktop thực và Safari iPhone/iPad thực nếu có; nếu chỉ có mô phỏng viewport thì ghi rõ chưa xác minh âm thanh Safari thực.
 - [ ] Kiểm chứng việc tắt/bật nhạc bằng tai và trạng thái nút. Test mock chỉ bổ sung bằng chứng về lifecycle, không thay thế kiểm tra thiết bị phát âm thanh.
 - [ ] Sửa lỗi phát hiện và chạy lại đúng ca ảnh hưởng; không chạy lặp mọi bộ test khi không có thay đổi mới.
@@ -401,7 +401,7 @@ Kế hoạch thực hiện toàn bộ A1–D22 trong business và T1–T13 trong
 | Dọn phiên | Đổi số/tiệm; người khác cùng số; Cancel; Done; auto-return; unmount; tab nền | AC20/AC25 | Local + staging |
 | Quyền | Merchant sai tiệm; device sai/thu hồi token; public slug không hợp lệ | T9 | Local + staging |
 | Bố cục | Bốn bề mặt × hai layout; hai cột thông tin khách; chỉ hiện trường thiếu; phone/tablet/desktop; EN/VI; reduced motion | AC21/AC23/AC28, TC21 | Local + staging |
-| Trường chọn | MM/DD; Tháng 1–Tháng 12; một chevron 16px, mép phải 12px, padding phải ít nhất 36px | AC29/AC30, TC22/TC23 | Local + staging |
+| Trường chọn | Birthday/Found us via chia đều 50/50; MM/DD bên trong chia đều 50/50; Jan–Dec trong cả EN/VI; một chevron 16px, mép phải 12px, padding phải ít nhất 36px | AC28–AC30, TC21–TC23 | Local + staging |
 | Phong cách chúc mừng | Nghe đoạn nhạc và xem hiệu ứng nhỏ trên thiết bị thực | AC26/AC27, TC19/TC20 | Local + staging |
 | Hồi quy | Dịch vụ, thợ, lịch hẹn, lượt đến, SMS, số thứ tự và direct checkout dùng chung scaffold | T11 | Local + staging |
 
