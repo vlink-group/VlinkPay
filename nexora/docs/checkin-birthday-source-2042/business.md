@@ -2,7 +2,8 @@
 
 **Cập nhật lần cuối:** 19/10/2026\
 **Đối tượng:** Đội sản phẩm, chủ tiệm, lễ tân, phát triển và kiểm thử\
-**Trạng thái:** Draft
+**Trạng thái:** Draft\
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md)
 
 ---
 
@@ -298,8 +299,8 @@ stateDiagram-v2
 
 ### Tính năng liên quan
 
-- [Tài liệu kỹ thuật](technical.md): mô tả dữ liệu, API và cách phát nhạc đáp ứng các quy tắc trên.
-- [Kế hoạch triển khai](implementation-plan.md): chia việc và xác định kiểm chứng local/staging.
+- [Tài liệu kỹ thuật](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/technical.md): mô tả dữ liệu, API và cách phát nhạc đáp ứng các quy tắc trên.
+- [Kế hoạch triển khai](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/implementation-plan.md): chia việc và xác định kiểm chứng local/staging.
 - [Review số điện thoại và lịch hẹn](https://github.com/vlink-group/VlinkPay/blob/c28eb5766e31a33d897d4b8b6877e400775d7e7b/nexora/docs/business/pos-checkin-phone-review-appointment.md): quy trình xác nhận số và sử dụng lịch hẹn cần được giữ lại.
 - [Check-in dùng chung](https://github.com/vlink-group/VlinkPay/blob/c28eb5766e31a33d897d4b8b6877e400775d7e7b/nexora/docs/business/references/POS-CheckIn-Single-Page-Spec.md): tham chiếu lịch sử cho hai kiểu giao diện; hiện trạng được xác minh bằng code trong phụ lục.
 

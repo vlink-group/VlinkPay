@@ -4,7 +4,8 @@
 
 **Cập nhật lần cuối:** 19/10/2026\
 **Đối tượng:** Phát triển backend/frontend, kiểm thử và người review\
-**Trạng thái:** Draft
+**Trạng thái:** Draft\
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/implementation-plan.md)
 
 **Goal — Mục tiêu:** Thu thập thông tin còn thiếu và chúc mừng đúng sinh nhật ngay khi nhận diện khách đã có hồ sơ tại tiệm.
 
@@ -428,8 +429,8 @@ Mỗi ca theo bề mặt dùng API thực của bề mặt đó; public kiosk v�
 
 ### Tính năng liên quan
 
-- [Tài liệu nghiệp vụ](business.md): quy tắc và tiêu chí AC01–AC25 để nghiệm thu.
-- [Thiết kế kỹ thuật](technical.md): hợp đồng, file map và interface của các task.
+- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): quy tắc và tiêu chí AC01–AC25 để nghiệm thu.
+- [Thiết kế kỹ thuật](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/technical.md): hợp đồng, file map và interface của các task.
 - [Review số điện thoại/lịch hẹn](https://github.com/vlink-group/VlinkPay/blob/c28eb5766e31a33d897d4b8b6877e400775d7e7b/nexora/docs/business/pos-checkin-phone-review-appointment.md): phần hồi quy cần giữ trong Task 4 và Task 6–7.
 
 ### Phụ lục

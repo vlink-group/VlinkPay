@@ -2,7 +2,8 @@
 
 **Cập nhật lần cuối:** 19/10/2026\
 **Đối tượng:** Phát triển backend/frontend, kiểm thử và người review\
-**Trạng thái:** Draft
+**Trạng thái:** Draft\
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/technical.md)
 
 ---
 
@@ -488,8 +489,8 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 
 ### Tính năng liên quan
 
-- [Tài liệu nghiệp vụ](business.md): nguồn quy tắc A1–D20 và quyết định còn mở OD1–OD2.
-- [Kế hoạch triển khai](implementation-plan.md): thứ tự thay đổi, kiểm chứng và phát hành.
+- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): nguồn quy tắc A1–D20 và quyết định còn mở OD1–OD2.
+- [Kế hoạch triển khai](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/implementation-plan.md): thứ tự thay đổi, kiểm chứng và phát hành.
 - [Check-in dùng chung](https://github.com/vlink-group/VlinkPay/blob/c28eb5766e31a33d897d4b8b6877e400775d7e7b/nexora/docs/business/references/POS-CheckIn-Single-Page-Spec.md): nền tảng lịch sử của session và layout; code hiện tại vẫn là nguồn xác nhận cấu trúc.
 
 ### Phụ lục
