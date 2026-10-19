@@ -15,7 +15,7 @@
 | Dòng dữ liệu | Xác nhận số → nhận diện hồ sơ → hiện trường còn thiếu và lời chúc phù hợp → lưu khi check-in thành công. |
 | Điều phải hiểu đúng | Sinh nhật chỉ gồm ngày/tháng; hai trường đều tùy chọn; dữ liệu đã có được giữ nguyên. |
 | Thời điểm chúc mừng | Ngay khi nhận diện khách đã có hồ sơ tại tiệm và hôm nay là sinh nhật đã lưu. |
-| Tình trạng | Đây là yêu cầu cần triển khai; chưa phải kết quả kiểm thử hoặc xác nhận đã chạy trên staging. |
+| Tình trạng | Có thay đổi ứng dụng và kiểm tra tại local; chưa commit ứng dụng hoặc deploy staging. Nội dung này mô tả yêu cầu, không thay cho bằng chứng kiểm thử. |
 
 ### Tổng quan
 
@@ -32,6 +32,8 @@ Người dùng đã chốt hai điểm khi lập tài liệu: chúc mừng ngay 
 | Thiết bị Self Check-in | Cùng nội dung trên cho thiết bị đã ghép với tiệm. |
 | POS → Check-in tại quầy | Lễ tân thấy các trường còn thiếu và điều khiển nhạc. |
 | Danh sách lịch hẹn bên trong check-in | Khách vẫn được nhập thông tin còn thiếu trước nút check-in nhanh. |
+
+API chi tiết khách dành cho nhân viên có quyền cũng cần trả sinh nhật và nguồn đã lưu để đối chiếu dữ liệu; không bổ sung màn chỉnh sửa hồ sơ trong ticket này.
 
 Cả giao diện một trang và từng bước đều thuộc phạm vi. Màn đặt lịch, checkout trực tiếp, báo cáo nguồn khách, cấu hình sinh nhật của chương trình tích điểm và màn chỉnh sửa hồ sơ khách không thuộc lần triển khai này.
 

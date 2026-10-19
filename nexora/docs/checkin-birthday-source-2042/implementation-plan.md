@@ -25,7 +25,7 @@
 | Phạm vi | Bốn nơi check-in, hai layout, khách vãng lai và check-in từ lịch hẹn. |
 | Điều phải giữ | Chỉ bổ sung dữ liệu trống; lời chúc bắt đầu khi nhận diện; mọi lỗi âm thanh không cản check-in. |
 | Thời gian AI dự kiến | 14–20 giờ làm việc sau khi có quyền truy cập và môi trường chạy được. |
-| Tình trạng | Chỉ lập kế hoạch và tài liệu; chưa sửa ứng dụng, chạy migration, test hoặc deploy. |
+| Tình trạng | Ứng dụng đã được sửa và kiểm tra tại local; chưa commit ứng dụng hoặc deploy staging. Các ô kế hoạch là yêu cầu công việc, không thay cho evidence thực tế. |
 
 ### Tổng quan
 
@@ -132,7 +132,7 @@ flowchart TD
 
 **Kết quả đạt:** Có task branch sạch về phạm vi, phiên bản base và môi trường đủ để kiểm chứng. Nếu thiếu API/DB local, tiếp tục phần không phụ thuộc và ghi rõ Task 6 chưa thể đánh dấu hoàn tất.
 
-#### Task 2: Dữ liệu, reader và ba lookup tối thiểu
+#### Task 2: Dữ liệu, ba lookup và API chi tiết
 
 **Files backend — sửa:**
 
@@ -142,6 +142,7 @@ flowchart TD
 - `backend/src/Application/Features/Pos/Public/CheckIn/Queries/GetPublicCheckInCustomerLookup/GetPublicCheckInCustomerLookupQuery.cs`
 - `backend/src/Application/Features/Pos/SelfCheckIn/Queries/GetSelfCheckInCustomerLookup/GetSelfCheckInCustomerLookupQuery.cs`
 - `backend/src/Web/Controllers/Merchant/PosCheckInController.cs`
+- `backend/src/Application/Features/Pos/Customers/Queries/GetPosCustomerDetail/GetPosCustomerDetailQuery.cs`
 
 **Files backend — mới/sinh:**
 
@@ -158,6 +159,7 @@ flowchart TD
 - [ ] Thêm validator dùng chung cho cặp ngày/tháng và enum theo bảng lỗi technical.
 - [ ] Thêm reader ưu tiên ngày sinh đầy đủ, dùng timezone resolver và `nowUtc` được caller truyền.
 - [ ] Mở rộng public/device lookup, thêm minimal query quầy; không sửa `CustomerLookupResolver` đang dùng chung public booking.
+- [ ] Bổ sung tháng/ngày sinh và nguồn vào API chi tiết khách có đăng nhập; kiểm chứng giá trị mới, null, sinh nhật cũ và giới hạn quyền/tiệm theo TC25.
 - [ ] Sinh migration bằng workflow EF hiện có và review rằng chỉ ba cột, constraint cùng snapshot liên quan thay đổi.
 - [ ] Trên DB phát triển, kiểm chứng null/null, 29/02, 31/04, một cột null và enum ngoài tập hợp bằng API/constraint; hoàn nguyên dữ liệu mẫu nếu cần.
 - [ ] Kiểm chứng hồ sơ tên trống và hồ sơ chưa có lượt hoàn tất trả `customerExists=true`; không có hàng Customer trả null hợp lệ.

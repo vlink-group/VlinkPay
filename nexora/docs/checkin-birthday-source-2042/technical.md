@@ -15,7 +15,7 @@
 | Dòng xử lý | Tra cứu tối thiểu → chuẩn hóa trong repository → quản lý trong phiên → lưu cùng giao dịch check-in. |
 | Chúc mừng | Backend xác định sinh nhật hôm nay; frontend thử phát nhạc ngay khi nhận diện, có bật/tắt và dọn phiên. |
 | Tương thích | Giữ ngày sinh đầy đủ và nguồn tạo hồ sơ; bảo toàn API cũ và các đường check-in nhanh. |
-| Tình trạng | Đây là thiết kế cần triển khai; các trường, hàm và đường dẫn ghi “mới” chưa tồn tại trong code đối chiếu. |
+| Tình trạng | Đã có thay đổi trên nhánh local `enhance/2042-checkin-birthday-source`; chưa commit ứng dụng hoặc deploy staging. Bảng nguồn cuối tài liệu ghi riêng phiên bản khảo sát ban đầu. |
 
 ### Tổng quan
 
@@ -224,7 +224,7 @@ Quy tắc nghiệp vụ đầy đủ nằm ở tài liệu business. Phần này
 
 ### Ví dụ hợp đồng
 
-Các API và trường dưới đây là hợp đồng đề xuất mới, không phải khẳng định đã có trên staging. Toàn bộ ví dụ dùng tên khách viết hoa và số điện thoại theo chuẩn Mỹ.
+Các API và trường dưới đây là hợp đồng triển khai trên nhánh local, chưa xác nhận có trên staging. Toàn bộ ví dụ dùng tên khách viết hoa và số điện thoại theo chuẩn Mỹ.
 
 #### Kết quả lookup tối thiểu
 
@@ -238,9 +238,26 @@ Các API và trường dưới đây là hợp đồng đề xuất mới, khôn
 }
 ```
 
-`displayName` có thể là chuỗi rỗng khi hồ sơ chưa có tên. Với không tìm thấy hồ sơ, API trả `200` kèm null theo envelope hiện có. Repository chuẩn hóa thành `{ customerExists: false, hasBirthday: false, hasAcquisitionSource: false, isBirthdayToday: false }`.
+`displayName` có thể là chuỗi rỗng khi hồ sơ chưa có tên. Khi không tìm thấy hồ sơ, kết quả ứng dụng là null; ASP.NET có thể trả `204` không có body (đã quan sát ở local) hoặc `200` kèm null. Client chấp nhận cả hai. Repository chuẩn hóa thành `{ customerExists: false, hasBirthday: false, hasAcquisitionSource: false, isBirthdayToday: false }`.
 
 Lookup không trả ngày/tháng/năm sinh, nguồn đã lưu, customer ID hoặc lịch sử dịch vụ trong DTO mới. Các thông tin lookup quầy cũ vẫn được giữ trong đường API riêng hiện có.
+
+#### API chi tiết để đối chiếu dữ liệu
+
+Nhân viên có quyền thao tác POS dùng `GET /api/v1/merchant/pos/{businessId}/customers/{customerId}` để đọc hồ sơ trong tiệm. Kết quả trả về bổ sung `birthdayMonth`, `birthdayDay` theo T1 và `acquisitionSource`; giữ `dateOfBirth` cùng các trường cũ. Các giá trị chưa có là null; nguồn trả chuỗi enum đã định nghĩa bên dưới.
+
+Ví dụ phần dữ liệu liên quan khi khách chỉ cung cấp ngày/tháng:
+
+```json
+{
+  "dateOfBirth": null,
+  "birthdayMonth": 10,
+  "birthdayDay": 19,
+  "acquisitionSource": "Google"
+}
+```
+
+`isNewCustomer` trong API chi tiết là trường cũ, xác định theo dịch vụ đã hoàn tất. Check-in #2042 dùng `customerExists` của lookup để phân biệt khách mới/cũ theo hồ sơ, không dùng trường cũ này. API chi tiết yêu cầu đăng nhập, quyền Operations và giới hạn cả tiệm lẫn mã khách; các lookup công khai/thiết bị vẫn dùng DTO tối thiểu theo T9.
 
 #### Phần bổ sung trên request
 
@@ -282,6 +299,7 @@ Tất cả đường dẫn có tiền tố `/api/v1`.
 | Public lookup | `GET /checkin/{businessSlug}/customer-lookup?phone=...` | Giữ `displayName`; thêm bốn cờ của profile. |
 | Device lookup | `GET /pos-device/self-checkin/customer-lookup?phone=...` | Giữ `displayName`; thêm cùng bốn cờ. |
 | Quầy lookup mới | `GET /merchant/pos/{businessId}/checkin/customer-profile?phone=...` | Trả DTO tối thiểu mới sau kiểm tra quyền Operations. |
+| Chi tiết khách tại quầy | `GET /merchant/pos/{businessId}/customers/{customerId}` | Bổ sung tháng/ngày sinh và nguồn để đối chiếu hồ sơ sau lưu; có kiểm tra quyền. |
 | Public walk-in | `POST /checkin/{businessSlug}/orders` | Thêm `customerDetails` ở request DTO và mapping sang command. |
 | Public booking | `POST /checkin/{businessSlug}/bookings/check-in` | Thêm `customerDetails` ở request DTO và mapping sang command. |
 | Device walk-in | `POST /pos-device/self-checkin/orders` | Thêm input vào command. |
@@ -322,6 +340,7 @@ Các path trong bảng này tính từ `backend/src/` của repository backend.
 | `Application/Features/Pos/Orders/Common/PosCheckInOrderScaffold.cs` | Sửa | Mang input vào scaffold; bọc ghi order và phần bổ sung cùng transaction. |
 | Ba nhóm command walk-in và ba command booking trong bảng API | Sửa | Validator, truyền input, áp dụng writer và giữ nguyên side effect. |
 | Hai query lookup public/device trong phụ lục | Sửa | Dùng reader; không trả null chỉ vì tên trống. |
+| `Application/Features/Pos/Customers/Queries/GetPosCustomerDetail/GetPosCustomerDetailQuery.cs` | Sửa | Bổ sung ba trường đọc chi tiết, giữ quyền và phạm vi tiệm hiện có. |
 | Ba controller public/device/quầy và controller booking quầy | Sửa | Bổ sung mapping và endpoint minimal mới. |
 | `Infrastructure/Data/Configurations/Database/CustomerConfiguration.cs` | Sửa | Check constraint cho cặp sinh nhật và nguồn. |
 | `Infrastructure/Migrations/<timestamp>_AddCustomerCheckInDetails.*` | Sinh mới | Migration và snapshot bằng EF workflow hiện có. |
@@ -499,6 +518,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 - [ ] TC22: Birthday dùng placeholder MM/DD và cùng bộ tên tháng Jan–Dec trong cả EN/VI, đáp ứng AC29.
 - [ ] TC23: Mỗi select có một chevron 16px, cách mép phải 12px và phần chữ có padding phải ít nhất 36px, đáp ứng AC30.
 - [ ] TC24: Prepare khi xác nhận số không tạo request MP3; request chỉ bắt đầu khi có yêu cầu phát cho hồ sơ đủ điều kiện theo T7.
+- [ ] TC25: API chi tiết trả đúng phần bổ sung sau lưu, dữ liệu null và ngày sinh cũ theo T1; không đọc được nếu thiếu quyền hoặc khách thuộc tiệm khác.
 
 ### Trường hợp ngoại lệ và cách xử lý
 
@@ -552,7 +572,7 @@ Danh sách duy nhất nằm tại business → Các quyết định còn mở. P
 
 #### Nguồn mã và hợp đồng đã kiểm tra
 
-Mã backend đối chiếu tại `7475c0a43420b9ed136900371c8aaef8196c850d`; frontend tại `8f76a1274e0a5c22cacdc36d24c57e9e8715ce42`. Hai SHA trùng đầu nhánh remote `staging` tại thời điểm đọc ngày 19/10/2026. Không thực hiện build, migration hoặc thử check-in trong tác vụ soạn tài liệu.
+Mã backend đối chiếu tại `7475c0a43420b9ed136900371c8aaef8196c850d`; frontend tại `8f76a1274e0a5c22cacdc36d24c57e9e8715ce42`. Hai SHA trùng đầu nhánh remote `staging` tại thời điểm khảo sát ban đầu ngày 19/10/2026. Phần triển khai sau đó theo yêu cầu người dùng dùng `master`: backend `716d2a5d09b1ae008d6e946907ca50636569d2cb`, frontend `9fd2ddd471d7aff56a11f3604ec476cfd8b27039`; thay đổi ứng dụng hiện chưa commit. Kết quả kiểm chứng được lưu riêng trong thư mục evidence của workspace, không xem các bảng thiết kế là bằng chứng deploy.
 
 | Nguồn | Điều đã xác minh |
 | :--- | :--- |
