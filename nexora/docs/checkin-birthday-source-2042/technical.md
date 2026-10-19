@@ -208,8 +208,8 @@ Quy tắc nghiệp vụ đầy đủ nằm ở tài liệu business. Phần này
 
 5. **T5 — Cờ theo ngày của tiệm (C11–C13):** Backend tính `isBirthdayToday` từ hồ sơ tồn tại tại thời điểm lookup và đồng hồ UTC server đổi sang timezone của tiệm. Không dùng `IsNewCustomer` theo lượt đã hoàn tất để suy ra `customerExists`.
 6. **T6 — Ranh giới phiên (C11, C15, C17):** Session tăng `recognitionKey` khi thay danh tính hoặc reset; callback phải kiểm tra khóa còn hoạt động. Session chốt `birthdayEligibleAtRecognition` từ lookup thành công đầu tiên của khóa, kể cả kết quả false hoặc không có hồ sơ. Refetch/invalidation sau khi lưu không được đổi snapshot đó. Nếu lần đầu lỗi, lần thử lại thành công đầu tiên mới chốt snapshot. Kết quả cũ và React StrictMode không được tạo thêm lần tự phát.
-7. **T7 — Phát trong điều kiện trình duyệt (C14):** Controller chuẩn bị/resume `AudioContext` trong thao tác xác nhận số, không đợi lookup. Sau kết quả, controller chỉ schedule nhạc khi context dùng được; trường hợp bị chặn có nút bật thủ công và không retry tự động theo timer.
-8. **T8 — Cleanup đầy đủ (C17):** Controller dừng/disconnect mọi node, hủy timer, bỏ callback đang đợi và đóng context khi unmount. Pending `resume()` hoàn tất sau reset phải bị bỏ qua theo generation của controller.
+7. **T7 — Phát trong điều kiện trình duyệt (C14):** Controller chỉ chuẩn bị/resume `AudioContext` trong thao tác xác nhận số, không tải MP3 ở bước prepare. Khi nhận diện đủ điều kiện phát, controller mới tải asset cùng ứng dụng, giải mã rồi schedule nhạc khi context dùng được. Trường hợp bị chặn hoặc tải/giải mã lỗi có nút bật thủ công và không retry tự động theo timer.
+8. **T8 — Cleanup đầy đủ (C17):** Controller dừng/disconnect mọi node, hủy timer, bỏ callback đang đợi và đóng context khi unmount. Kết quả `resume()`, tải file hoặc giải mã trả chậm sau khi tắt nhạc, chuyển nền hoặc reset không được schedule node. Controller kiểm tra generation còn hoạt động trước khi phát.
 
 #### C. Tương thích đường gửi
 
@@ -388,10 +388,12 @@ Các path tính từ `src/` của repository frontend.
 | `components/checkin/layouts/WizardCheckInLayout.tsx` | Sửa | Gắn component mới tại bước tên, trước chọn dịch vụ. |
 | `components/checkin/parts/CheckInBookingList.tsx` | Sửa | Một khối bổ sung chung trước danh sách; không lặp trong từng lịch hẹn. |
 | `components/checkin/useBirthdayCelebration.ts` | Mới | Lifecycle một lần tự phát cho một khóa nhận diện. |
-| `components/checkin/birthdayAudio.ts` | Mới | Web Audio: prepare, play, stop, dispose; không phụ thuộc React. |
+| `components/checkin/birthdayAudio.ts` | Mới | Web Audio: prepare context, tải/giải mã MP3 khi cần phát, play, stop, dispose; không phụ thuộc React. |
 | `components/checkin/parts/BirthdayCelebrationCorner.tsx` | Mới | Lời chúc và nút âm thanh nhỏ ở góc. |
 | `components/checkin/CheckInSurface.tsx` | Sửa | Host component sinh nhật ngoài các nhánh return theo phase. |
 | `locales/en.json`, `locales/vi.json` | Sửa | Nhãn trường, nguồn, lỗi và lời chúc; không hardcode câu hiển thị. |
+
+Asset frontend tính từ repository root: `public/assets/audio/happy-birthday-instrumental.mp3` là bản sao nguyên byte của MP3 người dùng cung cấp. Đường dẫn phục vụ trên web là `/assets/audio/happy-birthday-instrumental.mp3`; thông tin nguồn nằm trong Phụ lục.
 
 Chuẩn hóa nội bộ đề xuất:
 
@@ -451,9 +453,11 @@ Bên trong Birthday, hai select tháng/ngày có chiều rộng bằng nhau: m�
 
 #### Âm thanh và lời chúc
 
-Định hướng nhạc và hiệu ứng đã được người dùng chốt tại QD1–QD2 của business. Các thông số dưới đây là mặc định kỹ thuật do người soạn chọn để triển khai hướng đó; chưa có bản chạy để nghe hoặc xem thực tế.
+Định hướng nhạc và hiệu ứng theo QD1–QD2; bản MP3 theo QD4 của business. Các thông số dưới đây là mặc định kỹ thuật để triển khai; tài liệu không xác nhận đã nghe thử trong ứng dụng hoặc deploy.
 
-- Nhạc: một trích đoạn Happy Birthday không lời khoảng 6 giây, giai điệu một bè đơn giản với tiếng ngân mềm. Dùng Web Audio, mặc định gain 0.08; tăng âm nhẹ trong 150 ms đầu và giảm âm trong 300 ms cuối để tránh tiếng bật đột ngột. Không tự tăng âm lượng thiết bị; thời lượng và gain có thể tinh chỉnh khi nghe thử.
+- Nhạc: phát 6 giây đầu của MP3, bắt đầu ở giây 0 và không loop. Controller dùng `fetch` rồi `decodeAudioData` trên `AudioContext` hiện có; mỗi lần phát tạo `AudioBufferSourceNode` mới. File MP3 được giữ nguyên, không cắt hoặc mã hóa lại asset.
+- Âm lượng: gain mặc định 0.08; tăng âm nhẹ trong 150 ms đầu và giảm âm trong 300 ms cuối để tránh tiếng bật đột ngột. Controller giữ giới hạn đoạn phát và không tự tăng âm lượng thiết bị.
+- Tải nhạc: chỉ bắt đầu khi có yêu cầu phát cho hồ sơ đủ điều kiện. Prepare khi xác nhận số chỉ mở/resume context; khách không có sinh nhật hôm nay không tạo request MP3. Controller có thể dùng lại buffer đã giải mã trong vòng đời của nó và vẫn kiểm tra generation trước mỗi lần schedule.
 - Hiệu ứng: một hình bánh sinh nhật nhỏ và tối đa 3 điểm lấp lánh cạnh lời chúc. Chuyển động nhẹ một lượt khoảng 2 giây rồi đứng yên; dùng màu dịu theo bộ màu hiện có. Người triển khai không thêm hiệu ứng phủ màn hình hoặc chuyển động liên tục.
 
 - `CheckInSurface` sở hữu controller và host lời chúc cùng vòng đời; controller không nằm trong layout hoặc `ThankYouScreen`.
@@ -480,7 +484,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 - [ ] TC07: Hai request cạnh tranh giữ dữ liệu được ghi trước, đáp ứng AC10.
 - [ ] TC08: Retry public hoặc booking không tạo order/lượt phụ do phần bổ sung, theo T11.
 - [ ] TC09: Profile query thành công khởi động lời chúc ngay cả khi lookup khác còn pending, đáp ứng AC14.
-- [ ] TC10: Kết quả cũ và `resume()` trả chậm không phát nhạc cho phiên mới, đáp ứng AC12/AC20.
+- [ ] TC10: Kết quả lookup, `resume()` hoặc tải/giải mã MP3 trả chậm không phát nhạc sau khi tắt, chuyển nền hoặc đổi phiên, đáp ứng AC12/AC20.
 - [ ] TC11: Mute không bị refetch hoặc đổi layout tự hủy, đáp ứng AC18.
 - [ ] TC12: Trình duyệt chặn hoặc thiếu AudioContext vẫn cho check-in, đáp ứng AC16.
 - [ ] TC13: Cleanup không để timer/node tiếp tục sau unmount, đáp ứng AC20/AC25.
@@ -489,11 +493,12 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 - [ ] TC16: Khách mới hoặc hồ sơ vừa bổ sung sinh nhật hôm nay không bị chúc mừng sau khi POST làm refetch profile, theo C11/T6.
 - [ ] TC17: Cache của phiên trước, kể cả qua nửa đêm hoặc trước khi hồ sơ được tạo từ thiết bị khác, không được chốt eligibility/điều kiện hiển thị cho phiên mới, theo T12.
 - [ ] TC18: Public trả lại lượt đã có từ client cũ vẫn ghi phần thiếu bằng transaction mà không tăng lượt, theo T10.
-- [ ] TC19: Đoạn nhạc kết thúc đúng thời lượng cấu hình và không phát lặp tự động; kiểm tra nghe thực tế theo AC26.
+- [ ] TC19: Controller phát đúng 6 giây đầu của asset MP3 đã chọn, không phát lặp tự động; kiểm tra nghe thực tế theo AC26.
 - [ ] TC20: Hiệu ứng kết thúc chuyển động theo cấu hình, giữ trang trí tĩnh và đáp ứng AC27 cùng reduced motion.
 - [ ] TC21: Khối thông tin khách đúng bố cục và thứ tự SMS theo T13; cả cặp Birthday/Found us via bên ngoài và cặp MM/DD bên trong đều bằng nhau theo tỷ lệ 50/50, đáp ứng AC28.
 - [ ] TC22: Birthday dùng placeholder MM/DD và cùng bộ tên tháng Jan–Dec trong cả EN/VI, đáp ứng AC29.
 - [ ] TC23: Mỗi select có một chevron 16px, cách mép phải 12px và phần chữ có padding phải ít nhất 36px, đáp ứng AC30.
+- [ ] TC24: Prepare khi xác nhận số không tạo request MP3; request chỉ bắt đầu khi có yêu cầu phát cho hồ sơ đủ điều kiện theo T7.
 
 ### Trường hợp ngoại lệ và cách xử lý
 
@@ -507,6 +512,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 | Booking legacy thiếu CustomerId | Áp dụng T10 trong transaction khi có input bổ sung. | Backend |
 | `ExecuteUpdateAsync` bỏ qua interceptor | Writer cập nhật audit fields theo convention và review riêng. | Backend |
 | AudioContext bị đóng hoặc không được hỗ trợ | Giữ lời chúc tĩnh, trạng thái có thể bật hoặc không phát được; check-in vẫn dùng được. | Frontend |
+| MP3 tải lỗi, giải mã lỗi hoặc trả về sau khi dừng | Áp dụng T7–T8; không phát âm thanh muộn và không chặn check-in. | Frontend |
 | Metadata cũ trong cache sau lưu | Invalidate/remove đúng profile query theo T12. | Frontend |
 
 ### Câu hỏi thường gặp
@@ -522,7 +528,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 
 ### Tính năng liên quan
 
-- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): nguồn quy tắc A1–D22 và định hướng đã chốt QD1–QD3.
+- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): nguồn quy tắc A1–D22 và định hướng đã chốt QD1–QD4.
 - [Kế hoạch triển khai](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/implementation-plan.md): thứ tự thay đổi, kiểm chứng và phát hành.
 - [Check-in dùng chung](https://github.com/vlink-group/VlinkPay/blob/c28eb5766e31a33d897d4b8b6877e400775d7e7b/nexora/docs/business/references/POS-CheckIn-Single-Page-Spec.md): nền tảng lịch sử của session và layout; code hiện tại vẫn là nguồn xác nhận cấu trúc.
 
@@ -530,7 +536,19 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 
 #### Các quyết định còn mở
 
-Danh sách duy nhất nằm tại business → Các quyết định còn mở. Phong cách nhạc và hiệu ứng đã chốt tại QD1–QD2; tài liệu này quy định các mặc định kỹ thuật để triển khai.
+Danh sách duy nhất nằm tại business → Các quyết định còn mở. Phong cách nhạc và hiệu ứng đã chốt tại QD1–QD2, file nhạc tại QD4; tài liệu này quy định các mặc định kỹ thuật để triển khai.
+
+#### Nguồn asset âm thanh
+
+| Nội dung | Giá trị |
+| :--- | :--- |
+| File do người dùng cung cấp | `Serge-Quadrado--Happy-Birthday-to-You-Instrumentals.mp3` |
+| Thông tin file đầu vào | Khoảng 30,3 giây, dung lượng khoảng 1,2 MB. |
+| Asset trong repository frontend | `public/assets/audio/happy-birthday-instrumental.mp3` |
+| Đường dẫn trên web | `/assets/audio/happy-birthday-instrumental.mp3` |
+| Cách đưa vào ứng dụng | Sao chép nguyên byte; kiểm tra checksum của file nguồn và bản sao khi triển khai. |
+
+Đây là thông tin nguồn và thiết kế triển khai theo QD4. Tài liệu chưa ghi nhận kết quả nghe thực tế, tải asset trên bản deploy hoặc kiểm chứng autoplay.
 
 #### Nguồn mã và hợp đồng đã kiểm tra
 

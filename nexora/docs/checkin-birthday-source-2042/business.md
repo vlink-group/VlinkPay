@@ -215,7 +215,7 @@ stateDiagram-v2
 11. **C11 — Điều kiện:** Hệ thống chỉ chúc mừng khi nhận diện khách cũ và ngày/tháng sinh nhật đã lưu khớp ngày hiện tại tại tiệm. Ngày/tháng vừa nhập trong phiên không tự làm phát sinh lời chúc của phiên đó.
 12. **C12 — Ngày tại tiệm:** Hệ thống lấy ngày theo múi giờ của tiệm và quy tắc dự phòng hiện có. Ngày trên điện thoại hoặc máy chủ không tự thay thế ngày tại tiệm.
 13. **C13 — Sinh nhật 29/02:** Hệ thống chúc mừng vào đúng 29/02; ticket này không tự chuyển sang 28/02 hoặc 01/03 trong năm không nhuận.
-14. **C14 — Bắt đầu và điều khiển:** Hệ thống bắt đầu phần chúc mừng ngay khi nhận diện đủ điều kiện và thử mở một đoạn Happy Birthday ngắn. Nhạc không lời, giai điệu đơn giản và âm thanh nhẹ nhàng. Hệ thống có nút Bật nhạc/Tắt nhạc; nếu trình duyệt chặn, người thao tác có thể chủ động bật và tiếp tục check-in.
+14. **C14 — Bắt đầu và điều khiển:** Hệ thống bắt đầu phần chúc mừng ngay khi nhận diện đủ điều kiện và thử phát đoạn đầu ngắn của bản MP3 Happy Birthday do người dùng cung cấp. Hệ thống giữ âm thanh nhẹ nhàng và có nút Bật nhạc/Tắt nhạc. Nếu trình duyệt chặn hoặc chưa tải được nhạc, người thao tác vẫn tiếp tục check-in và có thể chủ động bật lại.
 15. **C15 — Không lặp ngoài ý muốn:** Hệ thống chỉ tự khởi động lời chúc một lần cho cùng hồ sơ trong một phiên. Tra cứu lại, chuyển bước hoặc thử gửi lại không tự bật nhạc sau khi người thao tác đã tắt. Người thao tác được chủ động bật lại.
 16. **C16 — Hiệu ứng vừa phải:** Hệ thống hiện lời chúc dễ thương cùng hình sinh nhật nhỏ và vài điểm trang trí ở một góc màn hình. Chuyển động nhẹ, vừa phải; các trường nhập, nút check-in và số thứ tự vẫn dễ nhìn, dễ bấm. Hệ thống không giữ khách ở màn hình để chờ nhạc hoặc hiệu ứng kết thúc.
 17. **C17 — Dọn phiên:** Hệ thống dừng nhạc và dọn lời chúc khi đổi số đã xác nhận, đổi tiệm, chọn check-in người khác, hủy, kết thúc, tự quay về hoặc rời màn. Khi trang chuyển nền, hệ thống dừng nhạc và không tự phát lại khi quay lại.
@@ -272,7 +272,7 @@ stateDiagram-v2
 - [ ] AC23: Khi dùng chế độ giảm chuyển động, lời chúc vẫn dùng được theo D19.
 - [ ] AC24: Khi khách chưa từng hoàn tất dịch vụ nhưng đã có hồ sơ, hệ thống vẫn xét sinh nhật theo A1.
 - [ ] AC25: Khi chuyển trang xuống nền rồi mở lại, âm thanh xử lý theo C17.
-- [ ] AC26: Khi nghe đoạn nhạc, người kiểm thử xác nhận nhạc ngắn, nhẹ nhàng và đơn giản theo C14.
+- [ ] AC26: Khi nghe đoạn nhạc, người kiểm thử xác nhận đúng bản MP3 người dùng cung cấp và phát đoạn ngắn với âm lượng nhẹ theo C14.
 - [ ] AC27: Khi xem phần chúc mừng, người kiểm thử xác nhận hiệu ứng dễ thương và vừa phải theo C16.
 
 #### Bố cục thông tin khách
@@ -289,7 +289,7 @@ stateDiagram-v2
 | Không tra cứu được hồ sơ | Áp dụng A4; người thao tác tiếp tục hoặc thử tra cứu lại. | Hệ thống/khách |
 | Hai thiết bị bổ sung cùng lúc | Áp dụng B9; giá trị được ghi hợp lệ trước được giữ lại. | Hệ thống |
 | Mất mạng khi gửi | Áp dụng B8; hệ thống giữ nháp và cơ chế thử lại hiện có. | Khách/lễ tân |
-| Trình duyệt hoặc thiết bị không phát được âm thanh | Áp dụng C14 và C16; lời chúc và check-in vẫn sử dụng được. | Hệ thống |
+| Trình duyệt, thiết bị hoặc lỗi tải nhạc làm âm thanh không phát được | Áp dụng C14 và C16; lời chúc và check-in vẫn sử dụng được. | Hệ thống |
 | Hồ sơ có sinh nhật khác dữ liệu khách muốn sửa | Check-in giữ dữ liệu theo B9; dùng quy trình quản lý hồ sơ hiện có để xử lý ngoài ticket. | Nhân viên có quyền |
 | Khách dùng chung số điện thoại | Áp dụng D20. | Khách/lễ tân |
 
@@ -324,12 +324,14 @@ Không còn quyết định nghiệp vụ mở về phong cách nhạc và hiệ
 
 | Mã | Nội dung | Người chốt |
 | :--- | :--- | :--- |
-| QD1 | Đoạn nhạc ngắn gọn, nhẹ nhàng và đơn giản; áp dụng C14. | Người dùng, ngày 19/10/2026 |
+| QD1 | Đoạn nhạc ngắn gọn và âm thanh nhẹ nhàng; áp dụng C14. Bản nhạc dùng theo QD4. | Người dùng, ngày 19/10/2026 |
 | QD2 | Hiệu ứng vừa phải, dễ thương; áp dụng C16. | Người dùng, ngày 19/10/2026 |
 | QD3 | Danh sách nguồn theo B6 và bố cục thông tin khách gọn theo D21–D22. | Người dùng, ngày 19/10/2026 |
+| QD4 | Dùng bản MP3 Happy Birthday người dùng cung cấp làm nhạc nền sinh nhật; nguồn file ghi trong phụ lục technical. | Người dùng, ngày 19/10/2026 |
 
 #### Tài liệu và mã nguồn đối chiếu
 
+- Tệp nhạc người dùng cung cấp: `Serge-Quadrado--Happy-Birthday-to-You-Instrumentals.mp3`. Đây là nguồn nhạc đã chọn tại QD4; việc ghi nhận file không chứng minh đã nghe thử trong ứng dụng hoặc deploy.
 - [Ticket #2042](https://github.com/vlink-group/vlink-nexora/issues/2042): yêu cầu đã bổ sung ngày 19/10/2026; hai câu trả lời trong phiên này làm rõ thời điểm và định nghĩa khách cũ.
 - Backend `staging`: `7475c0a43420b9ed136900371c8aaef8196c850d`; frontend `staging`: `8f76a1274e0a5c22cacdc36d24c57e9e8715ce42`. Đầu nhánh remote đã được đối chiếu cùng ngày; chưa chứng minh bản đang deploy trùng hai commit này.
 - [Hồ sơ khách hiện tại](https://github.com/vlink-group/vlink-nexora/blob/7475c0a43420b9ed136900371c8aaef8196c850d/backend/src/Domain/Entities/Customer.cs): có ngày sinh đầy đủ và nguồn tạo hồ sơ; chưa có nguồn khách biết đến tiệm.

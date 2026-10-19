@@ -53,7 +53,7 @@ Kế hoạch này triển khai yêu cầu đã chốt của ticket #2042 theo t�
 
 ### Ràng buộc chung — Global Constraints
 
-- Phạm vi nghiệp vụ áp dụng theo business A1–D22; nhạc ngắn, nhẹ nhàng, đơn giản và hiệu ứng vừa phải, dễ thương đã chốt tại QD1–QD2. Nguồn và bố cục theo QD3.
+- Phạm vi nghiệp vụ áp dụng theo business A1–D22; nhạc ngắn, nhẹ nhàng và hiệu ứng vừa phải, dễ thương đã chốt tại QD1–QD2. Nguồn và bố cục theo QD3; MP3 người dùng cung cấp theo QD4.
 - Chỉ làm trong primary checkout; không tạo hoặc sử dụng worktree.
 - Trước khi sửa code, hỏi base branch cho backend và frontend; chờ câu trả lời rõ ràng. Tác vụ lập tài liệu hiện tại không cần hỏi nhánh.
 - Tên task branch: `enhance/2042-checkin-birthday-source`; dùng cùng tên tại hai repository nếu phù hợp.
@@ -128,7 +128,7 @@ flowchart TD
 - [ ] Chuyển base đã được chọn, ghi lại SHA, tạo task branch và xác minh nhánh hiện tại trước khi sửa file.
 - [ ] Đối chiếu lại các file trong technical với base thực tế. Nếu khác `staging` đã khảo sát, ghi rõ chênh lệch ảnh hưởng.
 - [ ] Xác định API/DB local cho migration và test. Mặc định frontend local dùng staging API; để kiểm chứng backend mới trước deploy cần người dùng chỉ định API local hoặc endpoint môi trường dành riêng có thể truy cập.
-- [ ] Đọc định hướng QD1–QD2 và mặc định âm thanh/hiệu ứng trong technical; triển khai theo đó, tinh chỉnh khi nghe và xem thực tế.
+- [ ] Đọc định hướng QD1–QD2, nguồn nhạc QD4 và mặc định âm thanh/hiệu ứng trong technical; triển khai theo đó, tinh chỉnh khi nghe và xem thực tế.
 
 **Kết quả đạt:** Có task branch sạch về phạm vi, phiên bản base và môi trường đủ để kiểm chứng. Nếu thiếu API/DB local, tiếp tục phần không phụ thuộc và ghi rõ Task 6 chưa thể đánh dấu hoàn tất.
 
@@ -257,6 +257,7 @@ Trong test, fixture `profileWithBirthday` phải resolved, `customerExists=true`
 - `src/components/checkin/birthdayAudio.ts`
 - `src/components/checkin/useBirthdayCelebration.ts`
 - `src/components/checkin/parts/BirthdayCelebrationCorner.tsx`
+- `public/assets/audio/happy-birthday-instrumental.mp3`: sao chép nguyên byte từ MP3 người dùng cung cấp; nguồn file ghi tại Phụ lục technical.
 
 **Files frontend — sửa:** `src/components/checkin/CheckInSurface.tsx`, `useCheckInSession.ts`, `locales/en.json`, `locales/vi.json`.
 
@@ -269,15 +270,17 @@ Trong test, fixture `profileWithBirthday` phải resolved, `customerExists=true`
 - [ ] Viết assertion: khách mới và hồ sơ cũ thiếu birthday nhập sinh nhật hôm nay, POST thành công rồi refetch thành `isBirthdayToday=true` vẫn không phát lời chúc trong cùng phiên. Sau reset và nhận diện lại mới xét phiên mới.
 - [ ] Viết assertion: prepare của thao tác xác nhận đầu tiên còn pending khi profile về; vẫn chỉ phát một lần khi resume hợp lệ. Effect nhận recognitionKey mới không được reset nhầm pending prepare của chính phiên đó.
 - [ ] Viết assertion: audio tự kết thúc theo thời lượng cấu hình, không loop; chuyển động trang trí chạy một lượt rồi dừng và tắt hoàn toàn trong reduced motion.
+- [ ] Viết assertion: prepare không tải MP3; chỉ yêu cầu phát đủ điều kiện mới fetch/decode asset. Kết quả fetch/decode trả sau Tắt nhạc, tab nền hoặc reset không tạo source phát muộn; lỗi tải/giải mã không chặn check-in.
 - [ ] Chạy test và xác nhận thất bại đúng vì chưa có controller/hook.
-- [ ] Tạo controller Web Audio theo QD1; handle unsupported context, resume rejection và generation pending; không loop hoặc tải dịch vụ ngoài.
+- [ ] Sao chép MP3 theo QD4 vào asset frontend và kiểm tra checksum nguồn/bản sao trùng nhau; giữ nguyên toàn bộ file, không cắt hoặc mã hóa lại.
+- [ ] Tạo controller Web Audio dùng context hiện có; tải asset cùng ứng dụng theo nhu cầu và gọi `decodeAudioData`, rồi phát bằng `AudioBufferSourceNode`. Mặc định phát giây 0–6, gain 0.08, fade đầu 150 ms/cuối 300 ms và không loop; handle unsupported context, resume rejection, lỗi tải/giải mã và generation pending.
 - [ ] Trong xác nhận số, tạo khóa mới và dọn phiên cũ trước; gọi `onBeforePhoneLookup(nextKey)` để reset controller idempotent và prepare trong gesture; sau đó mới set khóa query. Không để lỗi prepare chặn form.
 - [ ] Tạo hook phát theo snapshot eligibility vừa được chốt, không đợi `areLookupsSettled` toàn bộ query; suppress sau “check in another guest”.
 - [ ] Gắn host một lần ngoài mọi nhánh phase của Surface; tránh remount vì đổi giữa lịch hẹn, form và cảm ơn.
 - [ ] Thêm nút bật/tắt có nhãn truy cập; xử lý layout nhỏ, safe area và reduced motion.
 - [ ] Dừng nhạc khi document hidden; quay lại không tự resume. Reset gắn với đổi số, đổi tiệm, người khác, hủy, Done, auto-return và unmount.
 - [ ] Chạy test tới khi đạt, sau đó kiểm tra âm thanh thực trong trình duyệt không có cờ nới autoplay.
-- [ ] Nghe và xem trên bản chạy: nhạc ngắn, nhẹ, giai điệu đơn giản; hình bánh sinh nhật và vài điểm lấp lánh dễ thương, chuyển động vừa phải. Tinh chỉnh các mặc định technical nếu cần để đạt AC26–AC27.
+- [ ] Nghe và xem trên bản chạy: đúng MP3 đã chọn, đoạn đầu ngắn và âm lượng nhẹ; hình bánh sinh nhật và vài điểm lấp lánh dễ thương, chuyển động vừa phải. Đối chiếu các thông số technical và ghi rõ kết quả thực tế theo AC26–AC27.
 
 **Kết quả đạt:** Điều kiện AC14–AC27 có kiểm chứng; Review Focus 2 và 5 được chạy cả pending result và cleanup thực.
 
@@ -295,6 +298,7 @@ Trong test, fixture `profileWithBirthday` phải resolved, `customerExists=true`
 - [ ] Kiểm tra bố cục hai cột theo T13 trên phone và desktop, gồm lúc thiếu cả hai trường, chỉ thiếu một trường và đủ thông tin. Kiểm tra cặp Birthday/Found us via bên ngoài và cặp MM/DD bên trong đều chia đều 50/50. Mở từng select để kiểm tra tên tháng Jan–Dec trong cả EN/VI, chevron 16px/right 12px/padding phải ít nhất 36px và một mũi tên hiển thị.
 - [ ] Kiểm chứng trên trình duyệt desktop thực và Safari iPhone/iPad thực nếu có; nếu chỉ có mô phỏng viewport thì ghi rõ chưa xác minh âm thanh Safari thực.
 - [ ] Kiểm chứng việc tắt/bật nhạc bằng tai và trạng thái nút. Test mock chỉ bổ sung bằng chứng về lifecycle, không thay thế kiểm tra thiết bị phát âm thanh.
+- [ ] Kiểm tra Network: không có request MP3 từ prepare của khách không đủ điều kiện; khi nhận diện sinh nhật, asset cùng ứng dụng tải được và giải mã thành công. Kiểm tra bản build có asset theo đường dẫn web trong technical.
 - [ ] Sửa lỗi phát hiện và chạy lại đúng ca ảnh hưởng; không chạy lặp mọi bộ test khi không có thay đổi mới.
 
 **Lệnh tại frontend:**
@@ -375,7 +379,7 @@ Kế hoạch thực hiện toàn bộ A1–D22 trong business và T1–T13 trong
 | Phần việc | Khoảng giờ AI dự kiến | Giả định |
 | :--- | :--- | :--- |
 | Backend, schema, lookup và sáu đường ghi | 4–6 | Có DB/API phát triển và không phát sinh thay đổi base lớn. |
-| Frontend form, dữ liệu, nhạc và cleanup | 4–5 | Theo QD1–QD2, tái sử dụng component hiện có. |
+| Frontend form, dữ liệu, nhạc và cleanup | 4–5 | Theo QD1–QD4, tái sử dụng component hiện có. |
 | Test local và sửa lỗi | 3–4 | Có thể chạy cả code backend mới và frontend. |
 | Test staging sau deploy | 2–3 | Có tài khoản và thiết bị cần thiết. |
 | Review cuối và điều chỉnh | 1–2 | Không có yêu cầu mở rộng báo cáo/chỉnh sửa hồ sơ. |
@@ -403,6 +407,7 @@ Kế hoạch thực hiện toàn bộ A1–D22 trong business và T1–T13 trong
 | Bố cục | Bốn bề mặt × hai layout; hai cột thông tin khách; chỉ hiện trường thiếu; phone/tablet/desktop; EN/VI; reduced motion | AC21/AC23/AC28, TC21 | Local + staging |
 | Trường chọn | Birthday/Found us via chia đều 50/50; MM/DD bên trong chia đều 50/50; Jan–Dec trong cả EN/VI; một chevron 16px, mép phải 12px, padding phải ít nhất 36px | AC28–AC30, TC21–TC23 | Local + staging |
 | Phong cách chúc mừng | Nghe đoạn nhạc và xem hiệu ứng nhỏ trên thiết bị thực | AC26/AC27, TC19/TC20 | Local + staging |
+| Tệp nhạc | Checksum bản sao MP3; tải theo nhu cầu; lỗi tải/giải mã; kết quả chậm sau dừng; đoạn phát 0–6 giây | QD4, T7/T8, TC10/TC19/TC24 | Local + staging |
 | Hồi quy | Dịch vụ, thợ, lịch hẹn, lượt đến, SMS, số thứ tự và direct checkout dùng chung scaffold | T11 | Local + staging |
 
 Mỗi ca theo bề mặt dùng API thực của bề mặt đó; public kiosk và public phone có thể dùng chung endpoint nhưng vẫn cần kiểm tra vòng đời khác nhau. Không cần nhân mọi trường hợp lỗi thành toàn bộ tích Descartes; ưu tiên đầy đủ đường API và mọi nhánh vòng đời âm thanh.
@@ -425,7 +430,7 @@ Mỗi ca theo bề mặt dùng API thực của bề mặt đó; public kiosk v�
 | Backend mới chưa có ở staging | Hoàn tất phần local có môi trường hợp lệ; Task 7 chờ bản deploy. | Người có quyền deploy |
 | Không có API/DB local được chỉ định | Không tự đổi API local khỏi quy tắc; báo giới hạn tích hợp tại Task 6. | Người dùng/AI |
 | Chưa có Safari thiết bị thật | Hoàn tất kiểm tra có thể làm; đánh dấu âm thanh Safari thực chưa xác minh. | Người kiểm thử |
-| Người dùng đổi định hướng nhạc/hiệu ứng | Cập nhật QD1–QD2 và xem lại Task 5 nếu phạm vi thay đổi. | Đội sản phẩm |
+| Người dùng đổi định hướng nhạc/hiệu ứng hoặc file nguồn | Cập nhật QD1–QD2/QD4 và xem lại Task 5 nếu phạm vi thay đổi. | Đội sản phẩm |
 
 ### Câu hỏi thường gặp
 
@@ -462,6 +467,7 @@ Chỉ tạo thư mục test/evidence khi thực sự chạy kiểm chứng. File
 
 #### Tài liệu và phiên bản đầu vào
 
+- File MP3 người dùng cung cấp: `Serge-Quadrado--Happy-Birthday-to-You-Instrumentals.mp3`; bản sao dự kiến tại `public/assets/audio/happy-birthday-instrumental.mp3` của frontend, phục vụ tại `/assets/audio/happy-birthday-instrumental.mp3`. Thông tin nguồn và giới hạn kiểm chứng tại Phụ lục technical.
 - [Business](business.md) và [technical](technical.md) là spec của kế hoạch này.
 - [Ticket #2042](https://github.com/vlink-group/vlink-nexora/issues/2042); bổ sung hai câu trả lời trực tiếp trong phiên ngày 19/10/2026.
 - Backend `staging`: `7475c0a43420b9ed136900371c8aaef8196c850d`; frontend `staging`: `8f76a1274e0a5c22cacdc36d24c57e9e8715ce42`. Remote đã được đối chiếu; chưa xác minh bản deploy.
