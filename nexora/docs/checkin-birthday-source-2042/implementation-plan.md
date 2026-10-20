@@ -298,6 +298,8 @@ Trong test, fixture `profileWithBirthday` phải resolved, `customerExists=true`
 - [ ] Chạy ma trận trong Tiêu chí chấp nhận; ghi request/response, dữ liệu trước/sau và lỗi console/network cần thiết.
 - [ ] Chạy 375×667 và 390×844; tablet 768×1024 và 1024×768. Kiểm tra nút check-in, trường và card sinh nhật không che nhau.
 - [ ] Kiểm tra bố cục theo T13 ở 320 px, từ 360 px và desktop, gồm lúc thiếu cả hai trường, chỉ thiếu một trường và đủ thông tin. Mở từng select để kiểm tra tên tháng Jan–Dec trong cả EN/VI, chevron 16px/right 12px/padding phải ít nhất 36px và một mũi tên hiển thị.
+- [ ] Kiểm tra luồng tiệm trên iPad dọc/ngang, cả khi menu POS bên trái mở và thu gọn. Đối chiếu độ vừa chữ trong ô tháng/số điện thoại, thẻ dịch vụ và nút Remove bên trong khung; không chỉ kiểm tra tràn chiều rộng của cả trang.
+- [ ] Kiểm tra POS của chủ tiệm và nhân viên, đổi tab rồi quay lại, Done về danh sách ticket, số lượng/xóa dịch vụ, và check-in nhanh từ lịch hẹn. Ghi riêng kết quả mô phỏng iPad và kiểm tra trên thiết bị thật.
 - [ ] Kiểm chứng trên trình duyệt desktop thực và Safari iPhone/iPad thực nếu có; nếu chỉ có mô phỏng viewport thì ghi rõ chưa xác minh âm thanh Safari thực.
 - [ ] Kiểm chứng việc tắt/bật nhạc bằng tai và trạng thái nút. Test mock chỉ bổ sung bằng chứng về lifecycle, không thay thế kiểm tra thiết bị phát âm thanh.
 - [ ] Kiểm tra Network: không có request MP3 từ prepare của khách không đủ điều kiện; khi nhận diện sinh nhật, asset cùng ứng dụng tải được và giải mã thành công. Kiểm tra bản build có asset theo đường dẫn web trong technical.

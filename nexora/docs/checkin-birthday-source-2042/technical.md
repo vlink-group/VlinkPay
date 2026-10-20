@@ -451,6 +451,10 @@ Chọn tháng/ngày bằng hai select, không dùng input date có năm. Ngày t
 
 #### Bố cục thông tin khách và trường chọn
 
+Giao diện một trang chia khu vực thông tin/dịch vụ và phần tổng hợp theo chiều rộng thực tế của khối check-in. Khi khối này đủ 800 px, phần tổng hợp rộng 360 px nằm cạnh form. Khi hẹp hơn, phần tổng hợp xuống dưới để menu bên trái của POS không làm các ô bị cắt chữ. Frontend dùng container query; trình duyệt chưa hỗ trợ vẫn có bố cục một cột.
+
+Lưới dịch vụ tự tính số cột theo khoảng trống của danh mục, mỗi thẻ tối thiểu 140 px hoặc toàn bộ chiều rộng nếu khối hẹp hơn. Cách này áp dụng riêng cho danh mục ở check-in, gồm giao diện một trang và bước Services; tránh ép bốn thẻ vào một cột nội dung hẹp trên iPad.
+
 Từ chiều rộng màn hình 360 px, frontend triển khai D21 bằng lưới hai cột trong khối thông tin khách của giao diện một trang:
 
 | Hàng | Cột trái | Cột phải |
@@ -577,6 +581,8 @@ Danh sách duy nhất nằm tại business → Các quyết định còn mở. P
 Mã khảo sát ban đầu ngày 19/10/2026: backend `staging` tại `7475c0a43420b9ed136900371c8aaef8196c850d`, frontend `staging` tại `8f76a1274e0a5c22cacdc36d24c57e9e8715ce42`. Bảng bên dưới mô tả đúng hai phiên bản khảo sát này.
 
 Theo yêu cầu người dùng, nhánh triển khai bắt đầu từ `master`: backend `716d2a5d09b1ae008d6e946907ca50636569d2cb`, frontend `0ee43ed25a97eff6491df1b4c300b63029222505`. Commit tính năng backend là `535bb5e0af1876f14f024ae4aa85461dfb41907a`; frontend là `d2f8a729da7cd9e8562a90c6f101963bb2287528`.
+
+Commit frontend `0e2cb2132d035286d230bcfd641a8740bf9be18d` bổ sung sửa bố cục từ đợt kiểm tra iPad: khối check-in chia cột theo chiều rộng còn lại và thẻ dịch vụ tự tính số cột. Kết quả kiểm tra và giới hạn được lưu riêng trong evidence `nexora-2042/ipad/`.
 
 - [PR backend #2232](https://github.com/vlink-group/vlink-nexora/pull/2232): nhánh `enhance/2042-checkin-birthday-source-staging` được tạo từ staging `7475c0a43420b9ed136900371c8aaef8196c850d` rồi merge nhánh tính năng. Commit `fe0d2aeb547ed0c7b7054431e3746713392a44dc` giữ Direct Checkout của staging và các thay đổi của ticket.
 - [PR frontend #1277](https://github.com/vlink-group/vlink-nexora-fe/pull/1277): nhánh `enhance/2042-checkin-birthday-source` vào staging. Đầu staging được đối chiếu lúc tạo PR là `bf227213a7156175aaba954b2b40273c988f5f2b`.
