@@ -19,7 +19,7 @@
 
 ### Tổng quan
 
-Tính năng này giúp tiệm bổ sung sinh nhật và kênh khách biết đến tiệm mà không hỏi lại thông tin đã có. Khách tự nhập trên điện thoại hoặc kiosk; lễ tân có thể nhập giúp trên POS. Khi nhận diện đúng dịp sinh nhật của khách đã có hồ sơ, hệ thống mở đoạn nhạc Happy Birthday và hiện lời chúc cùng hiệu ứng nhỏ ở góc màn hình.
+Tính năng này giúp tiệm thu thập sinh nhật và kênh khách biết đến tiệm ngay khi check-in. Khách tự nhập trên điện thoại hoặc kiosk; lễ tân có thể nhập giúp trên POS. Khi nhận diện đúng dịp sinh nhật của khách đã có hồ sơ, hệ thống mở đoạn nhạc Happy Birthday và hiện lời chúc cùng hiệu ứng nhỏ ở góc màn hình.
 
 Người dùng đã chốt hai điểm khi lập tài liệu: chúc mừng ngay sau khi nhận diện khách, và khách cũ được hiểu là đã có hồ sơ tại tiệm. Khách không cần từng hoàn tất dịch vụ để đáp ứng điều kiện này.
 
@@ -72,6 +72,7 @@ Nguồn khách biết đến tiệm và nguồn tạo hồ sơ là hai thông ti
 
 - Là khách mới, tôi muốn thấy hai trường tùy chọn để cung cấp thông tin nếu muốn.
 - Là khách cũ, tôi muốn chỉ được hỏi thông tin còn thiếu để check-in nhanh hơn.
+- Là khách, tôi muốn vẫn nhập được thông tin tùy chọn khi tiệm chưa tra cứu được hồ sơ.
 - Là khách có lịch hẹn, tôi muốn bổ sung thông tin ngay tại danh sách lịch hẹn mà vẫn giữ cách check-in nhanh.
 - Là lễ tân, tôi muốn dữ liệu của số cũ được dọn khi sửa số để tránh ghi nhầm hồ sơ.
 
@@ -89,14 +90,13 @@ flowchart TD
     A([Bắt đầu check-in]) --> B[Xác nhận số điện thoại]
     B --> C[Tra cứu trong tiệm]
     C --> D{Tra cứu thành công?}
-    D -- Không --> E[Tiếp tục thông tin cơ bản]
+    D -- Không --> G[Hiện hai trường tùy chọn]
     D -- Có --> F{Đã có hồ sơ?}
     F -- Chưa --> G[Hiện hai trường tùy chọn]
     F -- Có --> H[Chỉ hiện trường thiếu]
     G --> I[Nhập hoặc bỏ qua]
     H --> I
-    E --> J[Gửi check-in]
-    I --> J
+    I --> J[Gửi check-in]
     J --> K{Ghi nhận thành công?}
     K -- Chưa --> L[Giữ nháp để thử lại]
     L --> J
@@ -201,7 +201,7 @@ stateDiagram-v2
 1. **A1 — Phạm vi hồ sơ:** Hệ thống nhận diện khách theo tiệm và số điện thoại đã chuẩn hóa. Khách cũ là người đã có hồ sơ khớp trước lần nhận diện, không phụ thuộc lịch sử hoàn tất dịch vụ.
 2. **A2 — Khách mới:** Hệ thống hiện cả Sinh nhật và Bạn biết đến tiệm qua đâu? khi xác nhận chưa có hồ sơ.
 3. **A3 — Khách cũ:** Hệ thống ẩn riêng từng trường đã có dữ liệu; nếu đủ cả hai thì ẩn toàn bộ phần bổ sung. Ngày sinh đầy đủ đã lưu cũng được xem là đã có sinh nhật.
-4. **A4 — Tra cứu chưa xác minh:** Hệ thống chưa hiện các trường bổ sung hoặc chúc mừng khi tra cứu đang chạy hoặc bị lỗi. Khi tra cứu lỗi, người thao tác vẫn được check-in cơ bản và có thể thử tra cứu lại.
+4. **A4 — Tra cứu chưa xác minh:** Khi form được mở mà hồ sơ chưa được xác minh, hệ thống hiện cả Sinh nhật và Nguồn khách biết đến tiệm để người thao tác nhập hoặc bỏ trống. Hệ thống kiểm tra dữ liệu đã nhập và gửi cùng yêu cầu check-in. Lời chúc chỉ bắt đầu khi xác nhận đủ điều kiện theo C11–C13.
 
 #### B. Nhập và lưu dữ liệu
 
@@ -227,7 +227,7 @@ stateDiagram-v2
 18. **D18 — Dữ liệu tối thiểu:** Màn tự check-in chỉ cần biết trường nào còn thiếu và có sinh nhật hôm nay hay không. Hệ thống không cần gửi lại ngày sinh đầy đủ hoặc nguồn đã lưu cho màn công khai.
 19. **D19 — Thiết bị và ngôn ngữ:** Hệ thống hỗ trợ mobile, tablet, bàn phím và hai ngôn ngữ hiện có. Khi người dùng giảm chuyển động, lời chúc vẫn đọc được mà không cần hiệu ứng động.
 20. **D20 — Số dùng chung:** Tính năng tiếp tục dùng hồ sơ khớp với số điện thoại của tiệm. Chọn check-in người khác dừng chúc mừng cho người đã nhận diện; ticket này không tạo cơ chế phân biệt nhiều người trong cùng một hồ sơ số điện thoại.
-21. **D21 — Bố cục thông tin khách:** Hệ thống xếp Phone và Name thành hai cột ở hàng đầu của giao diện một trang. Từ chiều rộng màn hình 360 px, hàng tiếp theo chia đều 50/50 cho Birthday và Found us via. Trên màn hình hẹp hơn, hai nhóm này xuống hai hàng để dễ đọc. Bên trong Birthday, hai ô MM/DD luôn chia đều 50/50; xác nhận SMS nằm dưới các trường. Hệ thống chỉ hiện các trường bổ sung còn thiếu theo A2–A4. Giao diện từng bước giữ bước xác nhận số hiện có và đặt cùng nhóm sinh nhật/nguồn dưới Name tại bước thông tin khách.
+21. **D21 — Bố cục thông tin khách:** Hệ thống xếp Phone và Name thành hai cột ở hàng đầu của giao diện một trang. Từ chiều rộng màn hình 360 px, hàng tiếp theo chia đều 50/50 cho Birthday và Found us via. Trên màn hình hẹp hơn, hai nhóm này xuống hai hàng để dễ đọc. Bên trong Birthday, hai ô MM/DD luôn chia đều 50/50; xác nhận SMS nằm dưới các trường. Hệ thống xét điều kiện hiển thị theo A2–A4. Giao diện từng bước giữ bước xác nhận số hiện có và đặt cùng nhóm sinh nhật/nguồn dưới Name tại bước thông tin khách.
 22. **D22 — Trường chọn dễ đọc:** Hệ thống chừa khoảng cách giữa nội dung đã chọn và mũi tên bên phải để hai phần không chồng nhau. Riêng Birthday dùng placeholder MM/DD và tên tháng viết tắt kiểu Mỹ trong cả bản tiếng Anh lẫn tiếng Việt: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec. Các trường chọn vẫn dùng được bằng bàn phím, có nhãn rõ ràng và thể hiện trạng thái đang chọn hoặc đang bị khóa.
 
 ### Ví dụ
@@ -258,7 +258,7 @@ stateDiagram-v2
 - [ ] AC10: Khi dữ liệu được thêm từ thiết bị khác, check-in không ghi đè theo B9.
 - [ ] AC11: Khi dùng nút check-in nhanh của lịch hẹn, thông tin đã nhập được gửi theo B10.
 - [ ] AC12: Khi sửa số, kết quả hồ sơ cũ không còn áp dụng theo A1 và C17.
-- [ ] AC13: Khi tra cứu lỗi, check-in cơ bản vẫn dùng được theo A4.
+- [ ] AC13: Khi tra cứu lỗi, người thao tác thấy cả hai trường tùy chọn theo A4.
 
 #### Chúc mừng và kết thúc phiên
 

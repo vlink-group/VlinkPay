@@ -73,7 +73,7 @@ Hướng này được đề xuất vì giữ thông tin sinh nhật đúng vớ
 | 3 | Backend | Khớp hồ sơ và tính ngày tại tiệm | Trả kết quả tối thiểu; không phụ thuộc tên có trống. |
 | 4 | Session | Nhận kết quả thuộc khóa đang hoạt động | Cập nhật điều kiện hiển thị; phát tín hiệu chúc mừng ngay khi profile thành công. |
 | 5 | Bộ điều khiển audio | Nhận tín hiệu lần đầu | Thử phát; nếu không phát được thì chuyển sang trạng thái có thể bật thủ công. |
-| 6 | Session | Lookup thất bại | Đánh dấu unavailable, không chặn check-in cơ bản; cho phép tra cứu lại. |
+| 6 | Session | Lookup thất bại | Đánh dấu unavailable, hiện hai trường tùy chọn theo A4; cho phép tra cứu lại. |
 
 ```mermaid
 flowchart TD
@@ -82,7 +82,8 @@ flowchart TD
     C --> D{Đúng phiên hiện tại?}
     D -- Không --> E([Bỏ kết quả trả chậm])
     D -- Có --> F{Tra cứu thành công?}
-    F -- Chưa --> G[Giữ check-in cơ bản]
+    F -- Chưa --> G[Hiện hai trường tùy chọn]
+    G --> J
     F -- Có --> H[Cập nhật trường còn thiếu]
     H --> I{Có sinh nhật hôm nay?}
     I -- Không --> J([Tiếp tục form])
@@ -207,7 +208,7 @@ Quy tắc nghiệp vụ đầy đủ nằm ở tài liệu business. Phần này
 #### B. Nhận diện và âm thanh
 
 5. **T5 — Cờ theo ngày của tiệm (C11–C13):** Backend tính `isBirthdayToday` từ hồ sơ tồn tại tại thời điểm lookup và đồng hồ UTC server đổi sang timezone của tiệm. Không dùng `IsNewCustomer` theo lượt đã hoàn tất để suy ra `customerExists`.
-6. **T6 — Ranh giới phiên (C11, C15, C17):** Session tăng `recognitionKey` khi thay danh tính hoặc reset; callback phải kiểm tra khóa còn hoạt động. Session chốt `birthdayEligibleAtRecognition` từ lookup thành công đầu tiên của khóa, kể cả kết quả false hoặc không có hồ sơ. Refetch/invalidation sau khi lưu không được đổi snapshot đó. Nếu lần đầu lỗi, lần thử lại thành công đầu tiên mới chốt snapshot. Kết quả cũ và React StrictMode không được tạo thêm lần tự phát.
+6. **T6 — Ranh giới phiên (C11, C15, C17):** Session tăng `recognitionKey` khi thay danh tính hoặc reset; callback phải kiểm tra khóa còn hoạt động. Session chốt `birthdayEligibleAtRecognition` từ lookup thành công đầu tiên của khóa, kể cả kết quả false hoặc không có hồ sơ. Refetch/invalidation sau khi lưu không được đổi snapshot đó. Nếu lần đầu lỗi, lần thử lại thành công trước khi gửi check-in mới chốt snapshot. Trước khi gửi check-in, snapshot còn trống được chốt thành false để refetch sau lưu không kích hoạt lời chúc từ sinh nhật vừa nhập. Kết quả cũ và React StrictMode không được tạo thêm lần tự phát.
 7. **T7 — Phát trong điều kiện trình duyệt (C14):** Controller chỉ chuẩn bị/resume `AudioContext` trong thao tác xác nhận số, không tải MP3 ở bước prepare. Khi nhận diện đủ điều kiện phát, controller mới tải asset cùng ứng dụng, giải mã rồi schedule nhạc khi context dùng được. Trường hợp bị chặn hoặc tải/giải mã lỗi có nút bật thủ công và không retry tự động theo timer.
 8. **T8 — Cleanup đầy đủ (C17):** Controller dừng/disconnect mọi node, hủy timer, bỏ callback đang đợi và đóng context khi unmount. Kết quả `resume()`, tải file hoặc giải mã trả chậm sau khi tắt nhạc, chuyển nền hoặc reset không được schedule node. Controller kiểm tra generation còn hoạt động trước khi phát.
 
@@ -443,7 +444,7 @@ type BirthdayAudioController = {
 
 `CheckInSourceResult` thêm `customerProfile`; `CheckInOrderSubmit` và `CheckInBookingSubmit` thêm `customerDetails?`. `CheckInSourceHook` nhận `(phone?: string, recognitionKey?: string)`; các profile hook dùng khóa mới theo T12. Session tạo khóa bằng `crypto.randomUUID()` cho lần xác nhận danh tính mới; refetch và chuyển layout không tự đổi khóa. Source hook có trách nhiệm mapping, không để layout tự gọi API. Với device, thêm `lookupCustomerProfile` và hook `useSelfCheckInCustomerProfile`; giữ wrapper cũ nếu còn caller thay vì đổi trả về kiểu string thành object một cách âm thầm.
 
-Các trường chỉ render khi profile resolved. `showBirthday = !hasBirthday`; `showAcquisitionSource = !hasAcquisitionSource`. Null hợp lệ đã được repository chuyển thành profile khách mới. Khi chưa resolve hoặc unavailable, cả hai trường ẩn; lỗi lookup không làm `canSubmit` của thông tin cơ bản thất bại.
+`getCustomerCheckInDetailsVisibility(profile)` dùng chung cho component và builder theo A2–A4. Khi profile `resolved`, các cờ `hasBirthday` và `hasAcquisitionSource` quyết định trường được hiện và đưa vào payload. Với `idle`, `loading` hoặc `unavailable`, cả hai trường được phép nhập; dữ liệu đã nhập vẫn được validate trước khi gửi. Null hợp lệ được repository chuyển thành profile khách mới. Các trạng thái chưa xác minh không được đổi thành khách mới hoặc đủ điều kiện chúc mừng.
 
 Chọn tháng/ngày bằng hai select, không dùng input date có năm. Ngày trong tháng cho phép chọn 29/02; nếu đổi tháng làm ngày đã chọn không hợp lệ, component xóa ngày và hiển thị lỗi tương ứng nếu người dùng gửi. Ô nguồn là select một lựa chọn. Nháp được dùng chung giữa hai layout và danh sách lịch hẹn; các input disable trong khi gửi.
 
@@ -532,6 +533,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 | :--- | :--- | :--- |
 | Ngày UTC khác ngày tại tiệm | Dùng timezone resolver hiện có theo T5. | Backend |
 | Business thiếu timezone | Dùng chuỗi fallback hiện có, cuối cùng là `PosTimeClockOptions.DefaultTimeZone`. | Backend |
+| Backend staging chưa hỗ trợ phần bổ sung | Form vẫn hiện hai trường theo A4. Cần triển khai backend của ticket để kiểm chứng việc ghi dữ liệu; kiểm tra giao diện và payload chưa chứng minh thông tin đã được lưu. | Đội phát triển/vận hành |
 | Lookup trả tên trống nhưng hồ sơ có sinh nhật | Vẫn trả object theo T2. | Backend |
 | Profile resolve trước catalog | Phát lời chúc theo profile, không đợi toàn bộ query. | Frontend |
 | Kết quả query A về sau khi sửa sang B | Loại theo T6; không bật nhạc A. | Frontend |
@@ -583,6 +585,8 @@ Mã khảo sát ban đầu ngày 19/10/2026: backend `staging` tại `7475c0a434
 Theo yêu cầu người dùng, nhánh triển khai bắt đầu từ `master`: backend `716d2a5d09b1ae008d6e946907ca50636569d2cb`, frontend `0ee43ed25a97eff6491df1b4c300b63029222505`. Commit tính năng backend là `535bb5e0af1876f14f024ae4aa85461dfb41907a`; frontend là `d2f8a729da7cd9e8562a90c6f101963bb2287528`.
 
 Commit frontend `0e2cb2132d035286d230bcfd641a8740bf9be18d` bổ sung sửa bố cục từ đợt kiểm tra iPad: khối check-in chia cột theo chiều rộng còn lại và thẻ dịch vụ tự tính số cột. Kết quả kiểm tra và giới hạn được lưu riêng trong evidence `nexora-2042/ipad/`.
+
+Commit frontend `7280b782faae7b1c50fa551b6921c83cb1d99977` cho phép nhập cả hai trường khi chưa xác minh được hồ sơ theo A4. Điều kiện hiển thị và dựng payload dùng chung; snapshot sinh nhật còn trống được chốt trước khi gửi để tránh chúc mừng từ ngày vừa nhập. Bằng chứng giao diện POS dùng API staging và các kiểm tra local nằm riêng trong evidence `nexora-2042/unknown-profile/`; các kiểm tra này chưa xác minh lưu thông tin trên staging.
 
 - [PR backend #2232](https://github.com/vlink-group/vlink-nexora/pull/2232): nhánh `enhance/2042-checkin-birthday-source-staging` được tạo từ staging `7475c0a43420b9ed136900371c8aaef8196c850d` rồi merge nhánh tính năng. Commit `fe0d2aeb547ed0c7b7054431e3746713392a44dc` giữ Direct Checkout của staging và các thay đổi của ticket.
 - [PR frontend #1277](https://github.com/vlink-group/vlink-nexora-fe/pull/1277): nhánh `enhance/2042-checkin-birthday-source` vào staging. Đầu staging được đối chiếu lúc tạo PR là `bf227213a7156175aaba954b2b40273c988f5f2b`.

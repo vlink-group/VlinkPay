@@ -224,6 +224,7 @@ dotnet build Nexora.sln
 
 - [ ] Tạo cấu hình Vitest ngoài repository bằng object export, `root` trỏ frontend, `test.include` trỏ tuyệt đối tới test ticket, `environment='jsdom'`, setup dùng `src/setupTests.ts`, alias `@` trỏ `src` và `esbuild.jsx='automatic'`. Cấu hình không ghi lại vào repository.
 - [ ] Viết assertion hợp đồng trước khi nối code: null hợp lệ thành khách mới; profile tên trống vẫn `customerExists=true`; lỗi query không được normalize thành khách mới.
+- [ ] Kiểm tra A4: profile chưa xác minh, API 404/503 hoặc thiếu metadata vẫn hiện cả hai trường; dữ liệu đã nhập được validate và gửi khi check-in thường hoặc nhanh. Bỏ trống cả hai vẫn check-in được; không tự phát lời chúc.
 - [ ] Viết assertion payload: profile đã có sinh nhật chỉ gửi nguồn; profile đủ dữ liệu trả undefined; ngày/tháng cùng trống hợp lệ; 31/04 và cặp thiếu bị từ chối; 29/02 hợp lệ.
 - [ ] Viết assertion danh sách nguồn chỉ có năm lựa chọn theo B6; gửi Other đúng mã hợp đồng và từ chối giá trị ngoài tập hợp.
 - [ ] Chạy test mới và xác nhận thất bại đúng vì chức năng chưa tồn tại.
@@ -231,7 +232,7 @@ dotnet build Nexora.sln
 - [ ] Thêm profile và nháp vào session, cùng generation nhận diện. Snapshot `birthdayEligibleAtRecognition` lấy từ lookup thành công đầu tiên, kể cả false/null-customer; refetch sau POST không đổi snapshot. Kết quả A về muộn sau khi đổi B không được áp dụng.
 - [ ] Seed cache A có birthday=true hoặc customer=null, rồi thử A→B→A và hủy/nhận diện lại A: chỉ response mạng của epoch mới được resolved. Ca qua ngày và hồ sơ được tạo từ máy khác phải cập nhật điều kiện đúng.
 - [ ] Thêm component trường tùy chọn ở một trang, bước tên của wizard và một khối chung trong danh sách lịch hẹn, gồm cả chế độ embedded.
-- [ ] Áp dụng bố cục T13 và ngưỡng màn hình của D21: Phone/Name hai cột, nhóm Birthday MM/DD và Found us via ngay dưới, SMS bên dưới. Wizard giữ bước xác nhận Phone và dùng cùng nhóm bổ sung dưới Name; chỉ render trường còn thiếu.
+- [ ] Áp dụng bố cục T13 và ngưỡng màn hình của D21: Phone/Name hai cột, nhóm Birthday MM/DD và Found us via ngay dưới, SMS bên dưới. Wizard giữ bước xác nhận Phone và dùng cùng nhóm bổ sung dưới Name; xét điều kiện hiển thị theo A2–A4.
 - [ ] Dùng placeholder MM/DD và tên tháng viết tắt Jan–Dec theo D22 cho cả EN/VI. Dùng một chevron 16px cách mép phải 12px, padding phải ít nhất 36px; native select dùng custom chevron theo T13.
 - [ ] Nối cùng builder/validator vào `submit()` và `checkInBooking()`. Với quầy check-in nhanh, gửi body có `customerDetails` và không tự thêm `items=[]`.
 - [ ] Thêm EN/VI, trạng thái disabled, nhãn tùy chọn, lỗi dễ hiểu và query invalidation sau thành công.
