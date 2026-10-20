@@ -15,7 +15,7 @@
 | Dòng xử lý | Tra cứu tối thiểu → chuẩn hóa trong repository → quản lý trong phiên → lưu cùng giao dịch check-in. |
 | Chúc mừng | Backend xác định sinh nhật hôm nay; frontend thử phát nhạc ngay khi nhận diện, có bật/tắt và dọn phiên. |
 | Tương thích | Giữ ngày sinh đầy đủ và nguồn tạo hồ sơ; bảo toàn API cũ và các đường check-in nhanh. |
-| Tình trạng | Hai control và mô tả nguồn đã kiểm chứng local theo Phụ lục. Hai PR staging vẫn dùng để review; chưa merge/deploy hoặc kiểm tra trên thiết bị vật lý. |
+| Tình trạng | Đã chốt QD8: bỏ mô tả nguồn và sinh lại một migration ba cột. Kết quả local trong Phụ lục thuộc phiên bản trước QD8; chưa xác nhận phiên bản mới. Hai PR staging dùng để review, chưa merge/deploy. |
 
 ### Tổng quan
 
@@ -38,9 +38,8 @@ Hướng này được đề xuất vì giữ thông tin sinh nhật đúng vớ
 | Hồ sơ khách tại tiệm | `Customer` | Entity hiện có, khớp theo business và số chuẩn hóa. |
 | Sinh nhật chưa có năm | `BirthdayMonth`, `BirthdayDay` | Hai cột nullable mới; sử dụng khi `DateOfBirth` chưa có. |
 | Nguồn khách biết đến tiệm | `AcquisitionSource` | Trường enum mới; độc lập với `Customer.Source`. |
-| Nguồn khách tự nhập | `AcquisitionSourceDetail` | Chuỗi tùy chọn, chỉ đi cùng Other; giới hạn 100 ký tự sau trim. |
 | Thông tin phục vụ check-in | `CheckInCustomerProfileDto` | Kết quả tối thiểu cho nhận diện và điều kiện hiển thị. |
-| Dữ liệu bổ sung khi gửi | `CustomerCheckInDetailsInput` | Tháng, ngày, nguồn và mô tả nguồn nullable trong `customerDetails`. |
+| Dữ liệu bổ sung khi gửi | `CustomerCheckInDetailsInput` | Tháng, ngày và nguồn nullable trong `customerDetails`. |
 | Phiên nhận diện | `recognitionKey` | Khóa nội bộ frontend gắn tiệm, số chuẩn hóa và phiên, không phải dữ liệu lưu vào hồ sơ. |
 
 ### Vai trò người dùng
@@ -109,11 +108,11 @@ flowchart TD
 
 | Bước | Ai | Hành động | Kết quả kỹ thuật |
 | :--- | :--- | :--- | :--- |
-| 1 | Validator | Kiểm tra dữ liệu nhập | Chấp nhận không có `customerDetails`; kiểm tra từng phần sinh nhật, enum và mô tả nếu có. |
+| 1 | Validator | Kiểm tra dữ liệu nhập | Chấp nhận không có `customerDetails`; kiểm tra từng phần sinh nhật và enum nếu có. |
 | 2 | Handler | Mở hoặc dùng giao dịch hiện có | Mỗi lần retry số thứ tự có giao dịch riêng. |
 | 3 | Handler/scaffold | Resolve khách và lượt đến | Booking thiếu liên kết được xử lý bằng số chuẩn hóa của booking. |
 | 4 | Handler | Lưu bản ghi đang theo dõi | Customer mới có hàng trong DB nhưng chưa commit. |
-| 5 | Helper | Bổ sung có điều kiện ở DB | Ghép từng phần sinh nhật theo B5; nguồn và mô tả được cập nhật nguyên tử khi nguồn đang null. |
+| 5 | Helper | Bổ sung có điều kiện ở DB | Ghép từng phần sinh nhật theo B5; nguồn được bổ sung khi đang null. |
 | 6 | Handler | Commit giao dịch | Sau đó mới thực hiện SMS/thông báo theo vị trí hiện có. |
 | 7 | Handler | Gặp xung đột cần retry | Rollback, dọn tracker, resolve lại và thực hiện lại toàn bộ vòng. |
 
@@ -203,7 +202,7 @@ Quy tắc nghiệp vụ đầy đủ nằm ở tài liệu business. Phần này
 
 1. **T1 — Ngày sinh hiệu lực (A3, B5):** `EffectiveBirthday(Customer)` ưu tiên `DateOfBirth.Month/Day`; nếu không có thì trả từng giá trị `BirthdayMonth/BirthdayDay`, kể cả khi còn thiếu một phần. `HasBirthday` chỉ true khi đủ cặp; lookup chỉ trả giá trị tháng/ngày khi cặp còn thiếu để tự điền.
 2. **T2 — Nhóm thông tin thiếu (A2–A4):** Backend trả object cho mọi hồ sơ khớp, kể cả `Name` trống; trả `null` chỉ khi thực sự không có hồ sơ. Frontend phân biệt null hợp lệ với query lỗi.
-3. **T3 — Ghi có điều kiện (B8–B9):** Helper cập nhật theo `Customer.Id` và `BusinessId`, trong giao dịch check-in. Với sinh nhật, helper khóa hàng khách trước khi đọc, ghép phần đang thiếu và kiểm tra cặp hiệu lực; sau đó ghi bằng `ExecuteUpdateAsync`. Với nguồn, một update có điều kiện `AcquisitionSource == null` ghi cả enum và mô tả đã trim, cùng audit; không sửa một phần của nhóm đã lưu.
+3. **T3 — Ghi có điều kiện (B8–B9):** Helper cập nhật theo `Customer.Id` và `BusinessId`, trong giao dịch check-in. Với sinh nhật, helper khóa hàng khách trước khi đọc, ghép phần đang thiếu và kiểm tra cặp hiệu lực; sau đó ghi bằng `ExecuteUpdateAsync`. Với nguồn, một update có điều kiện `AcquisitionSource == null` ghi enum cùng audit; giữ nguyên nguồn đã lưu.
 4. **T4 — Tương thích ngày sinh cũ (A3, B9):** Check-in không viết lại `DateOfBirth`. Khi chưa có ngày sinh đầy đủ, helper chỉ điền từng cột tháng/ngày đang null và giữ phần đã có. Không backfill năm giả hoặc đổi `Source`.
 
 #### B. Nhận diện và âm thanh
@@ -217,7 +216,7 @@ Quy tắc nghiệp vụ đầy đủ nằm ở tài liệu business. Phần này
 
 9. **T9 — Mở rộng có chủ đích (B10, D18):** Chỉ mở rộng lookup minimal của public/kiosk; thêm lookup minimal riêng cho quầy. Không thêm metadata mới vào `CustomerLookupResolver` đang được public booking dùng chung.
 10. **T10 — Booking và retry (B8–B10):** Cả gửi draft lẫn check-in nhanh đều truyền `customerDetails`. Booking cũ thiếu `CustomerId` được resolve từ snapshot số của chính booking, không từ customer ID tự khai trong body. Nhánh public trả lại lượt đã có vẫn điền phần thiếu trong transaction khi request có phần bổ sung; không tạo lại order, tăng lượt hoặc gửi lại thông báo vì cập nhật này.
-11. **T11 — Giữ side effect:** Helper không tự tăng lượt, cấp số thứ tự, gửi SMS hoặc liên kết tài khoản tích điểm. Các hành vi này tiếp tục do handler/scaffold hiện có thực hiện.
+11. **T11 — Giữ hành vi cũ:** Phần bổ sung tuân theo B10. Scaffold chỉ mở transaction mới khi có giá trị sinh nhật hoặc nguồn cần gửi; request cũ và Direct Checkout giữ đường xử lý trước ticket. DTO self check-in lịch hẹn giữ mặc định danh sách dịch vụ rỗng như code gốc. Controller lịch hẹn chỉ thêm kiểm tra lỗi bind thuộc `customerDetails`.
 12. **T12 — Nháp và cache:** Query key của profile chứa phạm vi tiệm/thiết bị, số chuẩn hóa và `recognitionKey` mới. Mỗi lần nhận diện thực sự cần response mạng thuộc khóa đó; không dùng placeholder hoặc success trong cache của khóa trước để chốt snapshot. Sau thành công, invalidate/remove profile query liên quan; snapshot của phiên hiện tại vẫn giữ theo T6. Query catalog/lịch hẹn giữ cơ chế hiện có, không cần thêm epoch.
 
 #### D. Bố cục và trường chọn
@@ -244,11 +243,11 @@ Các API và trường dưới đây là hợp đồng triển khai trên nhánh
 
 `displayName` có thể là chuỗi rỗng khi hồ sơ chưa có tên. Khi không tìm thấy hồ sơ, kết quả ứng dụng là null; ASP.NET có thể trả `204` không có body (đã quan sát ở local) hoặc `200` kèm null. Client chấp nhận cả hai. Repository chuẩn hóa thành `{ customerExists: false, hasBirthday: false, hasAcquisitionSource: false, isBirthdayToday: false }`.
 
-Khi `hasBirthday=false`, lookup có thể trả `birthdayMonth=2, birthdayDay=null` hoặc ngược lại để session tự điền theo T1. Khi `hasBirthday=true`, cả hai giá trị trả null theo D18. Lookup không trả năm sinh, nguồn hoặc mô tả nguồn đã lưu, customer ID hay lịch sử dịch vụ trong DTO mới. Các thông tin lookup quầy cũ vẫn được giữ trong đường API riêng hiện có.
+Khi `hasBirthday=false`, lookup có thể trả `birthdayMonth=2, birthdayDay=null` hoặc ngược lại để session tự điền theo T1. Khi `hasBirthday=true`, cả hai giá trị trả null theo D18. Lookup không trả năm sinh, nguồn đã lưu, customer ID hay lịch sử dịch vụ trong DTO mới. Các thông tin lookup quầy cũ vẫn được giữ trong đường API riêng hiện có.
 
 #### API chi tiết để đối chiếu dữ liệu
 
-Nhân viên có quyền thao tác POS dùng `GET /api/v1/merchant/pos/{businessId}/customers/{customerId}` để đọc hồ sơ trong tiệm. Kết quả trả về bổ sung `birthdayMonth`, `birthdayDay` theo T1, `acquisitionSource` và `acquisitionSourceDetail`; giữ `dateOfBirth` cùng các trường cũ. Các giá trị chưa có là null; nguồn trả chuỗi enum đã định nghĩa bên dưới. Mô tả nguồn chỉ có trong API chi tiết có quyền, không thêm vào profile lookup.
+Nhân viên có quyền thao tác POS dùng `GET /api/v1/merchant/pos/{businessId}/customers/{customerId}` để đọc hồ sơ trong tiệm. Kết quả trả về bổ sung `birthdayMonth`, `birthdayDay` theo T1 và `acquisitionSource`; giữ `dateOfBirth` cùng các trường cũ. Các giá trị chưa có là null; nguồn trả chuỗi enum đã định nghĩa bên dưới.
 
 Ví dụ phần dữ liệu liên quan khi khách chỉ cung cấp ngày/tháng:
 
@@ -257,8 +256,7 @@ Ví dụ phần dữ liệu liên quan khi khách chỉ cung cấp ngày/tháng:
   "dateOfBirth": null,
   "birthdayMonth": 10,
   "birthdayDay": 19,
-  "acquisitionSource": "Other",
-  "acquisitionSourceDetail": "Local community"
+  "acquisitionSource": "Other"
 }
 ```
 
@@ -274,13 +272,12 @@ Ví dụ phần dữ liệu liên quan khi khách chỉ cung cấp ngày/tháng:
   "customerDetails": {
     "birthdayMonth": 10,
     "birthdayDay": 19,
-    "acquisitionSource": "Other",
-    "acquisitionSourceDetail": "Local community"
+    "acquisitionSource": "Other"
   }
 }
 ```
 
-Client có thể bỏ `customerDetails` hoặc gửi null. Trong object, tháng, ngày và nguồn có thể vắng độc lập theo B5–B6. `acquisitionSourceDetail` có thể vắng hoặc null kể cả khi nguồn là Other; chuỗi có nội dung chỉ hợp lệ cùng Other. Client không gửi lại các trường đang ẩn.
+Client có thể bỏ `customerDetails` hoặc gửi null. Trong object, tháng, ngày và nguồn có thể vắng độc lập theo B5–B6. Other được gửi như các lựa chọn khác, không có trường mô tả. Client không gửi lại các trường đang ẩn.
 
 #### Cấu trúc lưu trữ
 
@@ -290,16 +287,15 @@ Client có thể bỏ `customerDetails` hoặc gửi null. Trong object, tháng,
 | `Customer.BirthdayMonth` | `int?` mới | Null hoặc 1–12; có thể lưu riêng. |
 | `Customer.BirthdayDay` | `int?` mới | Null hoặc 1–31; khi có tháng, phải nằm trong số ngày thực của tháng theo năm nhuận tham chiếu. |
 | `Customer.AcquisitionSource` | `CustomerAcquisitionSource?` mới | Enum nullable; không có giá trị mặc định giả định. |
-| `Customer.AcquisitionSourceDetail` | `string?`, `varchar(100)` mới | Null hoặc nội dung đã trim dài 1–100 ký tự, chỉ khi nguồn là Other. |
 | `Customer.Source` | `CustomerSource` hiện có | Giữ ý nghĩa và giá trị hiện tại. |
 
-Theo QD6, `Source` tiếp tục lưu kênh tạo hồ sơ và giữ nguyên mã 0–7. Check-in chỉ ghi `AcquisitionSource` và `AcquisitionSourceDetail`; việc bổ sung nguồn khách không thay `Source` đang được Customers và Check-in Overview sử dụng. Một khách có Source POS và AcquisitionSource Facebook vẫn giữ cả hai thông tin.
+Theo QD8 thay QD6, `Source` tiếp tục lưu kênh tạo hồ sơ và giữ nguyên mã 0–7. Check-in chỉ ghi nguồn vào `AcquisitionSource`; việc bổ sung nguồn khách không thay `Source` đang được Customers và Check-in Overview sử dụng. Một khách có Source POS và AcquisitionSource Facebook vẫn giữ cả hai thông tin.
 
 Enum mới cố định mã: `Facebook=0`, `Instagram=1`, `Google=2`, `Referral=3`, `Other=4`. JSON dùng chuỗi theo `JsonStringEnumConverter` hiện có. Validator phải từ chối giá trị ngoài tập hợp kể cả giá trị số không hợp lệ được converter chấp nhận.
 
-Migration duy nhất `20261020040223_AddCustomerCheckInDetails` bổ sung bốn cột nullable trong bảng trên và ba constraint tương ứng. Sinh nhật có thể lưu từng phần theo B5; khi đủ cặp, constraint kiểm tra ngày trên năm nhuận tham chiếu 2000. Năm này chỉ dùng để kiểm tra, không được lưu thành năm sinh. Migration giữ nguyên dữ liệu và không thêm index.
+Một migration do EF sinh lại từ snapshot trước ticket chỉ bổ sung ba cột nullable `BirthdayMonth`, `BirthdayDay`, `AcquisitionSource` và hai constraint cho sinh nhật, enum nguồn. Sinh nhật có thể lưu từng phần theo B5; khi đủ cặp, constraint kiểm tra ngày trên năm nhuận tham chiếu 2000. Năm này chỉ dùng để kiểm tra, không được lưu thành năm sinh. Migration giữ nguyên dữ liệu và không thêm index.
 
-Ngày 20/10, người dùng xác nhận ba migration trước chỉ được áp dụng trên database local cô lập, chưa chạy ở môi trường dùng chung. EF đã sinh lại một migration từ snapshot trước ticket, thay toàn bộ ba migration chưa phát hành. Cấu trúc dữ liệu cuối giữ nguyên như trước khi gộp; các kết quả cũ trong Phụ lục là lịch sử kiểm chứng của từng đợt.
+Ngày 20/10, người dùng xác nhận các migration trước chỉ được áp dụng trên database local cô lập, chưa chạy ở môi trường dùng chung. Theo QD8, migration bốn cột trước đó được thay bằng bản EF sinh lại theo cấu trúc ba cột nêu trên; không tạo migration riêng để thêm rồi xóa mô tả. Các kết quả cũ trong Phụ lục là lịch sử trước QD8.
 
 #### Danh sách endpoint
 
@@ -310,7 +306,7 @@ Tất cả đường dẫn có tiền tố `/api/v1`.
 | Public lookup | `GET /checkin/{businessSlug}/customer-lookup?phone=...` | Giữ `displayName`; thêm bốn cờ của profile. |
 | Device lookup | `GET /pos-device/self-checkin/customer-lookup?phone=...` | Giữ `displayName`; thêm cùng bốn cờ. |
 | Quầy lookup mới | `GET /merchant/pos/{businessId}/checkin/customer-profile?phone=...` | Trả DTO tối thiểu mới sau kiểm tra quyền Operations. |
-| Chi tiết khách tại quầy | `GET /merchant/pos/{businessId}/customers/{customerId}` | Bổ sung tháng/ngày sinh, nguồn và mô tả nguồn; có kiểm tra quyền. |
+| Chi tiết khách tại quầy | `GET /merchant/pos/{businessId}/customers/{customerId}` | Bổ sung tháng/ngày sinh và nguồn; có kiểm tra quyền. |
 | Public walk-in | `POST /checkin/{businessSlug}/orders` | Thêm `customerDetails` ở request DTO và mapping sang command. |
 | Public booking | `POST /checkin/{businessSlug}/bookings/check-in` | Thêm `customerDetails` ở request DTO và mapping sang command. |
 | Device walk-in | `POST /pos-device/self-checkin/orders` | Thêm input vào command. |
@@ -331,9 +327,6 @@ Response thành công của các lệnh check-in giữ nguyên. Thông tin sinh 
 | 31/04, tháng 0/13 hoặc ngày không hợp lệ | HTTP 400, mã mới `POS_CHECKIN_BIRTHDAY_INVALID`. |
 | 29/02 | Hợp lệ. |
 | Nguồn ngoài năm lựa chọn | HTTP 400, mã mới `POS_CHECKIN_ACQUISITION_SOURCE_INVALID`. |
-| Other không gửi mô tả hoặc mô tả chỉ có khoảng trắng | Hợp lệ; writer lưu mô tả null. |
-| Mô tả nguồn có nội dung nhưng enum không phải Other hoặc thiếu enum | HTTP 400, `POS_CHECKIN_ACQUISITION_SOURCE_INVALID`. |
-| Mô tả dài hơn 100 ký tự sau trim | HTTP 400, `POS_CHECKIN_ACQUISITION_SOURCE_INVALID`. |
 | Profile đã được điền đủ trên thiết bị khác | POST thành công; helper giữ giá trị đã ghi trước. |
 | Body booking null theo client cũ | Check-in theo nội dung đã đặt, không thêm dữ liệu hồ sơ. |
 
@@ -345,9 +338,9 @@ Các path trong bảng này tính từ `backend/src/` của repository backend.
 
 | Path | Trạng thái | Trách nhiệm |
 | :--- | :--- | :--- |
-| `Domain/Entities/Customer.cs` | Sửa | Tháng, ngày, nguồn và mô tả nguồn nullable. |
+| `Domain/Entities/Customer.cs` | Sửa | Tháng, ngày và nguồn nullable. |
 | `Domain/Enums/CustomerAcquisitionSource.cs` | Mới | Năm nguồn ổn định. |
-| `Domain/Constants/DomainErrorCode.cs` | Sửa | Mã validation sinh nhật/nguồn; mô tả nguồn dùng lỗi nguồn hiện có. |
+| `Domain/Constants/DomainErrorCode.cs` | Sửa | Mã validation sinh nhật/nguồn. |
 | `Application/Features/Pos/CheckIn/Common/CustomerCheckInDetailsInput.cs` | Mới | Input và validator dùng chung. |
 | `Application/Features/Pos/CheckIn/Common/CheckInCustomerProfileReader.cs` | Mới | Resolve hồ sơ, sinh nhật hiệu lực, ngày tại tiệm và DTO tối thiểu. |
 | `Application/Features/Pos/CheckIn/Common/CustomerCheckInDetailsWriter.cs` | Mới | Hai cập nhật có điều kiện trong giao dịch đang mở. |
@@ -355,10 +348,10 @@ Các path trong bảng này tính từ `backend/src/` của repository backend.
 | `Application/Features/Pos/Orders/Common/PosCheckInOrderScaffold.cs` | Sửa | Mang input vào scaffold; bọc ghi order và phần bổ sung cùng transaction. |
 | Ba nhóm command walk-in và ba command booking trong bảng API | Sửa | Validator, truyền input, áp dụng writer và giữ nguyên side effect. |
 | Hai query lookup public/device trong phụ lục | Sửa | Dùng reader; không trả null chỉ vì tên trống. |
-| `Application/Features/Pos/Customers/Queries/GetPosCustomerDetail/GetPosCustomerDetailQuery.cs` | Sửa | Bổ sung tháng/ngày, nguồn và mô tả; giữ quyền và phạm vi tiệm hiện có. |
+| `Application/Features/Pos/Customers/Queries/GetPosCustomerDetail/GetPosCustomerDetailQuery.cs` | Sửa | Bổ sung tháng/ngày và nguồn; giữ quyền và phạm vi tiệm hiện có. |
 | Ba controller public/device/quầy và controller booking quầy | Sửa | Bổ sung mapping và endpoint minimal mới. |
 | `Infrastructure/Data/Configurations/Database/CustomerConfiguration.cs` | Sửa | Check constraint cho cặp sinh nhật và nguồn. |
-| `Infrastructure/Migrations/20261020040223_AddCustomerCheckInDetails.*` và snapshot | Sinh mới | Một migration EF cho bốn cột và ba constraint cuối cùng. |
+| `Infrastructure/Migrations/` và snapshot | EF sinh lại | Một migration cho ba cột nullable và hai constraint theo QD8. |
 | `Web/wwwroot/api/specification.json` | Sinh lại | Hợp đồng API từ NSwag, không sửa tay. |
 | `Web/wwwroot/api/web-api-client.ts` | Sinh lại | Client được cùng config NSwag sinh và đang được theo dõi trong Git. |
 
@@ -370,7 +363,6 @@ public record CustomerCheckInDetailsInput
     public int? BirthdayMonth { get; init; }
     public int? BirthdayDay { get; init; }
     public CustomerAcquisitionSource? AcquisitionSource { get; init; }
-    public string? AcquisitionSourceDetail { get; init; }
 }
 
 public record CheckInCustomerProfileDto(
@@ -394,7 +386,7 @@ Reader là static helper thuộc Application; lấy timezone bằng `BookingTime
 
 Writer kiểm tra `context.CurrentTransaction` khác null trước khi ghi. Với sinh nhật, helper đọc đúng hàng `Id`/`BusinessId` bằng `SELECT … FOR UPDATE`, bỏ qua khi có `DateOfBirth` hoặc đủ cặp, rồi ghép từng cột bằng giá trị đang lưu trước, dữ liệu mới sau. Validator kiểm tra kết quả ghép trước khi update; lỗi dùng `Nexora.Application.Common.Exceptions.ValidationException`.
 
-Với nguồn, điều kiện gồm `Id`, `BusinessId`, `AcquisitionSource == null`. Writer trim mô tả, đổi chuỗi trắng thành null rồi ghi nguồn/mô tả trong cùng một `ExecuteUpdateAsync`; nguồn đã có thì bỏ qua cả nhóm. Writer chủ động cập nhật `LastModified/LastModifiedBy` cùng update vì thao tác trực tiếp bỏ qua interceptor. Handler truyền bộ audit hiện có; entity đã tracking không được lưu lại giá trị cũ sau cập nhật trực tiếp.
+Với nguồn, điều kiện gồm `Id`, `BusinessId`, `AcquisitionSource == null`. Writer ghi nguồn trong một `ExecuteUpdateAsync`; nguồn đã có thì bỏ qua cập nhật. Writer chủ động cập nhật `LastModified/LastModifiedBy` cùng update vì thao tác trực tiếp bỏ qua interceptor. Handler truyền bộ audit hiện có; entity đã tracking không được lưu lại giá trị cũ sau cập nhật trực tiếp.
 
 Scaffold lưu các entity được tracking trước writer, gọi writer trong cùng transaction, rồi commit. Các booking handler đã có transaction thì chèn writer sau `SaveChangesAsync` và trước `CommitAsync`. Không bắt validation/writer lỗi rồi vẫn trả thành công.
 
@@ -402,7 +394,7 @@ Nhánh public trả lại active visit hoặc booking đã check-in có thể nh
 
 `PosCheckInOrderRequest` thêm `CustomerDetails?`, `DetailsLastModified?` và `DetailsLastModifiedBy?` dưới dạng tùy chọn. Ba caller check-in truyền bộ audit khi có phần bổ sung. `CreateDirectCheckoutOrderCommand` cũng dùng scaffold; caller này không cần truyền trường mới và không được bị thêm yêu cầu nhập sinh nhật/nguồn. Cần kiểm tra lại direct checkout vì transaction của scaffold là phần dùng chung.
 
-Booking thiếu `CustomerId`: khi input có ít nhất một giá trị hợp lệ cần bổ sung, handler lấy E.164 từ cặp số snapshot của booking, gọi `CustomerMatchHelper.MatchOrCreateAsync` và gắn lại liên kết trong transaction. Nguồn tạo hồ sơ map rõ: `PosBookingSource.Public → CustomerSource.Web`, `Staff → Manual`, `Voice → Call`. Hồ sơ tìm thấy giữ nguyên nguồn cũ. Nếu snapshot không thể khớp số an toàn, handler trả lỗi số điện thoại hiện có và không tạo liên kết đoán. Luồng client cũ không gửi dữ liệu bổ sung, kể cả object rỗng, tiếp tục giữ xử lý legacy hiện có.
+Booking thiếu `CustomerId`: khi input có giá trị bổ sung, resolver dùng cặp số snapshot để tìm hoặc tạo Customer trong cùng tiệm, chỉ phục vụ writer. Resolver không gán `CustomerId` vào lượt đến và không sửa tên, email hoặc số điện thoại của Customer hiện có. Hồ sơ mới lấy thông tin snapshot tin cậy, giữ lượt ghé bằng 0 và chưa liên kết tài khoản Loyalty. Nguồn tạo hồ sơ mới map `Public → Web`, `Staff → Manual`, `Voice → Call`; nguồn hiện có giữ nguyên. Public retry tiếp tục dùng CustomerId gốc cho SMS consent. Snapshot không hợp lệ trả lỗi số điện thoại hiện có. Client không gửi dữ liệu bổ sung, kể cả object rỗng, giữ cách xử lý legacy.
 
 #### Frontend: đơn vị thiết kế
 
@@ -423,7 +415,7 @@ Các path tính từ `src/` của repository frontend.
 | `components/checkin/customerCheckInDetails.ts` | Mới | Validation nháp và dựng payload chỉ gồm trường còn thiếu. |
 | `components/checkin/parts/CustomerCheckInDetailsFields.tsx` | Mới | Hai trường dùng chung với điều kiện hiển thị. |
 | `components/checkin/parts/BirthdayPicker.tsx` | Mới | Một nút mở wheel tháng và ngày; giữ từng phần và khóa phần đã lưu. |
-| `components/checkin/parts/CustomerAcquisitionSourceSelect.tsx` | Mới | Searchable creatable nguồn; giữ nội dung khi blur và xử lý viewport bàn phím. |
+| `components/checkin/parts/CustomerAcquisitionSourceSelect.tsx` | Mới | Chọn một trong năm nguồn, không tìm kiếm hoặc tạo mới; xử lý vùng nhìn trên điện thoại. |
 | `components/checkin/CheckInControlsActiveContext.ts` | Mới | Truyền trạng thái hoạt động để đóng menu của tab POS không còn hiện. |
 | `components/checkin/parts/CustomerIdentityCard.tsx` | Sửa | Gắn component mới trong giao diện một trang. |
 | `components/checkin/layouts/WizardCheckInLayout.tsx` | Sửa | Gắn component mới tại bước tên, trước chọn dịch vụ. |
@@ -456,7 +448,6 @@ type CustomerCheckInDetailsInput = {
   birthdayMonth?: number | null
   birthdayDay?: number | null
   acquisitionSource?: CustomerAcquisitionSource | null
-  acquisitionSourceDetail?: string | null
 }
 
 type BirthdayAudioController = {
@@ -474,9 +465,9 @@ type BirthdayAudioController = {
 
 Birthday dùng một button mở `BirthdayPicker`. Popup dùng `react-mobile-picker` 1.2.0 với hai cột tháng và ngày bằng nhau, không có năm. Giá trị lựa chọn cập nhật nháp ngay; Done chỉ đóng popup, dữ liệu vẫn chỉ lưu khi check-in thành công. Phần tháng/ngày đã có trong profile chỉ xem, phần còn thiếu nhận giá trị tương thích theo A3.
 
-Khi chỉ chọn tháng hoặc ngày, frontend giữ giá trị đang chọn mà không hiện lỗi hoặc chặn bước tiếp theo theo B5. Builder gửi từng phần sinh nhật hợp lệ, ưu tiên phần đã có trong profile rồi ghép nháp; backend kiểm tra tổ hợp trong giao dịch. Nguồn và mô tả được gửi độc lập với sinh nhật; builder chỉ giữ mô tả đã trim khi nguồn là Other.
+Khi chỉ chọn tháng hoặc ngày, frontend giữ giá trị đang chọn mà không hiện lỗi hoặc chặn bước tiếp theo theo B5. Builder gửi từng phần sinh nhật hợp lệ, ưu tiên phần đã có trong profile rồi ghép nháp; backend kiểm tra tổ hợp trong giao dịch. Nguồn được gửi độc lập với sinh nhật; builder chỉ gửi enum đã chọn theo B6.
 
-`CustomerAcquisitionSourceSelect` dùng `react-select/creatable` có tìm kiếm và xóa lựa chọn. Chọn nguồn có sẵn gửi enum cũ và bỏ mô tả; nội dung mới gửi Other cùng `acquisitionSourceDetail`. Enter, Tab, blur hoặc chạm nút bên ngoài phải giữ nội dung hợp lệ đang gõ vào nháp trước khi check-in; thao tác reset không mang nội dung sang khách mới. Chuỗi chỉ có khoảng trắng không tạo nguồn mới, chuỗi trùng nguồn có sẵn dùng lại lựa chọn đó.
+`CustomerAcquisitionSourceSelect` dùng `Select` của `react-select`, tắt tìm kiếm và tạo lựa chọn mới, cho phép xóa lựa chọn. Component giữ mã enum của năm nguồn theo B6; Other không mở ô nhập thêm. Thao tác reset không mang lựa chọn sang khách mới.
 
 `checkInBooking()` dùng cùng validator nháp và cùng hàm dựng `customerDetails` với `submit()`. Đường quầy không còn chỉ gọi `useCheckInBookingFromList(payload.bookingId)` khi có phần bổ sung; repository phải nhận body tùy chọn ngay cả khi không có `items`. Body thiếu `items` vẫn giữ dịch vụ đã đặt, không gửi mảng rỗng thay cho “giữ nguyên”.
 
@@ -508,7 +499,7 @@ Bảng chọn sinh nhật có hai cột wheel Month và Day, mỗi cột chiếm
 - Hai wheel có lựa chọn rỗng để giữ sinh nhật tùy chọn. Tháng dùng Jan–Dec trong cả EN/VI; cột bị khóa chỉ có giá trị đã lưu và không nhận thao tác. Ngày chỉ hiện các giá trị tương thích; đổi tháng có thể xóa ngày vừa nhập không còn hợp lệ, nhưng không xóa phần đã lưu.
 - Picker hỗ trợ touch, phím mũi tên, Page Up, Page Down, Home, End và Tab giữa các phần có thể sửa. Done/Xong, Enter hoặc Escape đóng popup và trả focus về nút mở; Clear/Xóa chỉ xóa phần chưa lưu. Đóng popup giữ nháp hiện tại, không tạo cập nhật hồ sơ riêng.
 - Nút Birthday và nguồn có một chevron 16px căn giữa, cách mép phải 12px; phần nội dung chừa ít nhất 36px. Mũi tên trang trí không bắt sự kiện hoặc nhận focus; nút xóa lựa chọn nguồn có nhãn truy cập riêng.
-- Nguồn dùng placeholder `How did you find us?` trong EN và `Bạn biết tiệm qua đâu?` trong VI. Component dùng `Select`, tắt tìm kiếm và không tạo lựa chọn mới theo B6. Builder chỉ gửi `acquisitionSource`, bỏ mọi `acquisitionSourceDetail` còn sót trong nháp; xóa lựa chọn cũng xóa mô tả trong nháp. API và cột mô tả đã chốt vẫn được giữ để tương thích dữ liệu cũ.
+- Nguồn dùng placeholder `How did you find us?` trong EN và `Bạn biết tiệm qua đâu?` trong VI. Component dùng `Select`, tắt tìm kiếm và không tạo lựa chọn mới theo B6. Input frontend/backend và API chi tiết chỉ có `acquisitionSource` cho nguồn; không giữ trường hoặc cột mô tả theo QD8.
 - Popup/menu dùng portal vào `document.body`, căn theo nút mở và vùng `window.visualViewport` nếu có. Frontend theo dõi resize, scroll và offset của viewport để giới hạn chiều rộng/chiều cao, chọn mở lên hoặc xuống khi bàn phím điện thoại xuất hiện.
 - `CheckInControlsActiveContext` truyền trạng thái tab POS đang hiện. Khi inactive, submit, đổi phiên hoặc reset, control đóng menu và bỏ callback cũ; không tạo thay đổi nháp cho khách tiếp theo. Listener và portal được dọn khi unmount.
 
@@ -560,12 +551,12 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 - [ ] TC22: Nút Birthday hiển thị đúng trạng thái trống, chỉ tháng, chỉ ngày và đủ cặp theo D22; Jan–Dec dùng chung cho EN/VI, đáp ứng AC29.
 - [ ] TC23: Mỗi control có một chevron 16px, cách mép phải 12px và phần chữ chừa ít nhất 36px, đáp ứng AC30.
 - [ ] TC24: Prepare khi xác nhận số không tạo request MP3; request chỉ bắt đầu khi có yêu cầu phát cho hồ sơ đủ điều kiện theo T7.
-- [ ] TC25: API chi tiết trả tháng/ngày, ngày sinh cũ, nguồn và mô tả đúng theo quyền/tiệm; lookup công khai/thiết bị không trả mô tả theo D18, đáp ứng AC37.
+- [ ] TC25: API chi tiết trả tháng/ngày, ngày sinh cũ và nguồn đúng theo quyền/tiệm; lookup công khai/thiết bị không trả nguồn theo D18, đáp ứng AC37.
 - [ ] TC26: Lookup trả phần sinh nhật còn thiếu; nút và wheel tự điền, khóa phần đã lưu, đáp ứng AC31. Ngày 31 chỉ cho chọn tháng tương thích.
 - [ ] TC27: API nhận tháng hoặc ngày độc lập, lần sau đọc lại để bổ sung; hai cập nhật đồng thời không làm mất một phần, đáp ứng AC32 và B9.
 - [ ] TC28: Birthday chỉ có một nút mở hai wheel bằng nhau, dùng được bằng touch/bàn phím và không có năm, đáp ứng AC33.
 - [ ] TC29: Ô nguồn không nhận chữ, có đúng năm lựa chọn; Other không mở ô nhập thêm, đáp ứng AC34–AC35.
-- [ ] TC30: Hai request bổ sung nguồn/mô tả không tạo nhóm trộn hoặc ghi đè nhóm đã có, đáp ứng AC36.
+- [ ] TC30: Hai request bổ sung nguồn giữ giá trị được ghi trước, không ghi đè nguồn đã có, đáp ứng AC36.
 - [ ] TC31: Inactive POS và reset đóng menu, callback cũ không đổi nháp khách mới, đáp ứng AC38.
 - [ ] TC32: Portal giữ popup/menu trong visual viewport khi bàn phím mở hoặc xoay điện thoại, đáp ứng AC39.
 
@@ -598,7 +589,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 
 ### Tính năng liên quan
 
-- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): nguồn quy tắc A1–D22 và định hướng đã chốt QD1–QD5.
+- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): nguồn quy tắc A1–D22 và định hướng đã chốt QD1–QD8.
 - [Kế hoạch triển khai](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/implementation-plan.md): thứ tự thay đổi, kiểm chứng và phát hành.
 - [Check-in dùng chung](https://github.com/vlink-group/VlinkPay/blob/c28eb5766e31a33d897d4b8b6877e400775d7e7b/nexora/docs/business/references/POS-CheckIn-Single-Page-Spec.md): nền tảng lịch sử của session và layout; code hiện tại vẫn là nguồn xác nhận cấu trúc.
 
@@ -606,7 +597,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 
 #### Các quyết định còn mở
 
-Danh sách duy nhất nằm tại business → Các quyết định còn mở. Các control Birthday/Found us via theo QD5; đề xuất Book online theo OD3 chưa thuộc phạm vi triển khai. Tài liệu này giữ nguyên các đường booking/check-in hiện có.
+Danh sách duy nhất nằm tại business → Các quyết định còn mở. Birthday theo QD5, nguồn chỉ chọn và dữ liệu theo QD7–QD8; đề xuất Book online theo OD3 chưa thuộc phạm vi triển khai. Tài liệu này giữ nguyên các đường booking/check-in hiện có.
 
 #### Nguồn asset âm thanh
 
@@ -665,7 +656,7 @@ Kết quả dưới đây thuộc đợt sinh nhật từng phần trước khi 
 - Build frontend và backend, gồm nhánh backend review staging, đều đạt. Full suite frontend còn 112 lỗi và một lỗi ngoài bài kiểm tra; tên lỗi trùng baseline, không có lỗi mới. Evidence chi tiết tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/partial-birthday/`.
 - Chưa merge/deploy hoặc chạy migration trên staging. Chưa xác minh phần bổ sung này trên thiết bị vật lý hay đăng nhập POS qua SSO với backend local.
 
-#### Bổ sung hai control và nguồn tự nhập — 20/10/2026 (lịch sử trước QD7)
+#### Bổ sung hai control và nguồn tự nhập — 20/10/2026 (lịch sử trước QD7–QD8)
 
 - Yêu cầu được người dùng duyệt tại QD5: Birthday mở hai wheel và nguồn tìm kiếm/tự nhập. Book online chờ PO theo OD3; không thêm trường hoặc thay luồng đặt lịch trong đợt này.
 - Frontend dùng `react-mobile-picker` 1.2.0 và `react-select` hiện có; backend thêm migration `20261020033109_AddCustomerAcquisitionSourceDetail` cùng hợp đồng input/detail có quyền.
@@ -677,14 +668,25 @@ Kết quả dưới đây thuộc đợt sinh nhật từng phần trước khi 
 - Build frontend production đạt. Full suite có 112 ca thất bại, 662 ca đạt và một lỗi ngoài bài kiểm tra, trùng baseline; typecheck có 83 lỗi trùng baseline. Cả hai đối chiếu không phát sinh lỗi mới, nhưng toàn bộ suite/typecheck chưa đạt.
 - Evidence nằm tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/compact-controls/`; đây là kiểm chứng local. Build/deploy trên GitHub đang skipped theo phạm vi chỉ review; chưa merge/deploy hoặc chạy kiểm chứng staging, chưa xác minh trên thiết bị vật lý.
 
-#### Gộp migration và lịch sử backend — 20/10/2026
+#### Gộp migration và lịch sử backend — 20/10/2026 (lịch sử trước QD8)
 
-- Người dùng xác nhận ba migration cũ chỉ chạy trên database local cô lập. Migration hiện dùng là `20261020040223_AddCustomerCheckInDetails`; ba ID cũ trong các mục kiểm chứng bên trên là lịch sử trước khi gộp.
+- Người dùng xác nhận ba migration cũ chỉ chạy trên database local cô lập. Migration tại đợt này là `20261020040223_AddCustomerCheckInDetails`, được QD8 thay thế; ba ID cũ trong các mục kiểm chứng bên trên là lịch sử trước khi gộp.
 - Backend nhánh tính năng `02cb899f`, nhánh review staging `0b378255`, mỗi nhánh có một commit tính năng. PR #2232 giảm từ 31 xuống 27 file. Cây mã nguồn sau squash trùng phiên bản đã build và kiểm chứng.
 - Bản review giữ nguyên các cập nhật hiện có của staging `e0c831c6`. Code Application/Domain/controller, hợp đồng API và snapshot dữ liệu của ticket không đổi so với trước khi gộp. Direct Checkout giữ nguyên code và hợp đồng.
 - EF sinh và build migration thành công; không phát sinh model drift. SQL Up/Down đã chạy trên bảng tạm local, kiểm tra giữ ngày sinh cũ, không backfill, sinh nhật từng phần và các constraint nguồn. Bảng ứng dụng hiện có không bị thay đổi trong kiểm chứng SQL này.
 - 29 ca validator/DB cùng 14 ca HTTP hồi quy và bảy ca HTTP nguồn tự nhập đều đạt trên binary mới. Các ca HTTP phủ check-in public/thiết bị, lịch hẹn, gửi lại yêu cầu, bảo toàn dữ liệu cũ, quyền truy cập và cập nhật đồng thời.
 - Evidence tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/migration-consolidation/`. Chưa merge/deploy hoặc chạy migration trên staging/production. Đợt gộp này không xác minh lại giao dịch Direct Checkout qua SSO/thanh toán thực; phần code và hợp đồng được đối chiếu byte-identical.
+
+#### Điều chỉnh dữ liệu theo QD8 — 20/10/2026
+
+QD8 bỏ hoàn toàn mô tả nguồn. Hợp đồng, writer, API chi tiết và schema chỉ giữ ba trường mới tại “Cấu trúc lưu trữ”; nguồn và ngày sinh đầy đủ cũ giữ nguyên. EF sinh lại migration chưa phát hành `20261020040223_AddCustomerCheckInDetails`; không thêm migration xóa cột riêng. Các số liệu phía trên là lịch sử trước QD8.
+
+- Phiên bản đã kiểm chứng: BE tính năng `2d3337d6`, BE review staging `8be40932`, FE `293133fc`.
+- Cả hai nhánh BE đạt 56 ca validator/DB/luồng cũ và 25 ca HTTP/schema. FE đạt 91 ca riêng ticket. Build BE không có lỗi hoặc cảnh báo; build staging FE thành công.
+- EF không có model drift trên hai nhánh. SQL Up/Down chạy trên bảng tạm local xác nhận ba cột, hai ràng buộc và giữ dữ liệu cũ.
+- Rà soát phạm vi giữ nguyên tên/email, liên kết lượt đến, dịch vụ, lượt ghé, SMS, Loyalty và thanh toán. Hợp đồng sinh tự động của nhánh staging đồng bộ cả Direct Checkout đã có trên nhánh gốc; code chạy của luồng này không được sửa.
+- Evidence mới: `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/source-only/`. Bộ test toàn FE vẫn có 112 ca lỗi đã ghi ở đợt trước; không khẳng định toàn dự án đạt.
+- Chưa merge/deploy, chạy migration staging/production hoặc kiểm thử thiết bị vật lý cho QD8.
 
 #### Tài liệu nền tảng trình duyệt
 
