@@ -200,10 +200,10 @@ Quy tắc nghiệp vụ đầy đủ nằm ở tài liệu business. Phần này
 
 #### A. Hợp đồng hồ sơ và dữ liệu
 
-1. **T1 — Ngày sinh hiệu lực (A3, B5):** `EffectiveBirthday(Customer)` ưu tiên `DateOfBirth.Month/Day`; nếu không có thì dùng cặp `BirthdayMonth/BirthdayDay` đầy đủ. Helper trả null khi cả hai nguồn đều không có.
+1. **T1 — Ngày sinh hiệu lực (A3, B5):** `EffectiveBirthday(Customer)` ưu tiên `DateOfBirth.Month/Day`; nếu không có thì trả từng giá trị `BirthdayMonth/BirthdayDay`, kể cả khi còn thiếu một phần. `HasBirthday` chỉ true khi đủ cặp; lookup chỉ trả giá trị tháng/ngày khi cặp còn thiếu để tự điền.
 2. **T2 — Nhóm thông tin thiếu (A2–A4):** Backend trả object cho mọi hồ sơ khớp, kể cả `Name` trống; trả `null` chỉ khi thực sự không có hồ sơ. Frontend phân biệt null hợp lệ với query lỗi.
-3. **T3 — Ghi có điều kiện (B8–B9):** Helper cập nhật theo `Customer.Id` và `BusinessId`, trong giao dịch check-in. Hai câu `ExecuteUpdateAsync` có điều kiện riêng cho cặp sinh nhật và nguồn, tránh lost update khi hai thiết bị cùng gửi.
-4. **T4 — Tương thích ngày sinh cũ (A3, B9):** Check-in không viết lại `DateOfBirth`; cặp ngày/tháng mới chỉ được điền khi `DateOfBirth`, `BirthdayMonth` và `BirthdayDay` đều null. Không backfill năm giả hoặc đổi `Source`.
+3. **T3 — Ghi có điều kiện (B8–B9):** Helper cập nhật theo `Customer.Id` và `BusinessId`, trong giao dịch check-in. Với sinh nhật, helper khóa hàng khách trước khi đọc, ghép phần đang thiếu và kiểm tra cặp hiệu lực; sau đó ghi bằng `ExecuteUpdateAsync`. Nguồn được điền riêng khi còn null.
+4. **T4 — Tương thích ngày sinh cũ (A3, B9):** Check-in không viết lại `DateOfBirth`. Khi chưa có ngày sinh đầy đủ, helper chỉ điền từng cột tháng/ngày đang null và giữ phần đã có. Không backfill năm giả hoặc đổi `Source`.
 
 #### B. Nhận diện và âm thanh
 
@@ -235,13 +235,15 @@ Các API và trường dưới đây là hợp đồng triển khai trên nhánh
   "customerExists": true,
   "hasBirthday": true,
   "hasAcquisitionSource": false,
-  "isBirthdayToday": true
+  "isBirthdayToday": true,
+  "birthdayMonth": null,
+  "birthdayDay": null
 }
 ```
 
 `displayName` có thể là chuỗi rỗng khi hồ sơ chưa có tên. Khi không tìm thấy hồ sơ, kết quả ứng dụng là null; ASP.NET có thể trả `204` không có body (đã quan sát ở local) hoặc `200` kèm null. Client chấp nhận cả hai. Repository chuẩn hóa thành `{ customerExists: false, hasBirthday: false, hasAcquisitionSource: false, isBirthdayToday: false }`.
 
-Lookup không trả ngày/tháng/năm sinh, nguồn đã lưu, customer ID hoặc lịch sử dịch vụ trong DTO mới. Các thông tin lookup quầy cũ vẫn được giữ trong đường API riêng hiện có.
+Khi `hasBirthday=false`, lookup có thể trả `birthdayMonth=2, birthdayDay=null` hoặc ngược lại để session tự điền theo T1. Khi `hasBirthday=true`, cả hai giá trị trả null theo D18. Lookup không trả năm sinh, nguồn đã lưu, customer ID hoặc lịch sử dịch vụ trong DTO mới. Các thông tin lookup quầy cũ vẫn được giữ trong đường API riêng hiện có.
 
 #### API chi tiết để đối chiếu dữ liệu
 
@@ -275,21 +277,21 @@ Ví dụ phần dữ liệu liên quan khi khách chỉ cung cấp ngày/tháng:
 }
 ```
 
-Client có thể bỏ `customerDetails` hoặc gửi null. Trong object, cặp sinh nhật có thể cùng vắng; nguồn có thể vắng độc lập. Client không gửi lại các trường đang ẩn.
+Client có thể bỏ `customerDetails` hoặc gửi null. Trong object, tháng, ngày và nguồn có thể vắng độc lập theo B5–B6. Client không gửi lại các trường đang ẩn.
 
 #### Cấu trúc lưu trữ
 
 | Entity/cột | Kiểu đề xuất | Quy tắc lưu |
 | :--- | :--- | :--- |
 | `Customer.DateOfBirth` | `DateOnly?` hiện có | Giữ nguyên; ưu tiên khi đọc sinh nhật. |
-| `Customer.BirthdayMonth` | `int?` mới | 1–12 khi có cặp hợp lệ. |
-| `Customer.BirthdayDay` | `int?` mới | Trong số ngày thực của tháng, dùng năm nhuận tham chiếu chỉ để kiểm tra. |
+| `Customer.BirthdayMonth` | `int?` mới | Null hoặc 1–12; có thể lưu riêng. |
+| `Customer.BirthdayDay` | `int?` mới | Null hoặc 1–31; khi có tháng, phải nằm trong số ngày thực của tháng theo năm nhuận tham chiếu. |
 | `Customer.AcquisitionSource` | `CustomerAcquisitionSource?` mới | Enum nullable; không có giá trị mặc định giả định. |
 | `Customer.Source` | `CustomerSource` hiện có | Giữ ý nghĩa và giá trị hiện tại. |
 
 Enum mới cố định mã: `Facebook=0`, `Instagram=1`, `Google=2`, `Referral=3`, `Other=4`. JSON dùng chuỗi theo `JsonStringEnumConverter` hiện có. Validator phải từ chối giá trị ngoài tập hợp kể cả giá trị số không hợp lệ được converter chấp nhận.
 
-Migration bổ sung ba cột nullable và check constraint: hoặc cả ngày/tháng null, hoặc cả hai non-null và tạo thành ngày hợp lệ khi kiểm tra trên năm nhuận 2000. Năm 2000 chỉ phục vụ validation/constraint, không được ghi thành năm sinh. Constraint nguồn chỉ cho phép null hoặc năm mã enum từ 0 đến 4. Không backfill dữ liệu và không thêm index cho nhu cầu lọc/báo cáo chưa có trong phạm vi.
+Migration `AddCustomerCheckInDetails` bổ sung ba cột nullable. Migration tiếp theo `AllowPartialCustomerBirthday` nới constraint để nhận từng phần theo B5; khi có đủ cặp vẫn kiểm tra ngày trên năm nhuận 2000. Năm 2000 chỉ phục vụ validation/constraint, không được ghi thành năm sinh. Constraint nguồn chỉ cho phép null hoặc năm mã enum từ 0 đến 4. Không backfill dữ liệu hoặc thêm index.
 
 #### Danh sách endpoint
 
@@ -316,11 +318,12 @@ Response thành công của các lệnh check-in giữ nguyên. Thông tin sinh 
 | :--- | :--- |
 | Không gửi `customerDetails` | Chạy hợp đồng cũ. |
 | Cùng bỏ ngày/tháng | Hợp lệ. |
-| Chỉ có ngày hoặc tháng | HTTP 400, mã mới `POS_CHECKIN_BIRTHDAY_INCOMPLETE`. |
+| Chỉ có ngày hoặc tháng hợp lệ | Chấp nhận và lưu phần đã nhập theo B5. |
+| Phần mới ghép với phần đã lưu tạo ngày không hợp lệ | HTTP 400, `POS_CHECKIN_BIRTHDAY_INVALID`; giao dịch được hoàn nguyên. |
 | 31/04, tháng 0/13 hoặc ngày không hợp lệ | HTTP 400, mã mới `POS_CHECKIN_BIRTHDAY_INVALID`. |
 | 29/02 | Hợp lệ. |
 | Nguồn ngoài năm lựa chọn | HTTP 400, mã mới `POS_CHECKIN_ACQUISITION_SOURCE_INVALID`. |
-| Profile bị bổ sung trên thiết bị khác | POST thành công; helper giữ giá trị đã ghi trước. |
+| Profile đã được điền đủ trên thiết bị khác | POST thành công; helper giữ giá trị đã ghi trước. |
 | Body booking null theo client cũ | Check-in theo nội dung đã đặt, không thêm dữ liệu hồ sơ. |
 
 Backend dùng kiểu nullable ở input lẫn command. Không dùng `DateOnly` để nhận sinh nhật mới vì hợp đồng đó sẽ yêu cầu năm.
@@ -360,7 +363,8 @@ public record CustomerCheckInDetailsInput
 
 public record CheckInCustomerProfileDto(
     string DisplayName, bool CustomerExists, bool HasBirthday,
-    bool HasAcquisitionSource, bool IsBirthdayToday);
+    bool HasAcquisitionSource, bool IsBirthdayToday,
+    int? BirthdayMonth, int? BirthdayDay);
 
 // Reader nhận nowUtc từ caller để mốc thời gian có thể kiểm chứng cố định.
 Task<CheckInCustomerProfileDto?> ReadAsync(
@@ -376,7 +380,7 @@ Task ApplyMissingAsync(
 
 Reader là static helper thuộc Application; lấy timezone bằng `BookingTimeZoneLookup.ResolveZoneAsync` và `PosTimeClockOptions.DefaultTimeZone` hiện có. Caller cấp thời điểm UTC từ server. Kết quả `HasBirthday` dùng `EffectiveBirthday` theo T1; `IsBirthdayToday` so sánh cặp đó với ngày trong zone đã resolve.
 
-Writer kiểm tra `context.CurrentTransaction` khác null trước khi ghi. Với sinh nhật, điều kiện update gồm `Id`, `BusinessId`, `DateOfBirth == null`, `BirthdayMonth == null`, `BirthdayDay == null`. Với nguồn, điều kiện gồm `Id`, `BusinessId`, `AcquisitionSource == null`. Writer dùng `ExecuteUpdateAsync` nên phải chủ động cập nhật `LastModified/LastModifiedBy` như `AuditableEntityInterceptor` hiện có. Handler truyền `_dateTime.BusinessDateTime` và `_currentUserService.UserId.ToString()`; không tự gán danh tính nhân viên cho khách công khai. Entity đã tracking không được lưu lại giá trị cũ sau cập nhật trực tiếp.
+Writer kiểm tra `context.CurrentTransaction` khác null trước khi ghi. Với sinh nhật, helper đọc đúng hàng `Id`/`BusinessId` bằng `SELECT … FOR UPDATE`, bỏ qua khi có `DateOfBirth` hoặc đủ cặp, rồi ghép từng cột bằng giá trị đang lưu trước, dữ liệu mới sau. Validator kiểm tra kết quả ghép trước khi update; lỗi dùng `Nexora.Application.Common.Exceptions.ValidationException`. Với nguồn, điều kiện gồm `Id`, `BusinessId`, `AcquisitionSource == null`. Writer dùng `ExecuteUpdateAsync` nên chủ động cập nhật `LastModified/LastModifiedBy`. Handler truyền bộ audit hiện có; entity đã tracking không được lưu lại giá trị cũ sau cập nhật trực tiếp.
 
 Scaffold lưu các entity được tracking trước writer, gọi writer trong cùng transaction, rồi commit. Các booking handler đã có transaction thì chèn writer sau `SaveChangesAsync` và trước `CommitAsync`. Không bắt validation/writer lỗi rồi vẫn trả thành công.
 
@@ -422,6 +426,8 @@ type CheckInProfileState = {
   status: 'idle' | 'loading' | 'resolved' | 'unavailable'
   customerExists: boolean
   hasBirthday: boolean
+  birthdayMonth: number | null
+  birthdayDay: number | null
   hasAcquisitionSource: boolean
   isBirthdayToday: boolean
   displayName: string | null
@@ -469,6 +475,8 @@ Khi khung thông tin đủ rộng, frontend triển khai D21 bằng lưới hai 
 Các tên trong bảng là nhãn tiếng Anh; bản tiếng Việt dùng nhãn dịch tương ứng. Wizard giữ bước xác nhận Phone hiện có; bước thông tin khách đặt hàng sinh nhật/nguồn dưới Name rồi đến SMS. Danh sách lịch hẹn dùng cùng hàng trường bổ sung trước các nút check-in nhanh.
 
 Khi chỉ thiếu một trường bổ sung, frontend chỉ render trường đó theo A3. Khi đủ cả hai thông tin, frontend bỏ cả hàng bổ sung. Component phải giữ nhãn và giá trị dễ đọc trên điện thoại, tablet và desktop.
+
+Session tự điền phần tháng/ngày đã lưu một lần theo `recognitionKey`. Component lấy phần đã lưu làm giá trị hiển thị và khóa ô đó; builder cũng ưu tiên giá trị hồ sơ để validation khớp kết quả backend ghép. Khi chỉ có ngày 31, các tháng không có ngày 31 bị vô hiệu hóa. Nếu lookup đến muộn, option ngày đã lưu vẫn được giữ để không có ô bị khóa mà hiển thị trống; tổ hợp không hợp lệ được báo ngay trên form. Draft nhập mới không tự làm ẩn hai ô trước khi lưu theo A3.
 
 Bên trong Birthday, hai select tháng/ngày luôn có chiều rộng bằng nhau: mỗi ô chiếm 50% phần chiều rộng còn lại sau khoảng cách giữa hai ô. Hàng Birthday/Found us via dùng `grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr))` với khoảng cách 12px. Với cỡ chữ gốc 16px, hai nhóm nằm cạnh nhau từ chiều rộng khung 348px; dưới ngưỡng này chúng xuống hai hàng theo D21. Cặp Month/Day vẫn giữ tỷ lệ 50/50.
 
@@ -528,6 +536,8 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 - [ ] TC23: Mỗi select có một chevron 16px, cách mép phải 12px và phần chữ có padding phải ít nhất 36px, đáp ứng AC30.
 - [ ] TC24: Prepare khi xác nhận số không tạo request MP3; request chỉ bắt đầu khi có yêu cầu phát cho hồ sơ đủ điều kiện theo T7.
 - [ ] TC25: API chi tiết trả đúng phần bổ sung sau lưu, dữ liệu null và ngày sinh cũ theo T1; không đọc được nếu thiếu quyền hoặc khách thuộc tiệm khác.
+- [ ] TC26: Lookup trả phần sinh nhật còn thiếu; client tự điền và khóa phần đã lưu, đáp ứng AC31. Ngày 31 chỉ cho chọn tháng tương thích.
+- [ ] TC27: API nhận tháng hoặc ngày độc lập, lần sau đọc lại để bổ sung; hai cập nhật đồng thời không làm mất một phần, đáp ứng AC32 và B9.
 
 ### Trường hợp ngoại lệ và cách xử lý
 
@@ -613,6 +623,15 @@ Cả hai PR đang chờ review, chưa merge/deploy. Kết quả kiểm chứng v
 | `posSelfCheckIn.ts`, `usePosSelfCheckIn.ts` | Repository/hook hiện rút lookup về chuỗi tên; phải giữ metadata mới. |
 
 Các file nguồn trong bảng thuộc hai SHA đã nêu. Đây là đường dẫn kỹ thuật để tra cứu, không phải các file tài liệu cần publish.
+
+#### Bổ sung sinh nhật còn thiếu một phần — 20/10/2026
+
+- Frontend đã đẩy commit `5f08288eba7c17010b54ecef4517039123ff0268` trong PR #1277. Backend đã đưa phần bổ sung vào nhánh review staging tại commit `9150958b71502c72a274c815df6d35f612204793` trong PR #2232; giữ nhánh tạo từ master riêng biệt.
+- Migration mới: `20261020025446_AllowPartialCustomerBirthday`. Đã áp dụng các thao tác constraint từ SQL do EF sinh trên database local cô lập `nexora_2042_runtime_20261019`. Database này khởi tạo từ current-model schema nên không ghi lịch sử migration trong lần kiểm chứng; file migration ứng dụng giữ nguyên do EF sinh.
+- Đã kiểm chứng: 77 test logic frontend, 48 trường hợp browser Chromium/WebKit mô phỏng phone/iPad, 16 kiểm tra validator/reader/writer với database thật, 7 ca HTTP cho phần sinh nhật lẻ và 14 ca HTTP hồi quy đều đạt.
+- Sáu bước UI nối API local thật trên public phone và thiết bị đã ghép nối đã đạt: lưu tháng, nhận diện lại để bổ sung ngày, rồi nhận diện hồ sơ đầy đủ để ẩn cả hai ô. Catalog/branding và active visit được giả lập; lookup và POST order dùng API/database local thật.
+- Build frontend và backend, gồm nhánh backend review staging, đều đạt. Full suite frontend còn 112 lỗi và một lỗi ngoài bài kiểm tra; tên lỗi trùng baseline, không có lỗi mới. Evidence chi tiết tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/partial-birthday/`.
+- Chưa merge/deploy hoặc chạy migration trên staging. Chưa xác minh phần bổ sung này trên thiết bị vật lý hay đăng nhập POS qua SSO với backend local.
 
 #### Tài liệu nền tảng trình duyệt
 

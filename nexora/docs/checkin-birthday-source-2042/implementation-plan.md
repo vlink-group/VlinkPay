@@ -154,7 +154,7 @@ flowchart TD
 
 **Interfaces:** Nhận định nghĩa T1–T5; tạo `CustomerAcquisitionSource`, `CustomerCheckInDetailsInput`, `CheckInCustomerProfileDto` và `CheckInCustomerProfileReader.ReadAsync(...)` đúng technical.
 
-- [ ] Trước thay đổi, ghi nhận ba lookup hiện thiếu metadata và hồ sơ tên trống không được trả đúng; dùng API/DB phát triển, không tạo backend test project.
+- [ ] Trước thay đổi, ghi nhận ba lookup hiện thiếu metadata và hồ sơ tên trống không được trả đúng; test/script kiểm chứng nằm ngoài checkout theo đường dẫn workspace.
 - [ ] Thêm ba field nullable và enum năm nguồn đúng mã technical; `Other=4`. Không backfill hoặc đổi field cũ.
 - [ ] Thêm validator dùng chung cho cặp ngày/tháng và enum theo bảng lỗi technical.
 - [ ] Thêm reader ưu tiên ngày sinh đầy đủ, dùng timezone resolver và `nowUtc` được caller truyền.
@@ -225,7 +225,7 @@ dotnet build Nexora.sln
 - [ ] Tạo cấu hình Vitest ngoài repository bằng object export, `root` trỏ frontend, `test.include` trỏ tuyệt đối tới test ticket, `environment='jsdom'`, setup dùng `src/setupTests.ts`, alias `@` trỏ `src` và `esbuild.jsx='automatic'`. Cấu hình không ghi lại vào repository.
 - [ ] Viết assertion hợp đồng trước khi nối code: null hợp lệ thành khách mới; profile tên trống vẫn `customerExists=true`; lỗi query không được normalize thành khách mới.
 - [ ] Kiểm tra A4: profile chưa xác minh, API 404/503 hoặc thiếu metadata vẫn hiện cả hai trường; dữ liệu đã nhập được validate và gửi khi check-in thường hoặc nhanh. Bỏ trống cả hai vẫn check-in được; không tự phát lời chúc.
-- [ ] Viết assertion payload: profile đã có sinh nhật chỉ gửi nguồn; profile đủ dữ liệu trả undefined; chỉ chọn tháng hoặc ngày vẫn tiếp tục và không gửi cặp thiếu; nguồn khách vẫn gửi độc lập; 31/04 bị từ chối; 29/02 hợp lệ.
+- [ ] Viết assertion payload: profile đã có sinh nhật chỉ gửi nguồn; profile đủ dữ liệu trả undefined; chỉ chọn tháng hoặc ngày vẫn tiếp tục và gửi phần đã nhập; nguồn khách vẫn gửi độc lập; 31/04 bị từ chối; 29/02 hợp lệ.
 - [ ] Viết assertion danh sách nguồn chỉ có năm lựa chọn theo B6; gửi Other đúng mã hợp đồng và từ chối giá trị ngoài tập hợp.
 - [ ] Chạy test mới và xác nhận thất bại đúng vì chức năng chưa tồn tại.
 - [ ] Thêm enum/label, API types, normalizer, repository và hook. Device phải giữ metadata thay vì chỉ lấy tên; query quầy mới độc lập query lịch sử. Profile key gồm scope, số chuẩn hóa và recognitionKey; không dùng placeholder từ epoch trước.
@@ -426,6 +426,15 @@ Mỗi ca theo bề mặt dùng API thực của bề mặt đó; public kiosk v�
 - [ ] Có phiên bản deploy và kết quả staging; phần chưa chạy được ghi rõ.
 - [ ] Không có file test, environment, proxy hoặc tài liệu bị stage vào commit ứng dụng.
 
+#### Bổ sung 20/10: Sinh nhật còn thiếu một phần
+
+- [x] Backend: sửa validator và `CustomerCheckInDetailsWriter` để nhận tháng/ngày độc lập. Khóa hàng khách trong giao dịch, giữ phần đã có và kiểm tra ngày hợp lệ sau khi ghép phần mới.
+- [x] Backend: bổ sung hai giá trị nullable trong reader và DTO lookup POS/public/device. Chỉ trả phần sinh nhật còn dang dở; hồ sơ đủ cặp dùng cờ `hasBirthday` và không cần trả lại ngày sinh.
+- [x] Dữ liệu: sinh migration `AllowPartialCustomerBirthday` từ model để nới constraint, vẫn kiểm tra giới hạn từng ô và ngày hợp lệ khi đủ cặp. Sinh lại OpenAPI/client bằng workflow NSwag hiện có.
+- [x] Frontend: normalizer giữ phần tháng/ngày đã lưu; session tự điền một lần cho mỗi lần nhận diện. Component khóa phần đã lưu và giới hạn lựa chọn phù hợp theo AC31; builder kiểm tra tổ hợp thật khi lookup đến muộn. Chỉ hồ sơ đủ cặp mới ẩn cả hai ô.
+- [x] Kiểm chứng: test thất bại trước sửa cho tự điền, lưu lẻ, ghép phần thiếu và bảo toàn dữ liệu. API/DB local cô lập đạt; 77 test logic và 48 trường hợp browser phone/iPad giả lập đạt trên các màn check-in và cả hai layout. Không ghi staging; evidence tại `nexora-2042/partial-birthday/`.
+- [x] Bàn giao: đã cập nhật hai PR staging hiện có; không merge hoặc deploy. Test/evidence giữ ngoài checkout; tài liệu nguồn và bản chia sẻ được đồng bộ cùng phần bổ sung.
+
 ### Trường hợp ngoại lệ và cách xử lý
 
 | Tình huống | Cách tiếp tục | Người xử lý |
@@ -447,7 +456,7 @@ Mỗi ca theo bề mặt dùng API thực của bề mặt đó; public kiosk v�
 
 ### Tính năng liên quan
 
-- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): quy tắc và tiêu chí AC01–AC30 để nghiệm thu.
+- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): quy tắc và tiêu chí AC01–AC32 để nghiệm thu.
 - [Thiết kế kỹ thuật](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/technical.md): hợp đồng, file map và interface của các task.
 - [Review số điện thoại/lịch hẹn](https://github.com/vlink-group/VlinkPay/blob/c28eb5766e31a33d897d4b8b6877e400775d7e7b/nexora/docs/business/pos-checkin-phone-review-appointment.md): phần hồi quy cần giữ trong Task 4 và Task 6–7.
 
