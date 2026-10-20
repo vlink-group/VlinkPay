@@ -15,7 +15,7 @@
 | Dòng dữ liệu | Xác nhận số → nhận diện hồ sơ → hiện trường còn thiếu và lời chúc phù hợp → lưu khi check-in thành công. |
 | Điều phải hiểu đúng | Sinh nhật chỉ gồm ngày/tháng; hai trường đều tùy chọn; dữ liệu đã có được giữ nguyên. |
 | Thời điểm chúc mừng | Ngay khi nhận diện khách đã có hồ sơ tại tiệm và hôm nay là sinh nhật đã lưu. |
-| Tình trạng | Đã triển khai và kiểm tra local; đã mở PR backend/frontend vào staging để review. Chưa merge hoặc deploy staging. Liên kết PR nằm trong Phụ lục. |
+| Tình trạng | Hai control mới đã qua kiểm chứng local theo Phụ lục technical. Hai PR staging dùng để review; chưa merge/deploy hoặc kiểm tra trên thiết bị vật lý. |
 
 ### Tổng quan
 
@@ -35,7 +35,7 @@ Người dùng đã chốt hai điểm khi lập tài liệu: chúc mừng ngay 
 
 API chi tiết khách dành cho nhân viên có quyền cũng cần trả sinh nhật và nguồn đã lưu để đối chiếu dữ liệu; không bổ sung màn chỉnh sửa hồ sơ trong ticket này.
 
-Cả giao diện một trang và từng bước đều thuộc phạm vi. Màn đặt lịch, checkout trực tiếp, báo cáo nguồn khách, cấu hình sinh nhật của chương trình tích điểm và màn chỉnh sửa hồ sơ khách không thuộc lần triển khai này.
+Cả giao diện một trang và từng bước đều thuộc phạm vi. Màn đặt lịch, checkout trực tiếp, báo cáo nguồn khách, cấu hình sinh nhật của chương trình tích điểm và màn chỉnh sửa hồ sơ khách không thuộc lần triển khai này. Đề xuất Book online chờ PO tại Phụ lục → Các quyết định còn mở; các đường check-in từ lịch hẹn hiện có vẫn giữ nguyên phạm vi.
 
 ### Khái niệm chính
 
@@ -46,6 +46,7 @@ Cả giao diện một trang và từng bước đều thuộc phạm vi. Màn �
 | Khách cũ | Người đã có hồ sơ khớp tại tiệm, kể cả hồ sơ tạo từ lịch hẹn hoặc nhập dữ liệu. |
 | Sinh nhật | Ngày và tháng sinh; không yêu cầu năm sinh. |
 | Nguồn khách biết đến tiệm | Kênh khiến khách biết tiệm và ghé sử dụng dịch vụ. |
+| Nguồn khách tự nhập | Tên kênh nằm ngoài danh sách có sẵn, được lưu cùng lựa chọn Other. |
 | Nguồn tạo hồ sơ | Cách hệ thống ghi nhận hồ sơ, chẳng hạn cuộc gọi, web hoặc nhập thủ công. |
 | Phiên check-in | Từ khi bắt đầu nhập số đến khi hoàn tất, hủy, đổi số hoặc chuyển sang khách khác. |
 
@@ -74,6 +75,8 @@ Nguồn khách biết đến tiệm và nguồn tạo hồ sơ là hai thông ti
 - Là khách cũ, tôi muốn chỉ được hỏi thông tin còn thiếu để check-in nhanh hơn.
 - Là khách, tôi muốn vẫn nhập được thông tin tùy chọn khi tiệm chưa tra cứu được hồ sơ.
 - Là khách có lịch hẹn, tôi muốn bổ sung thông tin ngay tại danh sách lịch hẹn mà vẫn giữ cách check-in nhanh.
+- Là khách dùng điện thoại, tôi muốn mở một ô sinh nhật rồi cuộn chọn tháng và ngày mà không phải nhập năm.
+- Là khách, tôi muốn tìm nguồn có sẵn hoặc nhập tên kênh khác ngay trong cùng một ô.
 - Là lễ tân, tôi muốn dữ liệu của số cũ được dọn khi sửa số để tránh ghi nhầm hồ sơ.
 
 | Bước | Ai | Hành động | Phản hồi hệ thống |
@@ -200,16 +203,16 @@ stateDiagram-v2
 
 1. **A1 — Phạm vi hồ sơ:** Hệ thống nhận diện khách theo tiệm và số điện thoại đã chuẩn hóa. Khách cũ là người đã có hồ sơ khớp trước lần nhận diện, không phụ thuộc lịch sử hoàn tất dịch vụ.
 2. **A2 — Khách mới:** Hệ thống hiện cả Sinh nhật và Bạn biết đến tiệm qua đâu? khi xác nhận chưa có hồ sơ.
-3. **A3 — Khách cũ:** Hệ thống ẩn hai ô sinh nhật khi hồ sơ đã đủ tháng và ngày hoặc đã có ngày sinh đầy đủ. Nếu còn thiếu một phần, hệ thống hiện cả hai ô, tự điền và khóa phần đã lưu; ô còn thiếu chỉ cho chọn giá trị tương thích. Nguồn đã có được ẩn riêng; đủ cả sinh nhật và nguồn thì ẩn toàn bộ phần bổ sung. Chọn đủ hai ô trong phiên vẫn giữ form để khách sửa phần vừa nhập trước khi gửi.
+3. **A3 — Khách cũ:** Hệ thống ẩn trường sinh nhật khi hồ sơ đã đủ tháng và ngày hoặc đã có ngày sinh đầy đủ. Nếu còn thiếu một phần, hệ thống hiện nút sinh nhật với phần đã lưu; khi mở, phần đó được khóa và phần còn thiếu chỉ cho chọn giá trị tương thích. Nguồn đã có được ẩn riêng; đủ cả sinh nhật và nguồn thì ẩn toàn bộ phần bổ sung. Chọn đủ tháng và ngày trong phiên vẫn giữ nút sinh nhật để khách sửa phần vừa nhập trước khi gửi.
 4. **A4 — Tra cứu chưa xác minh:** Khi form được mở mà hồ sơ chưa được xác minh, hệ thống hiện cả Sinh nhật và Nguồn khách biết đến tiệm để người thao tác nhập hoặc bỏ trống. Hệ thống kiểm tra dữ liệu đã nhập và gửi cùng yêu cầu check-in. Lời chúc chỉ bắt đầu khi xác nhận đủ điều kiện theo C11–C13.
 
 #### B. Nhập và lưu dữ liệu
 
 5. **B5 — Sinh nhật tùy chọn:** Khách được chọn chỉ tháng, chỉ ngày hoặc bỏ trống mà không bị nhắc nhập đủ hay chặn check-in. Hệ thống lưu từng phần hợp lệ khi check-in thành công để lần sau bổ sung theo A3. Tháng nhận 1–12, ngày nhận 1–31; khi ghép đủ cặp phải tạo thành ngày hợp lệ, chấp nhận 29/02 và không yêu cầu năm.
-6. **B6 — Nguồn tùy chọn:** Khách có thể bỏ trống hoặc chọn Facebook, Instagram, Google, Referral (bạn bè/người thân giới thiệu) hoặc Other (Khác). Other là lựa chọn có sẵn, không kèm ô mô tả tự do trong ticket này.
+6. **B6 — Nguồn tùy chọn:** Khách có thể bỏ trống, tìm rồi chọn Facebook, Instagram, Google, Referral (bạn bè/người thân giới thiệu), Other (Khác), hoặc nhập tên nguồn mới ngay trong cùng ô. Nguồn tự nhập được bỏ khoảng trắng đầu/cuối, tối đa 100 ký tự và lưu cùng lựa chọn Other. Nội dung chỉ có khoảng trắng được xem là chưa nhập; chọn Other có sẵn vẫn hợp lệ khi không kèm mô tả. Chọn một nguồn có sẵn khác dùng đúng mã của nguồn đó và không kèm mô tả tự nhập.
 7. **B7 — Thời điểm kiểm tra:** Hệ thống chỉ chặn phần gửi khi khách đã nhập giá trị không hợp lệ; việc bỏ trống hai thông tin không làm thay đổi điều kiện check-in hiện có.
 8. **B8 — Ghi nhận cùng lượt đến:** Hệ thống chỉ lưu thông tin bổ sung khi check-in thành công. Hủy phiên hoặc check-in thất bại không tạo cập nhật riêng cho hai thông tin này.
-9. **B9 — Bảo toàn dữ liệu:** Hệ thống chỉ điền trường đang thiếu tại thời điểm ghi. Dữ liệu đã có, kể cả dữ liệu được cập nhật trên thiết bị khác sau lúc tra cứu, không bị thay thế hay xóa bởi check-in.
+9. **B9 — Bảo toàn dữ liệu:** Hệ thống chỉ điền trường đang thiếu tại thời điểm ghi. Dữ liệu đã có, kể cả dữ liệu được cập nhật trên thiết bị khác sau lúc tra cứu, không bị thay thế hay xóa bởi check-in. Nguồn và mô tả tự nhập là một nhóm, chỉ ghi cùng nhau khi nguồn đang trống; check-in không sửa riêng mô tả của nguồn đã lưu.
 10. **B10 — Đồng nhất đường gửi:** Hệ thống áp dụng B5–B9 cho khách vãng lai, khách check-in từ lịch hẹn và nút check-in nhanh trong danh sách lịch hẹn của phiên. Hệ thống giữ nguyên nguồn tạo hồ sơ.
 
 #### C. Chúc mừng sinh nhật
@@ -224,11 +227,13 @@ stateDiagram-v2
 
 #### D. Trải nghiệm và phạm vi dữ liệu
 
-18. **D18 — Dữ liệu tối thiểu:** Màn tự check-in nhận trạng thái thiếu thông tin và điều kiện chúc mừng. Khi sinh nhật còn thiếu một phần, hệ thống trả phần đã có để tự điền theo A3. Hồ sơ đủ sinh nhật không cần trả lại tháng/ngày; màn công khai không nhận năm sinh hoặc nguồn đã lưu.
+18. **D18 — Dữ liệu tối thiểu:** Màn tự check-in nhận trạng thái thiếu thông tin và điều kiện chúc mừng. Khi sinh nhật còn thiếu một phần, hệ thống trả phần đã có để tự điền theo A3. Hồ sơ đủ sinh nhật không cần trả lại tháng/ngày; lookup công khai và thiết bị không nhận năm sinh, nguồn hoặc mô tả nguồn đã lưu. Mô tả nguồn chỉ được đọc qua API chi tiết khách dành cho nhân viên có quyền tại tiệm.
 19. **D19 — Thiết bị và ngôn ngữ:** Hệ thống hỗ trợ mobile, tablet, bàn phím và hai ngôn ngữ hiện có. Khi người dùng giảm chuyển động, lời chúc vẫn đọc được mà không cần hiệu ứng động.
 20. **D20 — Số dùng chung:** Tính năng tiếp tục dùng hồ sơ khớp với số điện thoại của tiệm. Chọn check-in người khác dừng chúc mừng cho người đã nhận diện; ticket này không tạo cơ chế phân biệt nhiều người trong cùng một hồ sơ số điện thoại.
-21. **D21 — Bố cục thông tin khách:** Hệ thống xếp Phone và Name thành hai cột ở hàng đầu của giao diện một trang. Hàng tiếp theo chia đều 50/50 cho Birthday và Found us via khi khung đủ rộng. Khi khung hẹp, hai nhóm xuống hai hàng để chữ và mũi tên không chồng nhau. Bên trong Birthday, hai ô tháng/ngày luôn chia đều 50/50; xác nhận SMS nằm dưới các trường. Hệ thống xét điều kiện hiển thị theo A2–A4. Giao diện từng bước giữ bước xác nhận số hiện có và đặt cùng nhóm sinh nhật/nguồn dưới Name tại bước thông tin khách.
-22. **D22 — Trường chọn dễ đọc:** Hệ thống chừa khoảng cách giữa nội dung đã chọn và mũi tên bên phải để hai phần không chồng nhau. Khi chưa chọn sinh nhật, hai ô ghi Month và Day trong tiếng Anh, Tháng và Ngày trong tiếng Việt. Danh sách tháng dùng tên viết tắt kiểu Mỹ trong cả hai ngôn ngữ: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec. Các trường chọn vẫn dùng được bằng bàn phím, có nhãn rõ ràng và thể hiện trạng thái đang chọn hoặc đang bị khóa.
+21. **D21 — Bố cục thông tin khách:** Hệ thống xếp Phone và Name thành hai cột ở hàng đầu của giao diện một trang. Hàng tiếp theo chia đều 50/50 cho Birthday (optional) và Found us via (optional) khi khung đủ rộng; khung hẹp thì hai nhóm xuống hai hàng. Birthday chỉ có một nút mở bảng chọn; hai cột cuộn tháng và ngày bên trong bảng chia đều 50/50, xác nhận SMS nằm dưới các trường. Giao diện từng bước giữ bước xác nhận số hiện có, đặt cùng nhóm sinh nhật/nguồn dưới Name và xét hiển thị theo A2–A4.
+22. **D22 — Trường chọn dễ dùng:** Nút sinh nhật chưa có dữ liệu ghi Month and day trong tiếng Anh, Tháng và ngày trong tiếng Việt. Nút chỉ hiển thị phần đã chọn; khi chỉ có ngày, hệ thống thêm chữ Day hoặc Ngày, còn đủ cặp thì hiện tháng và ngày cách nhau bằng khoảng trắng. Danh sách tháng dùng tên viết tắt kiểu Mỹ trong cả hai ngôn ngữ: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec. Bảng chọn không có năm; khách có thể cuộn bằng cảm ứng hoặc dùng bàn phím, đóng bằng Done/Xong, Enter hoặc Escape và xóa phần chưa lưu.
+
+   Ô nguồn hỗ trợ gõ để tìm hoặc tạo lựa chọn theo B6; gợi ý tiếng Việt là Chọn hoặc nhập. Các nút mở và ô nguồn chừa khoảng cách cho mũi tên, có nhãn rõ ràng và thể hiện phần bị khóa. Hệ thống đóng bảng chọn khi đổi khách, bắt đầu lại hoặc rời tab Check-in trên POS. Khi bàn phím điện thoại mở hoặc xoay màn hình, bảng chọn tự điều chỉnh vào vùng còn nhìn thấy.
 
 ### Ví dụ
 
@@ -241,6 +246,10 @@ stateDiagram-v2
 | Hồ sơ đã có sinh nhật hôm nay nhưng chưa có nguồn | Hệ thống chúc mừng theo C11; khách vẫn có thể nhập nguồn. |
 | Khách mới nhập sinh nhật đúng hôm nay | Hệ thống lưu khi check-in thành công theo B8; không chúc mừng từ dữ liệu vừa nhập theo C11. |
 | Khách tắt nhạc rồi chọn lịch hẹn | Hệ thống giữ nhạc tắt theo C15. |
+| Chưa chọn sinh nhật | Nút ghi Month and day trong EN, Tháng và ngày trong VI theo D22. |
+| Chỉ chọn tháng 2 | Nút ghi Feb theo D22. |
+| Chỉ chọn ngày 15 | Nút ghi Day 15 trong EN, Ngày 15 trong VI theo D22. |
+| Chọn tháng 2 và ngày 15 | Nút ghi Feb 15 theo D22. |
 
 ### Tiêu chí chấp nhận
 
@@ -251,7 +260,7 @@ stateDiagram-v2
 - [ ] AC03: Khi hồ sơ chỉ có nguồn, chỉ trường sinh nhật xuất hiện theo A3.
 - [ ] AC04: Khi hồ sơ có đủ thông tin, phần bổ sung không xuất hiện theo A3.
 - [ ] AC05: Khi hồ sơ có ngày sinh đầy đủ, trường sinh nhật được ẩn theo A3.
-- [ ] AC06: Khi bỏ trống một hoặc cả hai ô sinh nhật, check-in vẫn tiếp tục theo B5.
+- [ ] AC06: Khi chưa chọn hoặc chỉ chọn một phần sinh nhật, check-in vẫn tiếp tục theo B5.
 - [ ] AC07: Khi chọn 29/02, hệ thống chấp nhận theo B5.
 - [ ] AC08: Khi chọn ngày không tồn tại, hệ thống báo lỗi theo B7.
 - [ ] AC09: Khi check-in thất bại, hồ sơ chưa được bổ sung theo B8.
@@ -282,8 +291,15 @@ stateDiagram-v2
 - [ ] AC28: Khi hiển thị khối thông tin khách, các hàng và cột chia theo D21, kể cả màn hình hẹp hơn 360 px.
 - [ ] AC29: Khi dùng Birthday bằng tiếng Anh hoặc tiếng Việt, placeholder và tên tháng đúng theo D22.
 - [ ] AC30: Khi dùng các trường chọn trên điện thoại hoặc desktop, nội dung và mũi tên không chồng nhau theo D22.
-- [ ] AC31: Khi hồ sơ chỉ có tháng hoặc ngày, hai ô hiển thị đúng phần đã lưu theo A3.
+- [ ] AC31: Khi hồ sơ chỉ có tháng hoặc ngày, nút sinh nhật và bảng chọn hiển thị đúng phần đã lưu theo A3.
 - [ ] AC32: Khi check-in với một phần sinh nhật hợp lệ, lần nhận diện tiếp theo đọc được phần đã lưu theo B5.
+- [ ] AC33: Khi mở nút Birthday, bảng chọn có hai cột cuộn bằng nhau và không có năm theo D21–D22.
+- [ ] AC34: Khi nhập nguồn mới, hệ thống giữ đúng nội dung hợp lệ theo B6.
+- [ ] AC35: Khi chọn Other có sẵn và bỏ trống mô tả, check-in vẫn hợp lệ theo B6.
+- [ ] AC36: Khi hai thiết bị cùng bổ sung nguồn, nguồn và mô tả được giữ thành một nhóm theo B9.
+- [ ] AC37: Khi đọc lookup công khai, mô tả nguồn đã lưu không xuất hiện theo D18.
+- [ ] AC38: Khi rời tab Check-in trên POS hoặc bắt đầu lại phiên, bảng chọn đóng theo D22.
+- [ ] AC39: Khi bàn phím điện thoại mở, bảng chọn vẫn nằm trong vùng nhìn thấy theo D22.
 
 ### Trường hợp ngoại lệ và cách xử lý
 
@@ -322,7 +338,11 @@ stateDiagram-v2
 
 #### Các quyết định còn mở
 
-Không còn quyết định nghiệp vụ mở về phong cách nhạc và hiệu ứng. Thông số mặc định khi triển khai nằm trong technical; đội phát triển tinh chỉnh bằng cách nghe và xem thực tế.
+| Mã | Nội dung chờ quyết định | Người phụ trách |
+| :--- | :--- | :--- |
+| OD3 | Đề xuất Book online chờ PO; chưa triển khai và không thay đổi các luồng booking/check-in hiện có. | PO |
+
+Phong cách nhạc và hiệu ứng đã chốt. Thông số mặc định khi triển khai nằm trong technical; đội phát triển tinh chỉnh bằng cách nghe và xem thực tế.
 
 #### Định hướng đã chốt
 
@@ -332,11 +352,13 @@ Không còn quyết định nghiệp vụ mở về phong cách nhạc và hiệ
 | QD2 | Hiệu ứng vừa phải, dễ thương; áp dụng C16. | Người dùng, ngày 19/10/2026 |
 | QD3 | Danh sách nguồn theo B6 và bố cục thông tin khách gọn theo D21–D22. | Người dùng, ngày 19/10/2026 |
 | QD4 | Dùng bản MP3 Happy Birthday người dùng cung cấp làm nhạc nền sinh nhật; nguồn file ghi trong phụ lục technical. | Người dùng, ngày 19/10/2026 |
+| QD5 | Thực hiện Birthday dạng nút mở hai cột cuộn và Found us via tìm kiếm/tự nhập theo A3, B5–B9, D21–D22. | Người dùng, ngày 20/10/2026 |
 
 #### Tài liệu và mã nguồn đối chiếu
 
 - Bản triển khai đang review: [PR backend #2232](https://github.com/vlink-group/vlink-nexora/pull/2232) và [PR frontend #1277](https://github.com/vlink-group/vlink-nexora-fe/pull/1277). Cả hai có nhánh đích `staging`; người dùng chỉ cho phép tạo PR review, chưa yêu cầu merge/deploy.
-- Backend cần hai migration `20261019150148_AddCustomerCheckInDetails` và `20261020025446_AllowPartialCustomerBirthday` trước khi chạy phiên bản mới. Ngày sinh đầy đủ cũ vẫn được ưu tiên; ngày/tháng riêng chỉ bổ sung khi khách chưa cung cấp năm sinh. Chi tiết dữ liệu tại technical → Cấu trúc lưu trữ.
+- Backend cần các migration `20261019150148_AddCustomerCheckInDetails`, `20261020025446_AllowPartialCustomerBirthday` và `20261020033109_AddCustomerAcquisitionSourceDetail` trước khi chạy đủ phiên bản mới. Ngày sinh đầy đủ cũ vẫn được ưu tiên; ngày/tháng riêng chỉ bổ sung khi khách chưa cung cấp năm sinh. Chi tiết dữ liệu tại technical → Cấu trúc lưu trữ.
+- Phần bổ sung hai control theo QD5 đã được kiểm chứng logic, browser giả lập và frontend nối API/DB local. Số liệu cùng giới hạn tại technical → Bổ sung hai control và nguồn tự nhập; kết quả này không thay cho kiểm tra thiết bị vật lý hoặc staging.
 - Tệp nhạc người dùng cung cấp: `Serge-Quadrado--Happy-Birthday-to-You-Instrumentals.mp3`. Đây là nguồn nhạc đã chọn tại QD4; việc ghi nhận file không chứng minh đã nghe thử trong ứng dụng hoặc deploy.
 - [Ticket #2042](https://github.com/vlink-group/vlink-nexora/issues/2042): yêu cầu đã bổ sung ngày 19/10/2026; hai câu trả lời trong phiên này làm rõ thời điểm và định nghĩa khách cũ.
 - Backend `staging`: `7475c0a43420b9ed136900371c8aaef8196c850d`; frontend `staging`: `8f76a1274e0a5c22cacdc36d24c57e9e8715ce42`. Đầu nhánh remote đã được đối chiếu cùng ngày; chưa chứng minh bản đang deploy trùng hai commit này.

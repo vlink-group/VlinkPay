@@ -15,7 +15,7 @@
 | Dòng xử lý | Tra cứu tối thiểu → chuẩn hóa trong repository → quản lý trong phiên → lưu cùng giao dịch check-in. |
 | Chúc mừng | Backend xác định sinh nhật hôm nay; frontend thử phát nhạc ngay khi nhận diện, có bật/tắt và dọn phiên. |
 | Tương thích | Giữ ngày sinh đầy đủ và nguồn tạo hồ sơ; bảo toàn API cũ và các đường check-in nhanh. |
-| Tình trạng | Đã commit/push và mở hai PR vào staging để review; chưa merge/deploy staging. Phụ lục ghi riêng phiên bản khảo sát và phiên bản triển khai. |
+| Tình trạng | Hai control và mô tả nguồn đã kiểm chứng local theo Phụ lục. Hai PR staging vẫn dùng để review; chưa merge/deploy hoặc kiểm tra trên thiết bị vật lý. |
 
 ### Tổng quan
 
@@ -38,8 +38,9 @@ Hướng này được đề xuất vì giữ thông tin sinh nhật đúng vớ
 | Hồ sơ khách tại tiệm | `Customer` | Entity hiện có, khớp theo business và số chuẩn hóa. |
 | Sinh nhật chưa có năm | `BirthdayMonth`, `BirthdayDay` | Hai cột nullable mới; sử dụng khi `DateOfBirth` chưa có. |
 | Nguồn khách biết đến tiệm | `AcquisitionSource` | Trường enum mới; độc lập với `Customer.Source`. |
+| Nguồn khách tự nhập | `AcquisitionSourceDetail` | Chuỗi tùy chọn, chỉ đi cùng Other; giới hạn 100 ký tự sau trim. |
 | Thông tin phục vụ check-in | `CheckInCustomerProfileDto` | Kết quả tối thiểu cho nhận diện và điều kiện hiển thị. |
-| Dữ liệu bổ sung khi gửi | `CustomerCheckInDetailsInput` | Nhóm ba trường nullable gửi trong `customerDetails`. |
+| Dữ liệu bổ sung khi gửi | `CustomerCheckInDetailsInput` | Tháng, ngày, nguồn và mô tả nguồn nullable trong `customerDetails`. |
 | Phiên nhận diện | `recognitionKey` | Khóa nội bộ frontend gắn tiệm, số chuẩn hóa và phiên, không phải dữ liệu lưu vào hồ sơ. |
 
 ### Vai trò người dùng
@@ -108,11 +109,11 @@ flowchart TD
 
 | Bước | Ai | Hành động | Kết quả kỹ thuật |
 | :--- | :--- | :--- | :--- |
-| 1 | Validator | Kiểm tra dữ liệu nhập | Chấp nhận không có `customerDetails`; kiểm tra cặp ngày/tháng và enum nếu có. |
+| 1 | Validator | Kiểm tra dữ liệu nhập | Chấp nhận không có `customerDetails`; kiểm tra từng phần sinh nhật, enum và mô tả nếu có. |
 | 2 | Handler | Mở hoặc dùng giao dịch hiện có | Mỗi lần retry số thứ tự có giao dịch riêng. |
 | 3 | Handler/scaffold | Resolve khách và lượt đến | Booking thiếu liên kết được xử lý bằng số chuẩn hóa của booking. |
 | 4 | Handler | Lưu bản ghi đang theo dõi | Customer mới có hàng trong DB nhưng chưa commit. |
-| 5 | Helper | Bổ sung có điều kiện ở DB | Mỗi nhóm chỉ cập nhật nếu vẫn trống; ngày và tháng được cập nhật cùng câu lệnh. |
+| 5 | Helper | Bổ sung có điều kiện ở DB | Ghép từng phần sinh nhật theo B5; nguồn và mô tả được cập nhật nguyên tử khi nguồn đang null. |
 | 6 | Handler | Commit giao dịch | Sau đó mới thực hiện SMS/thông báo theo vị trí hiện có. |
 | 7 | Handler | Gặp xung đột cần retry | Rollback, dọn tracker, resolve lại và thực hiện lại toàn bộ vòng. |
 
@@ -155,7 +156,7 @@ sequenceDiagram
 
 ### Cấu hình và quản trị hệ thống
 
-Không thêm package, dịch vụ âm thanh, bảng cấu hình tiệm hoặc cờ bật/tắt toàn hệ thống trong thiết kế này. Stack hiện có là .NET 8, EF Core/PostgreSQL, React 18, TypeScript, Vite, TanStack Query và FluentValidation.
+Frontend thêm `react-mobile-picker` 1.2.0 cho Birthday và dùng `react-select/creatable` đã có cho nguồn. Stack còn lại là .NET 8, EF Core/PostgreSQL, React 18, TypeScript, Vite, TanStack Query và FluentValidation. Thiết kế không thêm dịch vụ âm thanh, bảng cấu hình tiệm hoặc cờ bật/tắt toàn hệ thống.
 
 - Là người vận hành, tôi muốn backend được triển khai trước frontend để trường mới có hợp đồng rõ ràng.
 - Là người review, tôi muốn Swagger được sinh từ workflow hiện có để hợp đồng và code không lệch nhau.
@@ -202,7 +203,7 @@ Quy tắc nghiệp vụ đầy đủ nằm ở tài liệu business. Phần này
 
 1. **T1 — Ngày sinh hiệu lực (A3, B5):** `EffectiveBirthday(Customer)` ưu tiên `DateOfBirth.Month/Day`; nếu không có thì trả từng giá trị `BirthdayMonth/BirthdayDay`, kể cả khi còn thiếu một phần. `HasBirthday` chỉ true khi đủ cặp; lookup chỉ trả giá trị tháng/ngày khi cặp còn thiếu để tự điền.
 2. **T2 — Nhóm thông tin thiếu (A2–A4):** Backend trả object cho mọi hồ sơ khớp, kể cả `Name` trống; trả `null` chỉ khi thực sự không có hồ sơ. Frontend phân biệt null hợp lệ với query lỗi.
-3. **T3 — Ghi có điều kiện (B8–B9):** Helper cập nhật theo `Customer.Id` và `BusinessId`, trong giao dịch check-in. Với sinh nhật, helper khóa hàng khách trước khi đọc, ghép phần đang thiếu và kiểm tra cặp hiệu lực; sau đó ghi bằng `ExecuteUpdateAsync`. Nguồn được điền riêng khi còn null.
+3. **T3 — Ghi có điều kiện (B8–B9):** Helper cập nhật theo `Customer.Id` và `BusinessId`, trong giao dịch check-in. Với sinh nhật, helper khóa hàng khách trước khi đọc, ghép phần đang thiếu và kiểm tra cặp hiệu lực; sau đó ghi bằng `ExecuteUpdateAsync`. Với nguồn, một update có điều kiện `AcquisitionSource == null` ghi cả enum và mô tả đã trim, cùng audit; không sửa một phần của nhóm đã lưu.
 4. **T4 — Tương thích ngày sinh cũ (A3, B9):** Check-in không viết lại `DateOfBirth`. Khi chưa có ngày sinh đầy đủ, helper chỉ điền từng cột tháng/ngày đang null và giữ phần đã có. Không backfill năm giả hoặc đổi `Source`.
 
 #### B. Nhận diện và âm thanh
@@ -221,7 +222,7 @@ Quy tắc nghiệp vụ đầy đủ nằm ở tài liệu business. Phần này
 
 #### D. Bố cục và trường chọn
 
-13. **T13 — Bố cục gọn (D21–D22):** Frontend dùng cùng component trường bổ sung và thông số select trên các bề mặt. Thiết kế cụ thể nằm ở phần “Bố cục thông tin khách và trường chọn” bên dưới.
+13. **T13 — Bố cục gọn (D21–D22):** Frontend dùng chung nút Birthday mở wheel và nguồn có tìm kiếm/tự nhập trên các bề mặt. Trạng thái hoạt động của POS và thay đổi phiên phải đóng các menu; placement theo `visualViewport` để tránh bàn phím điện thoại. Thiết kế cụ thể nằm ở phần “Bố cục thông tin khách và trường chọn” bên dưới.
 
 ### Ví dụ hợp đồng
 
@@ -243,11 +244,11 @@ Các API và trường dưới đây là hợp đồng triển khai trên nhánh
 
 `displayName` có thể là chuỗi rỗng khi hồ sơ chưa có tên. Khi không tìm thấy hồ sơ, kết quả ứng dụng là null; ASP.NET có thể trả `204` không có body (đã quan sát ở local) hoặc `200` kèm null. Client chấp nhận cả hai. Repository chuẩn hóa thành `{ customerExists: false, hasBirthday: false, hasAcquisitionSource: false, isBirthdayToday: false }`.
 
-Khi `hasBirthday=false`, lookup có thể trả `birthdayMonth=2, birthdayDay=null` hoặc ngược lại để session tự điền theo T1. Khi `hasBirthday=true`, cả hai giá trị trả null theo D18. Lookup không trả năm sinh, nguồn đã lưu, customer ID hoặc lịch sử dịch vụ trong DTO mới. Các thông tin lookup quầy cũ vẫn được giữ trong đường API riêng hiện có.
+Khi `hasBirthday=false`, lookup có thể trả `birthdayMonth=2, birthdayDay=null` hoặc ngược lại để session tự điền theo T1. Khi `hasBirthday=true`, cả hai giá trị trả null theo D18. Lookup không trả năm sinh, nguồn hoặc mô tả nguồn đã lưu, customer ID hay lịch sử dịch vụ trong DTO mới. Các thông tin lookup quầy cũ vẫn được giữ trong đường API riêng hiện có.
 
 #### API chi tiết để đối chiếu dữ liệu
 
-Nhân viên có quyền thao tác POS dùng `GET /api/v1/merchant/pos/{businessId}/customers/{customerId}` để đọc hồ sơ trong tiệm. Kết quả trả về bổ sung `birthdayMonth`, `birthdayDay` theo T1 và `acquisitionSource`; giữ `dateOfBirth` cùng các trường cũ. Các giá trị chưa có là null; nguồn trả chuỗi enum đã định nghĩa bên dưới.
+Nhân viên có quyền thao tác POS dùng `GET /api/v1/merchant/pos/{businessId}/customers/{customerId}` để đọc hồ sơ trong tiệm. Kết quả trả về bổ sung `birthdayMonth`, `birthdayDay` theo T1, `acquisitionSource` và `acquisitionSourceDetail`; giữ `dateOfBirth` cùng các trường cũ. Các giá trị chưa có là null; nguồn trả chuỗi enum đã định nghĩa bên dưới. Mô tả nguồn chỉ có trong API chi tiết có quyền, không thêm vào profile lookup.
 
 Ví dụ phần dữ liệu liên quan khi khách chỉ cung cấp ngày/tháng:
 
@@ -256,7 +257,8 @@ Ví dụ phần dữ liệu liên quan khi khách chỉ cung cấp ngày/tháng:
   "dateOfBirth": null,
   "birthdayMonth": 10,
   "birthdayDay": 19,
-  "acquisitionSource": "Google"
+  "acquisitionSource": "Other",
+  "acquisitionSourceDetail": "Local community"
 }
 ```
 
@@ -272,12 +274,13 @@ Ví dụ phần dữ liệu liên quan khi khách chỉ cung cấp ngày/tháng:
   "customerDetails": {
     "birthdayMonth": 10,
     "birthdayDay": 19,
-    "acquisitionSource": "Google"
+    "acquisitionSource": "Other",
+    "acquisitionSourceDetail": "Local community"
   }
 }
 ```
 
-Client có thể bỏ `customerDetails` hoặc gửi null. Trong object, tháng, ngày và nguồn có thể vắng độc lập theo B5–B6. Client không gửi lại các trường đang ẩn.
+Client có thể bỏ `customerDetails` hoặc gửi null. Trong object, tháng, ngày và nguồn có thể vắng độc lập theo B5–B6. `acquisitionSourceDetail` có thể vắng hoặc null kể cả khi nguồn là Other; chuỗi có nội dung chỉ hợp lệ cùng Other. Client không gửi lại các trường đang ẩn.
 
 #### Cấu trúc lưu trữ
 
@@ -287,11 +290,14 @@ Client có thể bỏ `customerDetails` hoặc gửi null. Trong object, tháng,
 | `Customer.BirthdayMonth` | `int?` mới | Null hoặc 1–12; có thể lưu riêng. |
 | `Customer.BirthdayDay` | `int?` mới | Null hoặc 1–31; khi có tháng, phải nằm trong số ngày thực của tháng theo năm nhuận tham chiếu. |
 | `Customer.AcquisitionSource` | `CustomerAcquisitionSource?` mới | Enum nullable; không có giá trị mặc định giả định. |
+| `Customer.AcquisitionSourceDetail` | `string?`, `varchar(100)` mới | Null hoặc nội dung đã trim dài 1–100 ký tự, chỉ khi nguồn là Other. |
 | `Customer.Source` | `CustomerSource` hiện có | Giữ ý nghĩa và giá trị hiện tại. |
 
 Enum mới cố định mã: `Facebook=0`, `Instagram=1`, `Google=2`, `Referral=3`, `Other=4`. JSON dùng chuỗi theo `JsonStringEnumConverter` hiện có. Validator phải từ chối giá trị ngoài tập hợp kể cả giá trị số không hợp lệ được converter chấp nhận.
 
 Migration `AddCustomerCheckInDetails` bổ sung ba cột nullable. Migration tiếp theo `AllowPartialCustomerBirthday` nới constraint để nhận từng phần theo B5; khi có đủ cặp vẫn kiểm tra ngày trên năm nhuận 2000. Năm 2000 chỉ phục vụ validation/constraint, không được ghi thành năm sinh. Constraint nguồn chỉ cho phép null hoặc năm mã enum từ 0 đến 4. Không backfill dữ liệu hoặc thêm index.
+
+Migration `20261020033109_AddCustomerAcquisitionSourceDetail` thêm cột mô tả nullable `character varying(100)`. Constraint `ck_customer_acquisition_source_detail` cho phép null; nếu có nội dung thì nguồn phải là Other (mã 4) và `LENGTH(BTRIM(...)) > 0`. Validator kiểm tra độ dài sau trim, writer lưu chuỗi đã trim hoặc null; Other không mô tả vẫn hợp lệ.
 
 #### Danh sách endpoint
 
@@ -302,7 +308,7 @@ Tất cả đường dẫn có tiền tố `/api/v1`.
 | Public lookup | `GET /checkin/{businessSlug}/customer-lookup?phone=...` | Giữ `displayName`; thêm bốn cờ của profile. |
 | Device lookup | `GET /pos-device/self-checkin/customer-lookup?phone=...` | Giữ `displayName`; thêm cùng bốn cờ. |
 | Quầy lookup mới | `GET /merchant/pos/{businessId}/checkin/customer-profile?phone=...` | Trả DTO tối thiểu mới sau kiểm tra quyền Operations. |
-| Chi tiết khách tại quầy | `GET /merchant/pos/{businessId}/customers/{customerId}` | Bổ sung tháng/ngày sinh và nguồn để đối chiếu hồ sơ sau lưu; có kiểm tra quyền. |
+| Chi tiết khách tại quầy | `GET /merchant/pos/{businessId}/customers/{customerId}` | Bổ sung tháng/ngày sinh, nguồn và mô tả nguồn; có kiểm tra quyền. |
 | Public walk-in | `POST /checkin/{businessSlug}/orders` | Thêm `customerDetails` ở request DTO và mapping sang command. |
 | Public booking | `POST /checkin/{businessSlug}/bookings/check-in` | Thêm `customerDetails` ở request DTO và mapping sang command. |
 | Device walk-in | `POST /pos-device/self-checkin/orders` | Thêm input vào command. |
@@ -323,6 +329,9 @@ Response thành công của các lệnh check-in giữ nguyên. Thông tin sinh 
 | 31/04, tháng 0/13 hoặc ngày không hợp lệ | HTTP 400, mã mới `POS_CHECKIN_BIRTHDAY_INVALID`. |
 | 29/02 | Hợp lệ. |
 | Nguồn ngoài năm lựa chọn | HTTP 400, mã mới `POS_CHECKIN_ACQUISITION_SOURCE_INVALID`. |
+| Other không gửi mô tả hoặc mô tả chỉ có khoảng trắng | Hợp lệ; writer lưu mô tả null. |
+| Mô tả nguồn có nội dung nhưng enum không phải Other hoặc thiếu enum | HTTP 400, `POS_CHECKIN_ACQUISITION_SOURCE_INVALID`. |
+| Mô tả dài hơn 100 ký tự sau trim | HTTP 400, `POS_CHECKIN_ACQUISITION_SOURCE_INVALID`. |
 | Profile đã được điền đủ trên thiết bị khác | POST thành công; helper giữ giá trị đã ghi trước. |
 | Body booking null theo client cũ | Check-in theo nội dung đã đặt, không thêm dữ liệu hồ sơ. |
 
@@ -334,9 +343,9 @@ Các path trong bảng này tính từ `backend/src/` của repository backend.
 
 | Path | Trạng thái | Trách nhiệm |
 | :--- | :--- | :--- |
-| `Domain/Entities/Customer.cs` | Sửa | Thêm ba thuộc tính nullable. |
+| `Domain/Entities/Customer.cs` | Sửa | Tháng, ngày, nguồn và mô tả nguồn nullable. |
 | `Domain/Enums/CustomerAcquisitionSource.cs` | Mới | Năm nguồn ổn định. |
-| `Domain/Constants/DomainErrorCode.cs` | Sửa | Ba mã validation mới. |
+| `Domain/Constants/DomainErrorCode.cs` | Sửa | Mã validation sinh nhật/nguồn; mô tả nguồn dùng lỗi nguồn hiện có. |
 | `Application/Features/Pos/CheckIn/Common/CustomerCheckInDetailsInput.cs` | Mới | Input và validator dùng chung. |
 | `Application/Features/Pos/CheckIn/Common/CheckInCustomerProfileReader.cs` | Mới | Resolve hồ sơ, sinh nhật hiệu lực, ngày tại tiệm và DTO tối thiểu. |
 | `Application/Features/Pos/CheckIn/Common/CustomerCheckInDetailsWriter.cs` | Mới | Hai cập nhật có điều kiện trong giao dịch đang mở. |
@@ -344,10 +353,11 @@ Các path trong bảng này tính từ `backend/src/` của repository backend.
 | `Application/Features/Pos/Orders/Common/PosCheckInOrderScaffold.cs` | Sửa | Mang input vào scaffold; bọc ghi order và phần bổ sung cùng transaction. |
 | Ba nhóm command walk-in và ba command booking trong bảng API | Sửa | Validator, truyền input, áp dụng writer và giữ nguyên side effect. |
 | Hai query lookup public/device trong phụ lục | Sửa | Dùng reader; không trả null chỉ vì tên trống. |
-| `Application/Features/Pos/Customers/Queries/GetPosCustomerDetail/GetPosCustomerDetailQuery.cs` | Sửa | Bổ sung ba trường đọc chi tiết, giữ quyền và phạm vi tiệm hiện có. |
+| `Application/Features/Pos/Customers/Queries/GetPosCustomerDetail/GetPosCustomerDetailQuery.cs` | Sửa | Bổ sung tháng/ngày, nguồn và mô tả; giữ quyền và phạm vi tiệm hiện có. |
 | Ba controller public/device/quầy và controller booking quầy | Sửa | Bổ sung mapping và endpoint minimal mới. |
 | `Infrastructure/Data/Configurations/Database/CustomerConfiguration.cs` | Sửa | Check constraint cho cặp sinh nhật và nguồn. |
 | `Infrastructure/Migrations/<timestamp>_AddCustomerCheckInDetails.*` | Sinh mới | Migration và snapshot bằng EF workflow hiện có. |
+| `Infrastructure/Migrations/20261020033109_AddCustomerAcquisitionSourceDetail.*` | Sinh mới | Cột mô tả nullable, constraint Other và snapshot do EF sinh. |
 | `Web/wwwroot/api/specification.json` | Sinh lại | Hợp đồng API từ NSwag, không sửa tay. |
 | `Web/wwwroot/api/web-api-client.ts` | Sinh lại | Client được cùng config NSwag sinh và đang được theo dõi trong Git. |
 
@@ -359,6 +369,7 @@ public record CustomerCheckInDetailsInput
     public int? BirthdayMonth { get; init; }
     public int? BirthdayDay { get; init; }
     public CustomerAcquisitionSource? AcquisitionSource { get; init; }
+    public string? AcquisitionSourceDetail { get; init; }
 }
 
 public record CheckInCustomerProfileDto(
@@ -380,7 +391,9 @@ Task ApplyMissingAsync(
 
 Reader là static helper thuộc Application; lấy timezone bằng `BookingTimeZoneLookup.ResolveZoneAsync` và `PosTimeClockOptions.DefaultTimeZone` hiện có. Caller cấp thời điểm UTC từ server. Kết quả `HasBirthday` dùng `EffectiveBirthday` theo T1; `IsBirthdayToday` so sánh cặp đó với ngày trong zone đã resolve.
 
-Writer kiểm tra `context.CurrentTransaction` khác null trước khi ghi. Với sinh nhật, helper đọc đúng hàng `Id`/`BusinessId` bằng `SELECT … FOR UPDATE`, bỏ qua khi có `DateOfBirth` hoặc đủ cặp, rồi ghép từng cột bằng giá trị đang lưu trước, dữ liệu mới sau. Validator kiểm tra kết quả ghép trước khi update; lỗi dùng `Nexora.Application.Common.Exceptions.ValidationException`. Với nguồn, điều kiện gồm `Id`, `BusinessId`, `AcquisitionSource == null`. Writer dùng `ExecuteUpdateAsync` nên chủ động cập nhật `LastModified/LastModifiedBy`. Handler truyền bộ audit hiện có; entity đã tracking không được lưu lại giá trị cũ sau cập nhật trực tiếp.
+Writer kiểm tra `context.CurrentTransaction` khác null trước khi ghi. Với sinh nhật, helper đọc đúng hàng `Id`/`BusinessId` bằng `SELECT … FOR UPDATE`, bỏ qua khi có `DateOfBirth` hoặc đủ cặp, rồi ghép từng cột bằng giá trị đang lưu trước, dữ liệu mới sau. Validator kiểm tra kết quả ghép trước khi update; lỗi dùng `Nexora.Application.Common.Exceptions.ValidationException`.
+
+Với nguồn, điều kiện gồm `Id`, `BusinessId`, `AcquisitionSource == null`. Writer trim mô tả, đổi chuỗi trắng thành null rồi ghi nguồn/mô tả trong cùng một `ExecuteUpdateAsync`; nguồn đã có thì bỏ qua cả nhóm. Writer chủ động cập nhật `LastModified/LastModifiedBy` cùng update vì thao tác trực tiếp bỏ qua interceptor. Handler truyền bộ audit hiện có; entity đã tracking không được lưu lại giá trị cũ sau cập nhật trực tiếp.
 
 Scaffold lưu các entity được tracking trước writer, gọi writer trong cùng transaction, rồi commit. Các booking handler đã có transaction thì chèn writer sau `SaveChangesAsync` và trước `CommitAsync`. Không bắt validation/writer lỗi rồi vẫn trả thành công.
 
@@ -408,6 +421,9 @@ Các path tính từ `src/` của repository frontend.
 | `components/checkin/useCheckInSession.ts` | Sửa | Nháp phần thiếu, khóa nhận diện, đường submit và check-in nhanh. |
 | `components/checkin/customerCheckInDetails.ts` | Mới | Validation nháp và dựng payload chỉ gồm trường còn thiếu. |
 | `components/checkin/parts/CustomerCheckInDetailsFields.tsx` | Mới | Hai trường dùng chung với điều kiện hiển thị. |
+| `components/checkin/parts/BirthdayPicker.tsx` | Mới | Một nút mở wheel tháng và ngày; giữ từng phần và khóa phần đã lưu. |
+| `components/checkin/parts/CustomerAcquisitionSourceSelect.tsx` | Mới | Searchable creatable nguồn; giữ nội dung khi blur và xử lý viewport bàn phím. |
+| `components/checkin/CheckInControlsActiveContext.ts` | Mới | Truyền trạng thái hoạt động để đóng menu của tab POS không còn hiện. |
 | `components/checkin/parts/CustomerIdentityCard.tsx` | Sửa | Gắn component mới trong giao diện một trang. |
 | `components/checkin/layouts/WizardCheckInLayout.tsx` | Sửa | Gắn component mới tại bước tên, trước chọn dịch vụ. |
 | `components/checkin/parts/CheckInBookingList.tsx` | Sửa | Một khối bổ sung chung trước danh sách; không lặp trong từng lịch hẹn. |
@@ -418,6 +434,8 @@ Các path tính từ `src/` của repository frontend.
 | `locales/en.json`, `locales/vi.json` | Sửa | Nhãn trường, nguồn, lỗi và lời chúc; không hardcode câu hiển thị. |
 
 Asset frontend tính từ repository root: `public/assets/audio/happy-birthday-instrumental.mp3` là bản sao nguyên byte của MP3 người dùng cung cấp. Đường dẫn phục vụ trên web là `/assets/audio/happy-birthday-instrumental.mp3`; thông tin nguồn nằm trong Phụ lục.
+
+`package.json` và `pnpm-lock.yaml` của frontend bổ sung `react-mobile-picker` đúng phiên bản 1.2.0; dùng lại `react-select` hiện có.
 
 Chuẩn hóa nội bộ đề xuất:
 
@@ -437,6 +455,7 @@ type CustomerCheckInDetailsInput = {
   birthdayMonth?: number | null
   birthdayDay?: number | null
   acquisitionSource?: CustomerAcquisitionSource | null
+  acquisitionSourceDetail?: string | null
 }
 
 type BirthdayAudioController = {
@@ -452,9 +471,11 @@ type BirthdayAudioController = {
 
 `getCustomerCheckInDetailsVisibility(profile)` dùng chung cho component và builder theo A2–A4. Khi profile `resolved`, các cờ `hasBirthday` và `hasAcquisitionSource` quyết định trường được hiện và đưa vào payload. Với `idle`, `loading` hoặc `unavailable`, cả hai trường được phép nhập; dữ liệu đã nhập vẫn được validate trước khi gửi. Null hợp lệ được repository chuyển thành profile khách mới. Các trạng thái chưa xác minh không được đổi thành khách mới hoặc đủ điều kiện chúc mừng.
 
-Chọn tháng/ngày bằng hai select, không dùng input date có năm. Ngày trong tháng cho phép chọn 29/02; nếu đổi tháng làm ngày đã chọn không hợp lệ, component xóa ngày đó để người thao tác chọn lại hoặc tiếp tục. Ô nguồn là select một lựa chọn. Nháp được dùng chung giữa hai layout và danh sách lịch hẹn; các input disable trong khi gửi.
+Birthday dùng một button mở `BirthdayPicker`. Popup dùng `react-mobile-picker` 1.2.0 với hai cột tháng và ngày bằng nhau, không có năm. Giá trị lựa chọn cập nhật nháp ngay; Done chỉ đóng popup, dữ liệu vẫn chỉ lưu khi check-in thành công. Phần tháng/ngày đã có trong profile chỉ xem, phần còn thiếu nhận giá trị tương thích theo A3.
 
-Khi chỉ chọn tháng hoặc ngày, frontend giữ giá trị đang chọn mà không hiện lỗi hoặc chặn bước tiếp theo theo B5. Builder bỏ cặp chưa đủ khỏi `customerDetails`; nguồn khách vẫn được gửi độc lập. Backend tiếp tục nhận sinh nhật dưới dạng cặp ngày/tháng hợp lệ.
+Khi chỉ chọn tháng hoặc ngày, frontend giữ giá trị đang chọn mà không hiện lỗi hoặc chặn bước tiếp theo theo B5. Builder gửi từng phần sinh nhật hợp lệ, ưu tiên phần đã có trong profile rồi ghép nháp; backend kiểm tra tổ hợp trong giao dịch. Nguồn và mô tả được gửi độc lập với sinh nhật; builder chỉ giữ mô tả đã trim khi nguồn là Other.
+
+`CustomerAcquisitionSourceSelect` dùng `react-select/creatable` có tìm kiếm và xóa lựa chọn. Chọn nguồn có sẵn gửi enum cũ và bỏ mô tả; nội dung mới gửi Other cùng `acquisitionSourceDetail`. Enter, Tab, blur hoặc chạm nút bên ngoài phải giữ nội dung hợp lệ đang gõ vào nháp trước khi check-in; thao tác reset không mang nội dung sang khách mới. Chuỗi chỉ có khoảng trắng không tạo nguồn mới, chuỗi trùng nguồn có sẵn dùng lại lựa chọn đó.
 
 `checkInBooking()` dùng cùng validator nháp và cùng hàm dựng `customerDetails` với `submit()`. Đường quầy không còn chỉ gọi `useCheckInBookingFromList(payload.bookingId)` khi có phần bổ sung; repository phải nhận body tùy chọn ngay cả khi không có `items`. Body thiếu `items` vẫn giữ dịch vụ đã đặt, không gửi mảng rỗng thay cho “giữ nguyên”.
 
@@ -469,23 +490,26 @@ Khi khung thông tin đủ rộng, frontend triển khai D21 bằng lưới hai 
 | Hàng | Cột trái | Cột phải |
 | :--- | :--- | :--- |
 | 1 | Phone | Name |
-| 2 | Birthday: hai select Month rồi Day bằng nhau, tỷ lệ 50/50 | Found us via |
+| 2 | Birthday (optional): một nút mở bảng chọn | Found us via (optional): tìm hoặc nhập nguồn |
 | 3 | Xác nhận SMS chiếm chiều rộng của khối | |
 
 Các tên trong bảng là nhãn tiếng Anh; bản tiếng Việt dùng nhãn dịch tương ứng. Wizard giữ bước xác nhận Phone hiện có; bước thông tin khách đặt hàng sinh nhật/nguồn dưới Name rồi đến SMS. Danh sách lịch hẹn dùng cùng hàng trường bổ sung trước các nút check-in nhanh.
 
 Khi chỉ thiếu một trường bổ sung, frontend chỉ render trường đó theo A3. Khi đủ cả hai thông tin, frontend bỏ cả hàng bổ sung. Component phải giữ nhãn và giá trị dễ đọc trên điện thoại, tablet và desktop.
 
-Session tự điền phần tháng/ngày đã lưu một lần theo `recognitionKey`. Component lấy phần đã lưu làm giá trị hiển thị và khóa ô đó; builder cũng ưu tiên giá trị hồ sơ để validation khớp kết quả backend ghép. Khi chỉ có ngày 31, các tháng không có ngày 31 bị vô hiệu hóa. Nếu lookup đến muộn, option ngày đã lưu vẫn được giữ để không có ô bị khóa mà hiển thị trống; tổ hợp không hợp lệ được báo ngay trên form. Draft nhập mới không tự làm ẩn hai ô trước khi lưu theo A3.
+Session tự điền phần tháng/ngày đã lưu một lần theo `recognitionKey`. Component khóa cột có dữ liệu đã lưu; builder cũng ưu tiên giá trị hồ sơ để validation khớp kết quả backend ghép. Khi chỉ có ngày 31, các tháng không có ngày 31 bị vô hiệu hóa. Lookup đến muộn vẫn giữ đúng giá trị bị khóa; tổ hợp không hợp lệ được báo trên form và nháp mới không tự làm ẩn nút sinh nhật trước khi lưu theo A3.
 
-Bên trong Birthday, hai select tháng/ngày luôn có chiều rộng bằng nhau: mỗi ô chiếm 50% phần chiều rộng còn lại sau khoảng cách giữa hai ô. Hàng Birthday/Found us via dùng `grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr))` với khoảng cách 12px. Với cỡ chữ gốc 16px, hai nhóm nằm cạnh nhau từ chiều rộng khung 348px; dưới ngưỡng này chúng xuống hai hàng theo D21. Cặp Month/Day vẫn giữ tỷ lệ 50/50.
+Bảng chọn sinh nhật có hai cột wheel Month và Day, mỗi cột chiếm 50% chiều rộng; form chỉ có một nút Birthday. Hàng Birthday/Found us via dùng `grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr))` với khoảng cách 12px. Với cỡ chữ gốc 16px, hai nhóm nằm cạnh nhau từ chiều rộng khung 348px; dưới ngưỡng này chúng xuống hai hàng theo D21.
 
 Ở màn hình 320 px, Phone và Name vẫn giữ hai cột. Frontend ẩn biểu tượng trang trí của ô Phone và giảm padding trái để số điện thoại định dạng Mỹ hiển thị đủ; từ 360 px, biểu tượng và padding trở lại như bình thường.
 
-- Placeholder dùng `Month` và `Day` trong tiếng Anh, `Tháng` và `Ngày` trong tiếng Việt theo D22. Danh sách tháng và giá trị đang chọn dùng cùng bộ tên tháng viết tắt kiểu Mỹ; mapping tháng 1–12 cố định, không đổi theo locale.
-- Mỗi select có một chevron kích thước 16px, căn giữa theo chiều dọc và cách mép phải 12px. Nội dung được chừa ít nhất 36px bên phải.
-- Với native select, frontend đặt trong wrapper relative và dùng `appearance-none pr-9` để ẩn mũi tên mặc định. Chevron dùng `pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2` để không chặn thao tác.
-- Frontend ưu tiên component select dùng chung hiện có. Custom dropdown giữ cùng khoảng cách; nhãn, bàn phím, focus và disabled vẫn hoạt động đầy đủ.
+- Nút trống ghi `Month and day` trong EN, `Tháng và ngày` trong VI. Có tháng thì hiện tên tháng viết tắt; chỉ có ngày thì thêm tiền tố Day hoặc Ngày; đủ cặp thì hiện tháng và ngày cách nhau bằng khoảng trắng. Các ví dụ tại business → Ví dụ; không dùng dấu gạch chéo để phân tách placeholder.
+- Hai wheel có lựa chọn rỗng để giữ sinh nhật tùy chọn. Tháng dùng Jan–Dec trong cả EN/VI; cột bị khóa chỉ có giá trị đã lưu và không nhận thao tác. Ngày chỉ hiện các giá trị tương thích; đổi tháng có thể xóa ngày vừa nhập không còn hợp lệ, nhưng không xóa phần đã lưu.
+- Picker hỗ trợ touch, phím mũi tên, Page Up, Page Down, Home, End và Tab giữa các phần có thể sửa. Done/Xong, Enter hoặc Escape đóng popup và trả focus về nút mở; Clear/Xóa chỉ xóa phần chưa lưu. Đóng popup giữ nháp hiện tại, không tạo cập nhật hồ sơ riêng.
+- Nút Birthday và nguồn có một chevron 16px căn giữa, cách mép phải 12px; phần nội dung chừa ít nhất 36px. Mũi tên trang trí không bắt sự kiện hoặc nhận focus; nút xóa lựa chọn nguồn có nhãn truy cập riêng.
+- Nguồn dùng placeholder EN theo locale hiện có, VI là `Chọn hoặc nhập`; menu gợi ý gồm năm nguồn theo B6 và lựa chọn tạo từ nội dung mới. Chuỗi hợp lệ đang gõ được giữ trước Enter, Tab, blur hoặc thao tác check-in; thao tác xóa nguồn cũng xóa mô tả trong nháp.
+- Popup/menu dùng portal vào `document.body`, căn theo nút mở và vùng `window.visualViewport` nếu có. Frontend theo dõi resize, scroll và offset của viewport để giới hạn chiều rộng/chiều cao, chọn mở lên hoặc xuống khi bàn phím điện thoại xuất hiện.
+- `CheckInControlsActiveContext` truyền trạng thái tab POS đang hiện. Khi inactive, submit, đổi phiên hoặc reset, control đóng menu và bỏ callback cũ; không tạo thay đổi nháp cho khách tiếp theo. Listener và portal được dọn khi unmount.
 
 #### Âm thanh và lời chúc
 
@@ -532,12 +556,17 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 - [ ] TC19: Controller phát đúng 6 giây đầu của asset MP3 đã chọn, không phát lặp tự động; kiểm tra nghe thực tế theo AC26.
 - [ ] TC20: Hiệu ứng kết thúc chuyển động theo cấu hình, giữ trang trí tĩnh và đáp ứng AC27 cùng reduced motion.
 - [ ] TC21: Khối thông tin khách đúng bố cục, tỷ lệ cột và thứ tự SMS theo T13 ở cả 320 px và từ 360 px, đáp ứng AC28.
-- [ ] TC22: Birthday dùng placeholder dễ hiểu theo ngôn ngữ và cùng bộ tên tháng Jan–Dec trong cả EN/VI, đáp ứng AC29 và D22.
-- [ ] TC23: Mỗi select có một chevron 16px, cách mép phải 12px và phần chữ có padding phải ít nhất 36px, đáp ứng AC30.
+- [ ] TC22: Nút Birthday hiển thị đúng trạng thái trống, chỉ tháng, chỉ ngày và đủ cặp theo D22; Jan–Dec dùng chung cho EN/VI, đáp ứng AC29.
+- [ ] TC23: Mỗi control có một chevron 16px, cách mép phải 12px và phần chữ chừa ít nhất 36px, đáp ứng AC30.
 - [ ] TC24: Prepare khi xác nhận số không tạo request MP3; request chỉ bắt đầu khi có yêu cầu phát cho hồ sơ đủ điều kiện theo T7.
-- [ ] TC25: API chi tiết trả đúng phần bổ sung sau lưu, dữ liệu null và ngày sinh cũ theo T1; không đọc được nếu thiếu quyền hoặc khách thuộc tiệm khác.
-- [ ] TC26: Lookup trả phần sinh nhật còn thiếu; client tự điền và khóa phần đã lưu, đáp ứng AC31. Ngày 31 chỉ cho chọn tháng tương thích.
+- [ ] TC25: API chi tiết trả tháng/ngày, ngày sinh cũ, nguồn và mô tả đúng theo quyền/tiệm; lookup công khai/thiết bị không trả mô tả theo D18, đáp ứng AC37.
+- [ ] TC26: Lookup trả phần sinh nhật còn thiếu; nút và wheel tự điền, khóa phần đã lưu, đáp ứng AC31. Ngày 31 chỉ cho chọn tháng tương thích.
 - [ ] TC27: API nhận tháng hoặc ngày độc lập, lần sau đọc lại để bổ sung; hai cập nhật đồng thời không làm mất một phần, đáp ứng AC32 và B9.
+- [ ] TC28: Birthday chỉ có một nút mở hai wheel bằng nhau, dùng được bằng touch/bàn phím và không có năm, đáp ứng AC33.
+- [ ] TC29: Source creatable gửi Other cùng mô tả đã trim dài tối đa 100; Other không mô tả vẫn hợp lệ, đáp ứng AC34–AC35.
+- [ ] TC30: Hai request bổ sung nguồn/mô tả không tạo nhóm trộn hoặc ghi đè nhóm đã có, đáp ứng AC36.
+- [ ] TC31: Inactive POS và reset đóng menu, callback cũ không đổi nháp khách mới, đáp ứng AC38.
+- [ ] TC32: Portal giữ popup/menu trong visual viewport khi bàn phím mở hoặc xoay điện thoại, đáp ứng AC39.
 
 ### Trường hợp ngoại lệ và cách xử lý
 
@@ -568,7 +597,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 
 ### Tính năng liên quan
 
-- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): nguồn quy tắc A1–D22 và định hướng đã chốt QD1–QD4.
+- [Tài liệu nghiệp vụ](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md): nguồn quy tắc A1–D22 và định hướng đã chốt QD1–QD5.
 - [Kế hoạch triển khai](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/implementation-plan.md): thứ tự thay đổi, kiểm chứng và phát hành.
 - [Check-in dùng chung](https://github.com/vlink-group/VlinkPay/blob/c28eb5766e31a33d897d4b8b6877e400775d7e7b/nexora/docs/business/references/POS-CheckIn-Single-Page-Spec.md): nền tảng lịch sử của session và layout; code hiện tại vẫn là nguồn xác nhận cấu trúc.
 
@@ -576,7 +605,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 
 #### Các quyết định còn mở
 
-Danh sách duy nhất nằm tại business → Các quyết định còn mở. Phong cách nhạc và hiệu ứng đã chốt tại QD1–QD2, file nhạc tại QD4; tài liệu này quy định các mặc định kỹ thuật để triển khai.
+Danh sách duy nhất nằm tại business → Các quyết định còn mở. Các control Birthday/Found us via theo QD5; đề xuất Book online theo OD3 chưa thuộc phạm vi triển khai. Tài liệu này giữ nguyên các đường booking/check-in hiện có.
 
 #### Nguồn asset âm thanh
 
@@ -626,12 +655,26 @@ Các file nguồn trong bảng thuộc hai SHA đã nêu. Đây là đường d�
 
 #### Bổ sung sinh nhật còn thiếu một phần — 20/10/2026
 
+Kết quả dưới đây thuộc đợt sinh nhật từng phần trước khi thay hai control theo QD5, không phải kết luận kiểm chứng cho phần mới.
+
 - Frontend đã đẩy commit `5f08288eba7c17010b54ecef4517039123ff0268` trong PR #1277. Backend đã đưa phần bổ sung vào nhánh review staging tại commit `9150958b71502c72a274c815df6d35f612204793` trong PR #2232; giữ nhánh tạo từ master riêng biệt.
 - Migration mới: `20261020025446_AllowPartialCustomerBirthday`. Đã áp dụng các thao tác constraint từ SQL do EF sinh trên database local cô lập `nexora_2042_runtime_20261019`. Database này khởi tạo từ current-model schema nên không ghi lịch sử migration trong lần kiểm chứng; file migration ứng dụng giữ nguyên do EF sinh.
 - Đã kiểm chứng: 77 test logic frontend, 48 trường hợp browser Chromium/WebKit mô phỏng phone/iPad, 16 kiểm tra validator/reader/writer với database thật, 7 ca HTTP cho phần sinh nhật lẻ và 14 ca HTTP hồi quy đều đạt.
 - Sáu bước UI nối API local thật trên public phone và thiết bị đã ghép nối đã đạt: lưu tháng, nhận diện lại để bổ sung ngày, rồi nhận diện hồ sơ đầy đủ để ẩn cả hai ô. Catalog/branding và active visit được giả lập; lookup và POST order dùng API/database local thật.
 - Build frontend và backend, gồm nhánh backend review staging, đều đạt. Full suite frontend còn 112 lỗi và một lỗi ngoài bài kiểm tra; tên lỗi trùng baseline, không có lỗi mới. Evidence chi tiết tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/partial-birthday/`.
 - Chưa merge/deploy hoặc chạy migration trên staging. Chưa xác minh phần bổ sung này trên thiết bị vật lý hay đăng nhập POS qua SSO với backend local.
+
+#### Bổ sung hai control và nguồn tự nhập — 20/10/2026
+
+- Yêu cầu được người dùng duyệt tại QD5: Birthday mở hai wheel và nguồn tìm kiếm/tự nhập. Book online chờ PO theo OD3; không thêm trường hoặc thay luồng đặt lịch trong đợt này.
+- Frontend dùng `react-mobile-picker` 1.2.0 và `react-select` hiện có; backend thêm migration `20261020033109_AddCustomerAcquisitionSourceDetail` cùng hợp đồng input/detail có quyền.
+- Phiên bản đã push và đối chiếu PR: frontend `f6fc9ff78` trong PR #1277; backend nhánh tính năng `8b9b88dc`, nhánh review staging `43a82a59` trong PR #2232. Cả hai PR có trạng thái mergeable tại lần kiểm tra này; chưa merge.
+- Kiểm chứng frontend: 104 test theo phạm vi thay đổi và 26 ca browser Chromium/WebKit đều đạt. Các ca phủ năm bề mặt, hai layout, EN/VI, phone 320/360 px, touch iPad giả lập, vùng nhìn cao 450 px mô phỏng bàn phím và check-in nhanh lịch hẹn.
+- Bản vá bổ sung giới hạn vị trí menu nguồn khi vùng nhìn chỉ còn cao 250 px đã qua hai ca Chromium/WebKit. Bản vá đã push trong commit `f6fc9ff78`; không gộp hai ca này vào số 26 ở trên.
+- Sáu lượt frontend nối API/DB local thật trên public và thiết bị đều đạt: lưu tháng cùng nguồn TikTok, bổ sung ngày ở phiên sau, rồi nhận diện hồ sơ đầy đủ để ẩn hai trường. Database giữ sinh nhật 29/02 và nhóm nguồn Other cùng mô tả TikTok.
+- Backend đạt 29 ca harness validator/DB, ba ca hợp đồng, 14 ca HTTP hồi quy và bảy ca HTTP nguồn tự nhập trên tiệm giả lập mới, tách khỏi dữ liệu dùng chung.
+- Build frontend production đạt. Full suite có 112 ca thất bại, 662 ca đạt và một lỗi ngoài bài kiểm tra, trùng baseline; typecheck có 83 lỗi trùng baseline. Cả hai đối chiếu không phát sinh lỗi mới, nhưng toàn bộ suite/typecheck chưa đạt.
+- Evidence nằm tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/compact-controls/`; đây là kiểm chứng local. Build/deploy trên GitHub đang skipped theo phạm vi chỉ review; chưa merge/deploy hoặc chạy kiểm chứng staging, chưa xác minh trên thiết bị vật lý.
 
 #### Tài liệu nền tảng trình duyệt
 
