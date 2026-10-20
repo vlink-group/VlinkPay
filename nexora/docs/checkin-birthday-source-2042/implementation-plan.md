@@ -2,7 +2,7 @@
 
 > Dành cho người triển khai: thực hiện từng task với skill `superpowers:executing-plans`. Chỉ dùng quy trình nhiều agent khi người dùng yêu cầu. Đọc cả business và technical trước khi sửa code; các ô dưới đây là việc dự kiến, chưa phải kết quả đã hoàn tất.
 
-**Cập nhật lần cuối:** 19/10/2026\
+**Cập nhật lần cuối:** 20/10/2026\
 **Đối tượng:** Phát triển backend/frontend, kiểm thử và người review\
 **Trạng thái:** Draft\
 **Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/implementation-plan.md)
@@ -25,7 +25,7 @@
 | Phạm vi | Bốn nơi check-in, hai layout, khách vãng lai và check-in từ lịch hẹn. |
 | Điều phải giữ | Chỉ bổ sung dữ liệu trống; lời chúc bắt đầu khi nhận diện; mọi lỗi âm thanh không cản check-in. |
 | Thời gian AI dự kiến | 14–20 giờ làm việc sau khi có quyền truy cập và môi trường chạy được. |
-| Tình trạng | Ứng dụng đã được sửa và kiểm tra tại local; chưa commit ứng dụng hoặc deploy staging. Các ô kế hoạch là yêu cầu công việc, không thay cho evidence thực tế. |
+| Tình trạng | Đã triển khai, kiểm tra local và mở PR backend trước, frontend sau vào staging để review. Chưa merge/deploy staging. Các ô kế hoạch giữ vai trò yêu cầu công việc; kết quả nằm trong evidence. |
 
 ### Tổng quan
 
@@ -231,7 +231,7 @@ dotnet build Nexora.sln
 - [ ] Thêm profile và nháp vào session, cùng generation nhận diện. Snapshot `birthdayEligibleAtRecognition` lấy từ lookup thành công đầu tiên, kể cả false/null-customer; refetch sau POST không đổi snapshot. Kết quả A về muộn sau khi đổi B không được áp dụng.
 - [ ] Seed cache A có birthday=true hoặc customer=null, rồi thử A→B→A và hủy/nhận diện lại A: chỉ response mạng của epoch mới được resolved. Ca qua ngày và hồ sơ được tạo từ máy khác phải cập nhật điều kiện đúng.
 - [ ] Thêm component trường tùy chọn ở một trang, bước tên của wizard và một khối chung trong danh sách lịch hẹn, gồm cả chế độ embedded.
-- [ ] Áp dụng bố cục T13: Phone/Name hai cột, hàng Birthday MM/DD và Found us via ngay dưới, SMS bên dưới. Cặp Birthday/Found us via bên ngoài và cặp MM/DD bên trong đều chia đều 50/50. Wizard giữ bước xác nhận Phone và dùng cùng hàng bổ sung dưới Name; chỉ render trường còn thiếu.
+- [ ] Áp dụng bố cục T13 và ngưỡng màn hình của D21: Phone/Name hai cột, nhóm Birthday MM/DD và Found us via ngay dưới, SMS bên dưới. Wizard giữ bước xác nhận Phone và dùng cùng nhóm bổ sung dưới Name; chỉ render trường còn thiếu.
 - [ ] Dùng placeholder MM/DD và tên tháng viết tắt Jan–Dec theo D22 cho cả EN/VI. Dùng một chevron 16px cách mép phải 12px, padding phải ít nhất 36px; native select dùng custom chevron theo T13.
 - [ ] Nối cùng builder/validator vào `submit()` và `checkInBooking()`. Với quầy check-in nhanh, gửi body có `customerDetails` và không tự thêm `items=[]`.
 - [ ] Thêm EN/VI, trạng thái disabled, nhãn tùy chọn, lỗi dễ hiểu và query invalidation sau thành công.
@@ -297,7 +297,7 @@ Trong test, fixture `profileWithBirthday` phải resolved, `customerExists=true`
 - [ ] Mở giao diện local với API đã chỉ định. Nếu dùng staging API chưa có backend mới thì chỉ ghi nhận kiểm chứng bố cục/mocks, không đánh dấu kiểm chứng tích hợp đã đạt.
 - [ ] Chạy ma trận trong Tiêu chí chấp nhận; ghi request/response, dữ liệu trước/sau và lỗi console/network cần thiết.
 - [ ] Chạy 375×667 và 390×844; tablet 768×1024 và 1024×768. Kiểm tra nút check-in, trường và card sinh nhật không che nhau.
-- [ ] Kiểm tra bố cục hai cột theo T13 trên phone và desktop, gồm lúc thiếu cả hai trường, chỉ thiếu một trường và đủ thông tin. Kiểm tra cặp Birthday/Found us via bên ngoài và cặp MM/DD bên trong đều chia đều 50/50. Mở từng select để kiểm tra tên tháng Jan–Dec trong cả EN/VI, chevron 16px/right 12px/padding phải ít nhất 36px và một mũi tên hiển thị.
+- [ ] Kiểm tra bố cục theo T13 ở 320 px, từ 360 px và desktop, gồm lúc thiếu cả hai trường, chỉ thiếu một trường và đủ thông tin. Mở từng select để kiểm tra tên tháng Jan–Dec trong cả EN/VI, chevron 16px/right 12px/padding phải ít nhất 36px và một mũi tên hiển thị.
 - [ ] Kiểm chứng trên trình duyệt desktop thực và Safari iPhone/iPad thực nếu có; nếu chỉ có mô phỏng viewport thì ghi rõ chưa xác minh âm thanh Safari thực.
 - [ ] Kiểm chứng việc tắt/bật nhạc bằng tai và trạng thái nút. Test mock chỉ bổ sung bằng chứng về lifecycle, không thay thế kiểm tra thiết bị phát âm thanh.
 - [ ] Kiểm tra Network: không có request MP3 từ prepare của khách không đủ điều kiện; khi nhận diện sinh nhật, asset cùng ứng dụng tải được và giải mã thành công. Kiểm tra bản build có asset theo đường dẫn web trong technical.
@@ -407,7 +407,7 @@ Kế hoạch thực hiện toàn bộ A1–D22 trong business và T1–T13 trong
 | Dọn phiên | Đổi số/tiệm; người khác cùng số; Cancel; Done; auto-return; unmount; tab nền | AC20/AC25 | Local + staging |
 | Quyền | Merchant sai tiệm; device sai/thu hồi token; public slug không hợp lệ | T9 | Local + staging |
 | Bố cục | Bốn bề mặt × hai layout; hai cột thông tin khách; chỉ hiện trường thiếu; phone/tablet/desktop; EN/VI; reduced motion | AC21/AC23/AC28, TC21 | Local + staging |
-| Trường chọn | Birthday/Found us via chia đều 50/50; MM/DD bên trong chia đều 50/50; Jan–Dec trong cả EN/VI; một chevron 16px, mép phải 12px, padding phải ít nhất 36px | AC28–AC30, TC21–TC23 | Local + staging |
+| Trường chọn | Bố cục tại 320 px và từ 360 px theo D21; Jan–Dec trong cả EN/VI; một chevron 16px, mép phải 12px, padding phải ít nhất 36px | AC28–AC30, TC21–TC23 | Local + staging |
 | Phong cách chúc mừng | Nghe đoạn nhạc và xem hiệu ứng nhỏ trên thiết bị thực | AC26/AC27, TC19/TC20 | Local + staging |
 | Tệp nhạc | Checksum bản sao MP3; tải theo nhu cầu; lỗi tải/giải mã; kết quả chậm sau dừng; đoạn phát 0–6 giây | QD4, T7/T8, TC10/TC19/TC24 | Local + staging |
 | Hồi quy | Dịch vụ, thợ, lịch hẹn, lượt đến, SMS, số thứ tự và direct checkout dùng chung scaffold | T11 | Local + staging |
@@ -469,6 +469,9 @@ Chỉ tạo thư mục test/evidence khi thực sự chạy kiểm chứng. File
 
 #### Tài liệu và phiên bản đầu vào
 
+- [PR backend #2232](https://github.com/vlink-group/vlink-nexora/pull/2232) được tạo trước [PR frontend #1277](https://github.com/vlink-group/vlink-nexora-fe/pull/1277). Người dùng cho phép tạo PR staging để review; Task 7 chưa có bản deploy để kiểm chứng.
+- Hai nhánh tính năng bắt đầu từ `master`: backend `716d2a5d09b1ae008d6e946907ca50636569d2cb`, frontend `0ee43ed25a97eff6491df1b4c300b63029222505`. Phiên bản triển khai và nhánh backend xử lý conflict được ghi tại technical → Nguồn mã và hợp đồng đã kiểm tra.
+- Kết quả và giới hạn kiểm chứng: `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/verification-result.json`. Các ca trên iPhone/iPad thật và staging chưa được xác minh.
 - File MP3 người dùng cung cấp: `Serge-Quadrado--Happy-Birthday-to-You-Instrumentals.mp3`; bản sao dự kiến tại `public/assets/audio/happy-birthday-instrumental.mp3` của frontend, phục vụ tại `/assets/audio/happy-birthday-instrumental.mp3`. Thông tin nguồn và giới hạn kiểm chứng tại Phụ lục technical.
 - [Business](business.md) và [technical](technical.md) là spec của kế hoạch này.
 - [Ticket #2042](https://github.com/vlink-group/vlink-nexora/issues/2042); bổ sung hai câu trả lời trực tiếp trong phiên ngày 19/10/2026.

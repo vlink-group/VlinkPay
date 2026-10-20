@@ -1,6 +1,6 @@
 ## Check-in — Thiết kế kỹ thuật cho ticket #2042
 
-**Cập nhật lần cuối:** 19/10/2026\
+**Cập nhật lần cuối:** 20/10/2026\
 **Đối tượng:** Phát triển backend/frontend, kiểm thử và người review\
 **Trạng thái:** Draft\
 **Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/technical.md)
@@ -15,7 +15,7 @@
 | Dòng xử lý | Tra cứu tối thiểu → chuẩn hóa trong repository → quản lý trong phiên → lưu cùng giao dịch check-in. |
 | Chúc mừng | Backend xác định sinh nhật hôm nay; frontend thử phát nhạc ngay khi nhận diện, có bật/tắt và dọn phiên. |
 | Tương thích | Giữ ngày sinh đầy đủ và nguồn tạo hồ sơ; bảo toàn API cũ và các đường check-in nhanh. |
-| Tình trạng | Đã có thay đổi trên nhánh local `enhance/2042-checkin-birthday-source`; chưa commit ứng dụng hoặc deploy staging. Bảng nguồn cuối tài liệu ghi riêng phiên bản khảo sát ban đầu. |
+| Tình trạng | Đã commit/push và mở hai PR vào staging để review; chưa merge/deploy staging. Phụ lục ghi riêng phiên bản khảo sát và phiên bản triển khai. |
 
 ### Tổng quan
 
@@ -451,7 +451,7 @@ Chọn tháng/ngày bằng hai select, không dùng input date có năm. Ngày t
 
 #### Bố cục thông tin khách và trường chọn
 
-Frontend triển khai D21 bằng lưới hai cột trong khối thông tin khách của giao diện một trang. Hàng Birthday/Found us via chia đều chiều rộng theo tỷ lệ 50/50:
+Từ chiều rộng màn hình 360 px, frontend triển khai D21 bằng lưới hai cột trong khối thông tin khách của giao diện một trang:
 
 | Hàng | Cột trái | Cột phải |
 | :--- | :--- | :--- |
@@ -463,7 +463,9 @@ Các tên trong bảng là nhãn tiếng Anh; bản tiếng Việt dùng nhãn d
 
 Khi chỉ thiếu một trường bổ sung, frontend chỉ render trường đó theo A3. Khi đủ cả hai thông tin, frontend bỏ cả hàng bổ sung. Component phải giữ nhãn và giá trị dễ đọc trên điện thoại, tablet và desktop.
 
-Bên trong Birthday, hai select tháng/ngày có chiều rộng bằng nhau: mỗi ô chiếm 50% phần chiều rộng còn lại sau khoảng cách giữa hai ô. Frontend dùng `grid-template-columns: repeat(2, minmax(0, 1fr))` cho cả hàng Birthday/Found us via bên ngoài và cặp MM/DD bên trong. Cả hai cặp đều giữ tỷ lệ 50/50.
+Bên trong Birthday, hai select tháng/ngày luôn có chiều rộng bằng nhau: mỗi ô chiếm 50% phần chiều rộng còn lại sau khoảng cách giữa hai ô. Từ 360 px, frontend dùng `grid-template-columns: repeat(2, minmax(0, 1fr))` cho hàng Birthday/Found us via bên ngoài. Dưới 360 px, hai nhóm bổ sung xếp thành hai hàng theo D21; cặp MM/DD vẫn giữ tỷ lệ 50/50.
+
+Ở màn hình 320 px, Phone và Name vẫn giữ hai cột. Frontend ẩn biểu tượng trang trí của ô Phone và giảm padding trái để số điện thoại định dạng Mỹ hiển thị đủ; từ 360 px, biểu tượng và padding trở lại như bình thường.
 
 - Cả tiếng Anh và tiếng Việt dùng placeholder `MM` và `DD`. Danh sách tháng và giá trị đang chọn dùng cùng bộ tên tháng viết tắt kiểu Mỹ tại D22; mapping tháng 1–12 cố định, không đổi theo locale.
 - Mỗi select có một chevron kích thước 16px, căn giữa theo chiều dọc và cách mép phải 12px. Nội dung được chừa ít nhất 36px bên phải.
@@ -514,7 +516,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 - [ ] TC18: Public trả lại lượt đã có từ client cũ vẫn ghi phần thiếu bằng transaction mà không tăng lượt, theo T10.
 - [ ] TC19: Controller phát đúng 6 giây đầu của asset MP3 đã chọn, không phát lặp tự động; kiểm tra nghe thực tế theo AC26.
 - [ ] TC20: Hiệu ứng kết thúc chuyển động theo cấu hình, giữ trang trí tĩnh và đáp ứng AC27 cùng reduced motion.
-- [ ] TC21: Khối thông tin khách đúng bố cục và thứ tự SMS theo T13; cả cặp Birthday/Found us via bên ngoài và cặp MM/DD bên trong đều bằng nhau theo tỷ lệ 50/50, đáp ứng AC28.
+- [ ] TC21: Khối thông tin khách đúng bố cục, tỷ lệ cột và thứ tự SMS theo T13 ở cả 320 px và từ 360 px, đáp ứng AC28.
 - [ ] TC22: Birthday dùng placeholder MM/DD và cùng bộ tên tháng Jan–Dec trong cả EN/VI, đáp ứng AC29.
 - [ ] TC23: Mỗi select có một chevron 16px, cách mép phải 12px và phần chữ có padding phải ít nhất 36px, đáp ứng AC30.
 - [ ] TC24: Prepare khi xác nhận số không tạo request MP3; request chỉ bắt đầu khi có yêu cầu phát cho hồ sơ đủ điều kiện theo T7.
@@ -572,7 +574,14 @@ Danh sách duy nhất nằm tại business → Các quyết định còn mở. P
 
 #### Nguồn mã và hợp đồng đã kiểm tra
 
-Mã backend đối chiếu tại `7475c0a43420b9ed136900371c8aaef8196c850d`; frontend tại `8f76a1274e0a5c22cacdc36d24c57e9e8715ce42`. Hai SHA trùng đầu nhánh remote `staging` tại thời điểm khảo sát ban đầu ngày 19/10/2026. Phần triển khai sau đó theo yêu cầu người dùng dùng `master`: backend `716d2a5d09b1ae008d6e946907ca50636569d2cb`, frontend `9fd2ddd471d7aff56a11f3604ec476cfd8b27039`; thay đổi ứng dụng hiện chưa commit. Kết quả kiểm chứng được lưu riêng trong thư mục evidence của workspace, không xem các bảng thiết kế là bằng chứng deploy.
+Mã khảo sát ban đầu ngày 19/10/2026: backend `staging` tại `7475c0a43420b9ed136900371c8aaef8196c850d`, frontend `staging` tại `8f76a1274e0a5c22cacdc36d24c57e9e8715ce42`. Bảng bên dưới mô tả đúng hai phiên bản khảo sát này.
+
+Theo yêu cầu người dùng, nhánh triển khai bắt đầu từ `master`: backend `716d2a5d09b1ae008d6e946907ca50636569d2cb`, frontend `0ee43ed25a97eff6491df1b4c300b63029222505`. Commit tính năng backend là `535bb5e0af1876f14f024ae4aa85461dfb41907a`; frontend là `d2f8a729da7cd9e8562a90c6f101963bb2287528`.
+
+- [PR backend #2232](https://github.com/vlink-group/vlink-nexora/pull/2232): nhánh `enhance/2042-checkin-birthday-source-staging` được tạo từ staging `7475c0a43420b9ed136900371c8aaef8196c850d` rồi merge nhánh tính năng. Commit `fe0d2aeb547ed0c7b7054431e3746713392a44dc` giữ Direct Checkout của staging và các thay đổi của ticket.
+- [PR frontend #1277](https://github.com/vlink-group/vlink-nexora-fe/pull/1277): nhánh `enhance/2042-checkin-birthday-source` vào staging. Đầu staging được đối chiếu lúc tạo PR là `bf227213a7156175aaba954b2b40273c988f5f2b`.
+
+Cả hai PR đang chờ review, chưa merge/deploy. Kết quả kiểm chứng và các giới hạn nằm tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/verification-result.json`. Tài liệu thiết kế không thay cho bằng chứng kiểm thử trên bản deploy.
 
 | Nguồn | Điều đã xác minh |
 | :--- | :--- |

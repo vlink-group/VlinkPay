@@ -1,6 +1,6 @@
 ## Check-in — Sinh nhật và nguồn khách biết đến tiệm
 
-**Cập nhật lần cuối:** 19/10/2026\
+**Cập nhật lần cuối:** 20/10/2026\
 **Đối tượng:** Đội sản phẩm, chủ tiệm, lễ tân, phát triển và kiểm thử\
 **Trạng thái:** Draft\
 **Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/2042-checkin-birthday-source/nexora/docs/checkin-birthday-source-2042/business.md)
@@ -15,7 +15,7 @@
 | Dòng dữ liệu | Xác nhận số → nhận diện hồ sơ → hiện trường còn thiếu và lời chúc phù hợp → lưu khi check-in thành công. |
 | Điều phải hiểu đúng | Sinh nhật chỉ gồm ngày/tháng; hai trường đều tùy chọn; dữ liệu đã có được giữ nguyên. |
 | Thời điểm chúc mừng | Ngay khi nhận diện khách đã có hồ sơ tại tiệm và hôm nay là sinh nhật đã lưu. |
-| Tình trạng | Có thay đổi ứng dụng và kiểm tra tại local; chưa commit ứng dụng hoặc deploy staging. Nội dung này mô tả yêu cầu, không thay cho bằng chứng kiểm thử. |
+| Tình trạng | Đã triển khai và kiểm tra local; đã mở PR backend/frontend vào staging để review. Chưa merge hoặc deploy staging. Liên kết PR nằm trong Phụ lục. |
 
 ### Tổng quan
 
@@ -227,7 +227,7 @@ stateDiagram-v2
 18. **D18 — Dữ liệu tối thiểu:** Màn tự check-in chỉ cần biết trường nào còn thiếu và có sinh nhật hôm nay hay không. Hệ thống không cần gửi lại ngày sinh đầy đủ hoặc nguồn đã lưu cho màn công khai.
 19. **D19 — Thiết bị và ngôn ngữ:** Hệ thống hỗ trợ mobile, tablet, bàn phím và hai ngôn ngữ hiện có. Khi người dùng giảm chuyển động, lời chúc vẫn đọc được mà không cần hiệu ứng động.
 20. **D20 — Số dùng chung:** Tính năng tiếp tục dùng hồ sơ khớp với số điện thoại của tiệm. Chọn check-in người khác dừng chúc mừng cho người đã nhận diện; ticket này không tạo cơ chế phân biệt nhiều người trong cùng một hồ sơ số điện thoại.
-21. **D21 — Bố cục thông tin khách:** Hệ thống xếp Phone và Name thành hai cột ở hàng đầu của giao diện một trang. Hàng tiếp theo chia đều 50/50 cho Birthday và Found us via; bên trong Birthday, hai ô MM/DD cũng chia đều 50/50, xác nhận SMS nằm dưới hàng này. Hệ thống chỉ hiện các trường bổ sung còn thiếu theo A2–A4. Giao diện từng bước giữ bước xác nhận số hiện có và đặt cùng hàng sinh nhật/nguồn dưới Name tại bước thông tin khách.
+21. **D21 — Bố cục thông tin khách:** Hệ thống xếp Phone và Name thành hai cột ở hàng đầu của giao diện một trang. Từ chiều rộng màn hình 360 px, hàng tiếp theo chia đều 50/50 cho Birthday và Found us via. Trên màn hình hẹp hơn, hai nhóm này xuống hai hàng để dễ đọc. Bên trong Birthday, hai ô MM/DD luôn chia đều 50/50; xác nhận SMS nằm dưới các trường. Hệ thống chỉ hiện các trường bổ sung còn thiếu theo A2–A4. Giao diện từng bước giữ bước xác nhận số hiện có và đặt cùng nhóm sinh nhật/nguồn dưới Name tại bước thông tin khách.
 22. **D22 — Trường chọn dễ đọc:** Hệ thống chừa khoảng cách giữa nội dung đã chọn và mũi tên bên phải để hai phần không chồng nhau. Riêng Birthday dùng placeholder MM/DD và tên tháng viết tắt kiểu Mỹ trong cả bản tiếng Anh lẫn tiếng Việt: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec. Các trường chọn vẫn dùng được bằng bàn phím, có nhãn rõ ràng và thể hiện trạng thái đang chọn hoặc đang bị khóa.
 
 ### Ví dụ
@@ -279,7 +279,7 @@ stateDiagram-v2
 
 #### Bố cục thông tin khách
 
-- [ ] AC28: Khi hiển thị khối thông tin khách, các hàng và cột đúng theo D21; cả cặp Birthday/Found us via và cặp MM/DD có chiều rộng chia đều 50/50.
+- [ ] AC28: Khi hiển thị khối thông tin khách, các hàng và cột chia theo D21, kể cả màn hình hẹp hơn 360 px.
 - [ ] AC29: Khi dùng Birthday bằng tiếng Anh hoặc tiếng Việt, placeholder và tên tháng đúng theo D22.
 - [ ] AC30: Khi dùng các trường chọn trên điện thoại hoặc desktop, nội dung và mũi tên không chồng nhau theo D22.
 
@@ -333,6 +333,8 @@ Không còn quyết định nghiệp vụ mở về phong cách nhạc và hiệ
 
 #### Tài liệu và mã nguồn đối chiếu
 
+- Bản triển khai đang review: [PR backend #2232](https://github.com/vlink-group/vlink-nexora/pull/2232) và [PR frontend #1277](https://github.com/vlink-group/vlink-nexora-fe/pull/1277). Cả hai có nhánh đích `staging`; người dùng chỉ cho phép tạo PR review, chưa yêu cầu merge/deploy.
+- Backend cần migration `20261019150148_AddCustomerCheckInDetails` trước khi chạy phiên bản mới. Ngày sinh đầy đủ cũ vẫn được ưu tiên; ngày/tháng riêng chỉ bổ sung khi khách chưa cung cấp năm sinh. Chi tiết dữ liệu tại technical → Cấu trúc lưu trữ.
 - Tệp nhạc người dùng cung cấp: `Serge-Quadrado--Happy-Birthday-to-You-Instrumentals.mp3`. Đây là nguồn nhạc đã chọn tại QD4; việc ghi nhận file không chứng minh đã nghe thử trong ứng dụng hoặc deploy.
 - [Ticket #2042](https://github.com/vlink-group/vlink-nexora/issues/2042): yêu cầu đã bổ sung ngày 19/10/2026; hai câu trả lời trong phiên này làm rõ thời điểm và định nghĩa khách cũ.
 - Backend `staging`: `7475c0a43420b9ed136900371c8aaef8196c850d`; frontend `staging`: `8f76a1274e0a5c22cacdc36d24c57e9e8715ce42`. Đầu nhánh remote đã được đối chiếu cùng ngày; chưa chứng minh bản đang deploy trùng hai commit này.
