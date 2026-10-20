@@ -353,6 +353,7 @@ Phong cách nhạc và hiệu ứng đã chốt. Thông số mặc định khi t
 | QD3 | Danh sách nguồn theo B6 và bố cục thông tin khách gọn theo D21–D22. | Người dùng, ngày 19/10/2026 |
 | QD4 | Dùng bản MP3 Happy Birthday người dùng cung cấp làm nhạc nền sinh nhật; nguồn file ghi trong phụ lục technical. | Người dùng, ngày 19/10/2026 |
 | QD5 | Thực hiện Birthday dạng nút mở hai cột cuộn và Found us via tìm kiếm/tự nhập theo A3, B5–B9, D21–D22. | Người dùng, ngày 20/10/2026 |
+| QD6 | Giữ riêng nguồn khách biết đến tiệm và mô tả tự nhập; giữ nguyên nguồn tạo hồ sơ đang dùng ở Customers và thống kê check-in. | Người dùng, ngày 20/10/2026 |
 
 #### Tài liệu và mã nguồn đối chiếu
 

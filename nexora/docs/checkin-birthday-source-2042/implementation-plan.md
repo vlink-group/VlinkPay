@@ -474,6 +474,13 @@ Người dùng yêu cầu giảm số file/commit và giữ nguyên các luồng
 
 Phiên bản sau khi gộp: nhánh tính năng `02cb899f`, nhánh review staging `0b378255`. PR #2232 còn một commit và 27 file. Evidence đợt này tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/migration-consolidation/`.
 
+#### Bổ sung 20/10: Giữ riêng nguồn khách theo QD6
+
+- [x] Khôi phục phần thử gom cột chưa commit; giữ `AcquisitionSource` và `AcquisitionSourceDetail`, không đổi enum hay giá trị `Source` cũ.
+- [x] Giữ một migration `20261020040223_AddCustomerCheckInDetails`; không phát hành migration thử dùng chung nguồn.
+- [x] Kiểm tra lại tám nguồn tạo hồ sơ: bổ sung nguồn khách vẫn giữ Source cũ; lookup chỉ ẩn ô nguồn khi AcquisitionSource đã có.
+- [x] Build đạt; SQL Up/Down, 54 ca validator/DB, 21 ca HTTP local và 104 kiểm tra frontend đạt sau khi khôi phục. Tài liệu chia sẻ cập nhật theo QD6; PR tiếp tục chỉ để review.
+
 ### Trường hợp ngoại lệ và cách xử lý
 
 | Tình huống | Cách tiếp tục | Người xử lý |

@@ -293,6 +293,8 @@ Client có thể bỏ `customerDetails` hoặc gửi null. Trong object, tháng,
 | `Customer.AcquisitionSourceDetail` | `string?`, `varchar(100)` mới | Null hoặc nội dung đã trim dài 1–100 ký tự, chỉ khi nguồn là Other. |
 | `Customer.Source` | `CustomerSource` hiện có | Giữ ý nghĩa và giá trị hiện tại. |
 
+Theo QD6, `Source` tiếp tục lưu kênh tạo hồ sơ và giữ nguyên mã 0–7. Check-in chỉ ghi `AcquisitionSource` và `AcquisitionSourceDetail`; việc bổ sung nguồn khách không thay `Source` đang được Customers và Check-in Overview sử dụng. Một khách có Source POS và AcquisitionSource Facebook vẫn giữ cả hai thông tin.
+
 Enum mới cố định mã: `Facebook=0`, `Instagram=1`, `Google=2`, `Referral=3`, `Other=4`. JSON dùng chuỗi theo `JsonStringEnumConverter` hiện có. Validator phải từ chối giá trị ngoài tập hợp kể cả giá trị số không hợp lệ được converter chấp nhận.
 
 Migration duy nhất `20261020040223_AddCustomerCheckInDetails` bổ sung bốn cột nullable trong bảng trên và ba constraint tương ứng. Sinh nhật có thể lưu từng phần theo B5; khi đủ cặp, constraint kiểm tra ngày trên năm nhuận tham chiếu 2000. Năm này chỉ dùng để kiểm tra, không được lưu thành năm sinh. Migration giữ nguyên dữ liệu và không thêm index.
