@@ -232,8 +232,8 @@ dotnet build Nexora.sln
 - [ ] Thêm profile và nháp vào session, cùng generation nhận diện. Snapshot `birthdayEligibleAtRecognition` lấy từ lookup thành công đầu tiên, kể cả false/null-customer; refetch sau POST không đổi snapshot. Kết quả A về muộn sau khi đổi B không được áp dụng.
 - [ ] Seed cache A có birthday=true hoặc customer=null, rồi thử A→B→A và hủy/nhận diện lại A: chỉ response mạng của epoch mới được resolved. Ca qua ngày và hồ sơ được tạo từ máy khác phải cập nhật điều kiện đúng.
 - [ ] Thêm component trường tùy chọn ở một trang, bước tên của wizard và một khối chung trong danh sách lịch hẹn, gồm cả chế độ embedded.
-- [ ] Áp dụng bố cục T13 và ngưỡng màn hình của D21: Phone/Name hai cột, nhóm Birthday MM/DD và Found us via ngay dưới, SMS bên dưới. Wizard giữ bước xác nhận Phone và dùng cùng nhóm bổ sung dưới Name; xét điều kiện hiển thị theo A2–A4.
-- [ ] Dùng placeholder MM/DD và tên tháng viết tắt Jan–Dec theo D22 cho cả EN/VI. Dùng một chevron 16px cách mép phải 12px, padding phải ít nhất 36px; native select dùng custom chevron theo T13.
+- [ ] Áp dụng bố cục T13 và khung thích ứng của D21: Phone/Name hai cột, nhóm Birthday Month/Day và Found us via ngay dưới, SMS bên dưới. Wizard giữ bước xác nhận Phone và dùng cùng nhóm bổ sung dưới Name; xét điều kiện hiển thị theo A2–A4.
+- [ ] Dùng placeholder Month/Day trong tiếng Anh, Tháng/Ngày trong tiếng Việt và tên tháng viết tắt Jan–Dec theo D22. Dùng một chevron 16px cách mép phải 12px, padding phải ít nhất 36px; native select dùng custom chevron theo T13.
 - [ ] Nối cùng builder/validator vào `submit()` và `checkInBooking()`. Với quầy check-in nhanh, gửi body có `customerDetails` và không tự thêm `items=[]`.
 - [ ] Thêm EN/VI, trạng thái disabled, nhãn tùy chọn, lỗi dễ hiểu và query invalidation sau thành công.
 - [ ] Chạy lại test hợp đồng tới khi đạt; kiểm tra repository tests/hook callers hiện có khi đổi method.

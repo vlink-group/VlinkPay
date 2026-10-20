@@ -458,23 +458,23 @@ Giao diện một trang chia khu vực thông tin/dịch vụ và phần tổng 
 
 Lưới dịch vụ tự tính số cột theo khoảng trống của danh mục, mỗi thẻ tối thiểu 140 px hoặc toàn bộ chiều rộng nếu khối hẹp hơn. Cách này áp dụng riêng cho danh mục ở check-in, gồm giao diện một trang và bước Services; tránh ép bốn thẻ vào một cột nội dung hẹp trên iPad.
 
-Từ chiều rộng màn hình 360 px, frontend triển khai D21 bằng lưới hai cột trong khối thông tin khách của giao diện một trang:
+Khi khung thông tin đủ rộng, frontend triển khai D21 bằng lưới hai cột trong giao diện một trang:
 
 | Hàng | Cột trái | Cột phải |
 | :--- | :--- | :--- |
 | 1 | Phone | Name |
-| 2 | Birthday: hai select MM rồi DD bằng nhau, tỷ lệ 50/50 | Found us via |
+| 2 | Birthday: hai select Month rồi Day bằng nhau, tỷ lệ 50/50 | Found us via |
 | 3 | Xác nhận SMS chiếm chiều rộng của khối | |
 
 Các tên trong bảng là nhãn tiếng Anh; bản tiếng Việt dùng nhãn dịch tương ứng. Wizard giữ bước xác nhận Phone hiện có; bước thông tin khách đặt hàng sinh nhật/nguồn dưới Name rồi đến SMS. Danh sách lịch hẹn dùng cùng hàng trường bổ sung trước các nút check-in nhanh.
 
 Khi chỉ thiếu một trường bổ sung, frontend chỉ render trường đó theo A3. Khi đủ cả hai thông tin, frontend bỏ cả hàng bổ sung. Component phải giữ nhãn và giá trị dễ đọc trên điện thoại, tablet và desktop.
 
-Bên trong Birthday, hai select tháng/ngày luôn có chiều rộng bằng nhau: mỗi ô chiếm 50% phần chiều rộng còn lại sau khoảng cách giữa hai ô. Từ 360 px, frontend dùng `grid-template-columns: repeat(2, minmax(0, 1fr))` cho hàng Birthday/Found us via bên ngoài. Dưới 360 px, hai nhóm bổ sung xếp thành hai hàng theo D21; cặp MM/DD vẫn giữ tỷ lệ 50/50.
+Bên trong Birthday, hai select tháng/ngày luôn có chiều rộng bằng nhau: mỗi ô chiếm 50% phần chiều rộng còn lại sau khoảng cách giữa hai ô. Hàng Birthday/Found us via dùng `grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr))` với khoảng cách 12px. Với cỡ chữ gốc 16px, hai nhóm nằm cạnh nhau từ chiều rộng khung 348px; dưới ngưỡng này chúng xuống hai hàng theo D21. Cặp Month/Day vẫn giữ tỷ lệ 50/50.
 
 Ở màn hình 320 px, Phone và Name vẫn giữ hai cột. Frontend ẩn biểu tượng trang trí của ô Phone và giảm padding trái để số điện thoại định dạng Mỹ hiển thị đủ; từ 360 px, biểu tượng và padding trở lại như bình thường.
 
-- Cả tiếng Anh và tiếng Việt dùng placeholder `MM` và `DD`. Danh sách tháng và giá trị đang chọn dùng cùng bộ tên tháng viết tắt kiểu Mỹ tại D22; mapping tháng 1–12 cố định, không đổi theo locale.
+- Placeholder dùng `Month` và `Day` trong tiếng Anh, `Tháng` và `Ngày` trong tiếng Việt theo D22. Danh sách tháng và giá trị đang chọn dùng cùng bộ tên tháng viết tắt kiểu Mỹ; mapping tháng 1–12 cố định, không đổi theo locale.
 - Mỗi select có một chevron kích thước 16px, căn giữa theo chiều dọc và cách mép phải 12px. Nội dung được chừa ít nhất 36px bên phải.
 - Với native select, frontend đặt trong wrapper relative và dùng `appearance-none pr-9` để ẩn mũi tên mặc định. Chevron dùng `pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2` để không chặn thao tác.
 - Frontend ưu tiên component select dùng chung hiện có. Custom dropdown giữ cùng khoảng cách; nhãn, bàn phím, focus và disabled vẫn hoạt động đầy đủ.
@@ -524,7 +524,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 - [ ] TC19: Controller phát đúng 6 giây đầu của asset MP3 đã chọn, không phát lặp tự động; kiểm tra nghe thực tế theo AC26.
 - [ ] TC20: Hiệu ứng kết thúc chuyển động theo cấu hình, giữ trang trí tĩnh và đáp ứng AC27 cùng reduced motion.
 - [ ] TC21: Khối thông tin khách đúng bố cục, tỷ lệ cột và thứ tự SMS theo T13 ở cả 320 px và từ 360 px, đáp ứng AC28.
-- [ ] TC22: Birthday dùng placeholder MM/DD và cùng bộ tên tháng Jan–Dec trong cả EN/VI, đáp ứng AC29.
+- [ ] TC22: Birthday dùng placeholder dễ hiểu theo ngôn ngữ và cùng bộ tên tháng Jan–Dec trong cả EN/VI, đáp ứng AC29 và D22.
 - [ ] TC23: Mỗi select có một chevron 16px, cách mép phải 12px và phần chữ có padding phải ít nhất 36px, đáp ứng AC30.
 - [ ] TC24: Prepare khi xác nhận số không tạo request MP3; request chỉ bắt đầu khi có yêu cầu phát cho hồ sơ đủ điều kiện theo T7.
 - [ ] TC25: API chi tiết trả đúng phần bổ sung sau lưu, dữ liệu null và ngày sinh cũ theo T1; không đọc được nếu thiếu quyền hoặc khách thuộc tiệm khác.
