@@ -295,9 +295,9 @@ Client có thể bỏ `customerDetails` hoặc gửi null. Trong object, tháng,
 
 Enum mới cố định mã: `Facebook=0`, `Instagram=1`, `Google=2`, `Referral=3`, `Other=4`. JSON dùng chuỗi theo `JsonStringEnumConverter` hiện có. Validator phải từ chối giá trị ngoài tập hợp kể cả giá trị số không hợp lệ được converter chấp nhận.
 
-Migration `AddCustomerCheckInDetails` bổ sung ba cột nullable. Migration tiếp theo `AllowPartialCustomerBirthday` nới constraint để nhận từng phần theo B5; khi có đủ cặp vẫn kiểm tra ngày trên năm nhuận 2000. Năm 2000 chỉ phục vụ validation/constraint, không được ghi thành năm sinh. Constraint nguồn chỉ cho phép null hoặc năm mã enum từ 0 đến 4. Không backfill dữ liệu hoặc thêm index.
+Migration duy nhất `20261020040223_AddCustomerCheckInDetails` bổ sung bốn cột nullable trong bảng trên và ba constraint tương ứng. Sinh nhật có thể lưu từng phần theo B5; khi đủ cặp, constraint kiểm tra ngày trên năm nhuận tham chiếu 2000. Năm này chỉ dùng để kiểm tra, không được lưu thành năm sinh. Migration giữ nguyên dữ liệu và không thêm index.
 
-Migration `20261020033109_AddCustomerAcquisitionSourceDetail` thêm cột mô tả nullable `character varying(100)`. Constraint `ck_customer_acquisition_source_detail` cho phép null; nếu có nội dung thì nguồn phải là Other (mã 4) và `LENGTH(BTRIM(...)) > 0`. Validator kiểm tra độ dài sau trim, writer lưu chuỗi đã trim hoặc null; Other không mô tả vẫn hợp lệ.
+Ngày 20/10, người dùng xác nhận ba migration trước chỉ được áp dụng trên database local cô lập, chưa chạy ở môi trường dùng chung. EF đã sinh lại một migration từ snapshot trước ticket, thay toàn bộ ba migration chưa phát hành. Cấu trúc dữ liệu cuối giữ nguyên như trước khi gộp; các kết quả cũ trong Phụ lục là lịch sử kiểm chứng của từng đợt.
 
 #### Danh sách endpoint
 
@@ -356,8 +356,7 @@ Các path trong bảng này tính từ `backend/src/` của repository backend.
 | `Application/Features/Pos/Customers/Queries/GetPosCustomerDetail/GetPosCustomerDetailQuery.cs` | Sửa | Bổ sung tháng/ngày, nguồn và mô tả; giữ quyền và phạm vi tiệm hiện có. |
 | Ba controller public/device/quầy và controller booking quầy | Sửa | Bổ sung mapping và endpoint minimal mới. |
 | `Infrastructure/Data/Configurations/Database/CustomerConfiguration.cs` | Sửa | Check constraint cho cặp sinh nhật và nguồn. |
-| `Infrastructure/Migrations/<timestamp>_AddCustomerCheckInDetails.*` | Sinh mới | Migration và snapshot bằng EF workflow hiện có. |
-| `Infrastructure/Migrations/20261020033109_AddCustomerAcquisitionSourceDetail.*` | Sinh mới | Cột mô tả nullable, constraint Other và snapshot do EF sinh. |
+| `Infrastructure/Migrations/20261020040223_AddCustomerCheckInDetails.*` và snapshot | Sinh mới | Một migration EF cho bốn cột và ba constraint cuối cùng. |
 | `Web/wwwroot/api/specification.json` | Sinh lại | Hợp đồng API từ NSwag, không sửa tay. |
 | `Web/wwwroot/api/web-api-client.ts` | Sinh lại | Client được cùng config NSwag sinh và đang được theo dõi trong Git. |
 
@@ -675,6 +674,15 @@ Kết quả dưới đây thuộc đợt sinh nhật từng phần trước khi 
 - Backend đạt 29 ca harness validator/DB, ba ca hợp đồng, 14 ca HTTP hồi quy và bảy ca HTTP nguồn tự nhập trên tiệm giả lập mới, tách khỏi dữ liệu dùng chung.
 - Build frontend production đạt. Full suite có 112 ca thất bại, 662 ca đạt và một lỗi ngoài bài kiểm tra, trùng baseline; typecheck có 83 lỗi trùng baseline. Cả hai đối chiếu không phát sinh lỗi mới, nhưng toàn bộ suite/typecheck chưa đạt.
 - Evidence nằm tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/compact-controls/`; đây là kiểm chứng local. Build/deploy trên GitHub đang skipped theo phạm vi chỉ review; chưa merge/deploy hoặc chạy kiểm chứng staging, chưa xác minh trên thiết bị vật lý.
+
+#### Gộp migration và lịch sử backend — 20/10/2026
+
+- Người dùng xác nhận ba migration cũ chỉ chạy trên database local cô lập. Migration hiện dùng là `20261020040223_AddCustomerCheckInDetails`; ba ID cũ trong các mục kiểm chứng bên trên là lịch sử trước khi gộp.
+- Backend nhánh tính năng `02cb899f`, nhánh review staging `0b378255`, mỗi nhánh có một commit tính năng. PR #2232 giảm từ 31 xuống 27 file. Cây mã nguồn sau squash trùng phiên bản đã build và kiểm chứng.
+- Bản review giữ nguyên các cập nhật hiện có của staging `e0c831c6`. Code Application/Domain/controller, hợp đồng API và snapshot dữ liệu của ticket không đổi so với trước khi gộp. Direct Checkout giữ nguyên code và hợp đồng.
+- EF sinh và build migration thành công; không phát sinh model drift. SQL Up/Down đã chạy trên bảng tạm local, kiểm tra giữ ngày sinh cũ, không backfill, sinh nhật từng phần và các constraint nguồn. Bảng ứng dụng hiện có không bị thay đổi trong kiểm chứng SQL này.
+- 29 ca validator/DB cùng 14 ca HTTP hồi quy và bảy ca HTTP nguồn tự nhập đều đạt trên binary mới. Các ca HTTP phủ check-in public/thiết bị, lịch hẹn, gửi lại yêu cầu, bảo toàn dữ liệu cũ, quyền truy cập và cập nhật đồng thời.
+- Evidence tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/migration-consolidation/`. Chưa merge/deploy hoặc chạy migration trên staging/production. Đợt gộp này không xác minh lại giao dịch Direct Checkout qua SSO/thanh toán thực; phần code và hợp đồng được đối chiếu byte-identical.
 
 #### Tài liệu nền tảng trình duyệt
 

@@ -357,7 +357,7 @@ Phong cách nhạc và hiệu ứng đã chốt. Thông số mặc định khi t
 #### Tài liệu và mã nguồn đối chiếu
 
 - Bản triển khai đang review: [PR backend #2232](https://github.com/vlink-group/vlink-nexora/pull/2232) và [PR frontend #1277](https://github.com/vlink-group/vlink-nexora-fe/pull/1277). Cả hai có nhánh đích `staging`; người dùng chỉ cho phép tạo PR review, chưa yêu cầu merge/deploy.
-- Backend cần các migration `20261019150148_AddCustomerCheckInDetails`, `20261020025446_AllowPartialCustomerBirthday` và `20261020033109_AddCustomerAcquisitionSourceDetail` trước khi chạy đủ phiên bản mới. Ngày sinh đầy đủ cũ vẫn được ưu tiên; ngày/tháng riêng chỉ bổ sung khi khách chưa cung cấp năm sinh. Chi tiết dữ liệu tại technical → Cấu trúc lưu trữ.
+- Backend cần migration duy nhất `20261020040223_AddCustomerCheckInDetails` trước khi chạy đủ phiên bản mới. Người dùng xác nhận ba migration cũ chỉ chạy local, nên các thay đổi được gộp trước khi phát hành. Ngày sinh đầy đủ cũ vẫn được ưu tiên; ngày/tháng riêng chỉ bổ sung khi khách chưa cung cấp năm sinh. Chi tiết dữ liệu tại technical → Cấu trúc lưu trữ.
 - Phần bổ sung hai control theo QD5 đã được kiểm chứng logic, browser giả lập và frontend nối API/DB local. Số liệu cùng giới hạn tại technical → Bổ sung hai control và nguồn tự nhập; kết quả này không thay cho kiểm tra thiết bị vật lý hoặc staging.
 - Tệp nhạc người dùng cung cấp: `Serge-Quadrado--Happy-Birthday-to-You-Instrumentals.mp3`. Đây là nguồn nhạc đã chọn tại QD4; việc ghi nhận file không chứng minh đã nghe thử trong ứng dụng hoặc deploy.
 - [Ticket #2042](https://github.com/vlink-group/vlink-nexora/issues/2042): yêu cầu đã bổ sung ngày 19/10/2026; hai câu trả lời trong phiên này làm rõ thời điểm và định nghĩa khách cũ.

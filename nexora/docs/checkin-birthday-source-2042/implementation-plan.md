@@ -150,8 +150,7 @@ flowchart TD
 - `backend/src/Application/Features/Pos/CheckIn/Common/CustomerCheckInDetailsInput.cs`
 - `backend/src/Application/Features/Pos/CheckIn/Common/CheckInCustomerProfileReader.cs`
 - `backend/src/Application/Features/Pos/CheckIn/Queries/GetCheckInCustomerProfile/GetCheckInCustomerProfileQuery.cs`
-- `backend/src/Infrastructure/Migrations/<timestamp>_AddCustomerCheckInDetails.cs` và Designer/snapshot do EF sinh.
-- `backend/src/Infrastructure/Migrations/20261020033109_AddCustomerAcquisitionSourceDetail.cs` cùng Designer/snapshot do EF sinh.
+- `backend/src/Infrastructure/Migrations/20261020040223_AddCustomerCheckInDetails.cs` cùng Designer/snapshot do EF sinh; một migration chứa đủ bốn cột và ba constraint.
 
 **Interfaces:** Nhận định nghĩa T1–T5; tạo `CustomerAcquisitionSource`, `CustomerCheckInDetailsInput`, `CheckInCustomerProfileDto` và `CheckInCustomerProfileReader.ReadAsync(...)` đúng technical.
 
@@ -161,7 +160,7 @@ flowchart TD
 - [ ] Thêm reader ưu tiên ngày sinh đầy đủ, dùng timezone resolver và `nowUtc` được caller truyền.
 - [ ] Mở rộng public/device lookup, thêm minimal query quầy; không sửa `CustomerLookupResolver` đang dùng chung public booking.
 - [ ] Bổ sung tháng/ngày sinh, nguồn và mô tả vào API chi tiết khách có đăng nhập; kiểm chứng giá trị mới/null và giới hạn quyền/tiệm theo TC25. Lookup công khai/thiết bị không trả nguồn hoặc mô tả đã lưu.
-- [ ] Sinh migration bằng workflow EF hiện có; review riêng migration detail thêm `varchar(100)` nullable và constraint Other/nonblank, cùng snapshot liên quan.
+- [ ] Sinh một migration bằng workflow EF hiện có; kiểm tra đủ bốn cột nullable, giới hạn mô tả 100 ký tự, ba constraint và snapshot liên quan.
 - [ ] Trên DB phát triển, kiểm chứng null/null, 29/02, 31/04, một cột null và enum ngoài tập hợp bằng API/constraint; hoàn nguyên dữ liệu mẫu nếu cần.
 - [ ] Kiểm chứng hồ sơ tên trống và hồ sơ chưa có lượt hoàn tất trả `customerExists=true`; không có hàng Customer trả null hợp lệ.
 - [ ] Kiểm chứng mốc UTC cố định bằng gọi reader trong debugger/immediate evaluation tại local: `2026-10-20T02:00:00Z`, tiệm `America/Chicago`, sinh nhật 19/10 phải là true; sinh nhật 20/10 là false. Đây là kiểm chứng có mốc, không đổi đồng hồ server staging.
@@ -461,6 +460,19 @@ Người dùng chọn thực hiện Birthday và Found us via; Book online chờ
 - [ ] Kiểm tra thiết bị vật lý và staging: chưa thực hiện; chưa merge/deploy theo phạm vi review hiện tại.
 
 Phiên bản frontend kiểm chứng là `f6fc9ff78`; backend nhánh tính năng `8b9b88dc`, nhánh review staging `43a82a59`. Evidence tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/compact-controls/`. Book online vẫn chờ PO theo OD3.
+
+#### Bổ sung 20/10: Gộp migration và commit backend
+
+Người dùng yêu cầu giảm số file/commit và giữ nguyên các luồng đang chạy. Người dùng đã xác nhận ba migration trước chỉ chạy database local cô lập, chưa áp dụng trên môi trường chung.
+
+- [x] Giữ nguyên code Application, Domain, controller và hợp đồng API của ticket; chỉ thay các file migration do EF sinh.
+- [x] Sinh `20261020040223_AddCustomerCheckInDetails` từ snapshot trước ticket, chứa đủ bốn cột nullable và ba constraint như trạng thái cuối của ba migration cũ.
+- [x] SQL Up/Down đạt trên bảng tạm local: giữ DateOfBirth, không backfill, nhận từng phần sinh nhật và mô tả nguồn hợp lệ; từ chối dữ liệu sai giới hạn/constraint.
+- [x] Giữ cập nhật staging `e0c831c6`; snapshot, Application/Domain/controller và hợp đồng API của ticket byte-identical so với bản trước khi gộp. Luồng Direct Checkout giữ nguyên code và hợp đồng.
+- [x] Build hai nhánh đạt; EF không báo model drift. 29 ca validator/DB và 21 ca HTTP local đạt. Mỗi nhánh BE đã gộp thành một commit, cây mã nguồn giữ nguyên so với phiên bản đã kiểm chứng.
+- [x] PR #2232 cập nhật bảng 27 file với một migration; tài liệu chia sẻ được cập nhật theo bản đã gộp. Giữ phạm vi chỉ review, chưa merge/deploy.
+
+Phiên bản sau khi gộp: nhánh tính năng `02cb899f`, nhánh review staging `0b378255`. PR #2232 còn một commit và 27 file. Evidence đợt này tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/migration-consolidation/`.
 
 ### Trường hợp ngoại lệ và cách xử lý
 
