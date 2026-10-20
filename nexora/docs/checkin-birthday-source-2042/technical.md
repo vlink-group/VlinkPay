@@ -446,7 +446,9 @@ type BirthdayAudioController = {
 
 `getCustomerCheckInDetailsVisibility(profile)` dùng chung cho component và builder theo A2–A4. Khi profile `resolved`, các cờ `hasBirthday` và `hasAcquisitionSource` quyết định trường được hiện và đưa vào payload. Với `idle`, `loading` hoặc `unavailable`, cả hai trường được phép nhập; dữ liệu đã nhập vẫn được validate trước khi gửi. Null hợp lệ được repository chuyển thành profile khách mới. Các trạng thái chưa xác minh không được đổi thành khách mới hoặc đủ điều kiện chúc mừng.
 
-Chọn tháng/ngày bằng hai select, không dùng input date có năm. Ngày trong tháng cho phép chọn 29/02; nếu đổi tháng làm ngày đã chọn không hợp lệ, component xóa ngày và hiển thị lỗi tương ứng nếu người dùng gửi. Ô nguồn là select một lựa chọn. Nháp được dùng chung giữa hai layout và danh sách lịch hẹn; các input disable trong khi gửi.
+Chọn tháng/ngày bằng hai select, không dùng input date có năm. Ngày trong tháng cho phép chọn 29/02; nếu đổi tháng làm ngày đã chọn không hợp lệ, component xóa ngày đó để người thao tác chọn lại hoặc tiếp tục. Ô nguồn là select một lựa chọn. Nháp được dùng chung giữa hai layout và danh sách lịch hẹn; các input disable trong khi gửi.
+
+Khi chỉ chọn tháng hoặc ngày, frontend giữ giá trị đang chọn mà không hiện lỗi hoặc chặn bước tiếp theo theo B5. Builder bỏ cặp chưa đủ khỏi `customerDetails`; nguồn khách vẫn được gửi độc lập. Backend tiếp tục nhận sinh nhật dưới dạng cặp ngày/tháng hợp lệ.
 
 `checkInBooking()` dùng cùng validator nháp và cùng hàm dựng `customerDetails` với `submit()`. Đường quầy không còn chỉ gọi `useCheckInBookingFromList(payload.bookingId)` khi có phần bổ sung; repository phải nhận body tùy chọn ngay cả khi không có `items`. Body thiếu `items` vẫn giữ dịch vụ đã đặt, không gửi mảng rỗng thay cho “giữ nguyên”.
 
@@ -587,6 +589,8 @@ Theo yêu cầu người dùng, nhánh triển khai bắt đầu từ `master`: 
 Commit frontend `0e2cb2132d035286d230bcfd641a8740bf9be18d` bổ sung sửa bố cục từ đợt kiểm tra iPad: khối check-in chia cột theo chiều rộng còn lại và thẻ dịch vụ tự tính số cột. Kết quả kiểm tra và giới hạn được lưu riêng trong evidence `nexora-2042/ipad/`.
 
 Commit frontend `7280b782faae7b1c50fa551b6921c83cb1d99977` cho phép nhập cả hai trường khi chưa xác minh được hồ sơ theo A4. Điều kiện hiển thị và dựng payload dùng chung; snapshot sinh nhật còn trống được chốt trước khi gửi để tránh chúc mừng từ ngày vừa nhập. Bằng chứng giao diện POS dùng API staging và các kiểm tra local nằm riêng trong evidence `nexora-2042/unknown-profile/`; các kiểm tra này chưa xác minh lưu thông tin trên staging.
+
+Commit frontend `479f2b4d008af48236a53c5ada77fb2f1768538e` thực hiện điều chỉnh B5 cho thao tác chọn riêng tháng hoặc ngày. Bằng chứng kiểm tra logic, giao diện phone/iPad giả lập và POS local nằm riêng trong evidence `nexora-2042/optional-birthday/`.
 
 - [PR backend #2232](https://github.com/vlink-group/vlink-nexora/pull/2232): nhánh `enhance/2042-checkin-birthday-source-staging` được tạo từ staging `7475c0a43420b9ed136900371c8aaef8196c850d` rồi merge nhánh tính năng. Commit `fe0d2aeb547ed0c7b7054431e3746713392a44dc` giữ Direct Checkout của staging và các thay đổi của ticket.
 - [PR frontend #1277](https://github.com/vlink-group/vlink-nexora-fe/pull/1277): nhánh `enhance/2042-checkin-birthday-source` vào staging. Đầu staging được đối chiếu lúc tạo PR là `bf227213a7156175aaba954b2b40273c988f5f2b`.

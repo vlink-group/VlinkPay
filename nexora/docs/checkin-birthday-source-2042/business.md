@@ -205,7 +205,7 @@ stateDiagram-v2
 
 #### B. Nhập và lưu dữ liệu
 
-5. **B5 — Sinh nhật tùy chọn:** Khách có thể bỏ trống cả ngày và tháng. Nếu nhập, khách phải chọn đủ cặp ngày/tháng hợp lệ; hệ thống chấp nhận 29/02 và không yêu cầu năm.
+5. **B5 — Sinh nhật tùy chọn:** Khách được chọn chỉ tháng, chỉ ngày hoặc bỏ trống mà không bị nhắc nhập đủ hay chặn check-in. Hệ thống chỉ gửi sinh nhật để lưu khi có đủ cặp ngày/tháng hợp lệ; chấp nhận 29/02 và không yêu cầu năm.
 6. **B6 — Nguồn tùy chọn:** Khách có thể bỏ trống hoặc chọn Facebook, Instagram, Google, Referral (bạn bè/người thân giới thiệu) hoặc Other (Khác). Other là lựa chọn có sẵn, không kèm ô mô tả tự do trong ticket này.
 7. **B7 — Thời điểm kiểm tra:** Hệ thống chỉ chặn phần gửi khi khách đã nhập giá trị không hợp lệ; việc bỏ trống hai thông tin không làm thay đổi điều kiện check-in hiện có.
 8. **B8 — Ghi nhận cùng lượt đến:** Hệ thống chỉ lưu thông tin bổ sung khi check-in thành công. Hủy phiên hoặc check-in thất bại không tạo cập nhật riêng cho hai thông tin này.
@@ -251,7 +251,7 @@ stateDiagram-v2
 - [ ] AC03: Khi hồ sơ chỉ có nguồn, chỉ trường sinh nhật xuất hiện theo A3.
 - [ ] AC04: Khi hồ sơ có đủ thông tin, phần bổ sung không xuất hiện theo A3.
 - [ ] AC05: Khi hồ sơ có ngày sinh đầy đủ, trường sinh nhật được ẩn theo A3.
-- [ ] AC06: Khi bỏ trống cả hai trường, check-in vẫn thành công theo B5–B7.
+- [ ] AC06: Khi bỏ trống một hoặc cả hai ô sinh nhật, check-in vẫn tiếp tục theo B5.
 - [ ] AC07: Khi chọn 29/02, hệ thống chấp nhận theo B5.
 - [ ] AC08: Khi chọn ngày không tồn tại, hệ thống báo lỗi theo B7.
 - [ ] AC09: Khi check-in thất bại, hồ sơ chưa được bổ sung theo B8.

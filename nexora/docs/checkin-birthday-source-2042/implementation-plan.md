@@ -220,12 +220,12 @@ dotnet build Nexora.sln
 
 **Files kiểm chứng mới, ngoài repository:** `vitest.config.ts`, `profile.test.ts`, `details.test.ts`, `session.test.tsx` trong thư mục scripts của ticket ở Phụ lục.
 
-**Interfaces:** Tạo `normalizeCheckInCustomerProfile(raw): CheckInProfileState` tại `data/repositories/checkInCustomerProfile.ts`; tạo `buildCustomerCheckInDetails(profile, draft): CustomerCheckInDetailsInput | undefined` và `validateCustomerCheckInDetails(draft)` tại `components/checkin/customerCheckInDetails.ts`. Error shape của validator: `{ birthday?: 'incomplete' | 'invalid'; acquisitionSource?: 'invalid' }`.
+**Interfaces:** Tạo `normalizeCheckInCustomerProfile(raw): CheckInProfileState` tại `data/repositories/checkInCustomerProfile.ts`; tạo `buildCustomerCheckInDetails(profile, draft): CustomerCheckInDetailsInput | undefined` và `validateCustomerCheckInDetails(draft)` tại `components/checkin/customerCheckInDetails.ts`. Error shape của validator: `{ birthday?: 'invalid'; acquisitionSource?: 'invalid' }`.
 
 - [ ] Tạo cấu hình Vitest ngoài repository bằng object export, `root` trỏ frontend, `test.include` trỏ tuyệt đối tới test ticket, `environment='jsdom'`, setup dùng `src/setupTests.ts`, alias `@` trỏ `src` và `esbuild.jsx='automatic'`. Cấu hình không ghi lại vào repository.
 - [ ] Viết assertion hợp đồng trước khi nối code: null hợp lệ thành khách mới; profile tên trống vẫn `customerExists=true`; lỗi query không được normalize thành khách mới.
 - [ ] Kiểm tra A4: profile chưa xác minh, API 404/503 hoặc thiếu metadata vẫn hiện cả hai trường; dữ liệu đã nhập được validate và gửi khi check-in thường hoặc nhanh. Bỏ trống cả hai vẫn check-in được; không tự phát lời chúc.
-- [ ] Viết assertion payload: profile đã có sinh nhật chỉ gửi nguồn; profile đủ dữ liệu trả undefined; ngày/tháng cùng trống hợp lệ; 31/04 và cặp thiếu bị từ chối; 29/02 hợp lệ.
+- [ ] Viết assertion payload: profile đã có sinh nhật chỉ gửi nguồn; profile đủ dữ liệu trả undefined; chỉ chọn tháng hoặc ngày vẫn tiếp tục và không gửi cặp thiếu; nguồn khách vẫn gửi độc lập; 31/04 bị từ chối; 29/02 hợp lệ.
 - [ ] Viết assertion danh sách nguồn chỉ có năm lựa chọn theo B6; gửi Other đúng mã hợp đồng và từ chối giá trị ngoài tập hợp.
 - [ ] Chạy test mới và xác nhận thất bại đúng vì chức năng chưa tồn tại.
 - [ ] Thêm enum/label, API types, normalizer, repository và hook. Device phải giữ metadata thay vì chỉ lấy tên; query quầy mới độc lập query lịch sử. Profile key gồm scope, số chuẩn hóa và recognitionKey; không dùng placeholder từ epoch trước.
@@ -243,7 +243,7 @@ dotnet build Nexora.sln
 ```ts
 expect(validateCustomerCheckInDetails({ birthdayMonth: 2, birthdayDay: 29 })).toEqual({})
 expect(validateCustomerCheckInDetails({ birthdayMonth: 4, birthdayDay: 31 })).toEqual({ birthday: 'invalid' })
-expect(validateCustomerCheckInDetails({ birthdayMonth: 2 })).toEqual({ birthday: 'incomplete' })
+expect(validateCustomerCheckInDetails({ birthdayMonth: 2 })).toEqual({})
 expect(buildCustomerCheckInDetails(profileWithBirthday, {
   birthdayMonth: 1, birthdayDay: 1, acquisitionSource: CustomerAcquisitionSource.Google,
 })).toEqual({ acquisitionSource: CustomerAcquisitionSource.Google })
@@ -398,7 +398,7 @@ Kế hoạch thực hiện toàn bộ A1–D22 trong business và T1–T13 trong
 | :--- | :--- | :--- | :--- |
 | Hiện trường | Chưa có hồ sơ; thiếu cả hai; thiếu sinh nhật; thiếu nguồn; đủ cả hai | AC01–AC05 | Local + staging |
 | Nhận diện | Tên trống; import; có lịch hẹn nhưng chưa hoàn tất dịch vụ | AC24, T2/T5 | Local + staging |
-| Nhập ngày | Không nhập; cặp thiếu; 29/02; 31/04 | AC06–AC08 | Local + staging |
+| Nhập ngày | Không nhập; chỉ tháng; chỉ ngày; 29/02; 31/04 | AC06–AC08 | Local + staging |
 | Nguồn | Từng lựa chọn hợp lệ và mã API không hợp lệ | B6/T1–T4 | Local + staging |
 | Lưu dữ liệu | Walk-in; booking có draft; check-in nhanh; client cũ không body | AC09–AC11, T10 | Local + staging |
 | Dữ liệu cũ | DateOfBirth đầy đủ; nguồn đã có; hai thiết bị ghi cạnh tranh | AC05/AC10 | Local + staging |
