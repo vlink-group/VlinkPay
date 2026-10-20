@@ -226,7 +226,7 @@ dotnet build Nexora.sln
 - [ ] Viết assertion hợp đồng trước khi nối code: null hợp lệ thành khách mới; profile tên trống vẫn `customerExists=true`; lỗi query không được normalize thành khách mới.
 - [ ] Kiểm tra A4: profile chưa xác minh, API 404/503 hoặc thiếu metadata vẫn hiện cả hai trường; dữ liệu đã nhập được validate và gửi khi check-in thường hoặc nhanh. Bỏ trống cả hai vẫn check-in được; không tự phát lời chúc.
 - [ ] Viết assertion payload: profile đã có sinh nhật chỉ gửi nguồn; profile đủ dữ liệu trả undefined; chỉ chọn tháng hoặc ngày vẫn tiếp tục và gửi phần đã nhập; nguồn khách vẫn gửi độc lập; 31/04 bị từ chối; 29/02 hợp lệ.
-- [ ] Viết assertion năm nguồn chuẩn theo B6 giữ nguyên mã; custom gửi Other cùng mô tả đã trim, Other không mô tả vẫn hợp lệ. Kiểm tra chuỗi trắng, 100/101 ký tự và mô tả đi với enum khác.
+- [ ] Viết assertion năm nguồn chuẩn theo B6 giữ nguyên mã; frontend chỉ gửi mã nguồn đã chọn và loại bỏ mô tả trong nháp cũ; Other không mở ô nhập thêm theo QD7.
 - [ ] Viết assertion Birthday chỉ có một nút mở hai wheel, không có năm, giữ trạng thái trống/từng phần và khóa phần đã lưu. Nút trống ghi Month and day hoặc Tháng và ngày; giá trị từng phần/đủ cặp theo ví dụ business.
 - [ ] Chạy test mới và xác nhận thất bại đúng vì chức năng chưa tồn tại.
 - [ ] Thêm enum/label, API types, normalizer, repository và hook. Device phải giữ metadata thay vì chỉ lấy tên; query quầy mới độc lập query lịch sử. Profile key gồm scope, số chuẩn hóa và recognitionKey; không dùng placeholder từ epoch trước.
@@ -300,7 +300,7 @@ Trong test, fixture `profileWithBirthday` phải resolved, `customerExists=true`
 - [ ] Mở giao diện local với API đã chỉ định. Nếu dùng staging API chưa có backend mới thì chỉ ghi nhận kiểm chứng bố cục/mocks, không đánh dấu kiểm chứng tích hợp đã đạt.
 - [ ] Chạy ma trận trong Tiêu chí chấp nhận; ghi request/response, dữ liệu trước/sau và lỗi console/network cần thiết.
 - [ ] Chạy 375×667 và 390×844; tablet 768×1024 và 1024×768. Kiểm tra nút check-in, trường và card sinh nhật không che nhau.
-- [ ] Kiểm tra bố cục theo T13 ở 320 px, từ 360 px và desktop, gồm lúc thiếu cả hai trường, chỉ thiếu một trường và đủ thông tin. Mở popup Birthday để kiểm tra hai wheel bằng nhau, touch/bàn phím và trạng thái khóa; kiểm tra nguồn tìm kiếm/tự nhập, chevron và khoảng cách chữ.
+- [ ] Kiểm tra bố cục theo T13 ở 320 px, từ 360 px và desktop, gồm lúc thiếu cả hai trường, chỉ thiếu một trường và đủ thông tin. Mở popup Birthday để kiểm tra hai wheel bằng nhau, touch/bàn phím và trạng thái khóa; kiểm tra nguồn chỉ chọn, chevron và khoảng cách chữ.
 - [ ] Mở bàn phím nguồn trên phone, đổi visualViewport và xoay màn hình: menu/popup vẫn nằm trong vùng nhìn thấy. Đổi tab POS hoặc reset khi menu đang mở phải dọn menu và bỏ callback cũ; kiểm tra Enter, Tab, blur, Clear/Xóa, Done/Xong và Escape.
 - [ ] Kiểm tra luồng tiệm trên iPad dọc/ngang, cả khi menu POS bên trái mở và thu gọn. Đối chiếu độ vừa chữ trong ô tháng/số điện thoại, thẻ dịch vụ và nút Remove bên trong khung; không chỉ kiểm tra tràn chiều rộng của cả trang.
 - [ ] Kiểm tra POS của chủ tiệm và nhân viên, đổi tab rồi quay lại, Done về danh sách ticket, số lượng/xóa dịch vụ, và check-in nhanh từ lịch hẹn. Ghi riêng kết quả mô phỏng iPad và kiểm tra trên thiết bị thật.
@@ -413,7 +413,7 @@ Kế hoạch thực hiện toàn bộ A1–D22 trong business và T1–T13 trong
 | Dọn phiên | Đổi số/tiệm; người khác cùng số; Cancel; Done; auto-return; unmount; tab nền | AC20/AC25 | Local + staging |
 | Quyền | Merchant sai tiệm; device sai/thu hồi token; public slug không hợp lệ; detail chỉ có ở API chi tiết có quyền | T9, D18, AC37 | Local + staging |
 | Bố cục | Bốn bề mặt × hai layout; hai cột thông tin khách; chỉ hiện trường thiếu; phone/tablet/desktop; EN/VI; reduced motion | AC21/AC23/AC28, TC21 | Local + staging |
-| Trường chọn | Một nút Birthday; hai wheel bằng nhau; placeholder dễ hiểu; partial/stored lock; source searchable/creatable; touch/bàn phím | AC28–AC35, TC21–TC29 | Local + staging |
+| Trường chọn | Một nút Birthday; hai wheel bằng nhau; placeholder dễ hiểu; partial/stored lock; source chỉ chọn; touch/bàn phím | AC28–AC35, TC21–TC29 | Local + staging |
 | Vòng đời menu | Inactive POS/reset; callback muộn; visualViewport khi bàn phím mở và khi xoay phone | AC38–AC39, TC31–TC32 | Local + staging |
 | Phong cách chúc mừng | Nghe đoạn nhạc và xem hiệu ứng nhỏ trên thiết bị thực | AC26/AC27, TC19/TC20 | Local + staging |
 | Tệp nhạc | Checksum bản sao MP3; tải theo nhu cầu; lỗi tải/giải mã; kết quả chậm sau dừng; đoạn phát 0–6 giây | QD4, T7/T8, TC10/TC19/TC24 | Local + staging |
@@ -535,3 +535,12 @@ Chỉ tạo thư mục test/evidence khi thực sự chạy kiểm chứng. File
 - [Ticket #2042](https://github.com/vlink-group/vlink-nexora/issues/2042); bổ sung hai câu trả lời trực tiếp trong phiên ngày 19/10/2026.
 - Backend `staging`: `7475c0a43420b9ed136900371c8aaef8196c850d`; frontend `staging`: `8f76a1274e0a5c22cacdc36d24c57e9e8715ce42`. Remote đã được đối chiếu; chưa xác minh bản deploy.
 - Glossary: `vlinkpay-docs/docs/glossary.md` trong workspace; các tên mới được chú giải trong hai tài liệu đầu vào.
+
+#### Điều chỉnh nguồn chỉ chọn — QD7, 20/10/2026
+
+- [x] Component chung dùng Select, tắt gõ và tạo nguồn mới; áp dụng các layout và danh sách lịch hẹn đang dùng chung trường này.
+- [x] Builder chỉ gửi mã nguồn đã chọn; Other không cần mô tả. Giữ hợp đồng và cột backend đã chốt tại QD6.
+- [x] 91 ca kiểm thử riêng ticket đạt. Kiểm tra trình duyệt local ở 390×844 và 820×1180: danh sách có đúng năm nguồn, chọn Other không mở ô nhập thêm. Đây là giả lập kích thước, chưa kiểm thử thiết bị vật lý hoặc staging cho thay đổi này.
+- [x] Build staging thành công. Bộ kiểm thử toàn dự án: 662 ca đạt, 112 ca lỗi và một lỗi chưa xử lý. Đối chiếu tên ca lỗi với lần chạy trước: không thêm hoặc mất ca lỗi; chưa khẳng định toàn dự án đã đạt.
+
+Các mục về nguồn tự nhập trong ghi nhận thực hiện trước đây là kết quả lịch sử trước QD7.

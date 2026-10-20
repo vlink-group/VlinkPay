@@ -46,7 +46,7 @@ Cả giao diện một trang và từng bước đều thuộc phạm vi. Màn �
 | Khách cũ | Người đã có hồ sơ khớp tại tiệm, kể cả hồ sơ tạo từ lịch hẹn hoặc nhập dữ liệu. |
 | Sinh nhật | Ngày và tháng sinh; không yêu cầu năm sinh. |
 | Nguồn khách biết đến tiệm | Kênh khiến khách biết tiệm và ghé sử dụng dịch vụ. |
-| Nguồn khách tự nhập | Tên kênh nằm ngoài danh sách có sẵn, được lưu cùng lựa chọn Other. |
+| Mô tả nguồn đã lưu | Nội dung bổ sung của nguồn Other từ phiên bản trước; form hiện tại không thu thập nội dung này. |
 | Nguồn tạo hồ sơ | Cách hệ thống ghi nhận hồ sơ, chẳng hạn cuộc gọi, web hoặc nhập thủ công. |
 | Phiên check-in | Từ khi bắt đầu nhập số đến khi hoàn tất, hủy, đổi số hoặc chuyển sang khách khác. |
 
@@ -209,7 +209,7 @@ stateDiagram-v2
 #### B. Nhập và lưu dữ liệu
 
 5. **B5 — Sinh nhật tùy chọn:** Khách được chọn chỉ tháng, chỉ ngày hoặc bỏ trống mà không bị nhắc nhập đủ hay chặn check-in. Hệ thống lưu từng phần hợp lệ khi check-in thành công để lần sau bổ sung theo A3. Tháng nhận 1–12, ngày nhận 1–31; khi ghép đủ cặp phải tạo thành ngày hợp lệ, chấp nhận 29/02 và không yêu cầu năm.
-6. **B6 — Nguồn tùy chọn:** Khách có thể bỏ trống, tìm rồi chọn Facebook, Instagram, Google, Referral (bạn bè/người thân giới thiệu), Other (Khác), hoặc nhập tên nguồn mới ngay trong cùng ô. Nguồn tự nhập được bỏ khoảng trắng đầu/cuối, tối đa 100 ký tự và lưu cùng lựa chọn Other. Nội dung chỉ có khoảng trắng được xem là chưa nhập; chọn Other có sẵn vẫn hợp lệ khi không kèm mô tả. Chọn một nguồn có sẵn khác dùng đúng mã của nguồn đó và không kèm mô tả tự nhập.
+6. **B6 — Nguồn tùy chọn:** Khách có thể bỏ trống hoặc chọn Facebook, Instagram, Google, Referral (bạn bè/người thân giới thiệu), Other (Khác). Ô nguồn chỉ cho chọn trong danh sách, không cho gõ hoặc tạo nguồn mới. Chọn Other không mở thêm ô nhập.
 7. **B7 — Thời điểm kiểm tra:** Hệ thống chỉ chặn phần gửi khi khách đã nhập giá trị không hợp lệ; việc bỏ trống hai thông tin không làm thay đổi điều kiện check-in hiện có.
 8. **B8 — Ghi nhận cùng lượt đến:** Hệ thống chỉ lưu thông tin bổ sung khi check-in thành công. Hủy phiên hoặc check-in thất bại không tạo cập nhật riêng cho hai thông tin này.
 9. **B9 — Bảo toàn dữ liệu:** Hệ thống chỉ điền trường đang thiếu tại thời điểm ghi. Dữ liệu đã có, kể cả dữ liệu được cập nhật trên thiết bị khác sau lúc tra cứu, không bị thay thế hay xóa bởi check-in. Nguồn và mô tả tự nhập là một nhóm, chỉ ghi cùng nhau khi nguồn đang trống; check-in không sửa riêng mô tả của nguồn đã lưu.
@@ -233,7 +233,7 @@ stateDiagram-v2
 21. **D21 — Bố cục thông tin khách:** Hệ thống xếp Phone và Name thành hai cột ở hàng đầu của giao diện một trang. Hàng tiếp theo chia đều 50/50 cho Birthday (optional) và Found us via (optional) khi khung đủ rộng; khung hẹp thì hai nhóm xuống hai hàng. Birthday chỉ có một nút mở bảng chọn; hai cột cuộn tháng và ngày bên trong bảng chia đều 50/50, xác nhận SMS nằm dưới các trường. Giao diện từng bước giữ bước xác nhận số hiện có, đặt cùng nhóm sinh nhật/nguồn dưới Name và xét hiển thị theo A2–A4.
 22. **D22 — Trường chọn dễ dùng:** Nút sinh nhật chưa có dữ liệu ghi Month and day trong tiếng Anh, Tháng và ngày trong tiếng Việt. Nút chỉ hiển thị phần đã chọn; khi chỉ có ngày, hệ thống thêm chữ Day hoặc Ngày, còn đủ cặp thì hiện tháng và ngày cách nhau bằng khoảng trắng. Danh sách tháng dùng tên viết tắt kiểu Mỹ trong cả hai ngôn ngữ: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec. Bảng chọn không có năm; khách có thể cuộn bằng cảm ứng hoặc dùng bàn phím, đóng bằng Done/Xong, Enter hoặc Escape và xóa phần chưa lưu.
 
-   Ô nguồn hỗ trợ gõ để tìm hoặc tạo lựa chọn theo B6; gợi ý tiếng Việt là Chọn hoặc nhập. Các nút mở và ô nguồn chừa khoảng cách cho mũi tên, có nhãn rõ ràng và thể hiện phần bị khóa. Hệ thống đóng bảng chọn khi đổi khách, bắt đầu lại hoặc rời tab Check-in trên POS. Khi bàn phím điện thoại mở hoặc xoay màn hình, bảng chọn tự điều chỉnh vào vùng còn nhìn thấy.
+   Ô nguồn áp dụng B6; gợi ý là How did you find us? trong tiếng Anh và Bạn biết tiệm qua đâu? trong tiếng Việt. Các nút mở và ô nguồn chừa khoảng cách cho mũi tên, có nhãn rõ ràng và thể hiện phần bị khóa. Hệ thống đóng bảng chọn khi đổi khách, bắt đầu lại hoặc rời tab Check-in trên POS. Bảng chọn tự điều chỉnh khi xoay màn hình.
 
 ### Ví dụ
 
@@ -294,8 +294,8 @@ stateDiagram-v2
 - [ ] AC31: Khi hồ sơ chỉ có tháng hoặc ngày, nút sinh nhật và bảng chọn hiển thị đúng phần đã lưu theo A3.
 - [ ] AC32: Khi check-in với một phần sinh nhật hợp lệ, lần nhận diện tiếp theo đọc được phần đã lưu theo B5.
 - [ ] AC33: Khi mở nút Birthday, bảng chọn có hai cột cuộn bằng nhau và không có năm theo D21–D22.
-- [ ] AC34: Khi nhập nguồn mới, hệ thống giữ đúng nội dung hợp lệ theo B6.
-- [ ] AC35: Khi chọn Other có sẵn và bỏ trống mô tả, check-in vẫn hợp lệ theo B6.
+- [ ] AC34: Khi mở Found us via, khách chỉ chọn được nguồn có sẵn theo B6.
+- [ ] AC35: Khi chọn Other, form không mở ô nhập thêm theo B6.
 - [ ] AC36: Khi hai thiết bị cùng bổ sung nguồn, nguồn và mô tả được giữ thành một nhóm theo B9.
 - [ ] AC37: Khi đọc lookup công khai, mô tả nguồn đã lưu không xuất hiện theo D18.
 - [ ] AC38: Khi rời tab Check-in trên POS hoặc bắt đầu lại phiên, bảng chọn đóng theo D22.
@@ -352,8 +352,9 @@ Phong cách nhạc và hiệu ứng đã chốt. Thông số mặc định khi t
 | QD2 | Hiệu ứng vừa phải, dễ thương; áp dụng C16. | Người dùng, ngày 19/10/2026 |
 | QD3 | Danh sách nguồn theo B6 và bố cục thông tin khách gọn theo D21–D22. | Người dùng, ngày 19/10/2026 |
 | QD4 | Dùng bản MP3 Happy Birthday người dùng cung cấp làm nhạc nền sinh nhật; nguồn file ghi trong phụ lục technical. | Người dùng, ngày 19/10/2026 |
-| QD5 | Thực hiện Birthday dạng nút mở hai cột cuộn và Found us via tìm kiếm/tự nhập theo A3, B5–B9, D21–D22. | Người dùng, ngày 20/10/2026 |
+| QD5 | Thực hiện Birthday dạng nút mở hai cột cuộn và Found us via tìm kiếm/tự nhập (phần nguồn được thay bằng QD7) theo A3, B5–B9, D21–D22. | Người dùng, ngày 20/10/2026 |
 | QD6 | Giữ riêng nguồn khách biết đến tiệm và mô tả tự nhập; giữ nguyên nguồn tạo hồ sơ đang dùng ở Customers và thống kê check-in. | Người dùng, ngày 20/10/2026 |
+| QD7 | Found us via chỉ chọn nguồn có sẵn theo B6; giữ hai cột nguồn đã chốt ở QD6. | Người dùng, ngày 20/10/2026 |
 
 #### Tài liệu và mã nguồn đối chiếu
 

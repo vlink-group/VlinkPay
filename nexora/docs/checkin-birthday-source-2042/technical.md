@@ -156,7 +156,7 @@ sequenceDiagram
 
 ### Cấu hình và quản trị hệ thống
 
-Frontend thêm `react-mobile-picker` 1.2.0 cho Birthday và dùng `react-select/creatable` đã có cho nguồn. Stack còn lại là .NET 8, EF Core/PostgreSQL, React 18, TypeScript, Vite, TanStack Query và FluentValidation. Thiết kế không thêm dịch vụ âm thanh, bảng cấu hình tiệm hoặc cờ bật/tắt toàn hệ thống.
+Frontend thêm `react-mobile-picker` 1.2.0 cho Birthday và dùng `react-select` với `isSearchable={false}` cho nguồn. Stack còn lại là .NET 8, EF Core/PostgreSQL, React 18, TypeScript, Vite, TanStack Query và FluentValidation. Thiết kế không thêm dịch vụ âm thanh, bảng cấu hình tiệm hoặc cờ bật/tắt toàn hệ thống.
 
 - Là người vận hành, tôi muốn backend được triển khai trước frontend để trường mới có hợp đồng rõ ràng.
 - Là người review, tôi muốn Swagger được sinh từ workflow hiện có để hợp đồng và code không lệch nhau.
@@ -222,7 +222,7 @@ Quy tắc nghiệp vụ đầy đủ nằm ở tài liệu business. Phần này
 
 #### D. Bố cục và trường chọn
 
-13. **T13 — Bố cục gọn (D21–D22):** Frontend dùng chung nút Birthday mở wheel và nguồn có tìm kiếm/tự nhập trên các bề mặt. Trạng thái hoạt động của POS và thay đổi phiên phải đóng các menu; placement theo `visualViewport` để tránh bàn phím điện thoại. Thiết kế cụ thể nằm ở phần “Bố cục thông tin khách và trường chọn” bên dưới.
+13. **T13 — Bố cục gọn (D21–D22):** Frontend dùng chung nút Birthday mở wheel và nguồn chỉ chọn trong danh sách trên các bề mặt. Trạng thái hoạt động của POS và thay đổi phiên phải đóng các menu; placement theo `visualViewport` để tránh bàn phím điện thoại. Thiết kế cụ thể nằm ở phần “Bố cục thông tin khách và trường chọn” bên dưới.
 
 ### Ví dụ hợp đồng
 
@@ -491,7 +491,7 @@ Khi khung thông tin đủ rộng, frontend triển khai D21 bằng lưới hai 
 | Hàng | Cột trái | Cột phải |
 | :--- | :--- | :--- |
 | 1 | Phone | Name |
-| 2 | Birthday (optional): một nút mở bảng chọn | Found us via (optional): tìm hoặc nhập nguồn |
+| 2 | Birthday (optional): một nút mở bảng chọn | Found us via (optional): chọn nguồn có sẵn |
 | 3 | Xác nhận SMS chiếm chiều rộng của khối | |
 
 Các tên trong bảng là nhãn tiếng Anh; bản tiếng Việt dùng nhãn dịch tương ứng. Wizard giữ bước xác nhận Phone hiện có; bước thông tin khách đặt hàng sinh nhật/nguồn dưới Name rồi đến SMS. Danh sách lịch hẹn dùng cùng hàng trường bổ sung trước các nút check-in nhanh.
@@ -508,7 +508,7 @@ Bảng chọn sinh nhật có hai cột wheel Month và Day, mỗi cột chiếm
 - Hai wheel có lựa chọn rỗng để giữ sinh nhật tùy chọn. Tháng dùng Jan–Dec trong cả EN/VI; cột bị khóa chỉ có giá trị đã lưu và không nhận thao tác. Ngày chỉ hiện các giá trị tương thích; đổi tháng có thể xóa ngày vừa nhập không còn hợp lệ, nhưng không xóa phần đã lưu.
 - Picker hỗ trợ touch, phím mũi tên, Page Up, Page Down, Home, End và Tab giữa các phần có thể sửa. Done/Xong, Enter hoặc Escape đóng popup và trả focus về nút mở; Clear/Xóa chỉ xóa phần chưa lưu. Đóng popup giữ nháp hiện tại, không tạo cập nhật hồ sơ riêng.
 - Nút Birthday và nguồn có một chevron 16px căn giữa, cách mép phải 12px; phần nội dung chừa ít nhất 36px. Mũi tên trang trí không bắt sự kiện hoặc nhận focus; nút xóa lựa chọn nguồn có nhãn truy cập riêng.
-- Nguồn dùng placeholder EN theo locale hiện có, VI là `Chọn hoặc nhập`; menu gợi ý gồm năm nguồn theo B6 và lựa chọn tạo từ nội dung mới. Chuỗi hợp lệ đang gõ được giữ trước Enter, Tab, blur hoặc thao tác check-in; thao tác xóa nguồn cũng xóa mô tả trong nháp.
+- Nguồn dùng placeholder `How did you find us?` trong EN và `Bạn biết tiệm qua đâu?` trong VI. Component dùng `Select`, tắt tìm kiếm và không tạo lựa chọn mới theo B6. Builder chỉ gửi `acquisitionSource`, bỏ mọi `acquisitionSourceDetail` còn sót trong nháp; xóa lựa chọn cũng xóa mô tả trong nháp. API và cột mô tả đã chốt vẫn được giữ để tương thích dữ liệu cũ.
 - Popup/menu dùng portal vào `document.body`, căn theo nút mở và vùng `window.visualViewport` nếu có. Frontend theo dõi resize, scroll và offset của viewport để giới hạn chiều rộng/chiều cao, chọn mở lên hoặc xuống khi bàn phím điện thoại xuất hiện.
 - `CheckInControlsActiveContext` truyền trạng thái tab POS đang hiện. Khi inactive, submit, đổi phiên hoặc reset, control đóng menu và bỏ callback cũ; không tạo thay đổi nháp cho khách tiếp theo. Listener và portal được dọn khi unmount.
 
@@ -564,7 +564,7 @@ Web Audio vẫn chịu chính sách autoplay. Việc chuẩn bị sau thao tác 
 - [ ] TC26: Lookup trả phần sinh nhật còn thiếu; nút và wheel tự điền, khóa phần đã lưu, đáp ứng AC31. Ngày 31 chỉ cho chọn tháng tương thích.
 - [ ] TC27: API nhận tháng hoặc ngày độc lập, lần sau đọc lại để bổ sung; hai cập nhật đồng thời không làm mất một phần, đáp ứng AC32 và B9.
 - [ ] TC28: Birthday chỉ có một nút mở hai wheel bằng nhau, dùng được bằng touch/bàn phím và không có năm, đáp ứng AC33.
-- [ ] TC29: Source creatable gửi Other cùng mô tả đã trim dài tối đa 100; Other không mô tả vẫn hợp lệ, đáp ứng AC34–AC35.
+- [ ] TC29: Ô nguồn không nhận chữ, có đúng năm lựa chọn; Other không mở ô nhập thêm, đáp ứng AC34–AC35.
 - [ ] TC30: Hai request bổ sung nguồn/mô tả không tạo nhóm trộn hoặc ghi đè nhóm đã có, đáp ứng AC36.
 - [ ] TC31: Inactive POS và reset đóng menu, callback cũ không đổi nháp khách mới, đáp ứng AC38.
 - [ ] TC32: Portal giữ popup/menu trong visual viewport khi bàn phím mở hoặc xoay điện thoại, đáp ứng AC39.
@@ -665,7 +665,7 @@ Kết quả dưới đây thuộc đợt sinh nhật từng phần trước khi 
 - Build frontend và backend, gồm nhánh backend review staging, đều đạt. Full suite frontend còn 112 lỗi và một lỗi ngoài bài kiểm tra; tên lỗi trùng baseline, không có lỗi mới. Evidence chi tiết tại `/Users/loinguyen/Documents/VLINKGROUP/vlinkpay/test/evidence/nexora-2042/partial-birthday/`.
 - Chưa merge/deploy hoặc chạy migration trên staging. Chưa xác minh phần bổ sung này trên thiết bị vật lý hay đăng nhập POS qua SSO với backend local.
 
-#### Bổ sung hai control và nguồn tự nhập — 20/10/2026
+#### Bổ sung hai control và nguồn tự nhập — 20/10/2026 (lịch sử trước QD7)
 
 - Yêu cầu được người dùng duyệt tại QD5: Birthday mở hai wheel và nguồn tìm kiếm/tự nhập. Book online chờ PO theo OD3; không thêm trường hoặc thay luồng đặt lịch trong đợt này.
 - Frontend dùng `react-mobile-picker` 1.2.0 và `react-select` hiện có; backend thêm migration `20261020033109_AddCustomerAcquisitionSourceDetail` cùng hợp đồng input/detail có quyền.
