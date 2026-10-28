@@ -1,643 +1,586 @@
-## Business OneQR — Kiếm tiền từ QR, đối soát và nhận tiền
+## Business OneQR — Tham gia, tích lũy, đổi điểm và rút tiền
 
-**Cập nhật lần cuối:** 5 tháng 10 năm 2026
+**Cập nhật lần cuối:** 28 tháng 10 năm 2026
 
-**Đối tượng đọc:** Chủ doanh nghiệp (Business Owner), quản trị viên vận hành, người phụ trách sản phẩm, BA, QA, bộ phận hỗ trợ, đội phát triển
+**Đối tượng đọc:** Chủ doanh nghiệp (Business Owner), quản trị viên vận hành, người phụ trách sản phẩm, BA, QA, bộ phận hỗ trợ và đội phát triển
 
 **Trạng thái:** Đang rà soát
 
-**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/promotion-code-skill-audit/nexora/docs/business/business-oneqr-earnings.md)
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/1599-oneqr-earnings-points/nexora/docs/business/business-oneqr-earnings.md)
 
-**Ticket:** [#1599](https://github.com/vlink-group/vlink-nexora/issues/1599) — Confirmed tại thời điểm rà soát; chưa bắt đầu xử lý.
+**Ticket liên quan:** [#1599](https://github.com/vlink-group/vlink-nexora/issues/1599)
+
+### Tóm tắt nhanh
+
+| Giai đoạn | Kết quả và điều cần phân biệt |
+| :--- | :--- |
+| Tham gia | Chủ doanh nghiệp chọn ngành và chủ động đồng ý điều khoản để kích hoạt OneQR; doanh nghiệp tự tham gia tích lũy, không có nút bật kiếm tiền riêng. |
+| Tích lũy | Hoạt động quảng cáo hợp lệ tạo điểm chờ duyệt; chỉ điểm đã duyệt còn khả dụng mới được dùng. Quét QR hoặc mở danh sách không tự tạo điểm. |
+| Đổi hoặc chuyển điểm | Điểm rời ví thu nhập để trở thành credit trong ví sử dụng của mình hoặc người nhận. Credit này không phải tiền đã rút. |
+| Yêu cầu rút tiền | Khi đủ ngưỡng, chủ doanh nghiệp mới hoàn thiện thông tin người nhận, thuế, xác minh và phương thức nhận tiền. Chỉ xác nhận đã trả khi đối tác thanh toán xác nhận. |
+
+Tài liệu mô tả **yêu cầu theo bộ PO ngày 27 tháng 10 năm 2026**, chưa phải xác nhận tính năng đã vận hành. Các tỷ lệ quy đổi và ngưỡng áp dụng nằm tại quy tắc D14, D16 và E19.
 
 ### Tổng quan
 
-Business OneQR — Kiếm tiền từ QR, đối soát và nhận tiền giúp doanh nghiệp tạo và kiểm soát thu nhập từ hoạt động quảng cáo hoặc giao dịch đủ điều kiện được QR giới thiệu. Hệ thống ghi nhận thu nhập, đối soát, giữ dự phòng hoàn tiền/tranh chấp, khấu trừ nghĩa vụ thu hồi và chi phần đủ điều kiện vào ví VlinkPay liên kết SSO của Business. Admin vận hành cấu hình thời gian đối soát, chính sách dự phòng, loại tiền nhận và tỷ lệ từng loại; Business Owner bật/tắt kiếm tiền, theo dõi nguồn thu và đối chiếu tiền thực nhận.
+Business OneQR giúp doanh nghiệp tích lũy thu nhập từ hoạt động quảng cáo hợp lệ của khách đến từ OneQR. Hệ thống ghi nhận bằng ONEQR Points, duyệt điểm và cho phép đổi thành credit sử dụng, chuyển cho tài khoản khác hoặc yêu cầu rút tiền. Chủ doanh nghiệp kích hoạt và theo dõi số dư; quản trị viên quản lý ngành, chính sách chiến dịch và điều chỉnh; đối tác thanh toán xử lý yêu cầu rút.
 
-**Phạm vi và mức độ chốt:** Tài liệu giữ các quyết định nghiệp vụ đã ghi nhận. Các luồng kiếm tiền, trạng thái và tiêu chí nghiệm thu bên dưới là yêu cầu cần triển khai; không phải xác nhận đang có chức năng Earnings trong code. Các thông số chưa chốt và phụ thuộc tích hợp được nêu tại cuối tài liệu.
-
-**Nhu cầu chính:** Là Business Owner, tôi muốn bật kiếm tiền cho OneQR, theo dõi thu nhập và đối soát, rồi nhận tiền vào ví VlinkPay của tài khoản Business, để biết QR tạo ra thu nhập từ đâu và số tiền thực tế tôi nhận được.
-
-#### Hiện trạng đối chiếu mã nguồn
-
-Rà soát chỉ đọc ngày **5 tháng 10 năm 2026** trên `staging` của cả frontend và backend: frontend [`27c5ebc`](https://github.com/vlink-group/vlink-nexora-fe/commit/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e), backend [`a7a46d3`](https://github.com/vlink-group/vlink-nexora/commit/a7a46d314036f9d83c910aead411182480249bea). Hai đầu nhánh đã được xác minh trên GitHub; chưa kiểm thử bật kiếm tiền, đối soát hoặc payout trên môi trường triển khai.
-
-| Phần nghiệp vụ | Code hiện có | Giới hạn đối với Earnings |
-| :--- | :--- | :--- |
-| OneQR của doanh nghiệp | Có cấu hình, menu công khai, bấm module và báo cáo truy cập. | Sự kiện bấm menu là analytics; không phải hoạt động quảng cáo đã duyệt để tính tiền. Không coi cơ chế chống click trùng hiện có là chính sách tính phí quảng cáo. |
-| Promotion và POS | Có danh mục ưu đãi, banner, lịch tuần/giờ và kiểm tra điều kiện khi áp dụng vào lượt khách. | Chưa chứng minh có nguồn quảng cáo được khóa, performance fee hoặc Publisher Share cho QR Host. Giao dịch POS áp dụng ưu đãi chưa đủ để ghi thưởng OneQR. |
-| Ads Credit | Đã có nạp thẻ/ví, số dư quảng cáo, lịch sử và biên nhận; có nền giữ/ghi phí/hoàn credit. | Đây là số dư chi quảng cáo. Nạp credit hoặc 💰 thanh toán từ ví VlinkPay không phải 💰 chi thu nhập Earnings vào ví. |
-| KYB và liên kết VlinkPay | Có các điểm tích hợp xác minh doanh nghiệp và tài khoản/ví qua SSO. | Chưa xác minh được mapping KYB/thuế với quyền kiếm tiền, hoặc contract chuyển thu nhập OneQR vào đúng ví Business. |
-| Chương trình Earnings | Chưa tìm thấy luồng FE và endpoint tương ứng trong API contract BE đã đọc cho bật/tắt kiếm tiền, sổ thu nhập, dự phòng, cấu hình phân bổ và payout OneQR. | Các năng lực này là phần cần triển khai hoặc xác minh tích hợp. Không lấy payout tip, thu nhập nhân viên hoặc các khoản hoa hồng khác làm bằng chứng đã có Earnings OneQR. |
-
-#### Phạm vi áp dụng
-
-**Trong phạm vi:** đăng ký/bật/tắt kiếm tiền; kế thừa KYB và yêu cầu thuế; ghi nhận nguồn và thu nhập trực tiếp của Business; đối soát; trích giữ, sử dụng và giải phóng khoản dự phòng hoàn tiền/tranh chấp; lịch sử; Admin cấu hình loại tiền nhận và tỷ lệ từng loại; chi trả vào ví VlinkPay SSO theo phân bổ; khấu trừ khoản đã trả cần thu hồi, chuyển phần chưa bù hết sang thu nhập các kỳ sau.
-
-**Ngoài phạm vi:** Personal; Sponsor Override và cấp Sponsor; nạp Ads Credit; xây Campaign Manager, Discovery, bộ lọc ngành hoặc hệ thống KYB mới; mua voucher trả trước; rút tiền từ VlinkPay về ngân hàng. Các hệ thống campaign, discovery, xác minh và ví là phần liên quan được tích hợp.
-
-#### Quyết định đã chốt và thứ tự ưu tiên
-
-| Nội dung | Quyết định áp dụng |
-| :--- | :--- |
-| Chủ thể | Chỉ Business; Business Owner quản lý kiếm tiền và xem thu nhập của doanh nghiệp trong phạm vi này. |
-| Nguồn chính sách | Dùng **Chính sách Ads/Referral ngày 21 tháng 9 năm 2026** (mã phiên bản: ONEQR-ADS-REF-REV-2026-09-21-v1), bản mới nhất có mã phiên bản trong bộ HTML. Không trộn tỷ lệ 70% của chính sách ngày 20/09 hoặc tỷ lệ minh họa từ các prototype khác vào bản này. |
-| Xác minh | Kế thừa KYB hiện có và yêu cầu thuế áp dụng cho Business; hiển thị các điều kiện còn thiếu. Không xây lại KYB trong story. |
-| Nơi nhận tiền | Ví VlinkPay của tài khoản Business, xác định qua liên kết SSO được hệ thống xác nhận. Quyết định này thay phần chọn phương thức nhận tiền tổng quát trong HTML. |
-| Loại tiền nhận | Admin vận hành cấu hình một hoặc nhiều loại tiền VlinkPay hỗ trợ và tỷ lệ mỗi loại; tổng bằng 100%. Phân bổ trên giá trị đủ chi sau dự phòng và khấu trừ. Business Owner chỉ xem; danh sách tiền và tỷ lệ thực tế chưa được chốt. |
-| Đối soát và kỳ chi | Thời gian đối soát mặc định **14 ngày**, áp dụng cả click quảng cáo và thưởng dịch vụ. **Admin vận hành hệ thống cấu hình số ngày**; Business Owner không được sửa. Hết thời gian và không có hold mới phân bổ dự phòng/khả dụng; xét chi thứ Ba tại 00:00 America/Chicago, số dư đủ chi sau dự phòng và khấu trừ tối thiểu $25. |
-| Dự phòng hoàn tiền/tranh chấp | Giữ lại một phần Publisher Share sau đối soát trên Nexora, chưa chuyển phần này vào ví VlinkPay. Admin vận hành cấu hình tỷ lệ, thời hạn và phạm vi Business/nhóm rủi ro áp dụng; công khai cho Owner. Đã chọn cơ chế, chưa chốt tỷ lệ và số ngày cụ thể. |
-| Thu hồi sau payout | Ưu tiên dùng dự phòng còn lại được phép sử dụng của cùng Business, rồi thu nhập khả dụng chưa chi; chỉ phần thiếu mới bù vào thu nhập các kỳ sau. Mọi lần sử dụng đều liên kết khoản phải thu hồi và không thu trùng. |
-| Sponsor | Không xây luồng Sponsor. Phần Publisher Share của Business vẫn theo chính sách mới; không tự cộng phần Sponsor vào thu nhập Business vì story không triển khai Sponsor. |
+Phạm vi gồm kích hoạt, đồng ý điều khoản, bảo vệ doanh nghiệp cùng ngành, ghi nhận và duyệt điểm, hai số dư ví, đổi điểm, chuyển điểm, yêu cầu rút và lịch sử giao dịch. Chương trình thưởng giới thiệu (referral) và quyền tắt quảng cáo trong gói trả phí tương lai chưa được mở. Nạp credit và sử dụng credit tại từng sản phẩm là nghiệp vụ liên quan; tài liệu này xác định nguồn và giới hạn số dư, không tự đặt danh mục sản phẩm được dùng.
 
 ### Khái niệm chính
 
 | Thuật ngữ | Ý nghĩa |
 | :--- | :--- |
-| Chủ QR / QR Host / Publisher | Business sở hữu QR hoặc nguồn truy cập hợp lệ dẫn khách đến hoạt động đủ điều kiện. |
-| Nhà quảng cáo / Advertiser | Doanh nghiệp trả phí theo campaign; có thể là Business khác với chủ QR. |
-| Publisher Share | Phần thu nhập trực tiếp của chủ QR từ phí quảng cáo/giao dịch hợp lệ, không phải toàn bộ giá trị dịch vụ khách thanh toán. |
-| Thu nhập chờ đối soát | Khoản đã ghi nhận nhưng chưa đủ điều kiện chi trả. |
-| Thu nhập khả dụng | Phần đã qua đối soát, không nằm trong dự phòng hoặc hold và chưa đưa vào một đợt chi trả; có thể dùng bù khoản cần thu hồi trước khi chi. |
-| Khoản dự phòng / Reserve | Một phần thu nhập được trích giữ theo chính sách để xử lý hoàn tiền/tranh chấp. Có nguồn, số tiền còn lại và ngày dự kiến giải phóng; chưa ở ví VlinkPay và không phải phí mất đi. |
-| Hold do tranh chấp | Tạm giữ khoản cụ thể đang cần kiểm tra; khác với tỷ lệ dự phòng định kỳ. Chưa có kết luận thì chưa ghi là khoản thu hồi cuối cùng. |
-| Khoản cần thu hồi | Phần thưởng đã trả nhưng được xác nhận mất điều kiện hưởng; bù từ dự phòng hợp lệ, thu nhập khả dụng hoặc thu nhập tương lai. |
-| Giá trị đủ chi | Phần khả dụng còn lại sau xử lý nghĩa vụ thu hồi, không bao gồm dự phòng/hold; xét ngưỡng $25 trước khi phân bổ loại tiền. |
-| Phân bổ loại tiền nhận | Chia giá trị đủ chi theo tỷ lệ Admin cấu hình, tổng 100%; khác tỷ lệ Publisher Share và tỷ lệ dự phòng. |
-| Số tiền thực nhận | Số đơn vị từng loại tiền thực tế được VlinkPay xác nhận ghi có, sau quy đổi và phí nếu có; không cộng trực tiếp số đơn vị của các loại tiền khác nhau. |
-| Ví VlinkPay SSO | Ví nhận tiền thuộc đúng tài khoản Business đã liên kết; không suy ví nhận chỉ từ email hoặc địa chỉ ví nhập tự do. |
+| Chủ doanh nghiệp | Người có thẩm quyền thao tác trên Business và chấp thuận điều khoản của doanh nghiệp đó. |
+| Chủ QR | Doanh nghiệp sở hữu OneQR khởi đầu phiên khám phá của khách. |
+| Nhà quảng cáo | Doanh nghiệp có nội dung được xem xét phân phối trong phiên OneQR. |
+| ONEQR Points / điểm | Đơn vị ghi nhận thu nhập OneQR; số điểm là số nguyên. Giá trị quy đổi không đồng nghĩa đã có tiền trong tài khoản thanh toán. |
+| Điểm chờ duyệt | Điểm đã ghi nhận từ hoạt động cần đối soát; chưa được đổi, chuyển hoặc rút. |
+| Điểm khả dụng | Điểm đã duyệt, chưa dùng và không bị giữ cho giao dịch hoặc kiểm tra; đây là số dư được xét khi thao tác. |
+| Điểm đang giữ | Phần điểm tạm không khả dụng, chẳng hạn đã dành cho một yêu cầu rút được chấp nhận. Lý do giữ phải được theo dõi riêng. |
+| Credit | Giá trị dùng cho sản phẩm, dịch vụ được hỗ trợ trong ví sử dụng; quyền dùng phụ thuộc nguồn credit và chính sách áp dụng. |
+| Yêu cầu rút tiền (payout) | Yêu cầu chuyển giá trị điểm đủ điều kiện thành khoản thanh toán qua đối tác; khác với đổi điểm sang credit. |
+| Ngành chính và ngành phụ | Các ngành doanh nghiệp thực sự kinh doanh, dùng để xác định nội dung cạnh tranh cần chặn. |
+
+#### Phân biệt hai số dư ví
+
+| Nội dung | Ví thu nhập | Ví sử dụng |
+| :--- | :--- | :--- |
+| Đơn vị | ONEQR Points. | Credit. |
+| Nguồn | Điểm doanh nghiệp tự kiếm từ quảng cáo hợp lệ; nguồn bổ sung chỉ được ghi khi đã có chính sách cho phép. | Credit đổi từ điểm của mình, credit nhận từ người khác và credit đã nạp; từng nguồn được ghi riêng. |
+| Mục đích | Theo dõi điểm và dùng phần khả dụng cho các thao tác tại D14–E24. | Theo dõi giá trị sử dụng theo nguồn tại C12–C13. |
+| Cách đối chiếu | Xem nguồn sự kiện, trạng thái duyệt, giữ và sử dụng điểm. | Xem nguồn credit và giao dịch đổi, nhận hoặc nạp tương ứng. |
 
 ### Vai trò người dùng
 
 | Vai trò | Trách nhiệm |
 | :--- | :--- |
-| Chủ doanh nghiệp (Business Owner) | Đồng ý điều khoản, hoàn thiện điều kiện, bật/tắt kiếm tiền và kiểm tra thu nhập/payout của doanh nghiệp. |
-| Khách quét QR | Tạo hoạt động có nguồn được ghi nhận; không cần biết cơ chế chia tiền để sử dụng tiện ích. |
-| Nexora Operations / Support | Admin được phân quyền cấu hình đối soát, dự phòng, loại tiền nhận và tỷ lệ phân bổ; vận hành xử lý xét duyệt, hold, gian lận, điều chỉnh và khiếu nại theo quyền. Support không mặc nhiên có quyền sửa cấu hình tiền. Không xây toàn bộ portal Admin trong story này. |
-| VlinkPay | Xác nhận ví nhận, các loại tiền được hỗ trợ và kết quả ghi có từng phần theo tích hợp SSO/payout. |
+| Chủ doanh nghiệp | Chọn ngành, đồng ý và kích hoạt OneQR; xem điểm, đổi hoặc chuyển điểm; hoàn thiện hồ sơ khi yêu cầu rút. |
+| Khách sử dụng OneQR | Khám phá nội dung và thực hiện hoạt động có thể đủ điều kiện theo chiến dịch. |
+| Người nhận chuyển điểm | Kiểm tra credit nhận trong ví sử dụng và dùng theo chính sách của nguồn này. |
+| Quản trị viên vận hành / hỗ trợ | Quản lý danh mục ngành, duyệt phân loại, chính sách điểm, xử lý điều chỉnh và khiếu nại theo quyền. |
+| Đối tác thanh toán | Xác định yêu cầu hồ sơ, phương thức nhận tiền và xác nhận kết quả thanh toán. |
 
 ### Luồng nghiệp vụ đầu cuối
 
-#### Luồng: Đăng ký và bật/tắt kiếm tiền
+#### Luồng: Kích hoạt và tự tham gia tích lũy
 
-**Người thực hiện chính:** Business Owner.
+**Người thực hiện chính:** Chủ doanh nghiệp.
 
-**Điểm bắt đầu:** Owner mở mục kiếm tiền trong OneQR.
+**Điểm bắt đầu:** Chủ doanh nghiệp mở phần kích hoạt OneQR.
 
-**Kết quả:** Business đủ điều kiện có thể chủ động bật kiếm tiền; trạng thái và bước cần hoàn thiện rõ ràng.
+**Kết quả:** OneQR được kích hoạt và doanh nghiệp tham gia chương trình theo A1–A5.
 
 **Nhu cầu người dùng:**
 
-- **Là** Business Owner, **tôi muốn** xem điều kiện tham gia và sử dụng kết quả KYB hiện có **để** hoàn thiện hồ sơ mà không làm lại bước đã được chấp thuận.
-- **Là** Business Owner, **tôi muốn** chủ động bật/tắt kiếm tiền và thấy ảnh hưởng tới khoản đã ghi nhận, **để** kiểm soát việc tham gia mà vẫn theo dõi được quyền lợi còn lại.
-- **Là** Business Owner, **tôi muốn** thấy lý do và cách bổ sung khi hồ sơ chưa đủ hoặc bị từ chối, **để** hoàn thiện điều kiện tham gia.
+- Là chủ doanh nghiệp, tôi muốn chọn ngành và đồng ý điều khoản để bắt đầu dùng OneQR và tích lũy điểm.
+- Là chủ doanh nghiệp, tôi muốn dùng lại hồ sơ sẵn có để không nhập lại thông tin đã lưu.
+- Là chủ doanh nghiệp chưa đồng ý điều khoản, tôi muốn biết lý do chưa kích hoạt được để tự quyết định việc tham gia.
 
-| Bước | Người thực hiện | Hành động | Phản hồi hệ thống | Ghi chú |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | Owner | Mở OneQR → Kiếm tiền. | Hiển thị Business, trạng thái tham gia, chính sách và điều kiện còn thiếu. | Chỉ Business trong quyền Owner. |
-| 2 | Owner / hệ thống | Kiểm tra KYB, thông tin thuế, quyền sở hữu nguồn QR, điều kiện bảo mật và liên kết ví. | Kế thừa kết quả xác minh; dẫn tới luồng hiện có nếu cần bổ sung. SSO đăng nhập thành công không tự được coi là ví đủ điều kiện nhận tiền. | Dùng luồng xác minh hiện có. |
-| 3 | Owner | Đọc và chủ động đồng ý điều khoản. | Hiển thị cả tỷ lệ/thời hạn dự phòng, ngày giải phóng dự kiến và thứ tự xử lý thu hồi. Ghi nhận người chấp thuận, thời điểm và phiên bản chính sách; ô đồng ý không được chọn sẵn. | Owner chủ động chấp thuận. |
-| 4 | Nexora / Owner | Xét điều kiện; Owner bật khi đủ điều kiện. | Hiển thị đã bật, chờ xét hoặc cần bổ sung/từ chối cùng lý do phù hợp. | Chưa đủ điều kiện thì chưa bật. |
-| 5 | Owner | Tắt kiếm tiền. | Không ẩn Nearby/Search hoặc làm mất tiện ích OneQR; giữ các khoản thưởng đã khóa hợp lệ để xử lý theo chính sách đã ghi nhận. | Không mất quyền lợi đã khóa hợp lệ. |
+| Bước | Người thực hiện | Hành động | Phản hồi hệ thống |
+| :--- | :--- | :--- | :--- |
+| 1 | Chủ doanh nghiệp | Mở phần kích hoạt. | Hệ thống dùng lại hồ sơ và hiển thị ngành đang có, nếu có. |
+| 2 | Chủ doanh nghiệp | Chọn ngành chính, các ngành phụ liên quan; mô tả nếu chọn Khác. | Hệ thống kiểm tra thông tin, ghi trạng thái phân loại theo A2–A3. |
+| 3 | Chủ doanh nghiệp | Đọc điều khoản và chủ động tích ô đồng ý. | Hệ thống công bố vị trí quảng cáo và việc tự tham gia; ô đồng ý ban đầu chưa được chọn theo A1, A4. |
+| 4 | Chủ doanh nghiệp | Chọn Đồng ý & kích hoạt OneQR. | Hệ thống kiểm tra điều kiện, lưu bằng chứng đồng ý và kích hoạt. Nếu còn thiếu, hệ thống nêu phần cần bổ sung. |
+| 5 | Hệ thống | Mở trải nghiệm OneQR đã kích hoạt. | Doanh nghiệp tự tham gia tích lũy; việc hiển thị quảng cáo tuân thủ bộ lọc ngành tại B6–B7. |
 
 ```mermaid
 flowchart TD
-    A([Owner mở kiếm tiền]) --> B[Kiểm tra điều kiện]
-    B --> C{Đã đủ hồ sơ?}
-    C -- Chưa --> D[Hiển thị phần còn thiếu]
+    A([Mở kích hoạt OneQR]) --> B[Chọn ngành kinh doanh]
+    B --> C{Thông tin ngành đủ?}
+    C -- Chưa --> D[Bổ sung thông tin ngành]
     D --> B
-    C -- Đủ --> E[Chấp thuận điều khoản]
-    E --> F[Xét điều kiện tham gia]
-    F --> G{Được phép bật?}
-    G -- Chưa --> D
-    G -- Có --> H[Owner bật kiếm tiền]
-    H --> I([Ghi nhận hoạt động mới])
+    C -- Đủ --> E[Đọc điều khoản OneQR]
+    E --> F{Chủ động đồng ý?}
+    F -- Không --> G([Chưa kích hoạt])
+    F -- Có --> H[Lưu bằng chứng đồng ý]
+    H --> I[Kích hoạt OneQR]
+    I --> J([Tự tham gia tích lũy])
 ```
 
-#### Luồng: Ghi nhận nguồn và đối soát thu nhập
+#### Luồng: Phân phối quảng cáo và ghi nhận điểm
 
-**Người thực hiện chính:** Business Owner theo dõi kết quả; khách tạo hoạt động, hệ thống đối soát.
+**Người thực hiện chính:** Khách tạo hoạt động; hệ thống lọc nội dung, ghi nhận và duyệt điểm.
 
-**Điểm bắt đầu:** Khách từ OneQR của Business tạo hoạt động đủ điều kiện.
+**Điểm bắt đầu:** Khách mở phiên từ OneQR của doanh nghiệp.
 
-**Kết quả:** Thu nhập đúng nguồn, đúng chính sách và truy được lý do của mỗi thay đổi.
+**Kết quả:** Nội dung được lọc theo ngành; hoạt động đủ điều kiện có lịch sử điểm đúng nguồn, đúng trạng thái.
 
 **Nhu cầu người dùng:**
 
-- **Là** Business Owner, **tôi muốn** biết hoạt động nào từ QR tạo thu nhập và trạng thái từng khoản, **để** đánh giá hiệu quả QR và dự kiến tiền được nhận.
-- **Là** Business Owner, **tôi muốn** thấy lý do khoản thu bị giữ, loại hoặc điều chỉnh **để** đối chiếu được kết quả.
+- Là chủ doanh nghiệp, tôi muốn nội dung của đối thủ cùng ngành được chặn để bảo vệ doanh nghiệp trong phiên OneQR của mình.
+- Là chủ doanh nghiệp, tôi muốn biết hoạt động nào tạo điểm và lý do điểm chưa được duyệt hoặc bị điều chỉnh để đối chiếu thu nhập.
 
-| Bước | Người thực hiện | Hành động | Phản hồi hệ thống | Ghi chú |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | Khách | Quét QR, khám phá và mở quảng cáo/deal phù hợp. | Giữ nguồn Business trong hành trình; scan và mở menu không tự tạo tiền. | Scan không tự tạo tiền. |
-| 2 | Hệ thống | Kiểm tra hoạt động, campaign, nguồn, quyền hưởng và gian lận. | Loại hoạt động trùng/không hợp lệ; không tạo thu nhập nếu không có nguồn hợp lệ của Business. | Không ghi nhận trùng. |
-| 3 | Hệ thống | Với dịch vụ, khóa nguồn khi booking/order được xác nhận. | Giữ nguồn và phiên bản chính sách của giao dịch; quét QR khác sau đó không thay nguồn đã khóa. Booking chưa hoàn tất chưa tạo thưởng dịch vụ. | Nguồn đã khóa không đổi. |
-| 4 | Hệ thống | 💰 Ghi nhận Publisher Share khi đủ điều kiện. | Tạo khoản chờ đối soát gắn hoạt động, campaign, nguồn và cách tính; chưa ghi có ví VlinkPay. | Chưa phải tiền trong ví. |
-| 5 | Hệ thống / vận hành | 💰 Đối soát, phân bổ hoặc điều chỉnh khoản thu. | Khoản hợp lệ được phân bổ thành dự phòng và phần khả dụng theo chính sách. Khoản sai có lý do và bút toán điều chỉnh, không sửa/xóa lịch sử gốc. | Giữ lịch sử gốc. |
-| 6 | Owner | Xem tổng quan và chi tiết. | Phân biệt hoạt động, khoản chờ, dự phòng, khả dụng, hold, đã chi và điều chỉnh; chỉ hiển thị dữ liệu thuộc Business, không lộ hồ sơ khách/hóa đơn ngoài quyền. | Dữ liệu trong quyền Business. |
+| Bước | Người thực hiện | Hành động | Phản hồi hệ thống |
+| :--- | :--- | :--- | :--- |
+| 1 | Khách / hệ thống | Mở OneQR và chuyển giữa các màn hình khám phá. | Hệ thống giữ nguồn doanh nghiệp chủ QR và ngành đã xác nhận. |
+| 2 | Hệ thống | Xem xét nội dung tại Deal Nearby, Search Deals và Khám phá. | Hệ thống loại nội dung cạnh tranh hoặc chưa xác định an toàn; nội dung tài trợ có nhãn theo B6–B7. |
+| 3 | Khách | Thực hiện hành động với nội dung được phép hiển thị. | Hệ thống xét điều kiện chiến dịch, nguồn và trùng lặp theo B8. |
+| 4 | Hệ thống | Ghi điểm từ sự kiện đủ điều kiện. | Hệ thống tạo một khoản chờ duyệt, lưu căn cứ theo B9. |
+| 5 | Hệ thống / vận hành | Đối soát và duyệt hoặc điều chỉnh. | Hệ thống cập nhật điểm khả dụng hoặc lý do chưa được dùng; chủ doanh nghiệp có kênh khiếu nại theo B10. |
 
 ```mermaid
 flowchart TD
-    A([Khách đến từ QR]) --> B[Hoạt động có nguồn]
-    B --> C{Đủ điều kiện hưởng?}
-    C -- Không --> D([Không tạo thu nhập])
-    C -- Có --> E[💰 Ghi thu nhập chờ]
-    E --> F[Đối soát hoạt động]
-    F --> G{Kết quả đối soát}
-    G -- Hợp lệ --> H([💰 Phân bổ khoản thu])
-    G -- Cần kiểm tra --> I[Giữ khoản thu]
-    I --> F
-    G -- Không hợp lệ --> J[💰 Ghi khoản điều chỉnh]
+    A([Khách mở phiên OneQR]) --> B[Xác định nguồn và ngành]
+    B --> C{Nội dung an toàn theo ngành?}
+    C -- Không hoặc chưa rõ --> D([Giữ lại nội dung đó])
+    C -- Có --> E[Hiển thị nội dung phù hợp]
+    E --> F{Hoạt động đủ điều kiện?}
+    F -- Không --> G([Không tạo điểm])
+    F -- Có --> H[Ghi điểm chờ duyệt]
+    H --> I[Đối soát theo chiến dịch]
+    I --> J{Kết quả duyệt}
+    J -- Hợp lệ --> K([Điểm đã duyệt khả dụng])
+    J -- Cần kiểm tra --> L[Giữ điểm có lý do]
+    L --> I
+    J -- Không hợp lệ --> M([Điều chỉnh có lịch sử])
 ```
 
-#### Luồng: Dự phòng, khấu trừ và nhận tiền vào ví VlinkPay
+#### Luồng: Đổi điểm sang credit của mình
 
-**Người thực hiện chính:** Business Owner.
+**Người thực hiện chính:** Chủ doanh nghiệp.
 
-**Điểm bắt đầu:** Khoản thu hoàn tất đối soát, phát sinh hoàn tiền/tranh chấp, dự phòng đến hạn giải phóng hoặc đến kỳ xét chi trả.
+**Điểm bắt đầu:** Chủ doanh nghiệp chọn Đổi sang credit trong ví thu nhập.
 
-**Kết quả:** Có khoản dự phòng để giảm rủi ro hoàn tiền/tranh chấp sau payout; Owner thấy rõ tiền đang giữ, ngày giải phóng, khoản khấu trừ và tiền thực nhận vào đúng ví Business.
+**Kết quả:** Điểm và credit được cập nhật cùng giao dịch theo D14–D15.
 
 **Nhu cầu người dùng:**
 
-- **Là** Business Owner, **tôi muốn** nhận khoản đủ điều kiện vào ví VlinkPay SSO của doanh nghiệp và xem lịch sử, **để** đối chiếu thu nhập Nexora với tiền trong ví.
-- **Là** Business Owner, **tôi muốn** biết mình nhận bằng loại tiền nào, tỷ lệ mỗi loại, giá trị phân bổ, tỷ giá/phí và số đơn vị thực nhận **để** đối chiếu với ví.
-- **Là** Business Owner, **tôi muốn** biết số tiền được giữ dự phòng, lý do, tỷ lệ và ngày dự kiến giải phóng **để** chủ động theo dõi khoản mình sẽ nhận.
-- **Là** Business Owner, **tôi muốn** khoản dự phòng còn lại được giải phóng khi hết hạn và đủ điều kiện, **để** số tiền này được xét chi mà không bị trích dự phòng lần nữa.
-- **Là** Business Owner, **tôi muốn** xem rõ khoản thưởng bị điều chỉnh, phần dự phòng đã sử dụng, khoản khấu trừ và số còn phải bù **để** đối chiếu thu nhập thực nhận.
-- **Là** Business Owner, **tôi muốn** thấy kết quả từng phần khi chuyển tiền thất bại hoặc chưa rõ kết quả, **để** biết phần đã nhận và phần cần xử lý mà không bị trả trùng.
+- Là chủ doanh nghiệp, tôi muốn đổi điểm đã duyệt sang credit để sử dụng tại các sản phẩm được hỗ trợ.
+- Là chủ doanh nghiệp, tôi muốn biết số điểm sẽ trừ và credit sẽ nhận để kiểm tra trước khi xác nhận.
+- Là chủ doanh nghiệp, tôi muốn thao tác lỗi hoặc gửi lại không làm mất điểm hay cộng credit hai lần để số dư luôn khớp.
 
-| Bước | Người thực hiện | Hành động | Phản hồi hệ thống | Ghi chú |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | Hệ thống | 💰 Phân bổ khoản thu mới hoàn tất đối soát. | Theo chính sách đã lưu cho khoản thu, trích một phần làm dự phòng và chuyển phần còn lại thành khả dụng. Ghi thời điểm bắt đầu giữ và ngày dự kiến giải phóng; chỉ trích một lần. | Trích dự phòng một lần. |
-| 2 | Hệ thống / vận hành | 💰 Xét hoàn tiền/tranh chấp và điều chỉnh khi có kết luận. | Với tranh chấp chưa kết luận, giữ phần liên quan và hiển thị lý do. Khi đã xác nhận mất điều kiện hưởng, tách phần chưa trả để đảo trực tiếp và phần đã trả cần thu hồi; không tính cùng một khoản hai lần. | Hold chưa phải thu hồi cuối cùng. |
-| 3 | Hệ thống | 💰 Xử lý phần đã trả cần thu hồi. | Dùng dự phòng còn lại được phép sử dụng của cùng Business trước, rồi thu nhập khả dụng chưa chi. Phần thiếu ghi công nợ để bù kỳ sau; vận hành theo dõi số tiền/thời gian tồn đọng. Mỗi lần sử dụng dự phòng/khấu trừ truy được khoản điều chỉnh gốc. | Không tự trừ ví VlinkPay. |
-| 4 | Hệ thống | 💰 Giải phóng dự phòng đến hạn. | Sau khi xử lý nghĩa vụ đã xác nhận, chuyển phần còn lại không bị hold sang khả dụng. Nếu còn tranh chấp, giữ phần liên quan với lý do; phần không liên quan vẫn được xét giải phóng. | Chỉ giữ phần còn tranh chấp. |
-| 5 | Hệ thống | Xét kỳ thứ Ba lúc 00:00 America/Chicago. | Lấy số dư khả dụng hiện tại đã phản ánh phần chuyển kỳ, thu nhập mới sau trích dự phòng, dự phòng đã giải phóng và các lần bù; xử lý nghĩa vụ còn thiếu, không cộng/trừ lại bút toán đã ghi. Không tính phần dự phòng còn giữ, hold, đã chi hoặc đang chuyển. Kiểm tra hồ sơ và ví nhận. | Không cộng/trừ lại khoản đã ghi. |
-| 6 | Hệ thống | Kiểm tra số đủ chi. | Đạt tối thiểu $25 thì đưa vào kỳ chi; thấp hơn thì giữ sang kỳ sau. Không trích dự phòng lại trên số dư chuyển kỳ hoặc khoản dự phòng vừa giải phóng. | Xét ngưỡng trên tổng USD. |
-| 7 | Hệ thống | Phân bổ giá trị đủ chi theo loại tiền nhận. | Chọn chính sách có hiệu lực khi tạo payout, tổng tỷ lệ 100%; kiểm tra ví Business nhận được các loại tiền đó. Lưu phiên bản, tỷ lệ, giá trị USD của từng phần, tỷ giá/thời điểm quy đổi, phí và số đơn vị dự kiến. Thiếu căn cứ quy đổi hoặc cấu hình hợp lệ thì giữ chờ với lý do, không tự chọn loại tiền thay thế. | Chốt chính sách theo payout. |
-| 8 | Hệ thống / VlinkPay | 💰 Chuyển từng phần vào ví Business liên kết SSO. | Mỗi phần có loại tiền, số đơn vị, trạng thái và tham chiếu riêng, liên kết cùng payout. Không cho số tiền đã phân bổ tham gia payout khác; không trích dự phòng lại. | Mỗi phần có tham chiếu riêng. |
-| 9 | VlinkPay / Nexora | 💰 Xác nhận ghi có từng phần. | Chỉ phần đã xác nhận ghi có mới là đã nhận. Một phần thành công thì payout là đã trả một phần; tất cả thành công mới là đã trả. Đối chiếu phần chưa rõ trước khi thử lại; chỉ thử lại phần xác nhận chưa chi, không chuyển lại phần thành công. | Không thử lại phần đã nhận. |
-| 10 | Owner | Xem chi tiết thu nhập và kỳ chi. | Hiển thị thu nhập mới, dự phòng mới giữ/còn lại/đã dùng/đã giải phóng, ngày giải phóng, khấu trừ, giá trị đủ chi, công nợ còn lại; từng loại tiền có tỷ lệ, quy đổi/phí, số đơn vị dự kiến/thực nhận và giao dịch ví. | Không cộng số đơn vị khác loại. |
+| Bước | Người thực hiện | Hành động | Phản hồi hệ thống |
+| :--- | :--- | :--- | :--- |
+| 1 | Chủ doanh nghiệp | Chọn đổi và nhập số điểm. | Hệ thống hiển thị điểm khả dụng và giá trị credit tương ứng. |
+| 2 | Hệ thống | Kiểm tra số điểm, số dư và chính sách đổi. | Hệ thống báo phần chưa hợp lệ; chỉ cho tiếp tục khi đủ điều kiện tại D14–D15. |
+| 3 | Chủ doanh nghiệp | Kiểm tra và xác nhận. | Hệ thống kiểm tra lại số dư để xử lý cả trường hợp có giao dịch đồng thời. |
+| 4 | Hệ thống | 💰 Trừ điểm và cộng credit vào ví sử dụng của chính doanh nghiệp. | Hệ thống hoàn tất hai phía cùng giao dịch, ghi nguồn credit và lịch sử; điểm đã đổi rời số dư khả dụng. |
+| 5 | Chủ doanh nghiệp | Xem kết quả. | Hệ thống hiển thị số điểm đã dùng, credit đã nhận, thời gian và mã giao dịch. |
 
 ```mermaid
 flowchart TD
-    A([Thu nhập qua đối soát]) --> B[💰 Tách dự phòng và khả dụng]
-    B --> C{Có nghĩa vụ thu hồi?}
-    C -- Có --> D[💰 Dùng dự phòng hợp lệ]
-    D --> E[💰 Bù tiếp từ khả dụng]
-    E --> F[Ghi công nợ còn thiếu]
-    C -- Không --> G[Xét dự phòng đến hạn]
-    F --> G
-    G --> H[💰 Giải phóng phần đủ điều kiện]
-    H --> I[Đến kỳ xét chi]
-    I --> J{Còn đủ 25 USD?}
-    J -- Chưa --> K([Chuyển tiếp kỳ sau])
-    J -- Có --> L{Hồ sơ và ví hợp lệ?}
-    L -- Không --> M([Giữ chờ xử lý])
-    L -- Có --> R{Phân bổ và quy đổi hợp lệ?}
-    R -- Không --> M
-    R -- Có --> S[💰 Phân bổ từng loại tiền]
-    S --> N[💰 Chuyển từng phần vào VlinkPay]
-    N --> O{Kết quả ghi có}
-    O -- Tất cả thành công --> P([Đã trả])
-    O -- Một phần thành công --> T[Đã trả một phần]
-    O -- Chưa xác nhận --> Q[Đối chiếu phần chưa trả]
-    T --> Q
-    Q --> U{Xác nhận chưa chi?}
-    U -- Có --> V[Thử lại phần chưa chi]
-    V --> N
-    U -- Chưa rõ --> W([Chờ kết quả đối chiếu])
-    U -- Đã chi --> O
+    A([Chọn đổi sang credit]) --> B[Nhập số điểm muốn đổi]
+    B --> C[Xem giá trị quy đổi]
+    C --> D{Đủ điều kiện đổi?}
+    D -- Không --> E([Hiển thị lý do])
+    D -- Có --> F[Chủ doanh nghiệp xác nhận]
+    F --> G[Kiểm tra lại số dư]
+    G --> H{Còn đủ điểm?}
+    H -- Không --> E
+    H -- Có --> I[💰 Trừ điểm và cộng credit]
+    I --> J([Hiển thị giao dịch hoàn tất])
 ```
 
-**Phân biệt hai thời hạn:** đối soát mặc định 14 ngày vẫn giữ nguyên. Thời hạn dự phòng là thời gian giữ thêm cho phần được trích sau đối soát, không khóa tiếp toàn bộ thu nhập. Mỗi phần dự phòng có ngày bắt đầu và ngày giải phóng riêng; hết hạn không đồng nghĩa tự chuyển ví ngay, mà chuyển sang khả dụng để xét kỳ chi.
+#### Luồng: Chuyển điểm cho tài khoản khác
 
-**Ví dụ minh họa, không phải cấu hình đã chốt:** $100 Publisher Share qua đối soát, tỷ lệ dự phòng 20%, giữ thêm 30 ngày → giữ $20 dự phòng, $80 khả dụng để xét payout. Sau 30 ngày, nếu không có hold/thu hồi, $20 chuyển thành khả dụng và cộng với số khác để xét ngưỡng $25; không bị trích thêm 20% lần nữa.
+**Người thực hiện chính:** Chủ doanh nghiệp gửi điểm.
+
+**Điểm bắt đầu:** Người gửi chọn Chuyển điểm.
+
+**Kết quả:** Người gửi dùng điểm thu nhập; người nhận có credit trong ví sử dụng theo D16–D18.
+
+**Nhu cầu người dùng:**
+
+- Là người gửi, tôi muốn kiểm tra đúng tài khoản người nhận và giá trị nhận để tránh chuyển nhầm.
+- Là người nhận, tôi muốn thấy credit và nguồn chuyển để hiểu số dư mình có thể sử dụng.
+- Là người gửi, tôi muốn biết khi chuyển bị từ chối hoặc chưa rõ kết quả để không gửi lại gây trùng.
+
+| Bước | Người thực hiện | Hành động | Phản hồi hệ thống |
+| :--- | :--- | :--- | :--- |
+| 1 | Người gửi | Chọn tài khoản nhận và nhập số điểm. | Hệ thống kiểm tra tài khoản nhận, số điểm nguyên, ngưỡng và số dư theo D16. |
+| 2 | Người gửi | Xem lại danh tính người nhận và số credit tương ứng. | Hệ thống giải thích quyền sử dụng credit nhận theo C12; yêu cầu xác nhận trước khi gửi. |
+| 3 | Người gửi | Xác nhận chuyển. | Hệ thống kiểm tra lại điều kiện và chống xử lý trùng theo D17. |
+| 4 | Hệ thống | 💰 Trừ điểm người gửi, cộng credit vào ví sử dụng người nhận. | Hệ thống ghi hai phía cùng giao dịch và liên kết nguồn; không ghi thu nhập quảng cáo cho người nhận. |
+| 5 | Người gửi / người nhận | Kiểm tra lịch sử. | Hệ thống hiển thị số lượng, nguồn, thời gian và trạng thái; trường hợp chưa rõ được đối chiếu theo D18. |
+
+```mermaid
+flowchart TD
+    A([Mở chuyển điểm]) --> B[Chọn người nhận và số điểm]
+    B --> C{Đủ điều kiện chuyển?}
+    C -- Không --> D([Hiển thị lý do])
+    C -- Có --> E[Kiểm tra thông tin nhận]
+    E --> F[Người gửi xác nhận]
+    F --> G[Kiểm tra lại giao dịch]
+    G --> H{Giao dịch hợp lệ?}
+    H -- Không --> D
+    H -- Có --> I[💰 Trừ điểm và cộng credit]
+    I --> K([Ghi nhận cùng giao dịch])
+```
+
+#### Luồng: Yêu cầu rút tiền và hoàn thiện hồ sơ nhận tiền
+
+**Người thực hiện chính:** Chủ doanh nghiệp.
+
+**Điểm bắt đầu:** Chủ doanh nghiệp chọn yêu cầu rút từ ví thu nhập.
+
+**Kết quả:** Yêu cầu hợp lệ được tiếp nhận, giữ điểm và theo dõi đến khi đối tác xác nhận kết quả theo E19–E24.
+
+**Nhu cầu người dùng:**
+
+- Là chủ doanh nghiệp đủ ngưỡng, tôi muốn hoàn thiện thông tin nhận tiền ngay trong luồng rút để không phải làm hồ sơ này khi kích hoạt OneQR.
+- Là chủ doanh nghiệp, tôi muốn xem điểm sẽ dùng, phí và số tiền thực nhận để kiểm tra trước khi gửi yêu cầu.
+- Là chủ doanh nghiệp, tôi muốn biết điểm đang giữ và trạng thái thanh toán để không dùng lại số điểm đã dành cho yêu cầu rút.
+- Là chủ doanh nghiệp có thanh toán lỗi hoặc chưa rõ, tôi muốn được đối chiếu đúng giao dịch để không bị trừ điểm hoặc chi trả trùng.
+
+| Bước | Người thực hiện | Hành động | Phản hồi hệ thống |
+| :--- | :--- | :--- | :--- |
+| 1 | Chủ doanh nghiệp | Mở yêu cầu rút và chọn số điểm. | Hệ thống kiểm tra điểm đã duyệt còn khả dụng, ngưỡng và số điểm yêu cầu theo E19. |
+| 2 | Chủ doanh nghiệp | Hoàn thiện hoặc xác nhận lại hồ sơ nhận tiền. | Hệ thống thu hoặc dùng lại thông tin người nhận, thuế, xác minh và phương thức nhận theo E20. Hồ sơ thiếu được chỉ rõ để bổ sung. |
+| 3 | Hệ thống | Hiển thị bản xem lại. | Chủ doanh nghiệp thấy số điểm dùng, quy đổi, phí đã được duyệt nếu có, số tiền nhận và phương thức nhận theo E21. |
+| 4 | Chủ doanh nghiệp / hệ thống | Gửi và kiểm tra yêu cầu. | Hệ thống chỉ tiếp nhận khi yêu cầu hợp lệ; lúc được chấp nhận mới giữ điểm theo E22. |
+| 5 | Hệ thống / đối tác thanh toán | 💰 Xử lý thanh toán. | Hệ thống lưu mã yêu cầu và trạng thái đối tác; số điểm đã giữ không tham gia giao dịch khác. |
+| 6 | Đối tác thanh toán / hệ thống | Xác nhận kết quả hoặc đối chiếu phần chưa rõ. | Hệ thống chỉ ghi đã trả khi có xác nhận; xử lý điểm đang giữ theo kết quả và chính sách tại E23–E24. |
+| 7 | Chủ doanh nghiệp | Mở chi tiết yêu cầu. | Hệ thống hiển thị lịch sử, số điểm, giá trị, phí, kết quả và hướng xử lý nếu cần. |
+
+```mermaid
+flowchart TD
+    A([Chọn yêu cầu rút]) --> B[Nhập số điểm rút]
+    B --> C{Đạt điều kiện số dư?}
+    C -- Không --> D([Hiển thị lý do chưa rút])
+    C -- Có --> E[Hoàn thiện hồ sơ nhận tiền]
+    E --> F{Hồ sơ đáp ứng yêu cầu?}
+    F -- Chưa --> G[Bổ sung thông tin thiếu]
+    G --> E
+    F -- Có --> H[Xem quy đổi và phí]
+    H --> I[Gửi yêu cầu rút]
+    I --> J{Yêu cầu được chấp nhận?}
+    J -- Không --> D
+    J -- Có --> K[Giữ điểm cho yêu cầu]
+    K --> L[💰 Đối tác xử lý thanh toán]
+    L --> M{Kết quả xác nhận}
+    M -- Đã thanh toán --> N([💰 Ghi nhận đã trả])
+    M -- Chưa rõ --> O[Đối chiếu với đối tác]
+    O --> M
+    M -- Thất bại được xác nhận --> P([Xử lý theo chính sách lỗi])
+```
 
 ### Cấu hình và quản trị
 
-- **Là** Admin vận hành hệ thống, **tôi muốn** cấu hình số ngày đối soát, mặc định 14 ngày cho cả click quảng cáo và thưởng dịch vụ, **để** điều chỉnh thời gian chờ theo chính sách vận hành.
-- **Là** Admin vận hành hệ thống, **tôi muốn** cấu hình tỷ lệ trích dự phòng, số ngày giữ thêm sau đối soát, nhóm Business áp dụng và thời điểm hiệu lực, **để** kiểm soát rủi ro hoàn tiền/tranh chấp mà vẫn công khai ngày dự kiến nhận tiền.
-- **Là** Admin vận hành hệ thống, **tôi muốn** chọn loại tiền Business nhận qua VlinkPay và tỷ lệ của từng loại, xem trước phân bổ và đặt ngày hiệu lực, **để** quản lý chính sách chi trả thống nhất.
-- **Là** người vận hành, **tôi muốn** thấy công nợ chưa bù theo Business, số tiền và thời gian tồn đọng, **để** xử lý khoản có nguy cơ không thu hồi được thay vì chờ thu nhập tương lai vô thời hạn.
-- **Là** người vận hành được phân quyền, **tôi muốn** quản lý phiên bản chính sách, ngưỡng/kỳ chi và lý do hold **để** xử lý nhất quán.
-- **Là** người vận hành, **tôi muốn** tra cứu cùng một hoạt động và giao dịch ví qua các lần ghi nhận, điều chỉnh và chi trả **để** xử lý khiếu nại mà không sửa lịch sử.
-- Thay đổi chính sách không tự tính lại giao dịch đã khóa theo phiên bản cũ. Các màn hình quản trị đầy đủ thuộc phần triển khai liên quan, không mặc định nằm trong FE Business của story.
+- Là quản trị viên vận hành, tôi muốn quản lý danh mục ngành song ngữ và duyệt các trường hợp Khác để bộ lọc dùng đúng ngành của doanh nghiệp.
+- Là quản trị viên vận hành, tôi muốn quản lý điều kiện sự kiện, mức điểm và phiên bản chính sách để mỗi khoản điểm có căn cứ đối chiếu.
+- Là người hỗ trợ được phân quyền, tôi muốn tra cứu nguồn điểm, lịch sử đổi, chuyển và rút để giải thích số dư và xử lý khiếu nại.
+- Là quản trị viên, tôi muốn quản lý nội dung điều khoản tiếng Việt và tiếng Anh để người dùng chấp thuận đúng phiên bản.
 
-**Cấu hình số ngày đối soát:** mặc định 14 ngày ở cấp hệ thống. Chỉ Admin vận hành có quyền mới được thay đổi; lưu người sửa, giá trị trước/sau và thời điểm có hiệu lực. Khoản thu mới lưu số ngày và ngày dự kiến đủ điều kiện theo cấu hình hiệu lực khi ghi nhận; khoản đã ghi nhận giữ thời hạn cũ. FE Business đọc và hiển thị thời hạn từ hệ thống, không hardcode 14 ngày. Chức năng cấu hình phía Admin là yêu cầu phụ thuộc cần triển khai hoặc xác nhận có sẵn ở hệ thống vận hành.
-
-**Cấu hình dự phòng:** Admin vận hành cấu hình tỷ lệ trên Publisher Share của Business, thời gian giữ thêm sau đối soát, phạm vi Business/nhóm rủi ro và ngày hiệu lực. Không tính tỷ lệ trên toàn bộ doanh thu dịch vụ hoặc tiền nạp Ads. Lưu phiên bản chính sách với từng khoản thu khi ghi nhận; thay đổi chỉ tác động khoản thu mới. Business Owner được xem tỷ lệ, thời hạn, điều kiện sử dụng/giải phóng và điều khoản áp dụng, nhưng không được sửa. Giảm/tắt chính sách cho khoản mới không tự giải phóng khoản cũ; khoản cũ tiếp tục theo lịch đã lưu. Mọi sửa đổi, hold hoặc xử lý thủ công có lý do và lịch sử người thực hiện. Tỷ lệ/thời hạn cụ thể chưa được user chốt, không mặc định lấy 20%/30 ngày từ ví dụ.
-
-#### Cấu hình loại tiền nhận và tỷ lệ phân bổ
-
-Đây là cấu hình phía Admin vận hành cho payout Business, không phải lựa chọn phương thức rút tiền của Owner. Nơi nhận vẫn là ví VlinkPay SSO của đúng Business.
-
-| Trường/chức năng | Yêu cầu |
-| :--- | :--- |
-| Loại tiền nhận | Chọn một hoặc nhiều loại từ danh mục VlinkPay hỗ trợ cho chương trình; dùng mã định danh rõ ràng, không nhập tên tùy ý hoặc chọn trùng. Danh mục thực tế cần xác nhận qua tích hợp. |
-| Tỷ lệ mỗi loại | Mỗi loại được chọn có tỷ lệ lớn hơn 0 và không vượt 100%; tổng phải đúng 100%. Nhận một loại thì tỷ lệ là 100%; bỏ một loại phải phân bổ lại phần còn lại trước khi áp dụng. |
-| Căn cứ phân bổ | Giá trị đủ chi bằng USD sau dự phòng, hold và khấu trừ; xét ngưỡng $25 trên tổng này trước khi chia. Không áp ngưỡng $25 riêng cho từng loại và không tính phần trăm trên doanh thu gốc. |
-| Phạm vi và hiệu lực | Cấu hình cho chương trình Business, có ngày/giờ hiệu lực và phiên bản. Nếu hỗ trợ nhiều nhóm Business, phải xác định phạm vi và thứ tự ưu tiên để mỗi payout chỉ áp dụng một chính sách. |
-| Xem trước và kiểm tra | Admin nhập giá trị đủ chi mẫu để xem tỷ lệ/tổng phân bổ, quy đổi/phí nếu đã có dữ liệu. Không cho áp dụng cấu hình thiếu loại tiền, sai tổng, tỷ lệ không hợp lệ hoặc loại tiền không được hỗ trợ; nêu lỗi cụ thể. |
-| Quyền và lịch sử | Chỉ Admin vận hành được phân quyền được sửa/áp dụng; lưu người thao tác, lý do, giá trị trước/sau và hiệu lực. Owner chỉ xem chính sách áp dụng và lịch sử payout. |
-
-**Thời điểm áp dụng:** khác chính sách đối soát/dự phòng lưu theo khoản thu, cấu hình loại tiền được chốt khi tạo payout. Payout mới lấy bản đang hiệu lực; payout đã tạo giữ bản đã chốt, kể cả khi thử lại phần thất bại. Đổi cấu hình không đổi khoản đã nhận hoặc tự chia lại phần chưa trả của payout cũ.
-
-**Quy đổi và phí:** phân bổ giá trị USD trước, sau đó xác định số đơn vị từng loại theo tỷ giá, thời điểm chốt, độ chính xác và phí được tích hợp xác nhận. Lưu đủ căn cứ để đối chiếu; không mặc định các loại tiền có tỷ giá 1:1. Quy tắc phí, làm tròn, phần lẻ và hiệu lực báo giá cần chốt trước phát hành; không làm mất phần lẻ hoặc tự trừ phí không có chính sách. Nếu báo giá hết hiệu lực khi thử lại, phần chưa trả cần xử lý theo quy tắc quy đổi đã được duyệt, lưu lịch sử thay đổi và không đổi giá trị phân bổ/tỷ lệ gốc hay phần đã trả.
-
-**Cấu hình hoặc khả năng nhận chưa đủ:** nếu chưa có chính sách hợp lệ, giữ payout chờ cấu hình với lý do; không tự đặt một loại tiền mặc định. Nếu một loại bị ngừng hỗ trợ hoặc ví không nhận được, giữ phần chưa chi liên quan để vận hành xử lý; không tự chuyển tỷ lệ sang loại khác hoặc đánh dấu đã trả. Việc chờ payout không tự tắt ghi nhận thu nhập hay làm mất số dư.
+Các cấu hình phải tuân thủ quy tắc F25–F28. Danh sách thông số chưa được cung cấp chỉ nằm trong Phụ lục → Các nội dung cần hoàn thiện trước phát hành.
 
 ### Vòng đời trạng thái
 
-Các nhãn dưới đây là trạng thái nghiệp vụ cần biểu đạt, chưa phải tên trạng thái API đã được xác nhận. Trạng thái bật kiếm tiền, khoản thu, phần dự phòng và payout được theo dõi riêng. Một khoản thu có thể đồng thời có phần khả dụng và phần dự phòng; không gộp cả khoản thành một trạng thái khiến Owner không biết số được chi.
+Các trạng thái dưới đây mô tả nghiệp vụ, chưa phải tên trạng thái API đã được xác nhận.
 
-#### Trạng thái tham gia kiếm tiền
+#### Trạng thái kích hoạt OneQR
 
-| Trạng thái hiện tại | Tác nhân chuyển trạng thái | Trạng thái mới | Ghi chú |
-| :--- | :--- | :--- | :--- |
-| Chưa đủ điều kiện | Hoàn thiện và được xác nhận hồ sơ/điều kiện | Đủ điều kiện | Kế thừa KYB hiện có. |
-| Đủ điều kiện | Owner bật kiếm tiền | Đang bật | Đã chấp thuận điều khoản. |
-| Đang bật | Owner tắt kiếm tiền | Đã tắt | Khoản đã khóa vẫn được xử lý. |
-| Đã tắt | Owner bật lại khi còn đủ điều kiện | Đang bật | Không cộng hồi tố click lúc tắt. |
-| Đang bật | Mất điều kiện tham gia | Chưa đủ điều kiện | Hiển thị lý do và bước bổ sung. |
+| Trạng thái hiện tại | Sự kiện | Trạng thái mới |
+| :--- | :--- | :--- |
+| Chưa kích hoạt | Kiểm tra thấy thiếu ngành hoặc chưa đồng ý | Cần hoàn thiện kích hoạt |
+| Chưa kích hoạt / Cần hoàn thiện kích hoạt | Đủ thông tin ngành và chủ động đồng ý; kích hoạt thành công | Đã kích hoạt, tự tham gia tích lũy |
 
 ```mermaid
 stateDiagram-v2
-    state "Chưa đủ điều kiện" as Ineligible
-    state "Đủ điều kiện" as Eligible
-    state "Đang bật" as Enabled
-    state "Đã tắt" as Disabled
-    [*] --> Ineligible : Bắt đầu xét điều kiện
-    Ineligible --> Eligible : Hoàn tất điều kiện
-    Eligible --> Enabled : Owner bật
-    Enabled --> Disabled : Owner tắt
-    Disabled --> Enabled : Bật lại khi đủ điều kiện
-    Enabled --> Ineligible : Mất điều kiện tham gia
+    state "Chưa kích hoạt" as New
+    state "Cần hoàn thiện kích hoạt" as Incomplete
+    state "Đã kích hoạt" as Active
+    [*] --> New : Mở đăng ký
+    New --> Incomplete : Thiếu điều kiện kích hoạt
+    Incomplete --> Active : Hoàn thiện và đồng ý kích hoạt
+    New --> Active : Đủ điều kiện và đồng ý kích hoạt
 ```
 
-#### Trạng thái khoản thu
+Trạng thái phân loại ngành được theo dõi riêng. Ngành đang xét không được coi là căn cứ an toàn để phân phối quảng cáo cạnh tranh; áp dụng B7.
 
-| Trạng thái hiện tại | Tác nhân chuyển trạng thái | Trạng thái mới | Ghi chú |
-| :--- | :--- | :--- | :--- |
-| Chưa ghi nhận | Hoạt động đủ điều kiện hưởng | Chờ đối soát | Lưu nguồn và chính sách áp dụng. |
-| Chờ đối soát | Hoàn tất đối soát hợp lệ | Phân bổ dự phòng và khả dụng | 💰 Trích một lần; hai phần được theo dõi riêng. |
-| Chờ đối soát / Khả dụng | Phát hiện vấn đề cần xác minh | Bị giữ | Có lý do hold. |
-| Bị giữ | Gỡ hold | Chờ đối soát / Khả dụng | Trở về đúng giai đoạn trước hold. |
-| Chờ đối soát / Khả dụng / Bị giữ | Xác nhận mất quyền hưởng | Điều chỉnh một phần/toàn bộ | 💰 Có bút toán liên kết; không xóa lịch sử. |
-| Khả dụng | Bù nghĩa vụ thu hồi được xác nhận | Khả dụng còn lại | 💰 Chỉ dùng phần chưa phân bổ cho payout. |
-| Phần dự phòng | Đến hạn, đủ điều kiện giải phóng | Khả dụng | 💰 Không trích dự phòng lại. |
-| Khả dụng | Đạt điều kiện kỳ chi | Đã phân bổ cho kỳ chi | Theo dõi kết quả ở payout; không đưa cùng tiền vào hai kỳ chi. |
+#### Trạng thái điểm
+
+| Trạng thái hiện tại | Sự kiện | Trạng thái mới |
+| :--- | :--- | :--- |
+| Chưa ghi nhận | Hoạt động quảng cáo đủ điều kiện | Chờ duyệt |
+| Chờ duyệt | Đối soát đạt và không bị giữ | Đã duyệt, khả dụng |
+| Chờ duyệt / Đã duyệt | Cần kiểm tra khoản điểm liên quan | Đang giữ |
+| Đã duyệt, khả dụng | Yêu cầu rút hợp lệ được chấp nhận | Đang giữ cho rút tiền |
+| Đã duyệt, khả dụng | Đổi hoặc chuyển thành công | Đã sử dụng |
+| Đang giữ | Kết quả cho phép giải phóng theo chính sách | Về trạng thái phù hợp trước khi giữ |
+| Đang giữ cho rút tiền | Đối tác xác nhận thanh toán | Đã thanh toán |
+| Chờ duyệt / Đã duyệt / Đang giữ | Có căn cứ điều chỉnh hoặc đảo | Đã điều chỉnh / đảo phần liên quan |
 
 ```mermaid
 stateDiagram-v2
-    state "Chờ đối soát" as Pending
-    state "Phân bổ theo chính sách" as Allocation
-    state "Phần dự phòng" as ReservedPart
-    state "Khả dụng" as Available
-    state "Bị giữ" as Held
-    state "Đã phân bổ cho kỳ chi" as Allocated
-    state "Đã điều chỉnh toàn bộ" as Reversed
-    [*] --> Pending : Ghi nhận hoạt động hợp lệ
-    Pending --> Allocation : Đối soát đạt
-    Allocation --> Available : 💰 Phần không trích dự phòng
-    Allocation --> ReservedPart : 💰 Phần trích dự phòng
+    state "Chờ duyệt" as Pending
+    state "Đã duyệt khả dụng" as Available
+    state "Đang giữ" as Held
+    state "Đã sử dụng" as Spent
+    state "Đã thanh toán" as Paid
+    state "Đã điều chỉnh hoặc đảo" as Adjusted
+    [*] --> Pending : Ghi sự kiện hợp lệ
+    Pending --> Available : Duyệt điểm
     Pending --> Held : Cần kiểm tra
-    Available --> Held : Có vấn đề cần kiểm tra
-    Held --> Pending : Gỡ hold cho phần chưa phân bổ
-    Held --> Available : Gỡ hold cho phần đã phân bổ
-    ReservedPart --> Available : 💰 Giải phóng phần đến hạn
-    Pending --> Reversed : 💰 Đảo toàn bộ
-    Available --> Reversed : 💰 Đảo toàn bộ
-    Held --> Reversed : Xác nhận không hợp lệ
-    Pending --> Pending : Điều chỉnh một phần
-    Available --> Available : Điều chỉnh hoặc bù một phần
-    Available --> Allocated : 💰 Phân bổ khoản đủ chi
+    Available --> Held : Giữ kiểm tra hoặc cho rút
+    Held --> Pending : Gỡ giữ cho khoản chưa duyệt
+    Held --> Available : Đủ điều kiện giải phóng
+    Available --> Spent : 💰 Đổi hoặc chuyển thành công
+    Held --> Paid : 💰 Đối tác xác nhận đã trả
+    Pending --> Adjusted : Có căn cứ điều chỉnh
+    Available --> Adjusted : Có căn cứ điều chỉnh
+    Held --> Adjusted : Xử lý phần liên quan
 ```
 
-#### Trạng thái phần dự phòng
+Điều chỉnh một phần phải giữ được số còn lại và lịch sử gốc; không chuyển cả khoản thành đã đảo nếu chỉ một phần mất điều kiện. Nếu điểm đã sử dụng hoặc thanh toán, áp dụng B10 và E24; không tự trừ số dư khác.
 
-| Trạng thái hiện tại | Tác nhân chuyển trạng thái | Trạng thái mới | Ghi chú |
-| :--- | :--- | :--- | :--- |
-| Chưa trích | Khoản thu qua đối soát | Đang giữ dự phòng | 💰 Lưu số tiền và lịch giải phóng. |
-| Đang giữ dự phòng | Dùng bù nghĩa vụ hoặc giải phóng một phần | Đang giữ phần còn lại | 💰 Theo dõi riêng số đã dùng và đã giải phóng. |
-| Đang giữ dự phòng | Phát sinh tranh chấp | Bị giữ do tranh chấp | Chỉ giữ phần liên quan. |
-| Bị giữ do tranh chấp | Gỡ hold | Tiếp tục xét lịch dự phòng | Không khởi động lại thời hạn giữ. |
-| Đang giữ / Bị giữ do tranh chấp | Sử dụng/đảo hết phần còn lại theo kết luận, hoặc giải phóng hết khi đủ điều kiện | Đã xử lý hết | 💰 Số còn giữ bằng 0; lưu lịch sử. |
+#### Trạng thái giao dịch đổi hoặc chuyển
+
+| Trạng thái hiện tại | Sự kiện | Trạng thái mới |
+| :--- | :--- | :--- |
+| Chưa gửi | Người dùng xác nhận và hệ thống kiểm tra | Đang xử lý |
+| Đang xử lý | Hai phía số dư được ghi nhận cùng giao dịch | Hoàn tất |
+| Đang xử lý | Xác nhận giao dịch không được thực hiện | Thất bại |
+| Đang xử lý | Mất phản hồi, chưa biết kết quả | Cần đối chiếu |
+| Cần đối chiếu | Xác nhận kết quả giao dịch gốc | Hoàn tất / Thất bại |
 
 ```mermaid
 stateDiagram-v2
-    state "Đang giữ dự phòng" as Reserved
-    state "Bị giữ do tranh chấp" as Disputed
-    state "Đã xử lý hết" as Closed
-    [*] --> Reserved : 💰 Trích giữ một lần
-    Reserved --> Reserved : 💰 Dùng hoặc giải phóng một phần
-    Reserved --> Disputed : Giữ phần đang tranh chấp
-    Disputed --> Reserved : Gỡ hold và xét lịch giải phóng
-    Disputed --> Closed : Xác nhận dùng hết phần còn lại
-    Reserved --> Closed : 💰 Dùng hoặc giải phóng hết
-    Closed --> [*] : Kết thúc theo dõi số dư
-```
-
-#### Trạng thái kỳ chi trả
-
-| Trạng thái hiện tại | Tác nhân chuyển trạng thái | Trạng thái mới | Ghi chú |
-| :--- | :--- | :--- | :--- |
-| Chờ cấu hình hoặc điều kiện | Có chính sách, quy đổi và ví hợp lệ | Đang chuyển | Chốt phiên bản phân bổ cho payout. |
-| Đang chuyển / Cần đối chiếu | Xác nhận tất cả phần ghi có | Đã trả | 💰 Chỉ xác nhận tiền nhận từ VlinkPay. |
-| Đang chuyển / Cần đối chiếu | Xác nhận một số phần ghi có | Đã trả một phần | Phần chưa trả có trạng thái riêng. |
-| Đang chuyển | Chưa phần nào xác nhận ghi có, còn kết quả chưa rõ | Cần đối chiếu | Timeout không có nghĩa chưa chi. |
-| Đang chuyển / Cần đối chiếu | Xác nhận tất cả phần thất bại | Thất bại | Chưa có phần đã nhận. |
-| Thất bại | Thử lại sau khi xác nhận chưa chi | Đang chuyển | Không đổi tỷ lệ đã chốt. |
-| Đã trả một phần | Đối chiếu/thử lại phần còn lại | Đã trả một phần / Đã trả | Không gửi lại phần đã ghi có. |
-| Đã trả | Hoàn/đảo sau chi được xác nhận | Giữ lịch sử đã trả | Tạo khoản cần thu hồi riêng. |
-
-```mermaid
-stateDiagram-v2
-    state "Chờ cấu hình hoặc điều kiện" as Waiting
-    state "Đang chuyển" as Sending
-    state "Cần đối chiếu" as Reconciling
+    state "Đang xử lý" as Processing
+    state "Cần đối chiếu" as Unknown
+    state "Hoàn tất" as Completed
     state "Thất bại" as Failed
-    state "Đã trả một phần" as Partial
-    state "Đã trả" as Paid
-    [*] --> Waiting : Xét khoản đủ chi
-    Waiting --> Sending : Đủ điều kiện và chốt phân bổ
-    Sending --> Paid : 💰 Xác nhận ghi có tất cả
-    Sending --> Partial : 💰 Xác nhận ghi có một phần
-    Sending --> Reconciling : Chưa nhận tiền, kết quả chưa rõ
-    Sending --> Failed : Tất cả phần xác nhận thất bại
-    Reconciling --> Paid : 💰 Xác nhận tất cả đã ghi có
-    Reconciling --> Partial : 💰 Xác nhận một số phần đã ghi có
-    Reconciling --> Failed : Xác nhận tất cả thất bại
-    Failed --> Sending : 💰 Thử lại không chi trùng
-    Partial --> Partial : Đối chiếu hoặc thử lại phần chưa trả
-    Partial --> Paid : Xác nhận đủ các phần còn lại
-    Paid --> Paid : Hoàn sau chi tạo khoản thu hồi riêng
+    [*] --> Processing : Gửi xác nhận
+    Processing --> Completed : 💰 Hai phía số dư đã khớp
+    Processing --> Failed : Xác nhận chưa thực hiện
+    Processing --> Unknown : Kết quả chưa rõ
+    Unknown --> Completed : Xác nhận giao dịch đã hoàn tất
+    Unknown --> Failed : Xác nhận giao dịch thất bại
 ```
 
-#### Trạng thái phần chi theo loại tiền
+#### Trạng thái yêu cầu rút
 
-| Trạng thái hiện tại | Tác nhân chuyển trạng thái | Trạng thái mới | Ghi chú |
-| :--- | :--- | :--- | :--- |
-| Chưa gửi | Đủ điều kiện gửi yêu cầu chi | Đang chuyển | 💰 Mỗi phần có tham chiếu riêng. |
-| Đang chuyển / Cần đối chiếu | VlinkPay xác nhận ghi có | Đã trả | 💰 Lưu số đơn vị thực nhận. |
-| Đang chuyển | Kết quả chưa rõ | Cần đối chiếu | Chưa được thử lại. |
-| Đang chuyển / Cần đối chiếu | Xác nhận không chi và yêu cầu đã thất bại | Thất bại | Giữ phần tiền chờ xử lý. |
-| Thất bại | Thử lại hợp lệ | Đang chuyển | 💰 Không gửi lại phần khác đã thành công. |
+| Trạng thái hiện tại | Sự kiện | Trạng thái mới |
+| :--- | :--- | :--- |
+| Đang chuẩn bị | Chưa đủ hồ sơ nhận tiền | Cần bổ sung hồ sơ; chưa giữ điểm |
+| Đang chuẩn bị / Cần bổ sung hồ sơ | Yêu cầu hợp lệ được chấp nhận | Đã tiếp nhận; điểm được giữ |
+| Đã tiếp nhận | Đối tác bắt đầu xử lý | Đang thanh toán |
+| Đang thanh toán / Cần đối chiếu | Đối tác xác nhận đã thanh toán | Đã trả |
+| Đang thanh toán | Chưa rõ kết quả | Cần đối chiếu |
+| Đang thanh toán / Cần đối chiếu | Đối tác xác nhận thất bại | Thất bại; điểm xử lý theo E24 |
 
 ```mermaid
 stateDiagram-v2
-    state "Đang chuyển" as Sending
-    state "Cần đối chiếu" as Reconciling
+    state "Đang chuẩn bị" as Draft
+    state "Cần bổ sung hồ sơ" as Missing
+    state "Đã tiếp nhận" as Accepted
+    state "Đang thanh toán" as Processing
+    state "Cần đối chiếu" as Unknown
+    state "Đã trả" as Paid
     state "Thất bại" as Failed
-    state "Đã trả" as Paid
-    [*] --> Sending : 💰 Gửi phần chi hợp lệ
-    Sending --> Reconciling : Kết quả chưa rõ
-    Sending --> Failed : Xác nhận không chi
-    Sending --> Paid : 💰 Xác nhận ghi có
-    Reconciling --> Failed : Xác nhận không chi
-    Reconciling --> Paid : 💰 Xác nhận ghi có
-    Failed --> Sending : 💰 Thử lại không trả trùng
-    Paid --> [*] : Hoàn tất phần chi
-```
-
-#### Trạng thái khoản cần thu hồi
-
-| Trạng thái hiện tại | Tác nhân chuyển trạng thái | Trạng thái mới | Ghi chú |
-| :--- | :--- | :--- | :--- |
-| Chưa có nghĩa vụ xác nhận | Kết luận phần đã trả mất điều kiện hưởng | Chưa bù đủ | Không tạo công nợ chỉ từ khiếu nại chưa kết luận. |
-| Chưa bù đủ | Dùng dự phòng hợp lệ hoặc thu nhập khả dụng | Đã bù một phần / Đã bù đủ | 💰 Ưu tiên dự phòng, rồi khả dụng; phần thiếu chuyển tiếp. |
-| Đã bù một phần | Có thu nhập đủ điều kiện tiếp theo | Đã bù một phần / Đã bù đủ | 💰 Không thu lại số đã bù. |
-| Chưa bù đủ / Đã bù một phần / Đã bù đủ | Quyết định thu hồi được hủy hoặc đính chính | Hủy / Điều chỉnh nghĩa vụ | 💰 Hoàn nguyên đúng nguồn khi cần; giữ dấu vết gốc. |
-
-```mermaid
-stateDiagram-v2
-    state "Chưa bù đủ" as Outstanding
-    state "Đã bù một phần" as Partial
-    state "Đã bù đủ" as Settled
-    state "Đã hủy nghĩa vụ" as Cancelled
-    [*] --> Outstanding : Xác nhận cần thu hồi
-    Outstanding --> Partial : Bù một phần nghĩa vụ
-    Outstanding --> Settled : Bù đủ nghĩa vụ
-    Partial --> Partial : Bù thêm nhưng còn thiếu
-    Partial --> Settled : Bù đủ phần còn lại
-    Outstanding --> Outstanding : Đính chính nghĩa vụ còn thiếu
-    Partial --> Outstanding : Đính chính và đối chiếu lại
-    Settled --> Outstanding : Đính chính còn nghĩa vụ
-    Outstanding --> Cancelled : Hủy quyết định thu hồi
-    Partial --> Cancelled : Hủy và hoàn nguyên
-    Settled --> Cancelled : Hủy và hoàn nguyên
-    Cancelled --> [*] : Hoàn tất xử lý hủy
+    [*] --> Draft : Bắt đầu yêu cầu rút
+    Draft --> Missing : Hồ sơ chưa đủ
+    Missing --> Draft : Bổ sung hồ sơ
+    Draft --> Accepted : Yêu cầu hợp lệ được chấp nhận
+    Accepted --> Processing : 💰 Gửi đối tác xử lý
+    Processing --> Unknown : Kết quả chưa rõ
+    Processing --> Paid : 💰 Đối tác xác nhận đã trả
+    Unknown --> Paid : 💰 Đối chiếu xác nhận đã trả
+    Processing --> Failed : Đối tác xác nhận thất bại
+    Unknown --> Failed : Đối chiếu xác nhận thất bại
 ```
 
 ### Quy tắc nghiệp vụ
 
-1. **Quyền và nguồn tiền:** thu nhập, consent, điều chỉnh và payout thuộc đúng Business. Không gộp hoặc bù chéo với Personal, Business khác, tiền tip hoặc Ads Credit.
-2. **Bật kiếm tiền là tùy chọn:** không yêu cầu Business phải mua quảng cáo hoặc giới thiệu thêm tài khoản mới để nhận thu nhập trực tiếp. Scan, mở menu, xem danh sách và impression không tự tạo tiền.
-3. **Hoạt động được hưởng:** phải có nguồn QR hợp lệ, campaign đủ điều kiện/ngân sách, Business có quyền hưởng và hoạt động vượt kiểm tra trùng lặp/gian lận. Nội dung Internal của chính chủ QR và click Public organic không tạo Publisher Share từ CPC.
-4. **Bộ lọc bảo vệ:** quảng cáo trả phí cũng không được vượt bộ lọc đối thủ trong phiên OneQR doanh nghiệp. Story nhận kết quả phân phối hợp lệ từ phần discovery/campaign liên quan.
-5. **Nguồn giao dịch:** với dịch vụ, kế thừa mẫu nguồn hợp lệ cuối trong 30 ngày trước khi khóa booking/order và tối đa 60 ngày từ khóa tới hoàn tất/thanh toán. Đây là cửa sổ nguồn dịch vụ, khác cửa sổ chống click trùng và thời gian đối soát.
-6. **Tắt kiếm tiền:** không xóa thưởng đã khóa hợp lệ hoặc công nợ còn thiếu; tiếp tục đối soát và xử lý hoàn/đảo theo chính sách gốc. Dự phòng không được giải phóng sớm chỉ vì Owner tắt kiếm tiền; vẫn giải phóng đúng lịch khi đủ điều kiện, kể cả Business không còn thu nhập mới. Click phát sinh lúc tắt không được cộng hồi tố sau khi bật lại.
-7. **Đối soát:** thời gian chờ mặc định **14 ngày**, dùng chung cho click quảng cáo và thưởng dịch vụ; Admin vận hành hệ thống cấu hình số ngày. Thời gian tính từ lúc khoản thu đủ điều kiện được ghi nhận chờ đối soát: click sau xác nhận hợp lệ, dịch vụ sau khi đã hoàn tất và thanh toán quyết toán được xác nhận. Đổi cấu hình chỉ áp dụng cho khoản ghi nhận mới; không đổi thời hạn của khoản đã ghi nhận. Hết thời gian chờ không tự giải phóng hold hoặc bỏ qua điều kiện khác.
-8. **💰 Kỳ chi:** thứ Ba, mốc 00:00 America/Chicago; phần khả dụng còn lại sau trích dự phòng và bù nghĩa vụ thu hồi phải đạt $25. Dự phòng đến hạn được cộng vào khả dụng một lần, không trích dự phòng lại. Ngày hết đối soát hoặc giải phóng dự phòng không phải cam kết tiền về ví ngay.
-9. **💰 Ví nhận:** dùng ví VlinkPay liên kết SSO của tài khoản Business. Hiển thị ví đủ để Owner nhận biết; hệ thống xác nhận quyền sở hữu và điều kiện nhận tiền. Chưa xác định được ví thì giữ khoản chi và báo lý do, không chuyển sang một tài khoản suy đoán.
-10. **💰 Hoàn/đảo phần chưa trả:** khi xác nhận mất điều kiện hưởng, xác định phần thưởng phải điều chỉnh theo giao dịch gốc. Đảo phần chưa chi liên quan trước, gồm dự phòng của chính khoản thu và phần khả dụng chưa chi. Không vừa đảo phần này vừa ghi cùng số tiền thành công nợ phải thu hồi. Hoàn một phần chỉ điều chỉnh phần thưởng tương ứng, không thu hồi toàn bộ giá trị hóa đơn của khách.
-11. **💰 Hoàn/đảo phần đã trả:** giữ lịch sử payout; chỉ phần nghĩa vụ còn thiếu sau khi xử lý phần chưa chi mới là khoản cần thu hồi. Dùng dự phòng còn lại được phép sử dụng của cùng Business trước, sau đó thu nhập khả dụng chưa chi; phần thiếu mới chuyển sang thu nhập đủ điều kiện các kỳ sau. Mỗi lần bù có số tiền, lý do, giao dịch gốc, nguồn bù, kỳ bù và số còn thiếu. Không tự trừ lại số dư ví VlinkPay đã nhận tiền hoặc dùng số đã phân bổ vào payout đang chuyển mà chưa đối chiếu kết quả.
-12. **Không ghi nhận trùng:** gửi lại sự kiện, xác nhận ví hoặc thao tác kiểm tra trạng thái không được tạo thêm thu nhập, lần trích/sử dụng/giải phóng dự phòng, khoản thu hồi, khấu trừ hoặc payout cho cùng nghĩa vụ.
-13. **💰 Trích dự phòng một lần:** trên mỗi khoản Publisher Share mới qua đối soát, trích theo tỷ lệ đã lưu; phần còn lại mới khả dụng. Thời gian giữ thêm tính từ lúc trích sau đối soát. Không trích trên số dư đã chuyển kỳ, phần dự phòng vừa giải phóng hoặc payout thử lại. Cả tỷ lệ và ngày giải phóng phải hiển thị cho Owner; tiền dự phòng vẫn ở phần theo dõi thu nhập Nexora, chưa chuyển vào số dư sử dụng được của ví VlinkPay.
-14. **💰 Giải phóng dự phòng:** tới hạn, xử lý nghĩa vụ đã xác nhận rồi chuyển phần còn lại không bị hold sang khả dụng. Chỉ phần đang cần kiểm tra tiếp tục bị giữ, kèm lý do và lịch sử cập nhật; không gia hạn toàn bộ dự phòng vô thời hạn vì một khoản tranh chấp nhỏ. Mỗi khoản phải đối chiếu được: số đã trích = số còn giữ + số đã sử dụng/đảo + số đã giải phóng.
-15. **Tranh chấp và thu hồi:** khi mới nhận khiếu nại, giữ phần liên quan để kiểm tra, chưa ghi giảm cuối cùng hoặc công nợ đã xác nhận. Nếu khoản thu hồi bị hủy/đính chính, tạo bút toán hoàn nguyên liên kết giao dịch gốc; số đã bù được khôi phục vào đúng phần dự phòng/khả dụng theo thời hạn còn hiệu lực và không bị trích dự phòng mới.
-16. **Rủi ro còn lại:** dự phòng không bảo đảm luôn đủ để bù mọi khoản thu hồi. Công nợ chưa bù phải có số tiền, ngày phát sinh, tuổi nợ và trạng thái xử lý cho vận hành; cảnh báo theo ngưỡng được cấu hình. Không tự xóa công nợ khi Business tắt kiếm tiền hoặc không có thu nhập mới.
-17. **💰 Loại tiền và tỷ lệ:** Admin chọn các loại tiền VlinkPay hỗ trợ, tỷ lệ mỗi loại lớn hơn 0 và tổng bằng 100%; một loại thì 100%. Phân bổ trên giá trị đủ chi sau dự phòng/khấu trừ, không thay công thức Publisher Share. Kiểm tra ngưỡng $25 trên tổng USD trước phân bổ, không kiểm tra lại riêng từng loại.
-18. **💰 Đối chiếu phân bổ:** tổng giá trị USD phân bổ cho các loại phải khớp giá trị đủ chi. Số đơn vị thực nhận phụ thuộc tỷ giá và phí đã công khai; mọi chênh lệch làm tròn phải được giải thích và xử lý theo chính sách được duyệt. Không cộng trực tiếp số đơn vị khác loại hoặc dùng tỷ giá hiện tại để sửa lịch sử giá trị gốc.
-19. **💰 Chi trả từng phần:** mỗi phần tiền có tham chiếu và kết quả riêng. Khi một phần đã ghi có, chỉ số đó là đã nhận; giữ phần còn lại để xử lý, không đưa vào kỳ chi khác đồng thời. Thử lại không đổi phiên bản/tỷ lệ phân bổ, không gửi lại phần thành công và không coi timeout là đã thất bại. Thu hồi sau chi căn cứ phần thưởng gốc mất điều kiện hưởng, không tự tính công nợ theo biến động giá loại tiền đã nhận.
+#### A. Điều kiện tham gia và kích hoạt
 
-#### Cách tính theo chính sách ngày 21 tháng 9 năm 2026
+- **A1. Quảng cáo và tham gia:** Gói OneQR hiện tại bao gồm quảng cáo tại Deal Nearby, Search Deals và Khám phá. Khi chủ doanh nghiệp đồng ý và kích hoạt, doanh nghiệp tự tham gia chương trình tích lũy; không có nút bật/tắt kiếm tiền riêng. Nếu không đồng ý, doanh nghiệp chưa thể kích hoạt theo gói này. Quyền tắt quảng cáo ở gói trả phí tương lai chưa được cung cấp.
+- **A2. Ngành kinh doanh:** Chủ doanh nghiệp phải chọn ngành chính và có thể chọn nhiều ngành phụ thực sự kinh doanh. Nếu chọn Khác, chủ doanh nghiệp nhập mô tả để vận hành phân loại. Hệ thống dùng lại hồ sơ sẵn có; thay đổi ngành phải được xác nhận phân loại và lưu lịch sử.
+- **A3. Danh mục ngành:** Vận hành quản lý danh mục có thể mở rộng với tên tiếng Việt và tiếng Anh, bao phủ làm đẹp, ăn uống, y tế, dịch vụ nhà cửa, xe cộ, bán lẻ, dịch vụ chuyên môn, du lịch, sự kiện, giáo dục, gia đình và thú cưng. Hệ thống hiển thị trạng thái phân loại và kênh báo sai cho chủ doanh nghiệp.
+- **A4. Đồng ý điều khoản:** Hệ thống hiển thị điều khoản hiện hành và ô đồng ý chưa chọn sẵn, nêu rõ quảng cáo và tự tham gia tích lũy. Khi chủ doanh nghiệp đồng ý, hệ thống lưu doanh nghiệp, tài khoản có thẩm quyền, thời điểm, phiên bản điều khoản và các ngành đã chọn.
+- **A5. Hồ sơ nhận tiền chỉ yêu cầu khi rút:** Hệ thống không đặt hồ sơ thuế, xác minh nhận tiền hoặc phương thức nhận tiền làm điều kiện kích hoạt và bắt đầu tích lũy. Các yêu cầu đó được thu hoặc dùng lại trong luồng rút theo E20; không thêm bước xét duyệt kiếm tiền riêng trước khi tham gia.
 
-Các giá trị sau lấy từ bản user chọn làm nguồn chuẩn cho story; lưu theo phiên bản chính sách/campaign, không hardcode vào FE.
+#### B. Bảo vệ doanh nghiệp và ghi nhận điểm
 
-| Hoạt động | Phí của Advertiser | Publisher Share của Business |
-| :--- | :--- | :--- |
-| Click banner tài trợ hợp lệ | $0.40/click | 40% phí hợp lệ; ví dụ $0.16. |
-| Click card tài trợ Nearby/Explore | $0.25/click | 35% phí hợp lệ. |
-| Click card tài trợ Search Deals | $0.30/click | 35% phí hợp lệ. |
-| Dịch vụ hoàn tất và thanh toán — khách mới đủ điều kiện | 10% giá trị dịch vụ sau giảm giá đủ điều kiện | 50% performance fee. |
-| Dịch vụ — khách quay lại sau ít nhất 90 ngày | 5% nếu campaign bật điều kiện này | 50% performance fee. |
-| Mở menu, impression, click organic hoặc Internal | Không tính phí mạng tương ứng | Không phát sinh thưởng từ những hoạt động này. |
+- **B6. Chặn cùng ngành:** Trong phiên xuất phát từ OneQR của doanh nghiệp, hệ thống loại doanh nghiệp bên thứ ba cùng ngành chính hoặc ngành phụ đã xác nhận khỏi các vị trí Deal Nearby, Search Deals và Khám phá. Quảng cáo trả phí không được vượt bộ lọc. Hệ thống giữ nguồn chủ QR khi khách chuyển màn hình và gắn nhãn nội dung tài trợ.
+- **B7. Phân loại chưa chắc chắn:** Khi thiếu ngành, ngành đang xét hoặc chưa xác định được nội dung có cạnh tranh hay không, hệ thống tạm không hiển thị nội dung bên thứ ba chưa được xác định an toàn trong phiên đó. Vận hành quản lý quan hệ giữa các ngành, lưu quyết định lọc và xử lý báo sai; thay đổi danh mục không được âm thầm làm sai phân loại đã có.
+- **B8. Sự kiện tạo điểm:** Hệ thống chỉ ghi điểm cho hành động hợp lệ theo chính sách chiến dịch, có nguồn và vượt kiểm tra trùng lặp. Quét QR, mở danh sách hoặc một lượt hiển thị riêng lẻ không tự tạo điểm. Hệ thống chưa cộng điểm giới thiệu hoặc cấp quyền đổi, chuyển, rút cho nguồn này khi chương trình chưa được xác định và phê duyệt.
+- **B9. Sổ điểm và duyệt:** Hệ thống ghi điểm nguyên vào trạng thái chờ duyệt, sau đó xét theo chính sách chiến dịch. Lịch sử phải truy được nguồn chương trình, mã sự kiện, doanh nghiệp, thời điểm, phiên bản mức điểm hoặc chính sách, số điểm và trạng thái. Sự kiện gửi lại không tạo khoản điểm mới.
+- **B10. Điều chỉnh và khiếu nại:** Hệ thống lưu lý do khi từ chối, giữ, điều chỉnh hoặc đảo điểm do trùng lặp, gian lận, hoàn tiền hay sai sót. Hệ thống dùng giao dịch điều chỉnh liên kết, giữ lịch sử gốc và cung cấp kênh khiếu nại. Cách thu hồi khi điểm đã dùng phải được xác định theo chính sách; không tự trừ số dư không liên quan.
 
-Giá trị dịch vụ tính phí không gồm thuế, tip, phụ phí, retail, gift card lúc bán hoặc phần đã hoàn. Một số tỷ lệ tạo phần lẻ dưới một cent; FE hiển thị giá trị đã được hệ thống đối soát xác nhận. Quy tắc làm tròn/tích lũy cần xác nhận trong contract trước phát hành. Không mặc định cộng phí click và phí dịch vụ trên cùng hành trình nếu campaign chưa chấp thuận mô hình tương ứng. Bán voucher trả trước là giai đoạn sau, ngoài phạm vi.
+#### C. Nguồn và quyền sử dụng số dư
 
-Cửa sổ click mẫu của bản 21/09: banner tối đa một valid click mỗi khách/phiên × advertiser × 24 giờ; sponsored card tối đa một valid click mỗi khách/phiên × deal × 24 giờ. Hoạt động service dùng booking/order để chống ghi nhận trùng. Cách nhận diện khách qua guest/login được xử lý trong tích hợp tracking.
+- **C11. Ví thu nhập:** Hệ thống chỉ cộng điểm doanh nghiệp tự kiếm từ quảng cáo đủ điều kiện và các nguồn bổ sung đã được bật theo chính sách riêng. Chỉ phần đã duyệt còn khả dụng được dùng; điểm chờ duyệt, đang giữ, đã dùng hoặc đã thanh toán không tham gia số dư thao tác.
+- **C12. Credit nhận từ người khác:** Hệ thống cộng vào ví sử dụng và ghi riêng nguồn nhận. Trong giai đoạn đầu, người nhận chỉ được sử dụng credit này, không được rút tiền hoặc chuyển tiếp. Credit nhận không vào ví thu nhập và không được tính là điểm tự kiếm.
+- **C13. Các nguồn credit còn lại:** Hệ thống ghi riêng credit đổi từ điểm của mình và credit đã nạp. Credit đã đổi không quay lại số dư đủ điều kiện rút; quyền của credit đã nạp theo chính sách nạp tương ứng. Hệ thống không gộp các nguồn để mở rộng quyền rút hoặc chuyển.
 
-#### Ví dụ dự phòng, khấu trừ và ngưỡng nhận tiền
+#### D. Đổi và chuyển điểm
 
-Tỷ lệ **20%** và thời gian **30 ngày giữ thêm** dưới đây chỉ để minh họa; Admin cần cấu hình giá trị được duyệt trước phát hành. Các ví dụ là những tình huống độc lập. “Khả dụng” đã loại phần dự phòng/hold; không trích thêm dự phòng trên số đó.
+- **D14. 💰 Quy đổi:** Hệ thống áp dụng **100 ONEQR Points = 1 credit = $1 giá trị quy đổi hoặc sử dụng**. Khi doanh nghiệp đổi điểm, hệ thống trừ điểm khả dụng và cộng credit vào ví sử dụng của chính doanh nghiệp cùng một giao dịch; không hoàn tất chỉ một phía. Hệ thống không tự áp mức tối thiểu chuyển điểm cho thao tác đổi.
+- **D15. Điều kiện mở đổi:** Trước khi mở thao tác đổi và sử dụng credit, vận hành phải xác định sản phẩm được hỗ trợ, độ chính xác credit, cách xử lý phần lẻ và chính sách hoàn hoặc đổi ngược. Hệ thống không tự coi giới hạn nhập của bản mô phỏng là quy tắc sản phẩm. Khi đã đổi thành công, phần điểm đó không còn được rút.
+- **D16. Ngưỡng chuyển:** Người gửi phải chọn tài khoản nhận đủ điều kiện và nhập ít nhất **1.000 điểm nguyên đã duyệt còn khả dụng** mỗi lần, tương đương $10. Hệ thống từ chối số dư thiếu, số điểm dưới ngưỡng hoặc tài khoản nhận không hợp lệ.
+- **D17. 💰 Ghi nhận chuyển:** Trước xác nhận, hệ thống cho người gửi kiểm tra danh tính người nhận và số credit tương ứng. Khi thành công, hệ thống đồng thời trừ điểm ví thu nhập người gửi và cộng credit ví sử dụng người nhận theo D14. Hệ thống lưu hai bên, số lượng, nguồn, thời điểm, trạng thái và mã chống xử lý trùng; một yêu cầu không được ghi nhận hai lần.
+- **D18. Chuyển lỗi hoặc tranh chấp:** Hệ thống hiển thị kết quả rõ ràng và đối chiếu yêu cầu gốc nếu chưa biết kết quả. Trước phát hành, vận hành phải có cách xử lý chuyển nhầm, tranh chấp và đảo giao dịch. Hệ thống không tự lấy tiền không liên quan để bù hoặc mặc định chuyển lại khi chưa xác định kết quả.
 
-| Trường hợp | Kết quả |
+#### E. Yêu cầu rút tiền
+
+- **E19. Ngưỡng và nguồn rút:** Chủ doanh nghiệp chỉ được bắt đầu yêu cầu rút khi có từ **10.000 điểm đã duyệt, chưa dùng và còn khả dụng, tương đương $100**. Số điểm yêu cầu phải đạt ngưỡng và không vượt phần khả dụng. Credit trong ví sử dụng không được tính vào ngưỡng, kể cả credit nhận từ người khác.
+- **E20. Hồ sơ tại bước rút:** Khi chủ doanh nghiệp yêu cầu rút, hệ thống thu hoặc dùng lại thông tin người nhận, mã số thuế, mẫu thuế phù hợp, thông tin xác minh và phương thức nhận tiền theo yêu cầu. Dữ liệu cụ thể và thời điểm kiểm tra trong luồng rút phụ thuộc đối tác thanh toán và yêu cầu áp dụng. Hệ thống không bắt làm lại thông tin còn giá trị và bảo vệ dữ liệu nhạy cảm theo F27.
+- **E21. Xem trước:** Trước xác nhận, hệ thống hiển thị số điểm sẽ dùng, giá trị quy đổi, phí đã được duyệt nếu có, số tiền nhận và phương thức nhận. Hệ thống không tự đặt phí, loại tiền, tỷ lệ chia hoặc cam kết thời gian nhận tiền chưa có chính sách.
+- **E22. Giữ điểm đúng lúc:** Hệ thống chỉ giữ điểm khi yêu cầu hợp lệ được chấp nhận; việc mở màn hình hoặc bổ sung hồ sơ chưa làm giữ điểm. Sau khi giữ, cùng số điểm không được đổi, chuyển hoặc dùng cho yêu cầu rút khác. Hệ thống kiểm tra lại số dư tại thời điểm chấp nhận.
+- **E23. 💰 Xác nhận thanh toán:** Hệ thống chỉ hiển thị đã trả khi đối tác thanh toán xác nhận. Hệ thống lưu mã yêu cầu, mã tham chiếu, trạng thái đối tác, số điểm, giá trị, phí và lịch sử xử lý. Timeout hoặc chưa có phản hồi là kết quả cần đối chiếu, chưa phải bằng chứng thanh toán thất bại.
+- **E24. Lỗi và đảo sau rút:** Hệ thống hoàn tất hoặc giải phóng điểm đang giữ theo kết quả cuối cùng và chính sách lỗi, đảo đã được phê duyệt. Hệ thống không vừa trả tiền vừa hoàn điểm cho cùng nghĩa vụ, không chi trùng khi nhận phản hồi lặp và không tự thu hồi từ khoản tiền không liên quan. Trường hợp thanh toán từng phần cần chính sách xử lý trước khi hỗ trợ.
+
+#### F. Quản trị, điều khoản và ngôn ngữ
+
+- **F25. Chính sách và quyền:** Chỉ người được phân quyền mới được quản lý ngành, mức điểm, quyền của từng nguồn, điều chỉnh và điều khoản. Hệ thống lưu người sửa, thời điểm, nội dung trước/sau và phiên bản áp dụng; thay đổi chính sách không được ghi đè lịch sử giao dịch.
+- **F26. Chống dùng trùng:** Hệ thống kiểm soát các thao tác đổi, chuyển và rút đồng thời trên cùng điểm. Mỗi giao dịch có mã nhận diện; lần gửi lại hoặc kiểm tra trạng thái không làm trừ điểm, cộng credit, giữ điểm hay thanh toán thêm lần nữa.
+- **F27. Dữ liệu và điều khoản:** Chủ doanh nghiệp chỉ thao tác dữ liệu thuộc quyền. Hệ thống giới hạn quyền truy cập dữ liệu thuế và danh tính. Điều khoản kích hoạt phải bao phủ quảng cáo, ngành, điểm, quy đổi, chuyển, ví sử dụng, rút, điều chỉnh, khiếu nại, thay đổi chính sách, đóng tài khoản và số dư còn lại; hoàn thiện câu chữ áp dụng trước phát hành.
+- **F28. Ngôn ngữ:** Hệ thống cung cấp đầy đủ tiếng Việt và tiếng Anh đã được rà soát cho các luồng, lỗi và thay đổi chính sách. Ngôn ngữ khác có thể dùng Google Dịch tùy chọn, được ghi rõ là dịch tự động. Khi dịch vụ dịch không hoạt động, hai ngôn ngữ chính vẫn dùng được; điều khoản cuối cùng phải xác định ngôn ngữ có giá trị áp dụng.
+
+### Ví dụ
+
+Các phép quy đổi và ngưỡng dưới đây áp dụng quy tắc đã chốt; số dư và số điểm thao tác là tình huống minh họa độc lập.
+
+| Tình huống | Kết quả |
 | :--- | :--- |
-| Khoản thu $100 qua đối soát, dự phòng 20%, chưa có công nợ | 💰 Trích $20, còn $80 khả dụng để xét chi. Dự phòng $20 chưa vào ví; có ngày dự kiến giải phóng sau 30 ngày giữ thêm. |
-| $20 dự phòng đến hạn, không có hold/công nợ và chưa có số khả dụng khác | 💰 Giải phóng $20 thành khả dụng; chưa chi vì dưới $25, không trích lại 20%. Có thêm $10 khả dụng thì xét chi $30 ở kỳ tiếp theo. |
-| Có $20 dự phòng hợp lệ và $80 khả dụng; cần thu hồi $30 từ khoản cũ đã trả | 💰 Dùng $20 dự phòng + $10 khả dụng; còn $70 xét chi. Công nợ về $0; không lấy thêm $30 lần nữa. |
-| Khoản $100 đã trả $80, còn $20 dự phòng; xác nhận $50 phần thưởng gốc mất điều kiện | 💰 Đảo $20 chưa trả của khoản gốc; phần đã trả cần thu hồi còn $30. Không ghi công nợ $50 rồi dùng lại cùng $20 lần thứ hai. |
-| Cần thu hồi $4; không còn dự phòng; kỳ sau có $30 khả dụng | 💰 Bù $4; còn $26, đủ ngưỡng xét chi vào ví VlinkPay. |
-| Cần thu hồi $4; không còn dự phòng; kỳ sau có $3 khả dụng | 💰 Bù $3; không chi kỳ này; còn $1 cần bù ở kỳ sau. |
-| Cần thu hồi $4; không còn dự phòng; kỳ sau có $27 khả dụng | 💰 Bù $4; còn $23, giữ sang kỳ tiếp theo vì chưa đạt $25. |
-| $20 dự phòng đến hạn; $5 đang bị hold vì tranh chấp chưa kết luận | Giữ riêng $5 có lý do; 💰 giải phóng $15 còn lại nếu không có nghĩa vụ khác. Chưa coi $5 là khoản mất quyền hưởng cuối cùng. |
-| Business tắt kiếm tiền và chưa có thu nhập mới | Dự phòng tiếp tục theo lịch; dùng/giải phóng theo chính sách. Công nợ chưa bù vẫn hiển thị và được vận hành theo dõi; không tự trừ ví VlinkPay. |
+| Doanh nghiệp đã chọn ngành chính, chủ động đồng ý điều khoản nhưng chưa có hồ sơ nhận tiền | Doanh nghiệp có thể kích hoạt và tham gia tích lũy theo A1–A5; hồ sơ nhận tiền được yêu cầu khi rút theo E20. |
+| Có 2.000 điểm khả dụng, đổi 1.000 điểm | 💰 Ví thu nhập còn 1.000 điểm; ví sử dụng của mình tăng 10 credit, tương đương $10. |
+| Có 2.000 điểm khả dụng, chuyển 1.000 điểm cho tài khoản hợp lệ | 💰 Người gửi còn 1.000 điểm; người nhận có thêm 10 credit trong ví sử dụng. |
+| Người gửi nhập 999 điểm | Hệ thống từ chối do chưa đạt D16; hai phía không thay đổi số dư. |
+| Có 9.999 điểm khả dụng và 300 credit nhận từ người khác | Chủ doanh nghiệp chưa đạt E19; credit nhận không bù vào ngưỡng rút. |
+| Có 10.000 điểm khả dụng, bắt đầu rút nhưng hồ sơ nhận tiền còn thiếu | Chủ doanh nghiệp được bắt đầu hoàn thiện hồ sơ; hệ thống chưa giữ điểm trước khi yêu cầu hợp lệ được chấp nhận. |
+| Có 12.000 điểm khả dụng, yêu cầu rút 10.000 điểm được chấp nhận | Hệ thống giữ 10.000 điểm, tương đương $100 trước phí nếu có; còn 2.000 điểm khả dụng. Chưa ghi đã trả khi thiếu xác nhận đối tác. |
+| Có 12.000 điểm khả dụng; yêu cầu rút 10.000 điểm vừa được chấp nhận, đồng thời gửi lệnh đổi 3.000 điểm | Lệnh đổi bị từ chối vì chỉ còn 2.000 điểm khả dụng; hệ thống không dùng lại phần đang giữ. |
 
-#### Ví dụ phân bổ loại tiền nhận
+### Tiêu chí nghiệm thu
 
-**Chỉ minh họa, chưa phải danh mục hoặc tỷ lệ được chốt:** Admin cấu hình loại tiền A **70%**, loại tiền B **30%**; cả hai phải được VlinkPay hỗ trợ. Giả sử chưa có công nợ và phí quy đổi bằng 0 trong ví dụ.
+#### Kích hoạt và ngành
 
-| Bước | Kết quả |
-| :--- | :--- |
-| Publisher Share $100 qua đối soát, giữ dự phòng 20% | Giữ $20; $80 đủ ngưỡng chi. Tỷ lệ dự phòng 20% độc lập với tỷ lệ tiền nhận 70%/30%. |
-| Phân bổ $80 đủ chi | Loại A nhận giá trị tương đương $56; loại B tương đương $24. Không giữ riêng phần B vì dưới $25, vì tổng payout $80 đã đạt ngưỡng. |
-| Quy đổi minh họa: 1 đơn vị A = $2, 1 đơn vị B = $0.50 | Dự kiến ghi có 28 A và 48 B. Không gọi tổng là “76 tiền”; giá trị phân bổ gốc vẫn là $80. Các tỷ giá chỉ là giả định tính toán. |
-| 28 A thành công, phần 48 B thất bại được xác nhận | Payout đã trả một phần: 28 A đã nhận, 48 B chờ xử lý. Thử lại chỉ phần B; không trích dự phòng lại và không gửi lại 28 A. |
-| Admin đổi phân bổ sang A 60% / B 40% | Áp dụng cho payout mới từ thời điểm hiệu lực; payout $80 đã tạo vẫn giữ phân bổ A $56 / B $24. |
+- [ ] Hệ thống chặn kích hoạt khi thiếu ngành chính theo A2.
+- [ ] Hệ thống chặn kích hoạt khi chủ doanh nghiệp chưa chủ động đồng ý theo A4.
+- [ ] Hệ thống lưu đúng người, doanh nghiệp và phiên bản đồng ý theo A4.
+- [ ] Kích hoạt thành công tự đưa doanh nghiệp vào chương trình theo A1.
+- [ ] Hệ thống không yêu cầu hồ sơ nhận tiền trước khi tham gia theo A5.
+- [ ] Hệ thống chặn nội dung cạnh tranh, kể cả trả phí, theo B6.
+- [ ] Hệ thống giữ lại nội dung chưa xác định an toàn theo B7.
 
-#### Tiêu chí nghiệm thu
+#### Điểm và số dư
 
-1. Business Owner chỉ xem/thao tác trên Business mình có quyền; Personal và Sponsor không xuất hiện trong luồng này.
-2. Hiển thị trạng thái KYB, điều kiện tham gia, thuế, liên kết ví và chính sách dự phòng áp dụng; kế thừa kết quả xác minh hiện có. Chỉ bật khi hệ thống xác nhận đủ điều kiện; consent có người đồng ý, thời điểm và phiên bản.
-3. Bật/tắt không làm mất tiện ích OneQR hoặc tắt bộ lọc đối thủ. Khoản đã khóa hợp lệ không bị xóa khi tắt; click lúc tắt không được cộng hồi tố.
-4. Scan, mở menu, impression, click organic và Internal không tạo thu nhập trái chính sách. Hoạt động trùng, tự giao dịch, gian lận hoặc campaign không đủ điều kiện không được cộng thưởng.
-5. Khoản thu hiển thị loại hoạt động, nguồn QR, campaign, thời điểm, căn cứ/phần chia, trạng thái và lý do giữ/điều chỉnh khi có; chỉ hiển thị dữ liệu khách trong quyền được phép.
-6. Booking/order khóa nguồn; việc quét QR khác không thay nguồn đã khóa. Thưởng dịch vụ chỉ phát sinh khi hoàn tất và thanh toán được xác minh.
-7. Tổng quan phân biệt chờ đối soát, dự phòng còn giữ, khả dụng, hold do tranh chấp, đang chi, đã trả và điều chỉnh. Không cộng hai lần khoản vừa thuộc dự phòng vừa bị hold. Số tiền đã chuyển ví chỉ hiển thị khi có xác nhận ghi có.
-8. Cả click quảng cáo và thưởng dịch vụ dùng thời gian đối soát mặc định 14 ngày do Admin vận hành cấu hình. Lưu thời hạn áp dụng cho từng khoản thu; đổi cấu hình không tính lại khoản cũ. Sau đối soát, trích dự phòng theo chính sách của khoản thu. Kiểm tra $25 trên phần khả dụng còn lại sau xử lý công nợ; không dùng phần dự phòng chưa giải phóng, chờ đối soát, hold hoặc đang chi để trả tiếp.
-9. Payout gửi vào đúng ví VlinkPay SSO của Business. Thiếu ví hợp lệ, ví bị hạn chế hoặc hồ sơ chưa đủ phải có lý do và bước xử lý; không mất số tiền đang chờ chi.
-10. Điều chỉnh được xác nhận phải tách phần chưa trả để đảo trực tiếp và phần đã trả cần thu hồi. Dùng dự phòng hợp lệ còn lại cùng Business, rồi khả dụng, sau cùng chuyển tiếp phần thiếu sang kỳ sau. Không ghi hoặc thu hai lần cùng nghĩa vụ; không đổi lịch sử đã trả và không tự trừ ví VlinkPay.
-11. Chi tiết đối soát hiển thị thu nhập kỳ này, dự phòng mới trích/còn giữ/đã dùng/đã giải phóng, ngày giải phóng, khấu trừ, số thực nhận và số còn phải bù; mỗi thay đổi truy được giao dịch gốc. Các ví dụ phía trên phải cho kết quả tương ứng.
-12. Payout lỗi/chưa rõ kết quả có trạng thái riêng và đối chiếu trước khi thử lại; sự kiện lặp không chi, trích dự phòng, giải phóng hoặc khấu trừ trùng.
-13. Lịch sử lưu mã giao dịch Nexora/VlinkPay khi có, thời điểm, trạng thái và số tiền; Owner có thể lọc kỳ và mở chi tiết để đối chiếu.
-14. Giao diện dùng được trên điện thoại và desktop, có EN/VI; ngày tiếng Việt viết đầy đủ “tháng”. Chưa có dữ liệu, đang tải hoặc lỗi kết nối có trạng thái rõ ràng.
-15. Business Owner không sửa được số ngày đối soát. Thay đổi của Admin vận hành có lịch sử người sửa, giá trị trước/sau, thời điểm hiệu lực; FE Business hiển thị ngày dự kiến đủ điều kiện do hệ thống xác nhận.
-16. Admin vận hành được phân quyền cấu hình tỷ lệ dự phòng, số ngày giữ thêm, phạm vi áp dụng và ngày hiệu lực; Owner chỉ xem. Lưu chính sách với từng khoản thu khi ghi nhận; thay đổi/giảm/tắt cấu hình cho khoản mới không tính lại hay giải phóng sớm khoản cũ.
-17. Dự phòng chỉ trích một lần trên Publisher Share mới qua đối soát. Không trích lại trên tiền chuyển kỳ, dự phòng được giải phóng hoặc payout thử lại. Tổng dự phòng trích phải bằng còn giữ + đã dùng/đảo + đã giải phóng.
-18. Đến hạn, hệ thống giải phóng phần dự phòng không còn nghĩa vụ/hold vào khả dụng; chưa đủ $25 thì chuyển kỳ. Phần bị hold có lý do; không giữ cả số tiền không liên quan. Tắt kiếm tiền không ngừng giải phóng khoản đủ điều kiện theo lịch.
-19. Tranh chấp chưa kết luận chỉ tạo hold; khi xác nhận mới điều chỉnh/thu hồi. Nếu quyết định thu hồi được hủy, có bút toán hoàn nguyên đúng nguồn và lịch sử, không tạo thu nhập hay lần dự phòng mới.
-20. Công nợ chưa bù hiển thị số tiền, ngày phát sinh và tuổi nợ cho vận hành; có cảnh báo theo ngưỡng cấu hình. Dự phòng không đủ hoặc Business ngừng hoạt động không làm công nợ tự biến mất.
-21. Admin được phân quyền có thể chọn loại tiền VlinkPay hỗ trợ, nhập tỷ lệ, xem trước phân bổ và đặt hiệu lực. Chặn áp dụng nếu tổng khác 100%, thiếu/trùng loại tiền, tỷ lệ không hợp lệ hoặc loại không được hỗ trợ. Business Owner không sửa được cấu hình.
-22. Payout lưu phiên bản, loại tiền, tỷ lệ, giá trị USD từng phần, căn cứ quy đổi, phí, số đơn vị và tham chiếu. Đổi cấu hình chỉ tác động payout mới từ ngày hiệu lực; không tính lại payout đã tạo, kể cả phần đang chờ thử lại. Thay đổi có lịch sử Admin và giá trị trước/sau.
-23. Phân bổ đúng trên giá trị đủ chi sau dự phòng/khấu trừ, tổng tỷ lệ 100%; ngưỡng $25 áp dụng trên tổng USD trước chia. Ví dụ $80 chia 70%/30% phải cho $56/$24; không chặn riêng phần $24 hoặc trích thêm dự phòng.
-24. Lịch sử và chi tiết hiển thị từng loại tiền, tỷ lệ, giá trị phân bổ, tỷ giá/phí, số đơn vị dự kiến/đã nhận và trạng thái. Một phần thành công phải hiển thị đã trả một phần; chỉ tất cả phần được xác nhận ghi có mới đánh dấu payout đã trả. Không cộng trực tiếp số đơn vị khác loại.
-25. Khi một phần thất bại/chưa rõ kết quả, đối chiếu và chỉ thử lại phần xác nhận chưa chi. Không chuyển lại phần thành công, đổi tỷ lệ theo cấu hình mới, trích thêm dự phòng hoặc phân bổ cùng tiền vào payout khác. Báo giá hết hạn được xử lý theo chính sách quy đổi đã duyệt và có lịch sử.
-26. Chưa có cấu hình hợp lệ, thiếu tỷ giá/phí cần thiết hoặc ví không nhận được loại tiền cấu hình phải có trạng thái/lý do chờ và bên xử lý. Không mất số dư, tự đổi loại tiền/tỷ lệ hoặc tắt toàn bộ ghi nhận thu nhập; phần đã trả giữ nguyên lịch sử.
+- [ ] Sự kiện hợp lệ tạo đúng một khoản chờ duyệt theo B8–B9.
+- [ ] Quét QR hoặc mở danh sách riêng lẻ không tạo điểm theo B8.
+- [ ] Nguồn giới thiệu chưa được phê duyệt không tạo điểm theo B8.
+- [ ] Chủ doanh nghiệp xem được căn cứ và lý do điều chỉnh theo B9–B10.
+- [ ] Hệ thống chỉ cho thao tác trên điểm khả dụng theo C11.
+- [ ] Các nguồn credit được ghi riêng theo C12–C13.
+- [ ] Credit nhận không được rút hoặc chuyển tiếp theo C12.
+
+#### Đổi và chuyển
+
+- [ ] Đổi điểm cho kết quả đúng tỷ lệ tại D14.
+- [ ] Giao dịch đổi cập nhật đủ hai phía theo D14.
+- [ ] Hệ thống không tự áp giới hạn của prototype theo D15.
+- [ ] Số điểm chuyển dưới ngưỡng bị từ chối theo D16.
+- [ ] Người gửi được kiểm tra đúng người nhận trước xác nhận theo D17.
+- [ ] Giao dịch chuyển cộng credit đúng ví sử dụng người nhận theo D17.
+- [ ] Kết quả chưa rõ được đối chiếu theo D18.
+
+#### Rút tiền
+
+- [ ] Hệ thống kiểm tra ngưỡng và nguồn điểm theo E19.
+- [ ] Hồ sơ nhận tiền được thu hoặc dùng lại tại luồng rút theo E20.
+- [ ] Hồ sơ thiếu có chỉ dẫn bổ sung rõ ràng.
+- [ ] Chủ doanh nghiệp xem được bản quy đổi và phí theo E21.
+- [ ] Hệ thống chỉ giữ điểm sau khi chấp nhận yêu cầu hợp lệ theo E22.
+- [ ] Kết quả đã trả có xác nhận đối tác theo E23.
+- [ ] Điểm của yêu cầu lỗi được xử lý theo chính sách tại E24.
+
+#### Quản trị và giao diện
+
+- [ ] Các thao tác đồng thời không dùng cùng điểm hai lần theo F26.
+- [ ] Phản hồi hoặc yêu cầu lặp không làm thay đổi số dư thêm lần nữa theo F26.
+- [ ] Dữ liệu thuế và danh tính chỉ hiển thị cho người có quyền theo F27.
+- [ ] Tiếng Việt và tiếng Anh thể hiện cùng quy tắc theo F28.
+- [ ] Dịch tự động lỗi không làm gián đoạn hai ngôn ngữ chính theo F28.
+- [ ] Giao diện trên điện thoại và máy tính có trạng thái đang tải, chưa có dữ liệu và lỗi kết nối rõ ràng.
 
 ### Tình huống ngoại lệ và cách xử lý
 
 | Tình huống | Cách xử lý | Bên xử lý |
 | :--- | :--- | :--- |
-| KYB/hồ sơ chưa đạt hoặc bị yêu cầu bổ sung | Hiển thị phần thiếu/lý do; dẫn tới luồng xác minh hiện có. | Owner / xác minh |
-| Mất liên kết ví hoặc ví chưa đủ điều kiện nhận | Giữ khoản chi, hiển thị lý do; xác nhận lại đúng ví Business trước khi trả. | Owner / VlinkPay / vận hành |
-| Booking hủy, no-show, hết hạn trước hoàn tất | Không tạo thưởng dịch vụ; giải phóng giữ chỗ qua nghiệp vụ campaign liên quan. | Hệ thống |
-| Hoàn một phần/toàn bộ trước hoặc sau payout | Đảo phần chưa trả đúng một lần; phần đã trả cần thu hồi dùng dự phòng hợp lệ, khả dụng và chuyển tiếp phần thiếu. Chỉ điều chỉnh phần thưởng mất điều kiện hưởng. | Hệ thống / vận hành |
-| Dự phòng đến hạn khi vẫn có tranh chấp | Giải phóng phần không liên quan; giữ phần liên quan với lý do cho đến khi có kết quả. | Hệ thống / vận hành |
-| Payout chưa đủ ngưỡng sau trích dự phòng/khấu trừ | Giữ phần khả dụng sang kỳ tiếp theo, không trích dự phòng lại. | Hệ thống |
-| Business tắt kiếm tiền | Không giải phóng dự phòng sớm; không trì hoãn phần đến hạn đủ điều kiện. Tiếp tục theo dõi công nợ. | Hệ thống / vận hành |
-| Công nợ vượt ngưỡng hoặc lâu không bù được | Cảnh báo vận hành và theo dõi xử lý; không tự xóa nợ hoặc tự lấy tiền từ ví VlinkPay. | Vận hành |
-| Điều chỉnh thu hồi bị hủy/đính chính | Hoàn nguyên khoản đã dùng/khấu trừ bằng bút toán liên kết; trở lại dự phòng/khả dụng theo thời hạn áp dụng. | Hệ thống / vận hành |
-| Thu nhập thấp hơn ngưỡng hoặc khoản cần thu hồi | Chuyển tiếp số dư/khoản còn thiếu; hiển thị riêng từng loại. | Hệ thống |
-| Payout chậm, thất bại hoặc không rõ kết quả | Giữ dấu vết giao dịch, đối chiếu VlinkPay; không coi timeout là chắc chắn chưa chuyển tiền. | VlinkPay / vận hành |
-| Cấu hình loại tiền thiếu, tỷ lệ sai tổng hoặc loại tiền không được hỗ trợ | Chặn áp dụng cấu hình sai. Khi không có chính sách hợp lệ để chi, giữ payout chờ với lý do; không tự đặt loại tiền hoặc tỷ lệ thay thế. | Admin vận hành |
-| Ví không nhận được một loại tiền hoặc thiếu căn cứ quy đổi | Kiểm tra trước khi gửi; giữ phần chưa chi cần xử lý, không tự phân bổ sang loại khác. Nếu đã có phần ghi có thì giữ trạng thái đã trả một phần và lịch sử tương ứng. | VlinkPay / vận hành |
-| Một loại tiền thành công, loại khác thất bại/chưa rõ | Theo dõi từng phần; đối chiếu phần chưa rõ rồi chỉ thử lại phần xác nhận chưa chi. Không chuyển lại toàn bộ payout. | VlinkPay / vận hành |
-| Admin đổi tỷ lệ khi payout đang chuyển | Giữ phiên bản đã chốt cho payout đó; bản mới áp dụng cho payout tạo sau thời điểm hiệu lực. | Hệ thống |
-| Hoạt động nghi gian lận | Giữ khoản liên quan và hiển thị lý do phù hợp; xử lý theo kết quả xác minh. | Vận hành |
-| Owner thắc mắc khoản điều chỉnh | Tra cứu hoạt động, chính sách và lịch sử; dùng kênh hỗ trợ hiện có. | Support |
+| Chủ doanh nghiệp chưa đồng ý điều khoản | Hệ thống giữ trạng thái chưa kích hoạt theo A1, A4. | Chủ doanh nghiệp |
+| Ngành Khác hoặc phân loại đang xét | Vận hành duyệt ngành; hệ thống chỉ phân phối nội dung đã xác định an toàn theo B7. | Vận hành |
+| Sự kiện trùng hoặc bị loại sau kiểm tra | Hệ thống giữ lịch sử và lý do theo B9–B10. | Hệ thống / vận hành |
+| Điểm không đủ khi xác nhận đổi hoặc chuyển | Hệ thống từ chối thao tác và cập nhật số dư hiển thị theo C11, F26. | Hệ thống |
+| Người nhận không hợp lệ | Hệ thống yêu cầu chọn lại theo D16. | Người gửi |
+| Chuyển nhầm hoặc có tranh chấp | Hỗ trợ tiếp nhận, đối chiếu theo D18; không tự lấy số dư khác để bù. | Hỗ trợ / vận hành |
+| Chủ doanh nghiệp đủ ngưỡng nhưng thiếu hồ sơ nhận tiền | Hệ thống hướng dẫn bổ sung theo E20, chưa giữ điểm theo E22. | Chủ doanh nghiệp / đối tác thanh toán |
+| Mất phản hồi của giao dịch | Hệ thống tra cứu giao dịch gốc theo D18 hoặc E23 trước khi xử lý tiếp. | Hệ thống / đối tác |
+| Thanh toán thất bại hoặc bị đảo | Hệ thống áp chính sách tại E24 và giữ lịch sử liên kết. | Vận hành / đối tác thanh toán |
+| Đóng tài khoản còn số dư hoặc giao dịch chưa xong | Vận hành xử lý theo điều khoản đã công bố tại F27; không tự coi số dư đã hết quyền. | Vận hành |
+| Google Dịch không hoạt động | Hệ thống duy trì hai ngôn ngữ chính theo F28. | Hệ thống |
 
 ### Câu hỏi thường gặp
 
-**Code hiện tại đã có kiếm tiền và payout OneQR chưa?**
+**Có phải làm hồ sơ thuế và xác minh nhận tiền trước khi tham gia không?**
 
-Chưa tìm thấy đầy đủ luồng trong hai repository và API contract đã đối chiếu. Các bảng bước, trạng thái và công thức trong tài liệu là yêu cầu nghiệp vụ; tracking menu và thanh toán Ads Credit chưa chứng minh đã ghi nhận hoặc chi trả thu nhập OneQR.
+Không. Doanh nghiệp tham gia qua bước kích hoạt tại A1–A5; hồ sơ nhận tiền chỉ được yêu cầu trong luồng rút tại E20.
 
-**Quét QR là có tiền ngay?**
+**Có cần bật kiếm tiền riêng sau khi kích hoạt OneQR không?**
 
-Không. Chỉ hoạt động đủ điều kiện của campaign và có nguồn hợp lệ mới được xét thưởng.
+Không. Gói hiện tại tự đưa doanh nghiệp vào chương trình theo A1.
 
-**Phải nạp Ads Credit hoặc mời người khác mới được bật kiếm tiền?**
+**Đổi điểm và chuyển điểm khác nhau ở đâu?**
 
-Không. Đây là thu nhập trực tiếp của QR Host; mua quảng cáo và Sponsor là nghiệp vụ khác.
+Đổi điểm đưa credit vào ví sử dụng của mình; chuyển điểm đưa credit vào ví sử dụng của người nhận. Cách ghi nhận nằm tại D14 và D17.
 
-**Tiền chờ đối soát hoặc giữ dự phòng có nằm trong ví VlinkPay chưa?**
+**Credit người khác gửi có được rút hoặc chuyển tiếp không?**
 
-Chưa. Chỉ khoản đã được VlinkPay xác nhận ghi có mới là tiền đã nhận vào ví.
+Không trong giai đoạn đầu; quyền của nguồn này nằm tại C12.
 
-**Tắt kiếm tiền có mất khoản đang chờ không?**
+**Đạt ngưỡng rút là tiền đã được trả chưa?**
 
-Không xóa khoản đã khóa hợp lệ; khoản đó vẫn chịu điều kiện đối soát, dự phòng, hoàn/đảo và khấu trừ. Dự phòng vẫn được xét giải phóng đúng lịch dù Owner đã tắt kiếm tiền.
-
-**Dự phòng có phải phí bị trừ mất không?**
-
-Không. Đây là phần thu nhập tạm giữ trên Nexora để bảo đảm nghĩa vụ hoàn tiền/tranh chấp. Phần không sử dụng được giải phóng theo lịch vào khả dụng rồi xét kỳ chi; Owner thấy số tiền, lý do và ngày dự kiến giải phóng.
-
-**Đã chờ đối soát 14 ngày thì còn chờ thêm bao lâu?**
-
-Chỉ phần trích dự phòng chờ thêm theo số ngày Admin cấu hình; phần còn lại có thể được xét chi ngay kỳ đủ điều kiện. Ví dụ 20%/30 ngày trong tài liệu chỉ minh họa, chưa phải mức mặc định đã chốt.
-
-**Đã nhận tiền nhưng sau đó khách được hoàn thì sao?**
-
-Sau khi xác nhận, hệ thống điều chỉnh phần thưởng mất điều kiện hưởng, ưu tiên xử lý phần chưa trả; phần đã trả còn phải thu hồi dùng dự phòng hợp lệ, rồi khả dụng, rồi thu nhập các kỳ sau cho phần thiếu. Mỗi lần dùng tiền có lý do và lịch sử; không tự trừ số dư ví VlinkPay đã nhận.
-
-**Ai quyết định nhận bằng loại tiền nào và bao nhiêu phần trăm?**
-
-Admin vận hành cấu hình từ danh mục VlinkPay hỗ trợ, tổng tỷ lệ 100%; Owner chỉ xem. Ví dụ A 70% / B 30% không phải cấu hình mặc định. Tỷ lệ áp dụng trên giá trị đủ chi sau dự phòng và khấu trừ, không phải toàn bộ doanh thu.
-
-**Một loại tiền đã vào ví, loại còn lại chưa vào thì sao?**
-
-Payout hiển thị đã trả một phần, kèm kết quả từng loại. Phần còn lại được đối chiếu/xử lý riêng; hệ thống không chuyển lại phần đã nhận hoặc tự đổi sang loại tiền khác.
+Chưa. Chủ doanh nghiệp cần hoàn thiện luồng yêu cầu rút; hệ thống xác nhận kết quả theo E20–E24.
 
 ### Tính năng liên quan
 
 | Tính năng | Mối liên hệ với tài liệu này |
 | :--- | :--- |
-| [Promotion và quảng cáo](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/promotion-publishing-ads.md) | Cung cấp hoạt động quảng cáo hoặc giao dịch đủ điều kiện, cùng các điều chỉnh, để làm căn cứ ghi nhận thu nhập cho doanh nghiệp giới thiệu. |
-| [Ads Credit](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/merchant-ads-credit.md) | Là nguồn tiền quảng cáo của doanh nghiệp chạy quảng cáo. Số dư nạp quảng cáo và thu nhập OneQR được quản lý riêng. |
-| OneQR và Discovery | Xác định nguồn giới thiệu và nơi phân phối nội dung phù hợp. Quét QR hoặc mở menu không tự tạo thu nhập. |
-| Xác minh doanh nghiệp (KYB) | Cung cấp kết quả xác minh để xét điều kiện tham gia và nhận tiền; kế thừa quy trình xác minh hiện có. |
-| Ví VlinkPay liên kết SSO | Nhận phần thu nhập đủ điều kiện vào đúng ví của tài khoản Business; trả kết quả để đối chiếu từng phần chi. |
-| [Sponsor Override](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/oneqr-sponsor-override.md) | Quản lý phần thu nhập theo quan hệ giới thiệu và cấp Sponsor. Thu nhập này có chính sách riêng, ngoài phạm vi thu nhập trực tiếp của Business. |
+| [Promotion và quảng cáo](https://github.com/vlink-group/VlinkPay/blob/main/nexora/docs/business/promotion-publishing-ads.md) | Cung cấp chiến dịch và hoạt động làm căn cứ xét điểm. Nội dung cũ về chia tiền cần được đối chiếu với chính sách điểm trong bản này trước khi tích hợp. |
+| [Ads Credit](https://github.com/vlink-group/VlinkPay/blob/main/nexora/docs/business/merchant-ads-credit.md) | Là nghiệp vụ nạp và sử dụng ngân sách quảng cáo; không tự đồng nhất số dư cũ với hai ví OneQR khi chưa có chính sách tích hợp. |
+| [Sponsor Override](https://github.com/vlink-group/VlinkPay/blob/main/nexora/docs/business/oneqr-sponsor-override.md) | Là chính sách thu nhập theo quan hệ giới thiệu riêng; không tự chuyển thành nguồn điểm giới thiệu hoặc quyền rút trong bản này. |
+| OneQR và Discovery | Giữ nguồn chủ QR và áp bộ lọc ngành trong phiên khám phá. Chưa có tài liệu kèm theo được chọn làm nguồn cho thay đổi lần này. |
+| Xác minh và đối tác thanh toán | Cung cấp hồ sơ, điều kiện nhận tiền và kết quả khi rút. Chưa có tài liệu tích hợp kèm theo trong bộ PO mới. |
 
-#### Tài liệu nguồn đi kèm
+### Phụ lục
 
-Các file HTML nguồn có nhắc đến `NEXORA-Promotion-Owner-Guide.html`, `NEXORA-Salon-Research-and-Template-Brief.md` hoặc `OneQR-2.2-Prototype.html`, nhưng các file này chưa có trong bộ nguồn được cung cấp. Không coi các liên kết đó là tài liệu đã xuất bản.
+#### Các nội dung cần hoàn thiện trước phát hành
 
-Các tài liệu nguồn có liên kết dưới đây được đính kèm trong thư mục references để đối chiếu. Đây là các bản mẫu, không phải bằng chứng chức năng đã triển khai. Nội dung nghiệp vụ và các quyết định áp dụng được trình bày trong tài liệu này; những nguồn chưa tìm thấy được ghi rõ riêng.
+Quyết định sản phẩm tại A1–F28 đã được chốt theo bộ PO. Các chi tiết dưới đây chưa được cung cấp; chức năng phụ thuộc chỉ được mở sau khi có chính sách và cấu hình tương ứng.
 
-- [Chính sách Ads/Referral 21/09 — nguồn tính thu nhập](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Ads-Referral-Revenue-Policy.html).
-- [Menu Placement — onboarding, payout và hành vi tắt](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Menu-Placement.html): chỉ lấy phần không mâu thuẫn chính sách 21/09 và quyết định user; không áp dụng tỷ lệ 70% của phần chính sách cũ trong file.
-- [Monetization & Sponsor Terms — điều kiện QR Host](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Monetization-Sponsor-Terms.html): không lấy tỷ lệ minh họa làm tỷ lệ của story; Sponsor ngoài phạm vi.
-- [Business Verification / KYB — bối cảnh xác minh](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Business-Verification-KYB.html): các level là đề xuất; không đồng nhất trực tiếp với trạng thái KYB đang chạy.
-- [Five-Part Pilot — không cộng hồi tố click lúc tắt](https://raw.githubusercontent.com/vlink-group/VlinkPay/main/nexora/docs/business/references/NEXORA-OneQR-Five-Part-Pilot.html): tỷ lệ demo không thay thế chính sách 21/09.
+| Nội dung | Cần hoàn thiện | Phụ trách |
+| :--- | :--- | :--- |
+| Tạo và duyệt điểm | Điều kiện, mức điểm từng sự kiện, lịch đối soát và thời điểm duyệt. | PO / vận hành |
+| Nguồn giới thiệu | Mức thưởng, điều kiện, thời gian duyệt và quyền đổi, chuyển, rút; hiện chưa bật nguồn này. | PO |
+| Đổi và sử dụng credit | Sản phẩm được dùng, độ chính xác credit, phần lẻ, điều kiện hoàn và đổi ngược. Không áp giới hạn bội số từ prototype thành mặc định. | PO / vận hành |
+| Chuyển điểm | Đối tượng nhận đủ điều kiện, giới hạn ngoài mức tối thiểu đã chốt, xử lý chuyển nhầm, tranh chấp và đảo. | PO / vận hành / đối tác |
+| Rút tiền | Đối tác, phương thức và loại tiền nhận, phí, lịch xử lý, dữ liệu và thời điểm kiểm tra hồ sơ trong luồng rút. | PO / đối tác thanh toán |
+| Lỗi và điều chỉnh | Khi nào giải phóng điểm, cách xử lý thanh toán từng phần, thu hồi khi điểm đã dùng hoặc đã rút và bảo đảm không xử lý trùng. | PO / vận hành / đối tác |
+| Điều khoản cuối cùng | Câu chữ áp dụng, thay đổi chính sách, ngôn ngữ có giá trị áp dụng, đóng tài khoản và số dư còn lại. | PO / bộ phận phụ trách điều khoản |
+| Dữ liệu cũ | Nếu đã có số dư hoặc nghĩa vụ theo chính sách cũ, cần phương án chuyển đổi và đối chiếu trước khi áp dụng mô hình điểm. | PO / vận hành / đội phát triển |
 
-#### Hiện trạng và phụ thuộc tích hợp — tham chiếu nội bộ
+#### Nguồn PO và thứ tự áp dụng
 
-Các nguồn dưới đây được đọc tại hai revision `staging` đã xác minh ở phần hiện trạng. Code đã có các điểm tích hợp liên quan; chưa đủ căn cứ khẳng định có chương trình Earnings hoặc payout OneQR. Việc cập nhật tài liệu #1599 không thay đổi tài liệu của ticket đang In Progress/Testing.
-
-| Nguồn mã | Nội dung được xác minh |
+| Nguồn | Vai trò |
 | :--- | :--- |
-| [OneQR doanh nghiệp](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/data/repositories/merchantOneQr.ts) | Đọc/ghi cấu hình và dữ liệu OneQR; không phải contract quản lý thu nhập. |
-| [OneQR công khai](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/data/repositories/publicOneQr.ts) | Lấy menu và gửi tracking bấm module; không xác nhận Publisher Share. |
-| [Ghi nhận bấm module](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/Public/OneQr/Commands/TrackOneQrModuleClick/TrackOneQrModuleClickCommand.cs) | Tracking truy cập và chống lặp trong analytics; không có bút toán thu nhập hoặc payout. |
-| [Xác minh doanh nghiệp](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/components/settings/tabs/KybTab.tsx) | Kế thừa trải nghiệm KYB; mapping với quyền kiếm tiền còn cần chốt. |
-| [Tài khoản và ví SSO](https://github.com/vlink-group/vlink-nexora-fe/blob/27c5ebcaa4d86b30bc2e965e7c3df8cfee06fc8e/src/data/repositories/profileSettings.ts) | Định vị điểm mở ví; chưa chứng minh ghi có thu nhập OneQR. |
-| [Thanh toán Ads Credit bằng ví](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Application/Features/AdsCredit/Commands/PurchaseAdsCreditWithWallet/PurchaseAdsCreditWithWalletCommand.cs) | Gọi thanh toán VlinkPay để mua credit; chiều tiền khác với payout Earnings. |
-| [API contract](https://github.com/vlink-group/vlink-nexora/blob/a7a46d314036f9d83c910aead411182480249bea/backend/src/Web/wwwroot/api/specification.json) | Chưa thấy endpoint Earnings OneQR cho các chức năng trong phạm vi tài liệu. |
+| [Yêu cầu phát triển song ngữ ngày 27/10](references/oneqr-points/NEXORA_ONEQR_Dev_Requirements_EN_VI.docx) | Nguồn chính cho quy tắc sản phẩm; phần Việt và Anh mô tả cùng hành vi. |
+| [Yêu cầu phát triển tiếng Anh ngày 27/10](references/oneqr-points/NEXORA_ONEQR_Developer_Requirements.docx) | Bản tiếng Anh dùng đối chiếu thuật ngữ và yêu cầu triển khai. |
+| [Chính sách và ví — prototype](references/oneqr-points/NEXORA_ONEQR_Chinh_sach_Va_Vi.html) | Minh họa vị trí, điều khoản, hai ví và thao tác; số dư mẫu, giới hạn nhập và giao dịch mô phỏng không chứng minh chức năng đã triển khai. |
 
-Các điểm cần xác nhận trước tích hợp/phát hành, không tự đặt giá trị trong story:
+Các nguồn trên được cung cấp trong bộ PO `quang-cao`. Khi prototype và tài liệu yêu cầu khác nhau về độ chi tiết, dùng tài liệu yêu cầu làm căn cứ hành vi. Bản cập nhật này áp dụng đồng bộ bộ PO ngày 27 tháng 10; hồ sơ nhận tiền được yêu cầu tại bước rút theo A5 và E20.
 
-| Phụ thuộc | Cần xác nhận |
+Bản này thay mô hình bật/tắt kiếm tiền riêng và ghi nhận tiền trực tiếp của tài liệu cũ bằng kích hoạt kèm tham gia và hai số dư điểm/credit. Ngưỡng chi $25 theo kỳ thứ Ba không còn áp dụng; dùng yêu cầu rút tại E19. Không lấy thời gian đối soát 14 ngày, tỷ lệ chia tiền, dự phòng hoặc phân bổ loại tiền của bản cũ làm cấu hình mặc định cho mô hình mới khi bộ PO mới chưa xác nhận các thông số đó. Tài liệu liên quan giữ vai trò tham chiếu, không ghi đè quy tắc mới tại đây.
+
+#### Tham chiếu mã nguồn và giới hạn xác minh
+
+Đối chiếu chỉ đọc ngày 28 tháng 10 năm 2026 trên các nhánh `origin/staging` sẵn có tại máy, không fetch lại remote trong lần cập nhật tài liệu này:
+
+| Nguồn | Revision và nội dung đã đọc |
 | :--- | :--- |
-| Contract kiếm tiền | Trạng thái/điều kiện, consent, bật/tắt, tổng quan, chi tiết thu nhập, dự phòng, điều chỉnh, công nợ và lịch sử payout; chưa xác nhận API triển khai trong công việc tài liệu này. |
-| VlinkPay | Định danh Business/ví qua SSO, danh mục loại tiền được hỗ trợ và khả năng nhận của ví, nguồn tỷ giá/thời điểm chốt/hiệu lực báo giá, phí nếu có, độ chính xác từng loại, mã và trạng thái từng phần chi, cơ chế chống trùng/đối chiếu. Không tự chọn USDV hoặc USDT chỉ vì FE có phương thức crypto. |
-| Cấu hình loại tiền nhận | Đã chốt Admin vận hành cấu hình loại tiền và tỷ lệ mỗi loại, tổng 100%. Cần xác nhận danh mục và tỷ lệ thực tế, phạm vi/ưu tiên chính sách, quyền Admin và contract lưu phiên bản theo payout, xem trước, hiệu lực, lịch sử. A 70% / B 30% chỉ là ví dụ; chưa xác nhận chức năng này đã có sẵn. |
-| Tích hợp cấu hình đối soát | Đã chốt mặc định 14 ngày, gồm cả click, Admin vận hành cấu hình. Contract cần cung cấp thời hạn của từng khoản thu, quyền cấu hình và lịch sử thay đổi; xác nhận giới hạn giá trị cấu hình hợp lệ trước triển khai. |
-| Chính sách và tích hợp dự phòng | Cơ chế đã được user chọn. Cần chốt tỷ lệ, số ngày giữ thêm, nhóm Business áp dụng và ngưỡng cảnh báo công nợ; 20%/30 ngày chỉ là ví dụ. Contract cần cung cấp chính sách đã lưu, ngày giải phóng từng khoản, lịch sử trích/dùng/đảo/giải phóng và hold; không mặc định VlinkPay đã có chức năng reserve. |
-| Làm tròn | Quy tắc phần chia lẻ dưới một cent của thu nhập; độ chính xác tỷ lệ phân bổ và đơn vị từng loại tiền, xử lý phần lẻ/phần quy đổi dưới mức tối thiểu VlinkPay cho phép, phí và đối soát để tổng giá trị khớp. Không tự làm mất phần lẻ hoặc coi phần chưa ghi có là đã trả. |
-| Eligibility | Mapping KYB hiện có với quyền bật kiếm tiền/payout, yêu cầu thuế và 2FA trong mẫu; thời điểm tái xác minh/giữ chi khi điều kiện thay đổi. |
-| Hoàn tiền khi đang chuyển | Phối hợp trạng thái chuyển ví và adjustment để quyết định giảm phần chưa trả hay tạo khoản thu hồi cho phần đã trả, không vừa giảm vừa thu hồi cùng một khoản. |
+| Frontend | [`0ff77bcd`](https://github.com/vlink-group/vlink-nexora-fe/commit/0ff77bcd2c0286d67ce3ca00e74c364ec97ef6af): đã đọc cấu hình OneQR và điểm tích hợp hồ sơ/KYB/ví. |
+| Backend | [`86c3f94c`](https://github.com/vlink-group/vlink-nexora/commit/86c3f94c7d2ccf660761867b34153a04c6afe88e): tìm trong phần chức năng ứng dụng và API contract để đối chiếu các tên của ví điểm OneQR. |
 
-Phạm vi công việc hiện tại là tài liệu nghiệp vụ; chưa sửa FE/BE, chưa gọi giao dịch tiền thật và chưa xác nhận tính sẵn sàng của API trên staging.
+Chưa tìm thấy các tên ví điểm/kiếm tiền OneQR trong phạm vi tìm kiếm trên; kết quả này không thay cho kiểm thử toàn bộ hệ thống. Chưa kiểm thử API hoặc giao dịch thật cho mô hình mới. Các luồng và trạng thái trong tài liệu là yêu cầu từ PO, không phải cam kết chức năng đã có trên staging.
+
+Thuật ngữ đã được đối chiếu với glossary của workspace. ONEQR Points và credit sử dụng ở đây theo bộ PO mới; chưa có căn cứ đồng nhất chúng với token hoặc VPC Credit của VlinkPay.
