@@ -396,20 +396,20 @@ stateDiagram-v2
 
 - **B6. Chặn cùng ngành:** Trong phiên xuất phát từ OneQR của cá nhân hoặc doanh nghiệp, hệ thống loại nội dung bên thứ ba cùng ngành chính hoặc ngành phụ đã xác nhận khỏi các vị trí Deal Nearby, Search Deals và Khám phá. Quảng cáo trả phí không được vượt bộ lọc. Hệ thống giữ nguồn chủ QR khi khách chuyển màn hình và gắn nhãn nội dung tài trợ.
 - **B7. Phân loại chưa chắc chắn:** Khi thiếu ngành, ngành đang xét hoặc chưa xác định được nội dung có cạnh tranh hay không, hệ thống tạm không hiển thị nội dung bên thứ ba chưa được xác định an toàn trong phiên đó. Vận hành quản lý quan hệ giữa các ngành, lưu quyết định lọc và xử lý báo sai; thay đổi danh mục không được âm thầm làm sai phân loại đã có.
-- **B8. Sự kiện tạo điểm:** Hệ thống chỉ ghi điểm cho hành động hợp lệ theo chính sách chiến dịch, có nguồn và vượt kiểm tra trùng lặp. Quét QR, mở danh sách hoặc một lượt hiển thị riêng lẻ không tự tạo điểm. Hệ thống chưa cộng điểm giới thiệu hoặc cấp quyền đổi, chuyển, rút cho nguồn này khi chương trình chưa được xác định và phê duyệt.
+- **B8. Sự kiện tạo điểm:** Hệ thống chỉ ghi điểm cho hành động hợp lệ theo chính sách chiến dịch, có nguồn và vượt kiểm tra trùng lặp. Quét QR, mở danh sách hoặc một lượt hiển thị riêng lẻ không tự tạo điểm. Hệ thống chuẩn bị nguồn điểm giới thiệu riêng, có thể cấu hình cho chương trình tương lai. Hệ thống chưa cộng điểm giới thiệu hoặc cấp quyền đổi, chuyển, rút cho nguồn này khi chương trình chưa được xác định và phê duyệt.
 - **B9. Sổ điểm và duyệt:** Hệ thống ghi điểm nguyên vào trạng thái chờ duyệt, sau đó xét theo chính sách chiến dịch. Lịch sử phải truy được nguồn chương trình, mã sự kiện, tài khoản sở hữu, thời điểm, phiên bản mức điểm hoặc chính sách, số điểm và trạng thái. Sự kiện gửi lại không tạo khoản điểm mới.
 - **B10. Điều chỉnh và khiếu nại:** Hệ thống lưu lý do khi từ chối, giữ, điều chỉnh hoặc đảo điểm do trùng lặp, gian lận, hoàn tiền hay sai sót. Hệ thống dùng giao dịch điều chỉnh liên kết, giữ lịch sử gốc và cung cấp kênh khiếu nại. Cách thu hồi khi điểm đã dùng phải được xác định theo chính sách; không tự trừ số dư không liên quan.
 
 #### C. Nguồn và quyền sử dụng số dư
 
-- **C11. Ví thu nhập:** Hệ thống chỉ cộng điểm tài khoản tự kiếm từ quảng cáo đủ điều kiện và các nguồn bổ sung đã được bật theo chính sách riêng. Chỉ phần đã duyệt còn khả dụng được dùng; điểm chờ duyệt, đang giữ, đã dùng hoặc đã thanh toán không tham gia số dư thao tác.
+- **C11. Ví thu nhập:** Hệ thống chỉ cộng điểm tài khoản tự kiếm từ quảng cáo đủ điều kiện và các nguồn bổ sung đã được bật theo chính sách riêng. Chỉ phần đã duyệt còn khả dụng được dùng; điểm chờ duyệt, đang giữ, đã dùng hoặc đã thanh toán không tham gia số dư thao tác. Hệ thống hiển thị số dư điểm kèm giá trị tương đương theo tỷ lệ tại D14.
 - **C12. Credit nhận từ người khác:** Hệ thống cộng vào ví sử dụng và ghi riêng nguồn nhận. Trong giai đoạn đầu, người nhận chỉ được sử dụng credit này, không được rút tiền hoặc chuyển tiếp. Credit nhận không vào ví thu nhập và không được tính là điểm tự kiếm.
 - **C13. Các nguồn credit còn lại:** Hệ thống ghi riêng credit đổi từ điểm của mình và credit đã nạp. Credit đã đổi không quay lại số dư đủ điều kiện rút; quyền của credit đã nạp theo chính sách nạp tương ứng. Hệ thống không gộp các nguồn để mở rộng quyền rút hoặc chuyển.
 
 #### D. Đổi và chuyển điểm
 
 - **D14. 💰 Quy đổi:** Hệ thống áp dụng **100 ONEQR Points = 1 credit = $1 giá trị quy đổi hoặc sử dụng**. Khi chủ tài khoản đổi điểm, hệ thống trừ điểm khả dụng và cộng credit vào ví sử dụng của chính tài khoản đó cùng một giao dịch; không hoàn tất chỉ một phía. Hệ thống không tự áp mức tối thiểu chuyển điểm cho thao tác đổi.
-- **D15. Điều kiện mở đổi:** Trước khi mở thao tác đổi và sử dụng credit, vận hành phải xác định sản phẩm được hỗ trợ, độ chính xác credit, cách xử lý phần lẻ và chính sách hoàn hoặc đổi ngược. Hệ thống không tự coi giới hạn nhập của bản mô phỏng là quy tắc sản phẩm. Khi đã đổi thành công, phần điểm đó không còn được rút.
+- **D15. Điều kiện mở đổi:** Trước khi mở thao tác đổi và sử dụng credit, vận hành phải xác định sản phẩm được hỗ trợ và chính sách hoàn hoặc đổi ngược.
 - **D16. Ngưỡng chuyển:** Người gửi phải chọn tài khoản nhận đủ điều kiện và nhập ít nhất **1.000 điểm nguyên đã duyệt còn khả dụng** mỗi lần, tương đương $10. Hệ thống từ chối số dư thiếu, số điểm dưới ngưỡng hoặc tài khoản nhận không hợp lệ.
 - **D17. 💰 Ghi nhận chuyển:** Trước xác nhận, hệ thống cho người gửi kiểm tra danh tính người nhận và số credit tương ứng. Khi thành công, hệ thống đồng thời trừ điểm ví thu nhập người gửi và cộng credit ví sử dụng người nhận theo D14. Hệ thống lưu hai bên, số lượng, nguồn, thời điểm, trạng thái và mã chống xử lý trùng; một yêu cầu không được ghi nhận hai lần.
 - **D18. Chuyển lỗi hoặc tranh chấp:** Hệ thống hiển thị kết quả rõ ràng và đối chiếu yêu cầu gốc nếu chưa biết kết quả. Trước phát hành, vận hành phải có cách xử lý chuyển nhầm, tranh chấp và đảo giao dịch. Hệ thống không tự lấy tiền không liên quan để bù hoặc mặc định chuyển lại khi chưa xác định kết quả.
@@ -464,9 +464,11 @@ Các phép quy đổi và ngưỡng dưới đây áp dụng quy tắc đã ch�
 
 - [ ] Sự kiện hợp lệ tạo đúng một khoản chờ duyệt theo B8–B9.
 - [ ] Quét QR hoặc mở danh sách riêng lẻ không tạo điểm theo B8.
+- [ ] Hệ thống có nguồn điểm giới thiệu riêng, có thể cấu hình theo B8.
 - [ ] Nguồn giới thiệu chưa được phê duyệt không tạo điểm theo B8.
 - [ ] Chủ tài khoản xem được căn cứ và lý do điều chỉnh theo B9–B10.
 - [ ] Hệ thống chỉ cho thao tác trên điểm khả dụng theo C11.
+- [ ] Ví thu nhập hiển thị số dư điểm kèm giá trị tương đương theo C11.
 - [ ] Các nguồn credit được ghi riêng theo C12–C13.
 - [ ] Credit nhận không được rút hoặc chuyển tiếp theo C12.
 
@@ -475,7 +477,8 @@ Các phép quy đổi và ngưỡng dưới đây áp dụng quy tắc đã ch�
 - [ ] Chủ tài khoản Personal và Business đều đổi, chuyển điểm được khi đáp ứng D14–D18.
 - [ ] Đổi điểm cho kết quả đúng tỷ lệ tại D14.
 - [ ] Giao dịch đổi cập nhật đủ hai phía theo D14.
-- [ ] Hệ thống không tự áp giới hạn của prototype theo D15.
+- [ ] Hệ thống chỉ mở đổi cho sản phẩm được hỗ trợ theo D15.
+- [ ] Hệ thống chỉ mở đổi khi có chính sách hoàn hoặc đổi ngược theo D15.
 - [ ] Số điểm chuyển dưới ngưỡng bị từ chối theo D16.
 - [ ] Người gửi được kiểm tra đúng người nhận trước xác nhận theo D17.
 - [ ] Giao dịch chuyển cộng credit đúng ví sử dụng người nhận theo D17.
@@ -564,7 +567,7 @@ Quyết định sản phẩm tại A1–F28 áp dụng bộ PO ngày 27 tháng 1
 | :--- | :--- | :--- |
 | Tạo và duyệt điểm | Điều kiện, mức điểm từng sự kiện, lịch đối soát và thời điểm duyệt. | PO / vận hành |
 | Nguồn giới thiệu | Mức thưởng, điều kiện, thời gian duyệt và quyền đổi, chuyển, rút; hiện chưa bật nguồn này. | PO |
-| Đổi và sử dụng credit | Sản phẩm được dùng, độ chính xác credit, phần lẻ, điều kiện hoàn và đổi ngược. Không áp giới hạn bội số từ prototype thành mặc định. | PO / vận hành |
+| Đổi và sử dụng credit | Sản phẩm được dùng và chính sách hoàn hoặc đổi ngược. | PO / vận hành |
 | Chuyển điểm | Đối tượng nhận đủ điều kiện, giới hạn ngoài mức tối thiểu đã chốt, xử lý chuyển nhầm, tranh chấp và đảo. | PO / vận hành / đối tác |
 | Rút tiền | Đối tác, phương thức và loại tiền nhận, phí, lịch xử lý, dữ liệu và thời điểm kiểm tra hồ sơ trong luồng rút. | PO / đối tác thanh toán |
 | Lỗi và điều chỉnh | Khi nào giải phóng điểm, cách xử lý thanh toán từng phần, thu hồi khi điểm đã dùng hoặc đã rút và bảo đảm không xử lý trùng. | PO / vận hành / đối tác |
