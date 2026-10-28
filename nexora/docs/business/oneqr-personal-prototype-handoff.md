@@ -1,8 +1,12 @@
 ## Bàn giao thiết kế prototype One QR Personal
 
 **Cập nhật lần cuối:** 28/10/2026
+
 **Đối tượng đọc:** PO, người thiết kế, người dựng prototype và đội phát triển
+
 **Trạng thái:** Đang rà soát — PO đã duyệt định hướng mở Personal; người dùng đã chốt nhóm sidebar One QR; danh sách trường và bố cục chi tiết đang đề xuất.
+
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/1599-oneqr-earnings-points/nexora/docs/business/oneqr-personal-prototype-handoff.md)
 **Ticket:** [#2420 — Mở One QR và quảng cáo kiếm tiền cho Personal](https://github.com/vlink-group/vlink-nexora/issues/2420)
 
 ### Tóm tắt nhanh
@@ -67,7 +71,7 @@ Không tự đưa số điện thoại, email đăng nhập hoặc địa chỉ 
 | Xem trước | Xem đúng nội dung công khai trước khi lưu hoặc chia sẻ. |
 | Mã và đường dẫn | Tải QR, sao chép link và chia sẻ. |
 | Hoạt động của QR | Tạm dừng và mở lại QR. |
-| Quảng cáo kiếm tiền | Xem phần giải thích, đọc điều khoản, đồng ý và kích hoạt; thể hiện rõ trạng thái đã kích hoạt. |
+| Quảng cáo kiếm tiền | Mở từ One QR → Quảng cáo; xem giải thích, đọc điều khoản, đồng ý và kích hoạt; thể hiện rõ trạng thái đã kích hoạt. |
 | Kết quả hoạt động | Xem lượt quét, lượt bấm, thu nhập quảng cáo và lịch sử liên quan theo C8. |
 
 #### Thông tin của Business không đưa vào mẫu Personal ban đầu
@@ -84,17 +88,18 @@ One QR
   Tip QR
   Accept Payment
   Referral Link
+  Quảng cáo
 ```
 
-Tip QR dùng lại phần My QR hiện có của thợ. Accept Payment mở QR thanh toán cá nhân và lối vào cấu hình phương thức nhận tiền. Referral Link dùng lại liên kết giới thiệu hiện có. Khi chưa có salon hợp lệ, Tip QR hiển thị hướng dẫn phù hợp; ba công cụ cá nhân còn lại không lấy việc liên kết salon làm điều kiện mở màn hình.
+Tip QR dùng lại phần My QR hiện có của thợ. Accept Payment mở QR thanh toán cá nhân và lối vào cấu hình phương thức nhận tiền. Referral Link dùng lại liên kết giới thiệu hiện có. Mục Quảng cáo mở phần kích hoạt và kết quả kiếm tiền của tài khoản cá nhân. Khi chưa có salon hợp lệ, Tip QR hiển thị hướng dẫn phù hợp; các công cụ cá nhân còn lại không lấy việc liên kết salon làm điều kiện mở màn hình.
 
-Nhãn mới nhất là Accept Payment, thay cho đề xuất Payment Methods trước đó. Không bổ sung Payment Methods thành mục con thứ năm. Vị trí nhóm mới thay cho đề xuất đặt One QR bên trong My QR.
+Nhãn mới nhất là Accept Payment, thay cho đề xuất Payment Methods trước đó. Vị trí nhóm mới thay cho đề xuất đặt One QR bên trong My QR.
 
 #### Hai màn hình cần dựng
 
 | Màn hình | Bố cục và thao tác |
 |---|---|
-| Quản lý One QR Personal | Mở từ One QR → One QR. Hiển thị QR, link chia sẻ, trạng thái mã; các phần Thông tin, Liên kết, Quảng cáo kiếm tiền và Kết quả hoạt động. Có nút lưu và xem trước. |
+| Quản lý One QR Personal | Mở từ One QR → One QR. Hiển thị QR, link chia sẻ, trạng thái mã; các phần Thông tin, Liên kết và Kết quả hoạt động của QR. Phần kích hoạt và thu nhập quảng cáo mở từ One QR → Quảng cáo. Có nút lưu và xem trước. |
 | Trang công khai | Ưu tiên giao diện điện thoại. Hiển thị ảnh, tên, giới thiệu, các liên kết và khu vực tài trợ. Chỉ đưa dữ liệu công khai theo C6. |
 
 Trên máy tính, có thể đặt bản xem trước cạnh phần cấu hình. Trên điện thoại, các phần xếp dọc và thao tác chính phải dễ chọn. Giao diện nên bám phong cách Nexora hiện có; tên và thứ tự nhóm sidebar dùng đúng cấu trúc đã nêu.
@@ -138,7 +143,7 @@ flowchart TD
 #### Luồng kích hoạt quảng cáo kiếm tiền
 
 **Người thực hiện chính:** Chủ tài khoản Personal.
-**Kích hoạt:** Người dùng mở phần Quảng cáo kiếm tiền.
+**Kích hoạt:** Người dùng chọn One QR → Quảng cáo trên sidebar.
 **Kết quả:** Prototype thể hiện sự đồng ý và trạng thái đã kích hoạt.
 
 **User stories**
@@ -304,7 +309,7 @@ Bên nhận tiếp tục thiết kế prototype để review và xin PO duyệt;
 ### Tính năng liên quan
 
 - **One QR Business:** Trải nghiệm hiện có để tham khảo bố cục cấu hình, mã QR và bản xem trước.
-- **[Sidebar Personal](personal-sidebar-menu.md):** Nhóm One QR với bốn mục con dùng chung cho Personal chưa liên kết và đã liên kết salon.
+- **[Sidebar Personal](personal-sidebar-menu.md):** Nhóm One QR với năm mục con dùng chung cho Personal chưa liên kết và đã liên kết salon.
 - **My QR và thanh toán cá nhân:** Nguồn chức năng nhận tip, thanh toán và giới thiệu để dùng lại trong nhóm mới.
 - **[Kiếm tiền từ quảng cáo qua OneQR — ticket #1599](https://github.com/vlink-group/vlink-nexora/issues/1599):** Phạm vi liên quan đến điều kiện ghi nhận và quản lý thu nhập. Bản bàn giao này không đặt mức thưởng, tỷ lệ quy đổi hoặc điều kiện rút tiền mới.
 

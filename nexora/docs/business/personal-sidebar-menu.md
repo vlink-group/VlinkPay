@@ -1,15 +1,19 @@
 ## Sidebar cho tài khoản Personal
 
 **Cập nhật lần cuối:** 28/10/2026
+
 **Đối tượng đọc:** PO, người thiết kế, người dựng prototype và đội phát triển
-**Trạng thái:** Nhóm One QR và bốn mục con đã được người dùng yêu cầu; bố cục các menu còn lại là đề xuất để review.
+
+**Trạng thái:** Nhóm One QR và năm mục con đã được người dùng yêu cầu; bố cục các menu còn lại là đề xuất để review.
+
+**Bản chia sẻ:** [Tài liệu trên GitHub](https://github.com/vlink-group/VlinkPay/blob/docs/1599-oneqr-earnings-points/nexora/docs/business/personal-sidebar-menu.md)
 
 ### Tóm tắt nhanh
 
 | Nội dung | Ý chính |
 |---|---|
 | Mục đích | Bổ sung nhóm One QR cho Personal chưa liên kết salon và Personal đã liên kết salon. |
-| Cấu trúc đã chốt | One QR → One QR, Tip QR, Accept Payment, Referral Link. |
+| Cấu trúc đã chốt | One QR → One QR, Tip QR, Accept Payment, Referral Link, Quảng cáo. |
 | Dùng lại chức năng | Tip QR, QR nhận thanh toán và liên kết giới thiệu lấy từ My QR hiện có của thợ. |
 | Phân quyền | Nhóm menu dùng chung; chức năng cần salon xử lý theo A3 và B5. Mở menu không tạo khoản thu nhập hay giao dịch. |
 | Trạng thái bàn giao | Tài liệu yêu cầu và mockup sơ bộ để review, chưa phải xác nhận đã triển khai trên sản phẩm. |
@@ -30,6 +34,7 @@ Yêu cầu mới nhất dùng nhãn **Accept Payment** thay cho đề xuất Pay
 | Tip QR | Mục mở chức năng QR nhận tip của My QR hiện có. |
 | Accept Payment | Mục mở QR nhận thanh toán cá nhân và lối cấu hình phương thức nhận tiền. |
 | Referral Link | Mục mở liên kết giới thiệu của tài khoản. |
+| Quảng cáo | Mục bật quảng cáo hiển thị trên QR và xem kết quả kiếm tiền của cá nhân. |
 
 Tình trạng liên kết salon không thay đổi loại tài khoản Personal. Người đã có hồ sơ thợ nhưng chưa có salon đang liên kết vẫn dùng nhóm One QR chung.
 
@@ -40,7 +45,7 @@ Tình trạng liên kết salon không thay đổi loại tài khoản Personal.
 | Personal chưa liên kết salon | Dùng các công cụ cá nhân và xem hướng dẫn khi chức năng cần salon chưa sẵn sàng. |
 | Personal đã liên kết salon | Dùng công cụ cá nhân và các chức năng làm việc tại salon theo quyền. |
 | PO và người dùng | Review cách bố trí, điều hướng và trạng thái chưa có dữ liệu. |
-| Người dựng prototype | Thể hiện đủ hai trạng thái và bốn mục con; dùng dữ liệu mô phỏng. |
+| Người dựng prototype | Thể hiện đủ hai trạng thái và năm mục con; dùng dữ liệu mô phỏng. |
 
 ### Cấu trúc sidebar
 
@@ -52,6 +57,7 @@ One QR
   Tip QR
   Accept Payment
   Referral Link
+  Quảng cáo
 ```
 
 | Mục con | Khi mở | Personal chưa liên kết salon | Personal đã liên kết salon |
@@ -60,6 +66,7 @@ One QR
 | Tip QR | Dùng lại phần QR nhận tip trong My QR của thợ | Hiển thị hướng dẫn phù hợp theo A3 | Hiển thị QR và tình trạng theo salon hợp lệ |
 | Accept Payment | QR nhận thanh toán cá nhân; có lối vào cấu hình phương thức nhận tiền | Mở được; thiếu cấu hình thì hướng dẫn bổ sung | Dùng lại thông tin nhận tiền của chính cá nhân |
 | Referral Link | Liên kết và công cụ chia sẻ giới thiệu hiện có | Mở được; thiếu mã thì báo đúng trạng thái | Dùng cùng liên kết thuộc tài khoản |
+| Quảng cáo | Bật quảng cáo và xem kết quả kiếm tiền | Mở được với tài khoản cá nhân | Dùng cùng chức năng kiếm tiền của cá nhân |
 
 #### Personal chưa liên kết salon
 
@@ -75,6 +82,7 @@ One QR
   Tip QR
   Accept Payment
   Referral Link
+  Quảng cáo
 Profile
 
 Sign Out
@@ -94,6 +102,7 @@ One QR
   Tip QR
   Accept Payment
   Referral Link
+  Quảng cáo
 My Workspace
   My Salons
   My Earnings
@@ -172,7 +181,7 @@ flowchart TD
 
 ### Cấu hình và quản trị
 
-- Là người dựng prototype, tôi muốn mở rộng nhóm One QR để người review thấy đủ bốn mục con.
+- Là người dựng prototype, tôi muốn mở rộng nhóm One QR để người review thấy đủ năm mục con.
 - Là PO, tôi muốn xem hai sidebar cạnh nhau để đánh giá phần dùng chung và phần phụ thuộc salon.
 - Là đội phát triển, tôi muốn dùng lại các màn hình hiện có theo D9 để tránh tạo thêm nơi quản lý cùng dữ liệu.
 
@@ -203,9 +212,9 @@ stateDiagram-v2
 #### A Nhóm One QR dùng chung
 
 - **A1. Đối tượng:** Sidebar của mọi tài khoản Personal đều có nhóm One QR, gồm cả người chưa phải thợ, chưa liên kết salon và người đã liên kết salon.
-- **A2. Mục con và thứ tự:** Nhóm có đúng bốn mục theo thứ tự One QR, Tip QR, Accept Payment, Referral Link. Nhãn mới nhất là Accept Payment; không thêm Payment Methods thành mục con thứ năm.
+- **A2. Mục con và thứ tự:** Nhóm có đúng năm mục theo thứ tự One QR, Tip QR, Accept Payment, Referral Link, Quảng cáo. Nhãn mới nhất là Accept Payment; cấu hình Payment Methods nằm trong Accept Payment.
 - **A3. Tip QR khi chưa có salon:** Mục Tip QR vẫn hiện. Nếu chưa có QR nhận tip hợp lệ, màn hình nêu tình trạng và hướng dẫn liên kết hoặc chờ xác nhận; không tạo QR của salon khác để thay thế.
-- **A4. Công cụ cá nhân:** One QR, Accept Payment và Referral Link không lấy việc trở thành thợ hoặc liên kết salon làm điều kiện mở màn hình. Chức năng thiếu dữ liệu riêng hướng dẫn bổ sung tại đúng nơi; thao tác tài chính vẫn tuân điều kiện nghiệp vụ tương ứng.
+- **A4. Công cụ cá nhân:** One QR, Accept Payment, Referral Link và Quảng cáo không lấy việc trở thành thợ hoặc liên kết salon làm điều kiện mở màn hình. Chức năng thiếu dữ liệu riêng hướng dẫn bổ sung tại đúng nơi; thao tác tài chính vẫn tuân điều kiện nghiệp vụ tương ứng.
 
 #### B Dữ liệu và quyền
 
@@ -219,7 +228,7 @@ stateDiagram-v2
 
 #### D Phạm vi bàn giao
 
-- **D9. Dùng lại chức năng:** Tip QR dùng lại My QR của thợ; Accept Payment dùng lại QR thanh toán cá nhân và cấu hình nhận tiền; Referral Link dùng lại liên kết giới thiệu. One QR là chức năng cá nhân cần mở rộng theo yêu cầu đã duyệt.
+- **D9. Dùng lại chức năng:** Tip QR dùng lại My QR của thợ; Accept Payment dùng lại QR thanh toán cá nhân và cấu hình nhận tiền; Referral Link dùng lại liên kết giới thiệu. One QR và Quảng cáo là các chức năng cá nhân cần mở rộng theo yêu cầu đã duyệt. Mục Quảng cáo phục vụ hiển thị quảng cáo để kiếm tiền; chưa tự bổ sung chức năng tạo chiến dịch trả phí.
 - **D10. Bản mô phỏng:** Mockup chỉ thể hiện vị trí và phản hồi điều hướng. Mở trang, chọn menu hoặc thao tác mẫu không tạo giao dịch, thu nhập hay liên kết salon thật.
 
 ### Tiêu chí nghiệm thu
@@ -228,9 +237,9 @@ stateDiagram-v2
 
 - [ ] Personal chưa liên kết salon thấy nhóm theo A1.
 - [ ] Personal đã liên kết salon thấy nhóm theo A1.
-- [ ] Nhãn và thứ tự bốn mục đúng A2.
+- [ ] Nhãn và thứ tự năm mục đúng A2.
 - [ ] Tip QR chưa đủ dữ liệu xử lý đúng A3.
-- [ ] Ba công cụ cá nhân áp dụng A4.
+- [ ] Các công cụ cá nhân áp dụng A4.
 
 #### Điều hướng và dữ liệu
 
@@ -239,7 +248,7 @@ stateDiagram-v2
 - [ ] Thay đổi salon giữ dữ liệu cá nhân theo B7.
 - [ ] Trang theo salon kiểm tra quyền theo B5.
 - [ ] Mục đang chọn được đánh dấu theo C8.
-- [ ] Menu trên điện thoại có đủ bốn mục theo C8.
+- [ ] Menu trên điện thoại có đủ năm mục theo C8.
 
 ### Ngoại lệ và xử lý
 
@@ -279,13 +288,13 @@ Hai mục có mục đích khác nhau: One QR mở trang cá nhân và quảng c
 | Màn hình Accept Payment | Cách đặt phần QR nhận tiền và lối vào cấu hình phương thức trong cùng luồng. | Người dùng và PO |
 | Trạng thái Tip QR | Câu hướng dẫn và thao tác tiếp theo khi chưa liên kết hoặc đang chờ duyệt. | Người dùng và PO |
 
-Nhóm One QR, bốn mục con và việc áp dụng cho cả hai trạng thái Personal đã được người dùng nêu rõ; không đưa lại các điểm này thành câu hỏi phạm vi.
+Nhóm One QR, năm mục con và việc áp dụng cho cả hai trạng thái Personal đã được người dùng nêu rõ; không đưa lại các điểm này thành câu hỏi phạm vi.
 
 #### Tham chiếu kỹ thuật
 
 | Nguồn | Nội dung đối chiếu |
 |---|---|
-| Yêu cầu trực tiếp ngày 28/10/2026 | Phiên bản cuối gồm One QR, Tip QR, Accept Payment, Referral Link; Tip QR dùng lại My QR của thợ. |
+| Yêu cầu trực tiếp ngày 28/10/2026 | Phiên bản cuối gồm One QR, Tip QR, Accept Payment, Referral Link và Quảng cáo; Tip QR dùng lại My QR của thợ. |
 | Frontend `origin/staging` tại `6506048c31d9e82dadd20837e77c6ab111d4d55f` | `src/components/staff-dashboard/constants.tsx`, `layout/StaffSidebar.tsx` cho thấy nhóm My Workspace, My QR và Payout Methods hiện có. |
 | Cùng commit frontend | `src/components/staff-dashboard/views/StaffMyQR.tsx` có các tab nhận tip, giới thiệu và thanh toán; có thể dùng lại khi tách lối vào. |
 | Cùng commit frontend | `src/app/AppRouter.tsx` và `src/app/RequireStaffReady.tsx` cho thấy Personal đang dùng chung khu vực thợ; phần kiểm tra sẵn sàng hiện trả nội dung trực tiếp. |
